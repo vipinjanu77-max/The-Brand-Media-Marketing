@@ -1,0 +1,44 @@
+title: Local Business Marketing
+order: 14
+summary: Maps visibility, reviews and local search for single- and multi-location businesses.
+overview: >-
+  Local businesses win customers within a radius. Google Business Profile, reviews, local landing pages and
+  simple, well-tracked campaigns usually outperform complex strategies.
+journey:
+  - stage: Need
+    detail: Near-me or service searches.
+  - stage: Choice
+    detail: Maps, reviews, photos, hours.
+  - stage: Contact
+    detail: Call, WhatsApp, directions.
+funnel:
+  - stage: Profile views
+    metric: Local visibility
+  - stage: Actions
+    metric: Calls, directions, messages
+  - stage: Customers
+    metric: Cost per customer
+challenges:
+  - Inconsistent listings
+  - Few or old reviews
+  - No tracking of calls
+channels:
+  - channel: Google Business Profile
+    role: Maps visibility.
+  - channel: Local SEO
+    role: Service and area pages.
+  - channel: Google Ads
+    role: Local service searches.
+kpis:
+  - Calls and messages
+  - Review volume and rating
+  - Cost per customer
+strategy:
+  - title: Win the map pack
+    body: Complete profile, categories, photos, reviews and local relevance.
+faqs:
+  - q: How do I rank in Google Maps?
+    a: Relevance, distance and prominence drive local results. You control relevance (profile completeness and categories) and prominence (reviews, links and mentions); distance you cannot change.
+services: [seo, google-ads, reputation-management]
+glossary: [seo]
+updated: 2026-09-25

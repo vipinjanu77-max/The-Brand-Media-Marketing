@@ -1,0 +1,12 @@
+title: SEO Audit Checklist
+description: Technical, on-page, content, authority and AI-search readiness checks.
+format: CSV
+gated: true
+status: available
+order: 6
+tools:
+- seo-health-checker
+services:
+- seo
+- aeo
+file: /downloads/tbm-seo-audit-checklist.csv

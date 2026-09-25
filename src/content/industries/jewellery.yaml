@@ -1,0 +1,44 @@
+title: Jewellery Marketing
+order: 18
+summary: Trust-first marketing for jewellers — store visits, occasion campaigns and high-value online sales.
+overview: >-
+  Jewellery purchases are high-value, emotional and occasion-led, with strong reliance on trust, hallmarking
+  and store experience. Many online journeys end in a store visit.
+journey:
+  - stage: Occasion
+    detail: Wedding, festival, gifting.
+  - stage: Browsing
+    detail: Designs, prices, certification.
+  - stage: Store visit or enquiry
+    detail: Appointment or video call.
+  - stage: Purchase
+    detail: In store or online.
+funnel:
+  - stage: Enquiries
+    metric: Cost per enquiry
+  - stage: Appointments
+    metric: Cost per appointment
+  - stage: Sales
+    metric: Revenue per campaign
+challenges:
+  - Offline attribution
+  - Festive-season competition
+channels:
+  - channel: Meta and Instagram
+    role: Design discovery.
+  - channel: Google local
+    role: Store searches.
+  - channel: WhatsApp
+    role: Video consultations.
+kpis:
+  - Cost per appointment
+  - Store visit rate
+strategy:
+  - title: Plan around occasions
+    body: Wedding and festival calendars drive timing.
+faqs:
+  - q: Can online campaigns drive jewellery store sales?
+    a: Yes — measured through appointments, WhatsApp consultations and CRM-matched purchases.
+services: [meta-ads, google-ads, whatsapp-marketing, branding]
+glossary: [cpl]
+updated: 2026-09-25

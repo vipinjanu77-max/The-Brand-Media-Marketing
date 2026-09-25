@@ -1,0 +1,76 @@
+title: CRM & Marketing Automation
+navLabel: CRM & Automation
+group: crm
+order: 51
+summary: Lead management, scoring, nurturing and sales hand-off — so marketing is measured on revenue, not form fills.
+definition: >-
+  CRM and marketing automation connect your marketing to your sales process: capturing every lead, scoring
+  and routing it, nurturing people who are not ready yet, and reporting which campaigns create customers.
+whoNeedsIt:
+  - Businesses where leads fall through the cracks between marketing and sales
+  - Teams unable to say which campaigns produce revenue
+  - Companies with long consideration cycles that need nurturing
+whyItMatters: >-
+  Without a CRM feedback loop, ad platforms optimise for leads, not customers, and teams argue about lead
+  quality without data. Automation ensures fast follow-up and consistent nurturing at scale.
+whatWeDo:
+  - title: Lead management
+    body: Capture from every source, deduplication, assignment and SLAs.
+  - title: Lead scoring
+    body: Fit and intent scoring agreed with sales.
+  - title: Nurturing
+    body: Email and WhatsApp sequences by industry, objective and stage.
+  - title: Closed-loop reporting
+    body: Revenue and pipeline attributed back to campaigns and fed to ad platforms.
+subServices:
+  - name: Lead management
+    description: Routing, SLAs and pipeline stages.
+  - name: WhatsApp
+    description: Conversational follow-up and nurturing.
+  - name: Email
+    description: Nurture sequences and newsletters.
+  - name: Lead scoring
+    description: Fit and behaviour-based scores.
+  - name: Automation
+    description: Workflows across marketing and sales.
+  - name: Nurturing
+    description: Content-led journeys for longer cycles.
+process:
+  - step: Map the funnel
+    detail: Stages, definitions (MQL, SQL), owners and SLAs.
+  - step: Configure
+    detail: CRM setup or clean-up, integrations and scoring.
+  - step: Automate
+    detail: Follow-up and nurture workflows.
+  - step: Close the loop
+    detail: Offline conversion imports and revenue reporting.
+deliverables:
+  - Funnel and lifecycle definitions
+  - CRM configuration and integrations
+  - Lead scoring model
+  - Nurture sequences
+  - Closed-loop dashboard
+kpis:
+  - name: Speed to lead
+    why: Time from enquiry to first contact.
+  - name: MQL-to-SQL and SQL-to-customer rates
+    why: Where the funnel leaks.
+  - name: Revenue by source
+    why: Which marketing actually pays back.
+timeline:
+  - period: Weeks 1–3
+    detail: Mapping and configuration.
+  - period: Weeks 4–6
+    detail: Automations and reporting live.
+mistakes:
+  - Automating a broken process
+  - No agreed definition of a qualified lead
+  - Not sending CRM outcomes back to ad platforms
+faqs:
+  - q: Which CRM do you work with?
+    a: We are platform-agnostic and work with the CRM that fits your team and budget — for example HubSpot, Zoho, Salesforce, LeadSquared or others.
+services: [whatsapp-marketing, analytics, performance-marketing]
+industries: [real-estate, education, b2b, saas, healthcare, finance]
+tools: [cac-calculator, marketing-audit]
+glossary: [lead-scoring, mql, sql, marketing-automation]
+updated: 2026-09-25

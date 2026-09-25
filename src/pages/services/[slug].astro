@@ -1,0 +1,135 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import DirectAnswer from '../../components/ui/DirectAnswer.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import RelatedContent from '../../components/ui/RelatedContent.astro';
+import Placeholder from '../../components/ui/Placeholder.astro';
+import { faqPage, service as serviceSchema } from '../../lib/schema';
+import { auditHref, bookingHref } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props as { entry: CollectionEntry<'services'> };
+const s = entry.data;
+const origin = (Astro.site?.origin ?? Astro.url.origin);
+const url = new URL(Astro.url.pathname, origin).href;
+const cases = await getCollection('caseStudies', (c) => c.data.verified && !c.data.draft && c.data.services.includes(entry.id));
+const pricing = (await getCollection('pricing')).find((p) => p.data.service === entry.id);
+const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.navLabel, href: `/services/${entry.id}/` }];
+const toc = [
+  ['what', `What is ${s.navLabel}?`], ['who', 'Who needs it'], ['why', 'Why it matters'], ['how', 'What TBM does'],
+  ['process', 'Process'], ['deliverables', 'Deliverables'], ['kpis', 'KPIs'], ['timeline', 'Timeline'], ['mistakes', 'Common mistakes'], ['cost', 'Cost'], ['proof', 'Case studies'],
+];
+---
+<Base
+  title={s.title}
+  description={s.summary}
+  seo={s.seo}
+  crumbs={crumbs}
+  schema={[serviceSchema({ name: s.title, description: s.definition, url, origin, serviceType: s.navLabel }), faqPage(s.faqs)]}
+  exitIntent
+>
+  <PageHero crumbs={crumbs} eyebrow="Service" title={s.title} lede={s.summary}>
+    <a class="btn" href={auditHref} data-track="cta_click" data-cta={`service_${entry.id}_audit`}>Get Growth Audit</a>
+    <a class="btn btn--ghost" href={bookingHref()} data-track="cta_click" data-cta={`service_${entry.id}_call`}>Book Strategy Call</a>
+  </PageHero>
+
+  <div class="container doc-layout">
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="doc-toc-h">On this page</p>
+      <ol role="list">{toc.map(([id, label]) => <li><a href={`#${id}`}>{label}</a></li>)}</ol>
+    </aside>
+    <div class="doc-body">
+      <section id="what">
+        <h2>What is {s.navLabel}?</h2>
+        <DirectAnswer label="Definition">{s.definition}</DirectAnswer>
+        {s.subServices.length > 0 && (
+          <div class="subs">
+            {s.subServices.map((x) => <div class="sub"><h3>{x.name}</h3><p>{x.description}</p></div>)}
+          </div>
+        )}
+      </section>
+
+      <section id="who">
+        <h2>Who needs it</h2>
+        <ul class="check-list">{s.whoNeedsIt.map((w) => <li>{w}</li>)}</ul>
+      </section>
+
+      <section id="why">
+        <h2>Why it matters</h2>
+        <p class="lede">{s.whyItMatters}</p>
+      </section>
+
+      <section id="how">
+        <h2>What TBM does</h2>
+        <div class="grid grid-2">{s.whatWeDo.map((w) => <div class="card card--muted"><h3>{w.title}</h3><p>{w.body}</p></div>)}</div>
+      </section>
+
+      <section id="process">
+        <h2>Process</h2>
+        <ol class="steps">{s.process.map((p) => <li><strong>{p.step}</strong><p class="muted">{p.detail}</p></li>)}</ol>
+      </section>
+
+      <section id="deliverables">
+        <h2>Deliverables</h2>
+        <ul class="check-list cols">{s.deliverables.map((d) => <li>{d}</li>)}</ul>
+      </section>
+
+      <section id="kpis">
+        <h2>KPIs we report on</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th scope="col">KPI</th><th scope="col">Why it matters</th></tr></thead>
+          <tbody>{s.kpis.map((k) => <tr><th scope="row">{k.name}</th><td>{k.why}</td></tr>)}</tbody>
+        </table></div>
+      </section>
+
+      <section id="timeline">
+        <h2>Typical timeline</h2>
+        <ol class="tl" role="list">{s.timeline.map((t) => <li><span>{t.period}</span><p>{t.detail}</p></li>)}</ol>
+        <p class="small muted">Timelines are typical, not guaranteed; they depend on access, approvals, market and starting point.</p>
+      </section>
+
+      <section id="mistakes">
+        <h2>Common mistakes</h2>
+        <ul class="x-list">{s.mistakes.map((m) => <li>{m}</li>)}</ul>
+      </section>
+
+      <section id="cost">
+        <h2>What does it cost?</h2>
+        <p>Pricing depends on scope, market, competition, complexity and required resources. We always separate our fee from media spend, production and technology.</p>
+        <div class="btn-row mt-1">
+          <a class="btn btn--ghost btn--sm" href={pricing ? `/pricing/#${pricing.id}` : '/pricing/'}>See the {pricing?.data.title ?? ''} rate card</a>
+          <a class="btn btn--ghost btn--sm" href="/guides/digital-marketing-cost-india/">Cost guide</a>
+          <a class="btn btn--ghost btn--sm" href="/tools/digital-marketing-cost-calculator/">Cost calculator</a>
+        </div>
+      </section>
+
+      <section id="proof">
+        <h2>Case studies</h2>
+        {cases.length > 0 ? (
+          <ul class="list">{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul>
+        ) : (
+          <Placeholder label={`VERIFIED ${s.navLabel.toUpperCase()} CASE STUDY REQUIRED — admin to publish in CMS`} />
+        )}
+      </section>
+      <p class="updated small muted">Last updated {s.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+    </div>
+  </div>
+
+  <FAQ items={s.faqs} title={`${s.navLabel}: questions we're asked`} />
+  <RelatedContent type="service" slug={entry.id} />
+  <CTABand stage="commercial" />
+</Base>
+<style>
+  .subs { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); margin-top: 1.75rem; }
+  .sub { padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: var(--radius-sm); }
+  .sub h3 { font-size: 1rem; font-family: var(--font-sans); }
+  .sub p { font-size: 0.9rem; color: var(--ink-3); margin-top: 0.25rem; }
+  .cols { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+  .list { padding-left: 1.2rem; }
+</style>

@@ -1,0 +1,57 @@
+title: SEO
+order: 1
+service: seo
+intro: Monthly SEO retainers scoped by site size, competition and whether content production is included.
+tiers:
+- name: Starter
+  priceFrom: null
+  priceTo: null
+  unit: per month
+  bestFor: Local or small sites with modest competition
+  includes:
+  - Technical audit and fixes list
+  - Keyword strategy for priority pages
+  - On-page optimisation
+  - Google Business Profile optimisation
+  - Monthly report
+  excludes:
+  - Content writing beyond agreed pages
+  - Development implementation
+- name: Growth
+  priceFrom: null
+  priceTo: null
+  unit: per month
+  bestFor: Growing businesses competing nationally
+  includes:
+  - Everything in Starter
+  - Content strategy and briefs
+  - Content production (agreed volume)
+  - Internal linking programme
+  - Search Console and GA4 insights
+  excludes:
+  - Digital PR campaigns
+- name: Scale
+  priceFrom: null
+  priceTo: null
+  unit: per month
+  bestFor: Competitive categories and larger sites
+  includes:
+  - Everything in Growth
+  - Digital PR and link earning
+  - AEO / AI search optimisation
+  - CRO for organic landing pages
+  excludes: &id001 []
+- name: Enterprise
+  priceFrom: null
+  priceTo: null
+  unit: scoped
+  bestFor: Large, international or e-commerce sites
+  includes:
+  - Dedicated SEO lead
+  - International and programmatic SEO
+  - Migration support
+  - Custom reporting
+  excludes: *id001
+notes:
+- Final pricing depends on scope, market, competition, complexity and required resources.
+- Media spend, production and third-party tools are billed separately and transparently.

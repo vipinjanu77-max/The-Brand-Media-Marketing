@@ -1,0 +1,19 @@
+term: CPL (Cost per Lead)
+abbreviation: CPL
+definition: Cost per lead (CPL) is advertising spend divided by the number of leads generated.
+explanation: 'CPL is useful but dangerous alone: the cheapest leads are often the least likely to buy. Track cost
+  per qualified lead and cost per customer alongside it. The maximum CPL you can afford depends on qualification
+  rate, close rate, deal value and margin.'
+formula: CPL = Spend ÷ Leads
+example: ₹2,00,000 generating 400 leads = ₹500 CPL.
+services:
+- performance-marketing
+- meta-ads
+- google-ads
+tools:
+- cpl-calculator
+related:
+- cac
+- mql
+- sql
+updated: '2026-09-25'

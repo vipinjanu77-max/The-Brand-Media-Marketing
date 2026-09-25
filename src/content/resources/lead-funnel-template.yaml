@@ -1,0 +1,11 @@
+title: Lead Funnel Template
+description: Stage definitions, conversion rates and volumes from traffic to revenue.
+format: CSV
+gated: true
+status: available
+order: 9
+tools:
+- cpl-calculator
+services:
+- crm-automation
+file: /downloads/tbm-lead-funnel-template.csv

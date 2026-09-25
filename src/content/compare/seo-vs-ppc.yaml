@@ -1,0 +1,45 @@
+title: SEO vs PPC
+a: SEO
+b: PPC (paid search)
+directAnswer: PPC buys immediate visibility for as long as you pay; SEO earns visibility that builds over months
+  and keeps working without per-click costs. PPC is best for speed, testing and precise control; SEO is best for
+  compounding, lower long-run acquisition costs and credibility. They work best together.
+rows:
+- criterion: Time to impact
+  a: Months
+  b: Days
+- criterion: Cost model
+  a: Content, technical and expertise investment
+  b: Pay per click plus management
+- criterion: When you stop investing
+  a: Rankings decay gradually
+  b: Traffic stops immediately
+- criterion: Control over message
+  a: Indirect
+  b: Direct
+- criterion: Best for
+  a: Long-term demand capture and authority
+  b: Immediate demand, testing, seasonal peaks
+chooseA:
+- You can invest for 6–12 months before expecting major returns
+- Your category has consistent search demand
+- You want to lower dependence on paid media
+chooseB:
+- You need leads this month
+- You want to test offers and messaging quickly
+- Search results are dominated by ads for your terms
+together: Use PPC data to learn which keywords convert, then prioritise those in SEO. As organic rankings grow,
+  reduce paid spend on terms you reliably win organically — but test before cutting brand campaigns.
+faqs:
+- q: Is SEO free?
+  a: Organic clicks are free, but SEO requires investment in content, technical work and expertise.
+services:
+- seo
+- google-ads
+tools:
+- seo-health-checker
+- cpl-calculator
+glossary:
+- seo
+- cpc
+updated: '2026-09-25'

@@ -1,0 +1,13 @@
+term: KPI (Key Performance Indicator)
+abbreviation: KPI
+definition: A key performance indicator (KPI) is a metric chosen to show progress towards a specific business objective.
+explanation: Good marketing KPIs connect to business outcomes (customers, revenue, pipeline, CAC). Platform metrics
+  like CTR are diagnostics, not KPIs.
+services:
+- analytics
+tools:
+- agency-evaluation-checklist
+related:
+- cac
+- roas
+updated: '2026-09-25'

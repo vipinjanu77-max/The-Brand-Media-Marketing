@@ -1,0 +1,40 @@
+---
+/**
+ * Funnel-aware CTA. Stage decides the primary action so pages never default to a bare "Contact us".
+ *  tofu → Read research · mofu → Get marketing audit · bofu → Book strategy call
+ *  commercial → Request proposal · high-intent → Talk to a growth strategist
+ */
+import { auditHref, bookingHref, proposalHref } from '../../lib/site';
+type Stage = 'tofu' | 'mofu' | 'bofu' | 'commercial' | 'high-intent' | 'final';
+interface Props { stage?: Stage; title?: string; body?: string }
+const { stage = 'mofu', title, body } = Astro.props;
+const presets: Record<Stage, { title: string; body: string; primary: [string, string]; secondary: [string, string] }> = {
+  tofu: { title: 'Go deeper with evidence, not opinions.', body: 'Our research hub collects sourced, dated marketing data and TBM analysis — built to help you make better decisions.', primary: ['Read the research', '/research/'], secondary: ['Get a marketing audit', auditHref] },
+  mofu: { title: 'Want to know where your marketing is leaking value?', body: 'A TBM Growth Audit reviews your funnel, tracking, channels and conversion path — and shows you where the biggest opportunities may be.', primary: ['Get Growth Audit', auditHref], secondary: ['Book strategy call', bookingHref()] },
+  bofu: { title: 'Talk it through with a strategist.', body: 'A 30-minute strategy call to understand your business, your numbers and whether TBM is the right fit. No pitch deck.', primary: ['Book strategy call', bookingHref()], secondary: ['Get Growth Audit', auditHref] },
+  commercial: { title: 'Ready for a scoped proposal?', body: 'Tell us your objectives and constraints. We will come back with a scope, timeline and transparent pricing split into fee, media, creative and technology.', primary: ['Request proposal', proposalHref], secondary: ['See pricing', '/pricing/'] },
+  'high-intent': { title: 'Talk to a growth strategist.', body: 'Share where your business is today. We will help you understand what to fix first and what it may take.', primary: ['Talk to a growth strategist', bookingHref()], secondary: ['Request proposal', proposalHref] },
+  final: { title: "Let's turn marketing into measurable growth.", body: "Tell us where your business is today. We'll help you understand where the biggest growth opportunities may be.", primary: ['Get Growth Audit', auditHref], secondary: ['Book Strategy Call', bookingHref()] },
+};
+const p = presets[stage];
+---
+<section class="section cta-band section--navy">
+  <div class="container inner">
+    <div>
+      <h2>{title ?? p.title}</h2>
+      <p class="lede">{body ?? p.body}</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--light" href={p.primary[1]} data-track="cta_click" data-cta={`${stage}_primary`}>{p.primary[0]} <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--outline-light" href={p.secondary[1]} data-track="cta_click" data-cta={`${stage}_secondary`}>{p.secondary[0]}</a>
+    </div>
+  </div>
+</section>
+<style>
+  .cta-band { position: relative; overflow: hidden; }
+  .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(60% 120% at 100% 0%, rgb(53 102 232 / 0.35), transparent 60%); pointer-events: none; }
+  .inner { position: relative; display: grid; gap: 2rem; align-items: end; }
+  .inner h2 { font-size: var(--step-4); max-width: 18ch; }
+  .inner .lede { margin-top: 1rem; max-width: 56ch; }
+  @media (min-width: 960px) { .inner { grid-template-columns: 1.5fr 1fr; } .btn-row { justify-content: flex-end; } }
+</style>

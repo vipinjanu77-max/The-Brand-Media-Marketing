@@ -1,0 +1,47 @@
+title: Automotive Marketing
+order: 9
+summary: Test-drive and showroom-visit generation for dealerships and automotive brands.
+overview: >-
+  Automotive buyers research online extensively, then visit a showroom. Dealership marketing must connect
+  digital enquiries to test drives and sales while coordinating with OEM guidelines.
+journey:
+  - stage: Research
+    detail: Models, reviews, prices, variants.
+  - stage: Enquiry
+    detail: Price quotes, offers, finance.
+  - stage: Test drive
+    detail: Showroom or home test drive.
+  - stage: Purchase
+    detail: Finance, exchange, delivery.
+funnel:
+  - stage: Enquiries
+    metric: CPL
+  - stage: Test drives
+    metric: Cost per test drive
+  - stage: Sales
+    metric: Cost per sale
+challenges:
+  - Lead leakage between enquiry and test drive
+  - OEM co-op rules
+  - Aggregator competition
+channels:
+  - channel: Google Search and local
+    role: Model and dealer searches.
+  - channel: Meta
+    role: Offers and launches.
+  - channel: WhatsApp
+    role: Quote and test-drive scheduling.
+kpis:
+  - Cost per test drive
+  - Enquiry-to-test-drive rate
+  - Cost per sale
+strategy:
+  - title: Speed to lead
+    body: Instant WhatsApp and call-back to secure test drives.
+faqs:
+  - q: How should dealerships measure digital marketing?
+    a: By test drives and sales tied back to source in the DMS or CRM, not by enquiry volume alone.
+services: [google-ads, meta-ads, whatsapp-marketing, crm-automation]
+tools: [cpl-calculator]
+glossary: [cpl]
+updated: 2026-09-25

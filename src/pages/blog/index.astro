@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import ArticleIndex from '../../components/content/ArticleIndex.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+const entries = (await getCollection('blog', (e) => !e.data.draft)).sort((a, b) => +b.data.updated - +a.data.updated);
+const crumbs = [{ name: 'Blog', href: '/blog/' }];
+---
+<Base title="Digital Marketing Blog" description="Evidence-led articles on digital marketing, SEO, AEO, paid advertising, agency selection and industry marketing — each with sources, author and review information." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Blog" title="Practical thinking on growth, search and measurement." lede="Every article is written to answer a real question, cites its sources, shows who wrote and reviewed it, and has to add something the top search results don’t — or we don’t publish it." />
+  <section class="section"><div class="container"><ArticleIndex entries={entries} /></div></section>
+  <CTABand stage="tofu" />
+</Base>

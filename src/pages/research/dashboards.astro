@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import BarChart from '../../components/charts/BarChart.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import Placeholder from '../../components/ui/Placeholder.astro';
+const research = await getCollection('research', (e) => !e.data.draft);
+const charts = research.flatMap((r) => r.data.charts.map((c) => ({ ...c, from: r })));
+const planned = ['Global digital advertising', 'Search behaviour', 'E-commerce', 'Marketing spend by industry'];
+const crumbs = [{ name: 'Research', href: '/research/' }, { name: 'Market dashboards', href: '/research/dashboards/' }];
+---
+<Base title="Marketing Market Dashboards" description="Interactive charts of India's digital market — advertising, internet, social media and AI search — each labelled with source, year, geography and methodology." crumbs={crumbs}>
+  <PageHero crumbs={crumbs} eyebrow="Market dashboards" title="The market, charted — with the source on every chart." lede="We use live or API data only where a reliable source exists. Everything else is a manually verified dataset with its source, year, geography and method shown below the chart." />
+  <section class="section">
+    <div class="container grid grid-2">
+      {charts.map((c) => (
+        <div>
+          <BarChart {...c} />
+          <p class="small mt-1">From: <a href={`/research/${c.from.id}/`}>{c.from.data.title}</a></p>
+        </div>
+      ))}
+    </div>
+    <div class="container mt-3">
+      <h2 class="h">Dashboards in production</h2>
+      <p class="muted">Published when verified datasets are ready:</p>
+      <ul class="tags mt-1" role="list">{planned.map((p) => <li class="tag tag--neutral">{p}</li>)}</ul>
+      <div class="mt-2"><Placeholder label="ADDITIONAL VERIFIED DATASETS — editor to add charts via research entries in the CMS" /></div>
+    </div>
+  </section>
+  <CTABand stage="tofu" />
+</Base>
+<style>.h { font-size: var(--step-2); } ul.tags { list-style: none; padding: 0; }</style>

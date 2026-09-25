@@ -1,0 +1,103 @@
+title: Performance Marketing
+navLabel: Performance Marketing
+group: performance
+order: 1
+summary: Full-funnel paid acquisition across Google, Meta, LinkedIn, YouTube and programmatic — planned around unit economics, not platform metrics.
+definition: >-
+  Performance marketing is paid advertising that is planned, bought and optimised against a measurable
+  business outcome — a lead, a sale, a booked appointment, a qualified pipeline opportunity — rather than
+  reach alone. You pay for media, and you judge every rupee by what it returns.
+whoNeedsIt:
+  - Businesses with a proven offer that need predictable, scalable demand
+  - Brands spending on ads without clarity on CAC, payback or lead quality
+  - Companies using several platforms and agencies with no single view of performance
+  - Founders preparing to scale spend and wanting guardrails before they do
+whyItMatters: >-
+  Paid media is the fastest lever a business can pull — and the easiest to waste. Platform dashboards reward
+  cheap clicks and cheap leads; businesses need profitable customers. The gap between the two is where most
+  budgets leak. Performance marketing done properly closes that gap by connecting spend to CRM outcomes,
+  margins and sales capacity.
+whatWeDo:
+  - title: Plan from unit economics
+    body: We start with your margin, average order or deal value, close rate and payback tolerance, then calculate the CPL, CAC and ROAS you can actually afford.
+  - title: Build the measurement layer first
+    body: Conversion tracking, offline conversion imports and CRM feedback so platforms optimise for qualified outcomes, not form fills.
+  - title: Structure campaigns for learning
+    body: Account architecture, audiences and budgets designed so each test answers a business question.
+  - title: Run a creative testing system
+    body: Hypothesis-led creative testing with clear kill and scale rules, fed by what sales hears from customers.
+  - title: Report on business outcomes
+    body: Weekly and monthly reporting that shows pipeline, revenue and CAC by channel — alongside the platform metrics that explain them.
+subServices:
+  - name: Google Ads
+    description: Search, Performance Max, Demand Gen, Shopping and YouTube.
+  - name: Meta Ads
+    description: Facebook and Instagram acquisition, lead generation and catalogue sales.
+  - name: LinkedIn Ads
+    description: B2B demand generation, account-based campaigns and lead gen forms.
+  - name: YouTube Ads
+    description: Video reach and action campaigns sequenced with search demand.
+  - name: Programmatic
+    description: Display and video buying across open exchanges and private deals where scale or targeting requires it.
+  - name: Remarketing
+    description: Audience sequencing for visitors, engaged users and CRM segments — with frequency controls.
+process:
+  - step: Diagnose
+    detail: Audit accounts, tracking, funnel, CRM data and historical performance. Establish a trustworthy baseline.
+  - step: Model
+    detail: Build the target unit economics — affordable CPL, CAC, break-even ROAS — and a budget plan by channel.
+  - step: Build
+    detail: Fix tracking, create landing pages, set up audiences, campaign structure and creative variants.
+  - step: Launch and learn
+    detail: Run structured tests for 4–8 weeks with pre-agreed success criteria.
+  - step: Optimise and scale
+    detail: Shift budget to proven segments, retire losers, expand audiences and channels while guarding CAC.
+deliverables:
+  - Performance audit and baseline report
+  - Unit-economics model and channel budget plan
+  - Conversion tracking and offline conversion setup
+  - Campaign architecture and launch
+  - Creative testing roadmap
+  - Weekly performance notes and monthly business review
+kpis:
+  - name: CAC
+    why: The cost to win a customer — the number that decides whether growth is profitable.
+  - name: Cost per qualified lead
+    why: Filters out cheap, low-quality leads that inflate headline CPL numbers.
+  - name: ROAS / MER
+    why: Revenue returned per rupee of media, judged against your break-even ROAS.
+  - name: Pipeline and revenue by channel
+    why: Connects spend to what finance cares about.
+  - name: Conversion rate by funnel stage
+    why: Shows whether the constraint is traffic, landing page or sales follow-up.
+timeline:
+  - period: Weeks 1–2
+    detail: Audit, tracking fixes, unit-economics model.
+  - period: Weeks 3–4
+    detail: Build and launch first campaigns and creative tests.
+  - period: Months 2–3
+    detail: Learning phase — test, cut, consolidate.
+  - period: Month 4+
+    detail: Scale proven segments and add channels.
+mistakes:
+  - Optimising for the cheapest lead instead of the most profitable customer
+  - Scaling budget before conversion tracking and CRM feedback are reliable
+  - Judging campaigns within days, before algorithms and sales cycles have played out
+  - Running the same creative for months until frequency erodes performance
+  - Letting the agency own your ad accounts and data
+faqs:
+  - q: How much budget do I need for performance marketing?
+    a: It depends on your CPL or CAC and how many customers you need. As a planning rule, you need enough budget to generate a statistically meaningful number of conversions per campaign each month; below that, algorithms struggle to learn. Our ROI calculator works this out from your own numbers.
+  - q: How quickly will I see results?
+    a: Campaigns can generate leads within days, but reliable performance usually takes 6–12 weeks of structured testing. Anyone promising guaranteed results in week one is guessing.
+  - q: Who owns the ad accounts?
+    a: You do. TBM works inside ad accounts owned by your business, with access you can revoke at any time.
+  - q: Do you guarantee a ROAS or CPL?
+    a: No. Outcomes depend on your offer, market, pricing, sales process and competition. We commit to a transparent process, clear targets and honest reporting.
+services: [google-ads, meta-ads, linkedin-ads, analytics, landing-pages, creative]
+industries: [real-estate, d2c, ecommerce, education, b2b]
+tools: [marketing-roi-calculator, media-planner, cac-calculator, roas-calculator, cpl-calculator]
+glossary: [cac, roas, cpl, break-even-roas, remarketing]
+articles: [what-is-a-good-cpl, how-much-should-you-spend-on-google-ads]
+compare: [google-ads-vs-meta-ads, seo-vs-ppc]
+updated: 2026-09-25

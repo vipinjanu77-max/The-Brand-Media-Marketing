@@ -1,0 +1,92 @@
+title: Meta Ads Management
+navLabel: Meta Ads
+group: performance
+order: 3
+summary: Facebook and Instagram advertising built on a creative testing system, clean conversion signals and lead-quality feedback.
+definition: >-
+  Meta Ads is the advertising platform for Facebook, Instagram, Messenger, WhatsApp click-to-chat and the
+  Audience Network. It reaches people based on predicted interest and behaviour rather than search intent,
+  which makes it powerful for creating demand — and dependent on creative quality and conversion data.
+whoNeedsIt:
+  - D2C and e-commerce brands selling visually or emotionally compelling products
+  - Lead-generation businesses (real estate, education, healthcare, finance) that need volume with quality control
+  - Brands launching new products or entering new cities
+  - Advertisers whose Meta leads look cheap but rarely convert
+whyItMatters: >-
+  On Meta, creative is targeting. The algorithm finds buyers based on who engages with your ads and who
+  converts afterwards. If it is fed low-quality lead signals, it finds more low-quality leads. Structured
+  creative testing and CRM-quality feedback are what separate profitable Meta programmes from expensive ones.
+whatWeDo:
+  - title: Creative testing system
+    body: Hooks, angles, formats and offers tested in a structured matrix with clear scale and kill rules.
+  - title: Signal quality
+    body: Conversions API, event deduplication and CRM-qualified conversion events so Meta optimises for real buyers.
+  - title: Lead quality controls
+    body: Form friction, qualifying questions, instant verification and WhatsApp follow-up to filter junk leads.
+  - title: Account simplification
+    body: Consolidated structures that give the algorithm enough data — without losing the ability to learn.
+  - title: Catalogue and retention
+    body: Advantage+ shopping, dynamic product ads and customer-list strategies for commerce brands.
+subServices:
+  - name: Lead generation
+    description: Instant forms, website leads and click-to-WhatsApp campaigns with qualification built in.
+  - name: E-commerce acquisition
+    description: Advantage+ shopping, catalogue ads and creative-led prospecting.
+  - name: Remarketing
+    description: Sequenced messaging to engaged audiences with frequency caps.
+  - name: Influencer amplification
+    description: Partnership ads that put paid media behind creator content.
+process:
+  - step: Audit
+    detail: Pixel, CAPI, event match quality, account structure, creative fatigue and lead quality.
+  - step: Foundations
+    detail: Tracking, audiences, landing pages or forms, and a creative brief built from customer research.
+  - step: Test
+    detail: Creative and offer tests run in controlled budgets with defined success metrics.
+  - step: Scale
+    detail: Budgets raised on winners gradually; new creative produced continuously to prevent fatigue.
+deliverables:
+  - Meta account and tracking audit
+  - Conversions API setup and event map
+  - Creative testing roadmap and briefs
+  - Campaign build and management
+  - Lead-quality feedback loop with your sales team
+  - Monthly creative and performance review
+kpis:
+  - name: Cost per qualified lead
+    why: The honest measure of Meta lead generation.
+  - name: ROAS and new-customer ROAS
+    why: Separates new revenue from retargeting existing buyers.
+  - name: Thumb-stop and hold rates
+    why: Early creative signals that predict performance.
+  - name: Frequency
+    why: Rising frequency with falling CTR signals fatigue.
+timeline:
+  - period: Week 1
+    detail: Audit, CAPI, creative research.
+  - period: Weeks 2–3
+    detail: First creative batch and launch.
+  - period: Weeks 4–8
+    detail: Test iterations; lead-quality loop established.
+  - period: Month 3+
+    detail: Scale proven creative and audiences.
+mistakes:
+  - Judging Meta lead gen on CPL alone
+  - Running too many ad sets with tiny budgets, so none exit learning
+  - Launching without the Conversions API
+  - Producing one creative batch and running it until it dies
+  - Boosting posts instead of running structured campaigns
+faqs:
+  - q: Why are my Meta leads low quality?
+    a: Usually because the campaign optimises for the easiest possible form submission. Adding qualifying questions, higher-intent form types, faster follow-up and sending qualified-lead events back to Meta typically improves quality — sometimes at a higher CPL but a lower cost per customer.
+  - q: How many creatives do I need?
+    a: Enough to test distinct ideas, not minor variations. A practical starting point is several different angles, each with two or three executions, refreshed as performance fatigues.
+  - q: Should I use Advantage+ campaigns?
+    a: Often yes for e-commerce with reliable purchase data. For lead generation, it depends on the quality of your conversion signals. We test rather than assume.
+services: [performance-marketing, creative, whatsapp-marketing, crm-automation]
+industries: [d2c, ecommerce, real-estate, education, beauty, fashion]
+tools: [roas-calculator, cpl-calculator, media-planner]
+glossary: [cpm, ctr, roas, frequency, remarketing]
+articles: [what-is-a-good-cpl]
+compare: [google-ads-vs-meta-ads]
+updated: 2026-09-25

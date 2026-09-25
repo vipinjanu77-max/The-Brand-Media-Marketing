@@ -1,0 +1,95 @@
+title: AEO & AI Search Optimisation
+navLabel: AEO & AI Search
+group: search
+order: 11
+summary: Answer Engine Optimisation — making your brand clear, citable and trustworthy to Google AI Overviews, ChatGPT, Perplexity, Gemini and Copilot.
+definition: >-
+  Answer Engine Optimisation (AEO) is the practice of structuring your content, entity information and
+  evidence so that AI-driven answer engines can understand your business, extract accurate answers from your
+  pages and cite you as a source.
+whoNeedsIt:
+  - Brands whose buyers research with AI assistants before contacting a supplier
+  - Businesses publishing expertise that competitors are being cited for instead
+  - Companies with inconsistent brand information across the web
+  - Anyone investing in SEO who wants that investment to carry into AI search
+whyItMatters: >-
+  Answer engines summarise rather than list. If your business is not clearly described, consistently
+  referenced and backed by citable evidence, you are less likely to be mentioned in the answer. AEO extends
+  SEO: the same technical and content quality, plus explicit structure for machines that read, extract and
+  synthesise.
+whatWeDo:
+  - title: Entity clarity
+    body: A consistent description of who you are, what you do, where and for whom — across your site, profiles, directories and structured data.
+  - title: Question-led content
+    body: Pages that answer real buyer questions directly, then expand with depth, data and examples.
+  - title: Citation-ready evidence
+    body: Original data, clear definitions, sourced statistics and comparison tables that are easy to quote accurately.
+  - title: Structured data
+    body: Organization, Service, Article, FAQ, Person and Breadcrumb schema implemented where eligible.
+  - title: AI visibility monitoring
+    body: Structured prompts tracked across answer engines to see whether and how you are mentioned.
+subServices:
+  - name: Entity optimisation
+    description: Consistent brand, founder, service and location facts across the web.
+  - name: Structured content
+    description: Direct answers, definitions, tables and step lists that machines can parse.
+  - name: FAQ optimisation
+    description: Genuine customer questions answered clearly — not keyword stuffing.
+  - name: Citation-ready content
+    description: Original research and sourced data that answer engines can reference.
+  - name: Topical authority
+    description: Content clusters that demonstrate depth across a subject.
+process:
+  - step: AI visibility baseline
+    detail: Test how answer engines currently describe you and competitors for priority questions.
+  - step: Entity audit
+    detail: Find inconsistencies in name, description, services, locations and people across the web.
+  - step: Content restructuring
+    detail: Direct answers, definitions and evidence added to priority pages.
+  - step: Evidence creation
+    detail: Publish original data and sourced research others can cite.
+  - step: Monitor and iterate
+    detail: Track mentions and citations monthly and adjust.
+deliverables:
+  - AI search visibility baseline report
+  - Entity consistency audit and fix list
+  - Priority-question content map
+  - Schema implementation
+  - Monthly AI visibility tracking
+kpis:
+  - name: Brand mention rate in tracked prompts
+    why: How often answer engines mention you for priority questions.
+  - name: Citation rate
+    why: How often your pages are linked as sources.
+  - name: Answer accuracy
+    why: Whether AI describes your business correctly.
+  - name: Organic and referral traffic from AI surfaces
+    why: Where measurable, the downstream business impact.
+timeline:
+  - period: Month 1
+    detail: Baseline, entity audit, priority questions.
+  - period: Months 2–3
+    detail: Restructure priority pages, implement schema.
+  - period: Months 3–6
+    detail: Evidence creation and monitoring.
+mistakes:
+  - Treating AEO as a replacement for SEO rather than an extension of it
+  - Publishing FAQ pages stuffed with keyword variations
+  - Making claims without evidence or sources
+  - Inconsistent company descriptions across profiles
+  - Creating fake third-party mentions or reviews
+faqs:
+  - q: What is AEO?
+    a: Answer Engine Optimisation is structuring your content and brand information so AI answer engines can understand it, extract accurate answers and cite you. It builds on SEO fundamentals.
+  - q: Can you guarantee we appear in ChatGPT or AI Overviews?
+    a: No one can. Answer engines change frequently and do not publish ranking rules. We improve the conditions that make citation more likely and measure the outcome.
+  - q: Is schema markup enough?
+    a: No. Schema helps machines interpret a page, but answer engines still need clear, credible, well-structured content and consistent entity information.
+services: [seo, content-marketing, reputation-management]
+industries: [b2b, saas, healthcare, education, professional-services]
+tools: [seo-health-checker]
+glossary: [aeo, entity, schema-markup, e-e-a-t]
+articles: [what-is-aeo]
+research: [ai-search-and-answer-engines]
+compare: [seo-vs-aeo]
+updated: 2026-09-25

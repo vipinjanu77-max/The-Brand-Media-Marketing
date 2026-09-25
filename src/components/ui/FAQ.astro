@@ -1,0 +1,24 @@
+---
+/** Renders FAQs. The page is responsible for emitting FAQPage schema (see lib/schema.faqPage). */
+interface Props { items: { q: string; a: string }[]; title?: string; eyebrow?: string }
+const { items, title = 'Frequently asked questions', eyebrow = 'FAQ' } = Astro.props;
+---
+{items.length > 0 && (
+  <section class="section" aria-labelledby="faq-h">
+    <div class="container split">
+      <div class="section-head">
+        <p class="eyebrow">{eyebrow}</p>
+        <h2 id="faq-h">{title}</h2>
+        <p class="muted">Straight answers to the questions we are asked most. Can't see yours? <a href="/contact/?intent=strategy-call">Ask a strategist</a>.</p>
+      </div>
+      <div class="faq">
+        {items.map((f, i) => (
+          <details open={i === 0}>
+            <summary>{f.q}</summary>
+            <div class="faq-a"><p>{f.a}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

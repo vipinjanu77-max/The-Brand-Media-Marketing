@@ -1,0 +1,11 @@
+title: Campaign Brief Template
+description: A one-page brief covering objective, audience, offer, message, channels, budget, KPIs and approvals.
+format: CSV
+gated: true
+status: available
+order: 4
+tools: []
+services:
+- performance-marketing
+- creative
+file: /downloads/tbm-campaign-brief.csv

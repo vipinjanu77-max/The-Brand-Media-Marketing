@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+const items = await getCollection('compare');
+const crumbs = [{ name: 'Comparisons', href: '/compare/' }];
+---
+<Base title="Marketing Comparisons" description="Neutral, factual comparisons: Google Ads vs Meta Ads, SEO vs PPC, SEO vs AEO, agency vs freelancer, in-house vs agency, organic vs paid and more." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Comparison hub" title="Side-by-side, without the sales pitch." lede="Objective comparisons for the decisions buyers make most often. Most of the time the honest answer is “both, for different jobs” — we explain which job each does." />
+  <section class="section"><div class="container grid grid-3">
+    {items.map((c) => <article class="card"><h2 class="h"><a class="card-link" href={`/compare/${c.id}/`}>{c.data.title}</a></h2><p>{c.data.directAnswer.split('. ')[0]}.</p></article>)}
+  </div></section>
+  <CTABand stage="mofu" />
+</Base>
+<style>.h { font-size: var(--step-1); font-family: var(--font-sans); font-weight: 650; }</style>

@@ -1,0 +1,40 @@
+title: Beauty & Personal Care Marketing
+order: 16
+summary: Creator-led, creative-driven growth for beauty and personal care brands and salons.
+overview: >-
+  Beauty is visual, social and review-driven. Creator content, demonstrations and social proof drive
+  discovery, while product claims must be substantiated under advertising codes.
+journey:
+  - stage: Discovery
+    detail: Creators, reels, reviews.
+  - stage: Validation
+    detail: Ingredients, reviews, before/after (where permitted).
+  - stage: Purchase
+    detail: D2C site, marketplace or salon booking.
+funnel:
+  - stage: Reach
+    metric: CPM, hook rate
+  - stage: Purchase
+    metric: CAC, ROAS
+  - stage: Repeat
+    metric: Repeat rate
+challenges:
+  - Claim substantiation
+  - Creative fatigue
+channels:
+  - channel: Meta and Instagram
+    role: Creative-led acquisition.
+  - channel: Creators
+    role: Trust and content supply.
+kpis:
+  - New-customer CAC
+  - Repeat rate
+strategy:
+  - title: Creator-to-paid pipeline
+    body: Whitelisted creator content tested as ads.
+faqs:
+  - q: Are before-and-after images allowed in ads?
+    a: Platform and advertising-code rules restrict them in many contexts. We check claims and imagery before launch.
+services: [meta-ads, social-media, creative]
+glossary: [roas]
+updated: 2026-09-25

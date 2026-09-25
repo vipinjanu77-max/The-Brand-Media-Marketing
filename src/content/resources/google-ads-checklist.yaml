@@ -1,0 +1,10 @@
+title: Google Ads Checklist
+description: Account hygiene and optimisation checks for search and Performance Max.
+format: CSV
+gated: true
+status: available
+order: 7
+tools: []
+services:
+- google-ads
+file: /downloads/tbm-google-ads-checklist.csv

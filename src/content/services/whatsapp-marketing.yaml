@@ -1,0 +1,63 @@
+title: WhatsApp Marketing
+navLabel: WhatsApp Marketing
+group: crm
+order: 50
+summary: WhatsApp Business Platform journeys for lead response, qualification, nurturing and customer communication.
+definition: >-
+  WhatsApp marketing uses the WhatsApp Business Platform to communicate with customers who have opted in —
+  responding to enquiries, qualifying leads, sending updates and nurturing buyers with approved templates and
+  automated flows.
+whoNeedsIt:
+  - Businesses in India where customers prefer to chat rather than call or email
+  - Lead-generation businesses that lose leads to slow follow-up
+  - E-commerce brands handling order updates, abandoned carts and repeat purchase
+whyItMatters: >-
+  Speed of response strongly affects lead conversion, and many Indian customers are more responsive on
+  WhatsApp than email. Done with consent and restraint, WhatsApp becomes a conversion channel; done as spam,
+  it damages the brand and risks account restrictions.
+whatWeDo:
+  - title: Click-to-WhatsApp campaigns
+    body: Meta ads that open a conversation instead of a form.
+  - title: Instant response and qualification
+    body: Automated first response with qualifying questions and hand-off to sales.
+  - title: Consent-based broadcasts
+    body: Opt-in management and approved message templates.
+  - title: CRM integration
+    body: Conversations logged against leads and customers.
+process:
+  - step: Design journeys
+    detail: Enquiry, qualification, follow-up and re-engagement flows.
+  - step: Set up platform
+    detail: Business verification, templates and integrations.
+  - step: Launch
+    detail: Campaigns and automations live.
+  - step: Optimise
+    detail: Response, qualification and conversion rates reviewed monthly.
+deliverables:
+  - WhatsApp journey maps
+  - Platform and template setup
+  - Automation flows
+  - CRM integration and reporting
+kpis:
+  - name: Response time
+    why: Faster first response improves conversion.
+  - name: Conversation-to-qualified-lead rate
+    why: Quality of conversations.
+  - name: Opt-out and block rate
+    why: Guardrail against over-messaging.
+timeline:
+  - period: Weeks 1–2
+    detail: Journeys and setup.
+  - period: Weeks 3–4
+    detail: Launch and first optimisation.
+mistakes:
+  - Messaging people without opt-in
+  - Broadcasting too frequently
+  - Automations with no route to a human
+faqs:
+  - q: Is bulk WhatsApp messaging allowed?
+    a: Only to customers who have opted in, using approved templates through the WhatsApp Business Platform. We do not use unofficial bulk-messaging tools.
+services: [crm-automation, meta-ads, performance-marketing]
+industries: [real-estate, education, healthcare, d2c, automotive]
+glossary: [lead-scoring, marketing-automation]
+updated: 2026-09-25

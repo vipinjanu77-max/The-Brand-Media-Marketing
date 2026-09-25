@@ -1,0 +1,39 @@
+---
+import { related, typeLabels, type NodeType } from '../../lib/graph';
+interface Props { type: NodeType; slug: string; title?: string; exclude?: NodeType[] }
+const { type, slug, title = 'Keep exploring', exclude = [] } = Astro.props;
+const groups = await related(type, slug);
+const order: NodeType[] = ['service', 'caseStudy', 'tool', 'article', 'research', 'industry', 'compare', 'glossary'];
+const shown = order.filter((t) => !exclude.includes(t) && (groups[t]?.length ?? 0) > 0);
+---
+{shown.length > 0 && (
+  <section class="section section--alt related" aria-labelledby="related-h">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Connected knowledge</p>
+        <h2 id="related-h">{title}</h2>
+      </div>
+      <div class="rel-grid">
+        {shown.map((t) => (
+          <div class="rel-col">
+            <p class="rel-h">{typeLabels[t]}</p>
+            <ul role="list">
+              {groups[t]!.map((n) => (
+                <li><a href={n.href}><span>{n.title}</span><small>{n.summary.length > 110 ? `${n.summary.slice(0, 107)}…` : n.summary}</small></a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+<style>
+  .rel-grid { display: grid; gap: 2rem 2.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  .rel-h { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.75rem; }
+  ul { list-style: none; padding: 0; display: grid; gap: 0.25rem; }
+  a { display: grid; gap: 0.15rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+  a span { font-weight: 620; color: var(--navy-900); }
+  a:hover span { color: var(--royal-600); }
+  small { color: var(--ink-3); font-size: 0.84rem; line-height: 1.45; }
+</style>

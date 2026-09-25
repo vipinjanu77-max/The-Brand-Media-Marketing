@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+const terms = (await getCollection('glossary')).sort((a, b) => a.data.term.localeCompare(b.data.term));
+const letters = [...new Set(terms.map((t) => t.data.term[0].toUpperCase()))];
+const crumbs = [{ name: 'Glossary', href: '/glossary/' }];
+---
+<Base title="Marketing Glossary — A to Z" description="Clear definitions of digital marketing terms — A/B testing, AEO, CAC, CPC, CPL, CPM, CTR, CRO, GA4, LTV, MQL, ROAS, SEO, SQL, TOFU, MOFU, BOFU and more — with formulas and examples." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Marketing glossary" title="Marketing terms, defined plainly." lede="Short definitions first, then the nuance, formulas and examples — each linked to the services, tools and guides where the term matters." />
+  <section class="section">
+    <div class="container">
+      <nav aria-label="Jump to letter" class="az">{letters.map((l) => <a href={`#l-${l}`}>{l}</a>)}</nav>
+      {letters.map((l) => (
+        <div class="letter" id={`l-${l}`}>
+          <h2>{l}</h2>
+          <dl class="terms">
+            {terms.filter((t) => t.data.term[0].toUpperCase() === l).map((t) => (
+              <div><dt><a href={`/glossary/${t.id}/`}>{t.data.term}</a></dt><dd>{t.data.definition}</dd></div>
+            ))}
+          </dl>
+        </div>
+      ))}
+    </div>
+  </section>
+  <CTABand stage="tofu" />
+</Base>
+<style>
+  .az { display: flex; flex-wrap: wrap; gap: 0.35rem; position: sticky; top: 72px; background: #fff; padding-block: 0.75rem; z-index: 2; border-bottom: 1px solid var(--line); }
+  .az a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--line); text-decoration: none; font-weight: 650; }
+  .az a:hover { background: var(--royal-50); }
+  .letter { padding-top: 2rem; scroll-margin-top: 140px; }
+  .letter h2 { font-size: var(--step-3); color: var(--royal-600); }
+  .terms { display: grid; gap: 0; margin-top: 0.5rem; }
+  .terms div { display: grid; gap: 0.25rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  @media (min-width: 800px) { .terms div { grid-template-columns: 280px 1fr; gap: 2rem; } }
+  dt a { font-weight: 650; text-decoration: none; color: var(--navy-900); }
+  dt a:hover { color: var(--royal-600); }
+  dd { color: var(--ink-2); }
+</style>

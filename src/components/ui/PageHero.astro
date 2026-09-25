@@ -1,0 +1,16 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+import type { Crumb } from '../../layouts/Base.astro';
+interface Props { crumbs?: Crumb[]; eyebrow?: string; title: string; lede?: string; wide?: boolean }
+const { crumbs, eyebrow, title, lede, wide } = Astro.props;
+---
+<section class="page-hero">
+  <div class="container">
+    {crumbs && <Breadcrumbs items={crumbs} />}
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1 style={wide ? 'max-width:28ch' : undefined}>{title}</h1>
+    {lede && <p class="lede">{lede}</p>}
+    {Astro.slots.has('default') && <div class="btn-row"><slot /></div>}
+    <slot name="after" />
+  </div>
+</section>

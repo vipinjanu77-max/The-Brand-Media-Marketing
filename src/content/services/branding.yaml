@@ -1,0 +1,64 @@
+title: Branding & Positioning
+navLabel: Branding
+group: creative
+order: 30
+summary: Positioning, messaging and visual identity that make a business easier to understand, remember and choose.
+definition: >-
+  Branding is the work of defining what a business stands for, who it is for and why it is different — and
+  expressing that consistently through name, messaging, visual identity and experience.
+whoNeedsIt:
+  - New businesses and product launches
+  - Companies that have outgrown their original identity
+  - Businesses competing on price because buyers cannot see a difference
+  - Organisations after a merger, pivot or market expansion
+whyItMatters: >-
+  Clear positioning makes every other channel more efficient: ads convert better when the message is sharp,
+  SEO content is easier to differentiate, and sales conversations start further along. A brand is not a logo;
+  it is a decision about what you want to be chosen for.
+whatWeDo:
+  - title: Positioning
+    body: Customer, competitor and category research leading to a clear positioning statement.
+  - title: Messaging
+    body: Value propositions, proof points, tone of voice and messaging hierarchy.
+  - title: Visual identity
+    body: Logo, typography, colour, imagery direction and design system.
+  - title: Brand guidelines
+    body: Practical guidelines your team and partners can actually apply.
+process:
+  - step: Discover
+    detail: Stakeholder interviews, customer research and competitor audit.
+  - step: Define
+    detail: Positioning, personality and messaging.
+  - step: Design
+    detail: Identity concepts, refinement and system.
+  - step: Deploy
+    detail: Guidelines, templates and rollout support.
+deliverables:
+  - Brand research summary
+  - Positioning and messaging framework
+  - Visual identity system
+  - Brand guidelines and templates
+kpis:
+  - name: Branded search demand
+    why: A practical proxy for growing awareness.
+  - name: Conversion rate on key pages
+    why: Clearer messaging should convert better.
+  - name: Direct and referral traffic
+    why: Signals of recall and word of mouth.
+timeline:
+  - period: Weeks 1–3
+    detail: Research and positioning.
+  - period: Weeks 4–8
+    detail: Identity design.
+  - period: Weeks 8–10
+    detail: Guidelines and rollout.
+mistakes:
+  - Starting with the logo instead of the positioning
+  - Designing by committee preference rather than customer insight
+  - Rebranding without a rollout plan
+faqs:
+  - q: How long does a branding project take?
+    a: A focused positioning and identity project typically takes 6–12 weeks, depending on research depth and stakeholder availability.
+services: [creative, website-development, content-marketing]
+industries: [d2c, professional-services, hospitality, jewellery]
+updated: 2026-09-25

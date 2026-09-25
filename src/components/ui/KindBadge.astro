@@ -1,0 +1,16 @@
+---
+/** Distinguishes fact / third-party estimate / forecast / TBM dataset / TBM analysis — never blur these. */
+interface Props { kind: string }
+const { kind } = Astro.props;
+const map: Record<string, [string, string]> = {
+  fact: ['Reported figure', 'tag--neutral'],
+  'third-party-estimate': ['Third-party estimate', 'tag--neutral'],
+  forecast: ['Forecast — not a current fact', 'tag--warn'],
+  'tbm-dataset': ['TBM Original Dataset', 'tag--navy'],
+  'TBM Original Dataset': ['TBM Original Dataset', 'tag--navy'],
+  'TBM Analysis': ['TBM Analysis', ''],
+  'Industry Research': ['Industry Research', 'tag--neutral'],
+};
+const [label, cls] = map[kind] ?? [kind, 'tag--neutral'];
+---
+<span class:list={['tag', cls]}>{label}</span>

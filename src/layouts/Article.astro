@@ -1,0 +1,82 @@
+---
+/** Shared layout for guides (pillar pages) and blog articles. */
+import type { CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
+import Base from './Base.astro';
+import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
+import Byline from '../components/ui/Byline.astro';
+import DirectAnswer from '../components/ui/DirectAnswer.astro';
+import SourceList from '../components/ui/SourceList.astro';
+import FAQ from '../components/ui/FAQ.astro';
+import CTABand from '../components/ui/CTABand.astro';
+import RelatedContent from '../components/ui/RelatedContent.astro';
+import { article, faqPage } from '../lib/schema';
+
+interface Props { entry: CollectionEntry<'blog'>; headings: { depth: number; slug: string; text: string }[] }
+const { entry, headings } = Astro.props;
+const d = entry.data;
+const base = d.pillar ? '/guides/' : '/blog/';
+const crumbs = [{ name: d.pillar ? 'Guides' : 'Blog', href: base }, { name: d.title.length > 48 ? `${d.title.slice(0, 45)}…` : d.title, href: `${base}${entry.id}/` }];
+const origin = Astro.site?.origin ?? Astro.url.origin;
+const url = new URL(`${base}${entry.id}/`, origin).href;
+const author = await getEntry('team', d.author);
+const reviewer = d.reviewer ? await getEntry('team', d.reviewer) : undefined;
+const words = (entry.body ?? '').split(/\s+/).length;
+const minutes = Math.max(2, Math.round(words / 220));
+const stage = d.searchIntent === 'commercial' || d.searchIntent === 'transactional' ? 'bofu' : d.pillar ? 'mofu' : 'mofu';
+const toc = headings.filter((h) => h.depth === 2);
+---
+<Base
+  title={d.title}
+  description={d.description}
+  seo={d.seo}
+  crumbs={crumbs}
+  ogType="article"
+  published={d.published}
+  updated={d.updated}
+  exitIntent
+  schema={[
+    article({
+      type: d.pillar ? 'Article' : 'BlogPosting', headline: d.title, description: d.description, url, origin,
+      published: d.published, updated: d.updated,
+      author: author ? { name: author.data.name, url: new URL(`/team/${author.id}/`, origin).href, type: author.data.type } : undefined,
+      reviewer: reviewer && !reviewer.data.placeholder ? { name: reviewer.data.name, url: new URL(`/team/${reviewer.id}/`, origin).href } : undefined,
+      keywords: d.keywords, citations: d.sources.map((s) => s.url),
+    }),
+    faqPage(d.faqs),
+  ]}
+>
+  <header class="art-head">
+    <div class="container--narrow">
+      <Breadcrumbs items={crumbs} />
+      <p class="eyebrow mt-1">{d.pillar ? 'Guide' : d.category}</p>
+      <h1>{d.title}</h1>
+      <p class="lede">{d.description}</p>
+      <Byline author={d.author} reviewer={d.reviewer} published={d.published} updated={d.updated} readingMinutes={minutes} />
+    </div>
+  </header>
+  <div class="container art-grid">
+    <aside class="doc-toc" aria-label="Contents">
+      {toc.length > 2 && (<><p class="doc-toc-h">Contents</p><ol role="list">{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></>)}
+    </aside>
+    <article class="prose art-body">
+      <DirectAnswer>{d.directAnswer}</DirectAnswer>
+      <slot />
+      <SourceList sources={d.sources} accessed={d.updated} />
+      <aside class="notice mt-2" aria-label="Editorial standard">
+        <div><strong>Editorial standard.</strong> Written to TBM’s standard: research → analysis → original insight → practical recommendation. What this page adds: {d.originality} <a href="/editorial-standards/">How we write and review</a>.</div>
+      </aside>
+    </article>
+  </div>
+  <FAQ items={d.faqs} />
+  <RelatedContent type="article" slug={entry.id} />
+  <CTABand stage={stage} />
+</Base>
+<style>
+  .art-head { padding-block: clamp(2rem, 5vw, 4rem) 1rem; background: linear-gradient(180deg, var(--royal-50), #fff); }
+  .art-head h1 { font-size: var(--step-4); margin-top: 0.75rem; }
+  .art-head .lede { margin-top: 1rem; }
+  .art-grid { display: grid; gap: 2.5rem; padding-block: 2.5rem 4rem; }
+  @media (min-width: 1000px) { .art-grid { grid-template-columns: 240px minmax(0, 1fr); } }
+  .art-body { min-width: 0; }
+</style>

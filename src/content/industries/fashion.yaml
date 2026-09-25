@@ -1,0 +1,42 @@
+title: Fashion Marketing
+order: 17
+summary: Collection launches, catalogue advertising and retention for fashion and apparel brands.
+overview: >-
+  Fashion brands depend on visual storytelling, trend timing, catalogue advertising and managing returns.
+  Size and fit uncertainty make reviews and return policies part of marketing.
+journey:
+  - stage: Discovery
+    detail: Social, creators, marketplaces.
+  - stage: Consideration
+    detail: Fit, fabric, reviews.
+  - stage: Purchase
+    detail: Checkout and delivery.
+  - stage: Returns or repeat
+    detail: Fit outcome drives repeat.
+funnel:
+  - stage: Reach
+    metric: CPM
+  - stage: Orders
+    metric: ROAS
+  - stage: Net revenue
+    metric: Return-adjusted ROAS
+challenges:
+  - High return rates
+  - Short product lifecycles
+channels:
+  - channel: Meta catalogue ads
+    role: Prospecting and retargeting.
+  - channel: Google Shopping
+    role: Product intent.
+kpis:
+  - Return-adjusted ROAS
+  - Repeat purchase rate
+strategy:
+  - title: Measure net of returns
+    body: ROAS targets based on kept revenue.
+faqs:
+  - q: How do returns affect ad performance?
+    a: Platform ROAS counts gross orders. We adjust for returns so budget decisions reflect real revenue.
+services: [meta-ads, google-ads, creative, social-media]
+glossary: [roas]
+updated: 2026-09-25

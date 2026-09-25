@@ -1,0 +1,60 @@
+title: Google Ads vs Meta Ads
+a: Google Ads
+b: Meta Ads
+directAnswer: Google Ads captures existing demand from people actively searching; Meta Ads creates demand by reaching
+  people based on interests and behaviour before they search. Google usually wins for urgent, high-intent needs;
+  Meta usually wins for visual products, impulse purchases and building audiences at scale. Most growing businesses
+  need both, with budget split by measured cost per customer.
+rows:
+- criterion: How people are reached
+  a: Keywords and search intent, plus YouTube and display
+  b: Predicted interest and behaviour across Facebook, Instagram and WhatsApp
+- criterion: Buyer mindset
+  a: Actively looking for a solution
+  b: Browsing; not necessarily in-market
+- criterion: Best for
+  a: High-intent services, local needs, B2B searches, product searches
+  b: D2C, launches, visual products, lead generation at volume
+- criterion: Creative dependence
+  a: Moderate — copy and landing page matter most
+  b: High — creative is effectively the targeting
+- criterion: Lead quality tendency
+  a: Often higher intent
+  b: Can be lower without qualification steps
+- criterion: Scale limit
+  a: Limited by search volume
+  b: Limited mostly by creative and budget
+- criterion: Key metric to watch
+  a: Cost per qualified lead / CPA, impression share
+  b: Cost per qualified lead, new-customer ROAS, frequency
+chooseA:
+- Your customers search for your service or product category
+- Needs are urgent (repairs, healthcare, legal, admissions deadlines)
+- You sell B2B services with identifiable search terms
+- You need to capture demand created by other channels
+chooseB:
+- Your product is visual or benefits from demonstration
+- People don't yet search for your category
+- You need volume for a launch or new market
+- You have the capacity to produce creative continuously
+together: Use Meta to create demand and build audiences; use Google to capture the searches that demand generates.
+  Measure both on CRM-qualified outcomes, not platform-reported conversions, because each platform credits itself.
+faqs:
+- q: Which is cheaper, Google Ads or Meta Ads?
+  a: Meta often has lower cost per click or lead, while Google often has higher intent per click. The meaningful
+    comparison is cost per customer, which depends on your business.
+- q: Should a small business start with Google or Meta?
+  a: If people already search for what you sell, Google Search is usually the lower-risk start. If they don't, Meta
+    is often better for creating demand.
+services:
+- google-ads
+- meta-ads
+- performance-marketing
+tools:
+- cpl-calculator
+- media-planner
+glossary:
+- cpc
+- cpm
+- roas
+updated: '2026-09-25'

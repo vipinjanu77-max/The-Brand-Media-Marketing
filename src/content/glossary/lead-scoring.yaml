@@ -1,0 +1,12 @@
+term: Lead Scoring
+definition: Lead scoring assigns points to leads based on fit (who they are) and intent (what they do) so sales
+  can prioritise the most promising ones.
+explanation: Scores should be agreed with sales, kept explainable and reviewed against actual outcomes.
+services:
+- crm-automation
+tools: []
+related:
+- mql
+- sql
+- marketing-automation
+updated: '2026-09-25'

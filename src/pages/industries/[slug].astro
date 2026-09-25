@@ -1,0 +1,96 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import DirectAnswer from '../../components/ui/DirectAnswer.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import RelatedContent from '../../components/ui/RelatedContent.astro';
+import Placeholder from '../../components/ui/Placeholder.astro';
+import StatCard from '../../components/ui/StatCard.astro';
+import { faqPage } from '../../lib/schema';
+import { auditHref, bookingHref } from '../../lib/site';
+import { slugify } from '../../lib/graph';
+
+export async function getStaticPaths() {
+  return (await getCollection('industries')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props as { entry: CollectionEntry<'industries'> };
+const d = entry.data;
+const name = d.title.replace(/ (Marketing|Brand Marketing|Marketing & Lead Generation)$/, '');
+const cases = await getCollection('caseStudies', (c) => c.data.verified && !c.data.draft && slugify(c.data.industry) === entry.id);
+const stats = (await getCollection('statistics')).filter((s) => s.data.tags.some((t) => d.statTags.includes(t))).slice(0, 3);
+const crumbs = [{ name: 'Industries', href: '/industries/' }, { name, href: `/industries/${entry.id}/` }];
+const toc = [['overview', 'Overview'], ['journey', 'Customer journey'], ['funnel', 'Typical funnel'], ['challenges', 'Challenges'], ['channels', 'Recommended channels'], ['kpis', 'KPIs & benchmarks'], ['strategy', 'TBM strategy'], ['stats', 'Industry statistics'], ['proof', 'Case studies']];
+---
+<Base title={d.title} description={d.summary} seo={d.seo} crumbs={crumbs} schema={[faqPage(d.faqs)]} exitIntent>
+  <PageHero crumbs={crumbs} eyebrow="Industry" title={d.title} lede={d.summary}>
+    <a class="btn" href={auditHref} data-track="cta_click" data-cta={`industry_${entry.id}_audit`}>Get Growth Audit</a>
+    <a class="btn btn--ghost" href={bookingHref()}>Talk to a growth strategist</a>
+  </PageHero>
+  <div class="container doc-layout">
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="doc-toc-h">On this page</p>
+      <ol role="list">{toc.map(([id, l]) => <li><a href={`#${id}`}>{l}</a></li>)}</ol>
+    </aside>
+    <div class="doc-body">
+      <section id="overview">
+        <h2>How {name.toLowerCase()} marketing works</h2>
+        <DirectAnswer label="Overview">{d.overview}</DirectAnswer>
+      </section>
+      <section id="journey">
+        <h2>The customer journey</h2>
+        <ol class="journey" role="list">{d.journey.map((j, i) => <li><span class="n">{String(i + 1).padStart(2, '0')}</span><strong>{j.stage}</strong><p>{j.detail}</p></li>)}</ol>
+      </section>
+      <section id="funnel">
+        <h2>Typical funnel and the metric at each stage</h2>
+        <div class="funnel">
+          {d.funnel.map((f, i) => <div class="f-row" style={`--w:${100 - i * (50 / Math.max(1, d.funnel.length - 1))}%`}><span class="f-bar"><strong>{f.stage}</strong></span><span class="f-metric">{f.metric}</span></div>)}
+        </div>
+      </section>
+      <section id="challenges">
+        <h2>Common marketing challenges</h2>
+        <ul class="x-list">{d.challenges.map((c) => <li>{c}</li>)}</ul>
+      </section>
+      <section id="channels">
+        <h2>Recommended channels</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th scope="col">Channel</th><th scope="col">Role</th></tr></thead>
+          <tbody>{d.channels.map((c) => <tr><th scope="row">{c.channel}</th><td>{c.role}</td></tr>)}</tbody>
+        </table></div>
+      </section>
+      <section id="kpis">
+        <h2>KPIs and benchmarks</h2>
+        <ul class="check-list">{d.kpis.map((k) => <li>{k}</li>)}</ul>
+        <div class="notice mt-1"><div><strong>About benchmarks:</strong> we don’t publish unsourced “industry average” CPLs or ROAS. Verified third-party figures appear in our <a href="/statistics/">statistics database</a>; TBM’s own anonymised benchmarks will appear in <a href="/research/market-data/">TBM Market Data</a> once sample sizes are sufficient. The most useful benchmark is your own break-even — try the <a href="/tools/cpl-calculator/">CPL calculator</a>.</div></div>
+      </section>
+      <section id="strategy">
+        <h2>How TBM approaches {name.toLowerCase()}</h2>
+        <div class="grid grid-2">{d.strategy.map((s) => <div class="card card--muted"><h3>{s.title}</h3><p>{s.body}</p></div>)}</div>
+      </section>
+      <section id="stats">
+        <h2>Relevant statistics</h2>
+        {stats.length > 0 ? <div class="grid grid-3">{stats.map((s) => <StatCard stat={s} compact />)}</div> : <Placeholder label={`SOURCED ${name.toUpperCase()} STATISTICS — editor to add to the statistics database`} />}
+      </section>
+      <section id="proof">
+        <h2>Case studies</h2>
+        {cases.length > 0 ? <ul>{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul> : <Placeholder label={`VERIFIED ${name.toUpperCase()} CASE STUDY REQUIRED — admin to publish in CMS`} />}
+      </section>
+      <p class="small muted">Last updated {d.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+    </div>
+  </div>
+  <FAQ items={d.faqs} title={`${name} marketing FAQs`} />
+  <RelatedContent type="industry" slug={entry.id} title="Services, tools and guides for this industry" />
+  <CTABand stage="high-intent" />
+</Base>
+<style>
+  .journey { list-style: none; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr)); }
+  .journey li { padding: 1rem; border-radius: var(--radius-sm); background: var(--paper-2); border-top: 3px solid var(--royal-600); }
+  .journey .n { font-family: var(--font-serif); color: var(--royal-600); }
+  .journey strong { display: block; color: var(--navy-900); margin-top: 0.25rem; }
+  .journey p { font-size: 0.88rem; color: var(--ink-2); margin-top: 0.3rem; }
+  .funnel { display: grid; gap: 0.4rem; }
+  .f-row { display: grid; grid-template-columns: 1fr minmax(120px, 34%); gap: 1rem; align-items: center; }
+  .f-bar { display: block; width: var(--w); min-width: 55%; padding: 0.75rem 1rem; border-radius: 8px; background: linear-gradient(90deg, var(--royal-600), var(--royal-500)); color: #fff; font-size: 0.92rem; }
+  .f-metric { font-size: 0.88rem; color: var(--ink-2); }
+</style>

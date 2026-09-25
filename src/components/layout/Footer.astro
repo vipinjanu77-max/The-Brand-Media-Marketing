@@ -1,0 +1,59 @@
+---
+import Logo from './Logo.astro';
+import { footerNav, legalNav } from '../../lib/nav';
+import { site, has } from '../../lib/site';
+const year = new Date().getFullYear();
+const socials = Object.entries(site.social).filter(([, v]) => has(v));
+const labels: Record<string, string> = { linkedin: 'LinkedIn', instagram: 'Instagram', youtube: 'YouTube', x: 'X', facebook: 'Facebook', googleBusinessProfile: 'Google Business Profile' };
+---
+<footer class="site-footer section--navy">
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <Logo light />
+        <p>{site.description}</p>
+        <p class="positioning">{site.positioning}</p>
+        <address>
+          {has(site.email) ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span class="placeholder placeholder--inline">[CONTACT EMAIL — ADMIN TO ADD]</span>}
+          {has(site.phone) && <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>}
+          {has(site.address.city) && <span>{site.address.city}{has(site.address.region) ? `, ${site.address.region}` : ''}</span>}
+        </address>
+        {socials.length > 0 && (
+          <ul class="social" role="list">
+            {socials.map(([k, v]) => <li><a href={v} rel="me noopener" target="_blank">{labels[k] ?? k}</a></li>)}
+          </ul>
+        )}
+      </div>
+      {footerNav.map((g) => (
+        <nav aria-label={g.heading}>
+          <p class="h">{g.heading}</p>
+          <ul role="list">{g.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+        </nav>
+      ))}
+    </div>
+    <div class="bottom">
+      <p>© {year} {site.name}. Marketing projections and calculator outputs are estimates, not guarantees.</p>
+      <ul role="list">{legalNav.map((l) => <li><a href={l.href}>{l.label}</a></li>)}<li><button type="button" class="linklike" data-open-consent>Cookie settings</button></li></ul>
+    </div>
+  </div>
+</footer>
+<style>
+  .site-footer { padding-block: 4.5rem 6rem; }
+  .top { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+  .brand { grid-column: 1 / -1; max-width: 460px; display: grid; gap: 1rem; }
+  @media (min-width: 1000px) { .top { grid-template-columns: 1.8fr repeat(4, 1fr); } .brand { grid-column: auto; } }
+  .brand p { font-size: 0.92rem; color: #aab5d3; }
+  .brand .positioning { font-family: var(--font-serif); color: #fff; font-size: 1.1rem; }
+  address { font-style: normal; display: grid; gap: 0.3rem; font-size: 0.92rem; }
+  .h { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8fb0ff; margin-bottom: 0.9rem; }
+  nav ul, .social, .bottom ul { list-style: none; padding: 0; }
+  nav ul { display: grid; gap: 0.5rem; }
+  .site-footer a { color: #d7def0 !important; text-decoration: none; font-size: 0.92rem; }
+  .site-footer a:hover { color: #fff !important; text-decoration: underline; }
+  .social { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; }
+  .bottom { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid rgb(255 255 255 / 0.12); display: grid; gap: 1rem; font-size: 0.82rem; color: #8e9bbd; }
+  .bottom ul { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; }
+  .bottom a { font-size: 0.82rem !important; }
+  .linklike { background: none; border: 0; padding: 0; color: #d7def0; font-size: 0.82rem; text-decoration: underline; }
+  .placeholder { color: #6d4b00; }
+</style>

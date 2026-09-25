@@ -1,0 +1,95 @@
+---
+/**
+ * Interactive Growth System framework: accessible tabs (roving tabindex, arrow keys).
+ * Without JS every panel is visible as a stacked list.
+ */
+import { growthSystem } from '../../lib/growth';
+interface Props { dark?: boolean }
+const { dark = true } = Astro.props;
+---
+<div class:list={['gs', { 'gs--light': !dark }]} data-gs>
+  <div class="gs-tabs" role="tablist" aria-label="TBM Growth System stages">
+    {growthSystem.map((s, i) => (
+      <button role="tab" id={`gs-tab-${i}`} aria-controls={`gs-panel-${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} class="gs-tab">
+        <span class="gs-n">{s.n}</span><span class="gs-name">{s.name}</span>
+      </button>
+    ))}
+  </div>
+  <div class="gs-panels">
+    {growthSystem.map((s, i) => (
+      <div role="tabpanel" id={`gs-panel-${i}`} aria-labelledby={`gs-tab-${i}`} class="gs-panel" data-panel>
+        <div class="gs-head">
+          <span class="gs-big" aria-hidden="true">{s.n}</span>
+          <div>
+            <h3>{s.name}</h3>
+            <p class="gs-q">{s.q}</p>
+          </div>
+        </div>
+        <p class="gs-body">{s.body}</p>
+        <ul class="gs-items" role="list">{s.items.map((it) => <li>{it}</li>)}</ul>
+        <div class="gs-progress" aria-hidden="true">{growthSystem.map((_, j) => <span class:list={{ on: j <= i }} />)}</div>
+      </div>
+    ))}
+  </div>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-gs]').forEach((root) => {
+    root.classList.add('js');
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const select = (i: number, focus = false) => {
+      tabs.forEach((t, j) => { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+      panels.forEach((p, j) => (p.hidden = i !== j));
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => { select(i); (window as any).tbmTrack?.('growth_system_stage', { stage: t.textContent?.trim() }); });
+      t.addEventListener('keydown', (e) => {
+        const k = e.key;
+        if (k === 'ArrowRight' || k === 'ArrowDown') { e.preventDefault(); select((i + 1) % tabs.length, true); }
+        if (k === 'ArrowLeft' || k === 'ArrowUp') { e.preventDefault(); select((i - 1 + tabs.length) % tabs.length, true); }
+        if (k === 'Home') { e.preventDefault(); select(0, true); }
+        if (k === 'End') { e.preventDefault(); select(tabs.length - 1, true); }
+      });
+    });
+    select(0);
+  });
+</script>
+<style>
+  .gs { display: grid; gap: 1.5rem; }
+  @media (min-width: 900px) { .gs { grid-template-columns: 280px 1fr; gap: 2.5rem; } }
+  .gs-tabs { display: flex; gap: 0.4rem; overflow-x: auto; scrollbar-width: none; padding-bottom: 0.25rem; }
+  @media (min-width: 900px) { .gs-tabs { flex-direction: column; overflow: visible; } }
+  .gs-tab {
+    display: flex; align-items: center; gap: 0.85rem; flex: none; text-align: left; padding: 0.85rem 1rem;
+    border-radius: 12px; border: 1px solid rgb(255 255 255 / 0.12); background: transparent; color: #c4cde6;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s;
+  }
+  .gs-tab:hover { border-color: rgb(255 255 255 / 0.3); color: #fff; }
+  .gs-tab[aria-selected='true'] { background: #fff; color: var(--navy-900); border-color: #fff; }
+  .gs-n { font-family: var(--font-serif); font-size: 0.95rem; opacity: 0.7; }
+  .gs-name { font-weight: 620; }
+  .gs-panel { padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: 20px; background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.12); }
+  .gs:not(.js) .gs-panels { display: grid; gap: 1rem; }
+  .gs-head { display: flex; gap: 1.25rem; align-items: center; }
+  .gs-big { font-family: var(--font-serif); font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1; color: #6f95f5; }
+  .gs-panel h3 { font-size: var(--step-3); font-family: var(--font-serif); font-weight: 560; color: #fff; }
+  .gs-q { color: #9fb8ff; margin-top: 0.25rem; }
+  .gs-body { margin-top: 1.25rem; font-size: var(--step-1); color: #d7def0; max-width: 60ch; }
+  .gs-items { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .gs-items li { padding: 0.45rem 0.85rem; border-radius: 999px; background: rgb(255 255 255 / 0.08); color: #fff; font-size: 0.9rem; font-weight: 550; }
+  .gs-progress { display: flex; gap: 4px; margin-top: 2rem; }
+  .gs-progress span { flex: 1; height: 3px; border-radius: 2px; background: rgb(255 255 255 / 0.12); }
+  .gs-progress span.on { background: #6f95f5; }
+  @media (prefers-reduced-motion: no-preference) { .gs.js .gs-panel:not([hidden]) { animation: fadein 0.35s var(--ease); } @keyframes fadein { from { opacity: 0; transform: translateY(6px); } } }
+
+  .gs--light .gs-tab { border-color: var(--line); color: var(--ink-2); }
+  .gs--light .gs-tab[aria-selected='true'] { background: var(--navy-900); color: #fff; border-color: var(--navy-900); }
+  .gs--light .gs-panel { background: var(--paper-2); border-color: var(--line); }
+  .gs--light .gs-panel h3 { color: var(--navy-900); }
+  .gs--light .gs-q { color: var(--royal-600); }
+  .gs--light .gs-body { color: var(--ink-2); }
+  .gs--light .gs-items li { background: #fff; color: var(--navy-900); border: 1px solid var(--line); }
+  .gs--light .gs-progress span { background: var(--line); }
+  .gs--light .gs-progress span.on { background: var(--royal-600); }
+</style>

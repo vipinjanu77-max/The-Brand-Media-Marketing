@@ -1,0 +1,105 @@
+---
+import { getCollection, getEntry, render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/ui/Breadcrumbs.astro';
+import Byline from '../../components/ui/Byline.astro';
+import KindBadge from '../../components/ui/KindBadge.astro';
+import BarChart from '../../components/charts/BarChart.astro';
+import StatCard from '../../components/ui/StatCard.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import RelatedContent from '../../components/ui/RelatedContent.astro';
+import { article, faqPage } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  return (await getCollection('research', (e) => !e.data.draft)).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props as { entry: CollectionEntry<'research'> };
+const d = entry.data;
+const { Content } = await render(entry);
+const origin = Astro.site?.origin ?? Astro.url.origin;
+const url = new URL(`/research/${entry.id}/`, origin).href;
+const author = await getEntry('team', d.author);
+const stats = (await getCollection('statistics')).filter((s) => s.data.tags.some((t) => d.statTags.includes(t)));
+const statCats = [...new Set(stats.map((s) => s.data.category))];
+const catLabel: Record<string, string> = { 'internet-mobile': 'Internet & mobile', 'social-media': 'Social media', advertising: 'Advertising', 'search-ai': 'Search & AI search', ecommerce: 'E-commerce', video: 'Video', 'email-whatsapp': 'Email & WhatsApp', seo: 'SEO' };
+const crumbs = [{ name: 'Research', href: '/research/' }, { name: d.title.length > 48 ? `${d.title.slice(0, 45)}…` : d.title, href: `/research/${entry.id}/` }];
+const sourceUrls = [...new Set([...d.charts.map((c) => c.sourceUrl).filter(Boolean), ...stats.map((s) => s.data.sourceUrl)])] as string[];
+---
+<Base title={d.title} description={d.description} seo={d.seo} crumbs={crumbs} ogType="article" published={d.published} updated={d.updated} exitIntent
+  schema={[article({ type: 'Report', headline: d.title, description: d.description, url, origin, published: d.published, updated: d.updated, author: author ? { name: author.data.name, url: new URL(`/team/${author.id}/`, origin).href, type: author.data.type } : undefined, citations: sourceUrls }), faqPage(d.faqs)]}>
+  <header class="r-head">
+    <div class="container--narrow">
+      <Breadcrumbs items={crumbs} />
+      <div class="tags mt-1"><KindBadge kind={d.label} /><span class="tag tag--neutral">{d.category}</span><span class="tag tag--neutral">{d.geography}</span></div>
+      <h1>{d.title}</h1>
+      <p class="lede">{d.description}</p>
+      <Byline author={d.author} reviewer={d.reviewer} published={d.published} updated={d.updated} />
+    </div>
+  </header>
+
+  <div class="container--narrow r-body">
+    <section class="method" aria-labelledby="m-h">
+      <h2 id="m-h" class="sr-only">Research card</h2>
+      <dl>
+        <div><dt>Research question</dt><dd>{d.researchQuestion}</dd></div>
+        <div><dt>Methodology</dt><dd>{d.methodology}</dd></div>
+        <div><dt>Data sources</dt><dd><ul>{d.dataSources.map((s) => <li>{s}</li>)}</ul></dd></div>
+        <div><dt>Geography</dt><dd>{d.geography}</dd></div>
+        <div><dt>Sample size</dt><dd>{d.sampleSize}</dd></div>
+        <div><dt>Last updated</dt><dd>{d.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</dd></div>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Key findings</h2>
+      <ol class="findings">{d.findings.map((f) => <li>{f}</li>)}</ol>
+    </section>
+
+    {d.charts.length > 0 && (
+      <section>
+        <h2>Charts</h2>
+        <div class="stack" style="--stack:1.5rem">{d.charts.map((c) => <BarChart {...c} />)}</div>
+      </section>
+    )}
+
+    <section class="prose"><Content /></section>
+
+    {stats.length > 0 && (
+      <section id="statistics">
+        <h2>Statistics</h2>
+        <p class="muted">Each figure shows number → source → period → geography → context. <a href="/statistics/">Full database</a>.</p>
+        {statCats.map((c) => (
+          <div class="mt-2">
+            <h3>{catLabel[c] ?? c}</h3>
+            <div class="grid grid-2 mt-1">{stats.filter((s) => s.data.category === c).map((s) => <StatCard stat={s} />)}</div>
+          </div>
+        ))}
+      </section>
+    )}
+
+    <section>
+      <h2>Limitations</h2>
+      <ul class="lim">{d.limitations.map((l) => <li>{l}</li>)}</ul>
+      <p class="small muted mt-1">How we source and label data: <a href="/legal/research-methodology/">research methodology</a>. Spotted an error? <a href="/contact/">Tell us</a>.</p>
+    </section>
+  </div>
+  <FAQ items={d.faqs} />
+  <RelatedContent type="research" slug={entry.id} />
+  <CTABand stage="tofu" />
+</Base>
+<style>
+  .r-head { padding-block: clamp(2rem, 5vw, 4rem) 1rem; background: linear-gradient(180deg, var(--royal-50), #fff); }
+  .r-head h1 { font-size: var(--step-4); margin-top: 0.75rem; }
+  .r-head .lede { margin-top: 1rem; }
+  .r-body { display: grid; gap: 3rem; padding-block: 2.5rem 4rem; }
+  .r-body h2 { font-size: var(--step-3); margin-bottom: 1rem; }
+  .method { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2); padding: 1.5rem; }
+  .method dl { display: grid; gap: 1rem; }
+  .method div { display: grid; gap: 0.25rem; }
+  @media (min-width: 700px) { .method div { grid-template-columns: 180px 1fr; } }
+  dt { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+  dd ul { padding-left: 1.1rem; }
+  .findings { padding-left: 1.25rem; display: grid; gap: 0.75rem; font-size: var(--step-1); color: var(--navy-900); }
+  .lim { padding-left: 1.2rem; display: grid; gap: 0.4rem; color: var(--ink-2); }
+</style>

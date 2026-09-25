@@ -1,0 +1,13 @@
+term: Core Web Vitals
+definition: 'Core Web Vitals are Google''s metrics for real-user page experience: loading (Largest Contentful Paint),
+  interactivity (Interaction to Next Paint) and visual stability (Cumulative Layout Shift).'
+explanation: They are measured from real Chrome users. Good scores improve user experience and are one of many signals
+  in Google's ranking systems.
+services:
+- website-development
+- seo
+tools:
+- seo-health-checker
+related:
+- seo
+updated: '2026-09-25'

@@ -1,0 +1,23 @@
+---
+/**
+ * Visual data-confidence indicator. Confidence reflects sample size, recency and method —
+ * it is an editorial judgement published alongside its reasoning.
+ */
+interface Props { level: 'low' | 'moderate' | 'high'; reason?: string }
+const { level, reason } = Astro.props;
+const n = { low: 1, moderate: 2, high: 3 }[level];
+const label = { low: 'Low confidence', moderate: 'Moderate confidence', high: 'High confidence' }[level];
+---
+<div class="dc" role="img" aria-label={`${label}${reason ? `: ${reason}` : ''}`}>
+  <span class="bars" aria-hidden="true">{[1, 2, 3].map((i) => <span class:list={['b', { on: i <= n }]} style={`height:${6 + i * 4}px`} />)}</span>
+  <span class="lbl">{label}</span>
+  {reason && <span class="why">— {reason}</span>}
+</div>
+<style>
+  .dc { display: inline-flex; flex-wrap: wrap; align-items: flex-end; gap: 0.5rem; font-size: 0.85rem; }
+  .bars { display: inline-flex; align-items: flex-end; gap: 3px; }
+  .b { width: 6px; border-radius: 2px; background: var(--line-2); }
+  .b.on { background: var(--royal-600); }
+  .lbl { font-weight: 650; color: var(--navy-900); }
+  .why { color: var(--ink-3); }
+</style>

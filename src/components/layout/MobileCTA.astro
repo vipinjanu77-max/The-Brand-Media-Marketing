@@ -1,0 +1,28 @@
+---
+import { auditHref, site, has } from '../../lib/site';
+const wa = has(site.whatsapp) ? `https://wa.me/${site.whatsapp.replace(/\D/g, '')}` : null;
+---
+<div class="mobile-cta hide-desktop" data-mobile-cta>
+  <a href={auditHref} class="btn" data-track="cta_click" data-cta="growth_audit_sticky_mobile">Get Growth Audit <span class="arrow" aria-hidden="true">→</span></a>
+  {wa && <a href={wa} class="btn btn--ghost wa" aria-label="Chat on WhatsApp" data-track="cta_click" data-cta="whatsapp_sticky_mobile">WhatsApp</a>}
+</div>
+<style>
+  .mobile-cta { position: fixed; inset: auto 0 0 0; z-index: 40; display: flex; gap: 0.5rem; padding: 0.65rem var(--gutter) calc(0.65rem + env(safe-area-inset-bottom)); background: rgb(255 255 255 / 0.96); border-top: 1px solid var(--line); backdrop-filter: blur(10px); transform: translateY(0); transition: transform 0.25s var(--ease); }
+  .mobile-cta .btn { flex: 1; }
+  .mobile-cta .wa { flex: 0 0 auto; }
+  .mobile-cta.is-hidden { transform: translateY(110%); }
+  @media (min-width: 900px) { .mobile-cta { display: none; } }
+</style>
+<script>
+  // Hide the sticky bar while a form is on screen, so it never covers inputs.
+  const bar = document.querySelector('[data-mobile-cta]');
+  const forms = document.querySelectorAll('form, [data-hide-sticky]');
+  if (bar && forms.length && 'IntersectionObserver' in window) {
+    const visible = new Set<Element>();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      bar.classList.toggle('is-hidden', visible.size > 0);
+    });
+    forms.forEach((f) => io.observe(f));
+  }
+</script>

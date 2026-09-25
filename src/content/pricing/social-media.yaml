@@ -1,0 +1,46 @@
+title: Social Media
+order: 4
+service: social-media
+intro: Priced by platforms, content volume and whether video and community management are included.
+tiers:
+- name: Content
+  priceFrom: null
+  priceTo: null
+  unit: per month
+  bestFor: Consistent publishing
+  includes:
+  - Content calendar
+  - Copywriting
+  - Scheduling
+  excludes: &id001 []
+- name: Design
+  priceFrom: null
+  priceTo: null
+  unit: per month
+  bestFor: Static and carousel creative
+  includes:
+  - Branded templates
+  - Monthly designs
+  excludes: *id001
+- name: Video
+  priceFrom: null
+  priceTo: null
+  unit: per month or per video
+  bestFor: Reels, Shorts and ads
+  includes:
+  - Scripting
+  - Editing
+  - Platform formats
+  excludes: *id001
+- name: Community management
+  priceFrom: null
+  priceTo: null
+  unit: per month
+  bestFor: Active audiences
+  includes:
+  - Comment and DM responses
+  - Escalation workflow
+  excludes: *id001
+notes:
+- Final pricing depends on scope, market, competition, complexity and required resources.
+- Media spend, production and third-party tools are billed separately and transparently.

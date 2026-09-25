@@ -1,0 +1,13 @@
+term: Attribution
+definition: Attribution is the method used to assign credit for a conversion to the marketing touchpoints that preceded
+  it.
+explanation: Common models include last click, data-driven and position-based. Every model is a simplification;
+  platforms also tend to credit themselves. Good practice combines attribution reports with CRM data and, where
+  possible, incrementality tests.
+services:
+- analytics
+tools: []
+related:
+- ga4
+- roas
+updated: '2026-09-25'

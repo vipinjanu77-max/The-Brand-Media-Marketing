@@ -1,0 +1,75 @@
+title: Content Marketing
+navLabel: Content Marketing
+group: search
+order: 12
+summary: Research-led content that earns search visibility, AI citations and sales conversations — not content for content's sake.
+definition: >-
+  Content marketing is creating and distributing useful information — guides, research, tools, video, case
+  studies — that attracts the right audience, builds trust and moves buyers towards a decision.
+whoNeedsIt:
+  - Businesses with complex or considered purchases where buyers need education
+  - Brands that want organic growth and lower dependence on paid media
+  - B2B companies whose sales teams repeatedly answer the same questions
+whyItMatters: >-
+  Most content fails because it repeats what already ranks. Content that adds something new — data,
+  first-hand experience, calculators, clear frameworks — gets cited, linked and remembered. That is the
+  standard TBM applies to its own site.
+whatWeDo:
+  - title: Editorial strategy
+    body: Topic clusters mapped to buyer questions, search demand and sales conversations.
+  - title: Original insight
+    body: Interviews with your experts, customer research and proprietary data turned into content.
+  - title: Production to a standard
+    body: Every piece passes an E-E-A-T, search-intent and originality check before publishing.
+  - title: Distribution
+    body: Search, email, LinkedIn, sales enablement and paid amplification.
+subServices:
+  - name: Pillar and cluster content
+    description: Authoritative guides with supporting articles.
+  - name: Research reports
+    description: Original or curated data with published methodology.
+  - name: Sales enablement content
+    description: Comparison pages, case studies and objection-handling assets.
+process:
+  - step: Research
+    detail: Buyer interviews, sales call review, search and competitor analysis.
+  - step: Plan
+    detail: Editorial calendar prioritised by commercial value.
+  - step: Create
+    detail: Expert input, drafting, editing, fact-checking and review.
+  - step: Distribute and measure
+    detail: Promotion plan and content-to-pipeline reporting.
+deliverables:
+  - Content strategy and topic map
+  - Editorial calendar
+  - Articles, guides and research reports
+  - Content performance reporting
+kpis:
+  - name: Organic conversions from content
+    why: Content should create pipeline, not just traffic.
+  - name: Assisted conversions
+    why: Content often influences rather than closes.
+  - name: Citations and links earned
+    why: Evidence of authority.
+timeline:
+  - period: Month 1
+    detail: Research and strategy.
+  - period: Months 2–6
+    detail: Production and distribution.
+  - period: Months 6+
+    detail: Compounding organic performance and refreshes.
+mistakes:
+  - Publishing volume over value
+  - Writing for keywords rather than people
+  - No distribution plan
+  - Never updating old content
+faqs:
+  - q: Do you use AI to write content?
+    a: We use AI tools for research support and efficiency, but every published piece is shaped by human expertise, fact-checked, and must add something original. We do not publish unedited AI output.
+  - q: How often should we publish?
+    a: Consistency and quality matter more than frequency. A few genuinely useful pieces per month usually outperform many thin ones.
+services: [seo, aeo, social-media, video-marketing]
+industries: [b2b, saas, education, healthcare, professional-services]
+glossary: [tofu, mofu, bofu, e-e-a-t]
+articles: [what-is-aeo, how-long-does-seo-take]
+updated: 2026-09-25

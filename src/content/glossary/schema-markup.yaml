@@ -1,0 +1,14 @@
+term: Schema Markup
+definition: Schema markup is structured data added to web pages, using the Schema.org vocabulary, to help search
+  engines understand content such as organisations, articles, products, FAQs and people.
+explanation: Markup must reflect visible, truthful page content. Adding fake reviews or ratings in schema violates
+  search guidelines.
+services:
+- seo
+- aeo
+tools:
+- seo-health-checker
+related:
+- entity
+- aeo
+updated: '2026-09-25'

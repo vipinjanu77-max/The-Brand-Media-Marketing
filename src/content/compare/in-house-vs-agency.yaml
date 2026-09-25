@@ -1,0 +1,42 @@
+title: In-house Team vs Agency
+a: In-house team
+b: Agency
+directAnswer: An in-house team offers deep business knowledge and full-time focus; an agency offers breadth of specialist
+  skills, cross-industry experience and flexibility without hiring. Many companies combine an in-house marketing
+  lead with agency specialists.
+rows:
+- criterion: Business knowledge
+  a: Deep
+  b: Built over time
+- criterion: Specialist depth
+  a: Limited by headcount
+  b: Access to several specialists
+- criterion: Cost structure
+  a: Salaries, tools, training
+  b: Fees scaled to scope
+- criterion: Speed to start
+  a: Hiring takes months
+  b: Weeks
+- criterion: Flexibility
+  a: Fixed capacity
+  b: Scalable
+chooseA:
+- Marketing is core and continuous at large scale
+- You can attract and retain specialists
+chooseB:
+- You need multiple specialisms quickly
+- You want flexibility as priorities change
+together: 'A common model: in-house owns strategy, brand and stakeholders; the agency executes specialist channels
+  and analytics with shared dashboards.'
+faqs:
+- q: When should we bring marketing in-house?
+  a: When a channel is large and stable enough to justify full-time specialists and you can manage them well.
+services:
+- performance-marketing
+- analytics
+tools:
+- agency-evaluation-checklist
+- digital-marketing-cost-calculator
+glossary:
+- kpi
+updated: '2026-09-25'

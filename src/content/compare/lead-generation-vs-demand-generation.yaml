@@ -1,0 +1,40 @@
+title: Lead Generation vs Demand Generation
+a: Lead generation
+b: Demand generation
+directAnswer: Lead generation captures contact details from people who are ready to engage now; demand generation
+  builds awareness and preference so that more people become ready over time. Lead generation harvests; demand generation
+  plants.
+rows:
+- criterion: Objective
+  a: Capture interest
+  b: Create interest
+- criterion: Typical tactics
+  a: Forms, gated content, search ads
+  b: Education, thought leadership, video, ungated content
+- criterion: Measurement
+  a: Leads, CPL, SQLs
+  b: Reach, engagement, branded search, pipeline influence
+- criterion: Time horizon
+  a: Short
+  b: Medium to long
+chooseA:
+- Demand already exists
+- Sales needs conversations now
+chooseB:
+- Your category is new or misunderstood
+- Lead volume has plateaued
+together: 'Healthy programmes balance both: demand generation expands the pool that lead generation converts.'
+faqs:
+- q: Is gated content still effective?
+  a: For high-intent assets like templates and tools, often yes. For educational content, ungated often builds more
+    demand.
+services:
+- linkedin-ads
+- content-marketing
+- performance-marketing
+tools:
+- cpl-calculator
+glossary:
+- mql
+- tofu
+updated: '2026-09-25'

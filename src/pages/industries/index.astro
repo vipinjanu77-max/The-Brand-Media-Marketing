@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+const industries = (await getCollection('industries')).sort((a, b) => a.data.order - b.data.order);
+const crumbs = [{ name: 'Industries', href: '/industries/' }];
+---
+<Base title="Industries We Serve" description="Digital marketing playbooks for real estate, D2C, e-commerce, B2B, SaaS, education, healthcare, hospitality, automotive, finance, retail, manufacturing and more." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Industry hub" title="Marketing that starts from how your industry actually buys." lede="Each industry page maps the customer journey, the typical funnel, the challenges, the channels that tend to work, the KPIs that matter and how TBM approaches it." />
+  <section class="section">
+    <div class="container grid grid-3">
+      {industries.map((i) => (
+        <article class="card">
+          {i.data.featured && <span class="tag">Core focus</span>}
+          <h2 class="h3"><a class="card-link" href={`/industries/${i.id}/`}>{i.data.title}</a></h2>
+          <p>{i.data.summary}</p>
+          <p class="meta">{i.data.channels.map((c) => c.channel).slice(0, 3).join(' · ')}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <CTABand stage="mofu" />
+</Base>
+<style>.h3 { font-size: var(--step-1); font-family: var(--font-sans); font-weight: 650; }</style>

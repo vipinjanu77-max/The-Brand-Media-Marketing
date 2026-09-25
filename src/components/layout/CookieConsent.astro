@@ -1,0 +1,51 @@
+---
+---
+<div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie preferences" hidden data-consent>
+  <div class="inner">
+    <div>
+      <p><strong>Your privacy, your choice.</strong> We use essential cookies to run this site. With your consent we also use analytics and marketing cookies to understand which content is useful and to measure our own campaigns. <a href="/legal/cookie-policy/">Cookie policy</a>.</p>
+      <div class="opts" data-consent-opts hidden>
+        <label><input type="checkbox" checked disabled /> Essential (always on)</label>
+        <label><input type="checkbox" data-c="analytics" /> Analytics</label>
+        <label><input type="checkbox" data-c="marketing" /> Marketing</label>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn--sm btn--ghost" data-consent-action="customise">Customise</button>
+      <button class="btn btn--sm btn--ghost" data-consent-action="reject">Reject optional</button>
+      <button class="btn btn--sm" data-consent-action="accept">Accept all</button>
+    </div>
+  </div>
+</div>
+<script>
+  const el = document.querySelector<HTMLElement>('[data-consent]')!;
+  const opts = el.querySelector<HTMLElement>('[data-consent-opts]')!;
+  const save = (c: { analytics: boolean; marketing: boolean }) => {
+    try { localStorage.setItem('tbm-consent', JSON.stringify({ ...c, ts: Date.now() })); } catch {}
+    (window as any).tbmApplyConsent?.(c);
+    el.hidden = true;
+  };
+  let stored = null;
+  try { stored = localStorage.getItem('tbm-consent'); } catch {}
+  if (!stored) el.hidden = false;
+  el.addEventListener('click', (e) => {
+    const action = (e.target as HTMLElement).closest<HTMLElement>('[data-consent-action]')?.dataset.consentAction;
+    if (action === 'accept') save({ analytics: true, marketing: true });
+    if (action === 'reject') save({ analytics: false, marketing: false });
+    if (action === 'customise') {
+      if (opts.hidden) { opts.hidden = false; (e.target as HTMLElement).textContent = 'Save choices'; }
+      else save({
+        analytics: opts.querySelector<HTMLInputElement>('[data-c="analytics"]')!.checked,
+        marketing: opts.querySelector<HTMLInputElement>('[data-c="marketing"]')!.checked,
+      });
+    }
+  });
+  document.querySelectorAll('[data-open-consent]').forEach((b) => b.addEventListener('click', () => { el.hidden = false; }));
+</script>
+<style>
+  .cookie-banner { position: fixed; z-index: 60; left: var(--gutter); right: var(--gutter); bottom: calc(80px + env(safe-area-inset-bottom)); max-width: 760px; margin-inline: auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 20px 50px -20px rgb(10 26 63 / 0.35); }
+  @media (min-width: 900px) { .cookie-banner { bottom: 1.25rem; } }
+  .inner { padding: 1.1rem 1.25rem; display: grid; gap: 1rem; font-size: 0.9rem; color: var(--ink-2); }
+  .opts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-top: 0.75rem; }
+  .opts label { display: inline-flex; gap: 0.4rem; align-items: center; }
+</style>

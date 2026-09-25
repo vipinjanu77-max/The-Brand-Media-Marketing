@@ -1,0 +1,11 @@
+title: Content Calendar Template
+description: A monthly editorial calendar with funnel stage, search intent, owner, status and distribution columns.
+format: CSV
+gated: true
+status: available
+order: 2
+tools: []
+services:
+- content-marketing
+- social-media
+file: /downloads/tbm-content-calendar.csv

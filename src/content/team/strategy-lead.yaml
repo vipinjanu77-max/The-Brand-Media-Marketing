@@ -1,0 +1,7 @@
+name: '[TEAM MEMBER NAME — ADMIN TO ADD]'
+role: '[ROLE — e.g. Head of Performance]'
+placeholder: true
+order: 2
+bio: '[BIO — ADMIN TO ADD]'
+seo:
+  noindex: true

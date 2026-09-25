@@ -1,0 +1,13 @@
+term: SQL (Sales Qualified Lead)
+abbreviation: SQL
+definition: A sales qualified lead (SQL) is a lead that sales has reviewed and accepted as a genuine opportunity
+  worth active pursuit.
+explanation: The MQL-to-SQL rate is one of the most honest measures of marketing lead quality.
+services:
+- crm-automation
+tools:
+- cpl-calculator
+related:
+- mql
+- lead-scoring
+updated: '2026-09-25'

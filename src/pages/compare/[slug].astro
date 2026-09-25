@@ -1,0 +1,41 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import DirectAnswer from '../../components/ui/DirectAnswer.astro';
+import FAQ from '../../components/ui/FAQ.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import RelatedContent from '../../components/ui/RelatedContent.astro';
+import { faqPage } from '../../lib/schema';
+export async function getStaticPaths() {
+  return (await getCollection('compare')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props as { entry: CollectionEntry<'compare'> };
+const d = entry.data;
+const crumbs = [{ name: 'Comparisons', href: '/compare/' }, { name: d.title, href: `/compare/${entry.id}/` }];
+---
+<Base title={`${d.title}: Which Is Right for You?`} description={d.directAnswer} seo={d.seo} crumbs={crumbs} schema={[faqPage(d.faqs)]}>
+  <PageHero crumbs={crumbs} eyebrow="Comparison" title={d.title} />
+  <section class="section">
+    <div class="container--narrow stack" style="--stack:3rem">
+      <div><h2 class="q">{d.a} or {d.b} — which is better?</h2><DirectAnswer>{d.directAnswer}</DirectAnswer></div>
+      <div>
+        <h2 class="q">Side-by-side</h2>
+        <div class="table-wrap"><table class="data-table">
+          <thead><tr><th scope="col">Criterion</th><th scope="col">{d.a}</th><th scope="col">{d.b}</th></tr></thead>
+          <tbody>{d.rows.map((r) => <tr><th scope="row">{r.criterion}</th><td>{r.a}</td><td>{r.b}</td></tr>)}</tbody>
+        </table></div>
+      </div>
+      <div class="grid grid-2">
+        <div class="card"><h3>Choose {d.a} when…</h3><ul class="check-list">{d.chooseA.map((x) => <li>{x}</li>)}</ul></div>
+        <div class="card"><h3>Choose {d.b} when…</h3><ul class="check-list">{d.chooseB.map((x) => <li>{x}</li>)}</ul></div>
+      </div>
+      <div><h2 class="q">Using both together</h2><p class="lede">{d.together}</p></div>
+      <p class="small muted">Neutral comparison maintained by TBM. Last updated {d.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}.</p>
+    </div>
+  </section>
+  <FAQ items={d.faqs} />
+  <RelatedContent type="compare" slug={entry.id} />
+  <CTABand stage="bofu" />
+</Base>
+<style>.q { font-size: var(--step-2); margin-bottom: 1rem; }</style>

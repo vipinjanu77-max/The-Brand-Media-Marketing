@@ -1,0 +1,10 @@
+title: Meta Ads Checklist
+description: Tracking, structure, creative and lead-quality checks for Meta campaigns.
+format: CSV
+gated: true
+status: available
+order: 8
+tools: []
+services:
+- meta-ads
+file: /downloads/tbm-meta-ads-checklist.csv

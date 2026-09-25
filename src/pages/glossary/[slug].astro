@@ -1,0 +1,40 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import DirectAnswer from '../../components/ui/DirectAnswer.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import RelatedContent from '../../components/ui/RelatedContent.astro';
+import { definedTerm } from '../../lib/schema';
+export async function getStaticPaths() {
+  return (await getCollection('glossary')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props as { entry: CollectionEntry<'glossary'> };
+const d = entry.data;
+const origin = Astro.site?.origin ?? Astro.url.origin;
+const crumbs = [{ name: 'Glossary', href: '/glossary/' }, { name: d.abbreviation ?? d.term, href: `/glossary/${entry.id}/` }];
+const question = d.abbreviation ? `What is ${d.abbreviation}?` : `What is ${d.term.replace(/ \(.*\)$/, '')}?`;
+---
+<Base title={`${d.term} — Definition & Meaning`} description={d.definition} seo={d.seo} crumbs={crumbs} schema={[definedTerm({ term: d.term, definition: d.definition, url: new URL(`/glossary/${entry.id}/`, origin).href, origin })]}>
+  <PageHero crumbs={crumbs} eyebrow="Marketing glossary" title={d.term} />
+  <section class="section">
+    <div class="container--narrow stack" style="--stack:2rem">
+      <div>
+        <h2 class="q">{question}</h2>
+        <DirectAnswer label="Definition">{d.definition}</DirectAnswer>
+      </div>
+      <div class="prose"><p>{d.explanation}</p></div>
+      {d.formula && <div class="formula"><span class="answer-label">Formula</span><code>{d.formula}</code></div>}
+      {d.example && <div class="notice"><div><strong>Example:</strong> {d.example}</div></div>}
+      <p class="small muted">Last updated {d.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+    </div>
+  </section>
+  <RelatedContent type="glossary" slug={entry.id} title="Where this term matters" />
+  <CTABand stage="tofu" />
+</Base>
+<style>
+  .q { font-size: var(--step-2); margin-bottom: 1rem; }
+  .formula { padding: 1.25rem; border-radius: var(--radius-sm); background: var(--navy-900); color: #fff; }
+  .formula .answer-label { color: #9fb8ff; }
+  .formula code { font-size: 1.1rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+</style>

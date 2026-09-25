@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import StatCard from '../components/ui/StatCard.astro';
+import CTABand from '../components/ui/CTABand.astro';
+const stats = (await getCollection('statistics')).sort((a, b) => b.data.year - a.data.year);
+const cats: Record<string, string> = { 'internet-mobile': 'Internet & mobile', 'social-media': 'Social media', advertising: 'Advertising', 'search-ai': 'Search & AI', ecommerce: 'E-commerce', video: 'Video', 'email-whatsapp': 'Email & WhatsApp', seo: 'SEO' };
+const presentCats = Object.keys(cats).filter((c) => stats.some((s) => s.data.category === c));
+const geos = [...new Set(stats.map((s) => s.data.geography.split(' (')[0]))];
+const years = [...new Set(stats.map((s) => s.data.year))].sort((a, b) => b - a);
+const crumbs = [{ name: 'Statistics', href: '/statistics/' }];
+const planned = ['SEO statistics', 'Google Ads statistics', 'Meta Ads statistics', 'E-commerce statistics', 'AI marketing statistics', 'Email statistics', 'WhatsApp marketing statistics'];
+---
+<Base title="Marketing Statistics Database" description="A searchable database of digital marketing statistics. Every number shows its source, year, geography, type (fact, estimate or forecast) and context." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Statistics database" title="Every number, with its receipts." lede="Number → Source → Year → Geography → Context. We don’t publish unsourced statistics, and we label forecasts as forecasts." wide>
+    <a class="btn" href="/research/digital-marketing-statistics-india/">India digital marketing statistics 2026</a>
+  </PageHero>
+  <section class="section" data-hide-sticky>
+    <div class="container">
+      <form class="filters-bar" role="search" aria-label="Filter statistics" data-stat-filter onsubmit="return false">
+        <div class="field"><label for="q">Search</label><input id="q" class="input" type="search" placeholder="e.g. social media, ad spend" data-f="q" /></div>
+        <div class="field"><label for="cat">Category</label><select id="cat" class="select" data-f="category"><option value="">All</option>{presentCats.map((c) => <option value={c}>{cats[c]}</option>)}</select></div>
+        <div class="field"><label for="kind">Type</label><select id="kind" class="select" data-f="kind"><option value="">All</option><option value="fact">Reported figure</option><option value="third-party-estimate">Third-party estimate</option><option value="forecast">Forecast</option></select></div>
+        <div class="field"><label for="geo">Geography</label><select id="geo" class="select" data-f="geo"><option value="">All</option>{geos.map((g) => <option value={g}>{g}</option>)}</select></div>
+        <div class="field"><label for="yr">Year</label><select id="yr" class="select" data-f="year"><option value="">All</option>{years.map((y) => <option value={y}>{y}</option>)}</select></div>
+      </form>
+      <p class="small muted mt-1" aria-live="polite" data-count>{stats.length} statistics</p>
+      <div class="grid grid-3 mt-1">
+        {stats.map((s) => (
+          <div data-stat data-category={s.data.category} data-kind={s.data.kind} data-geo={s.data.geography.split(' (')[0]} data-year={s.data.year} data-text={`${s.data.statement} ${s.data.source} ${s.data.context}`.toLowerCase()}>
+            <StatCard stat={s} />
+          </div>
+        ))}
+      </div>
+      <p class="empty-state" hidden data-empty>No statistics match these filters.</p>
+      <div class="notice mt-3"><div><strong>Coming to the database:</strong> {planned.join(', ')}. We add categories only when we have credible, current, citable sources. <a href="/legal/research-methodology/">Methodology</a>.</div></div>
+    </div>
+  </section>
+  <CTABand stage="tofu" />
+</Base>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-stat-filter]')!;
+  const items = [...document.querySelectorAll<HTMLElement>('[data-stat]')];
+  const count = document.querySelector('[data-count]')!;
+  const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+  const val = (k: string) => (form.querySelector<HTMLInputElement>(`[data-f="${k}"]`)!.value || '').toLowerCase();
+  const apply = () => {
+    let n = 0;
+    items.forEach((el) => {
+      const ok = (!val('q') || el.dataset.text!.includes(val('q'))) && (!val('category') || el.dataset.category === val('category')) && (!val('kind') || el.dataset.kind === val('kind')) && (!val('geo') || el.dataset.geo!.toLowerCase() === val('geo')) && (!val('year') || el.dataset.year === val('year'));
+      el.hidden = !ok; if (ok) n++;
+    });
+    count.textContent = `${n} statistic${n === 1 ? '' : 's'}`;
+    empty.hidden = n > 0;
+  };
+  form.addEventListener('input', apply);
+  form.addEventListener('change', apply);
+</script>
+<style>
+  .filters-bar { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); padding: 1.25rem; background: var(--paper-2); border-radius: var(--radius); border: 1px solid var(--line); }
+  .empty-state { padding: 2rem; text-align: center; color: var(--ink-3); }
+</style>

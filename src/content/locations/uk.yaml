@@ -1,0 +1,18 @@
+name: United Kingdom
+kind: country
+published: false
+summary: '[LOCAL MARKET SUMMARY FOR UNITED KINGDOM — ADMIN TO ADD. Publish only if TBM genuinely serves this market,
+  with unique local research.]'
+marketContext: []
+industries:
+- real-estate
+- d2c
+- education
+- healthcare
+- b2b
+services:
+- performance-marketing
+- seo
+- aeo
+- google-ads
+- meta-ads

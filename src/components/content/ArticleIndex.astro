@@ -1,0 +1,39 @@
+---
+/** Filterable article listing (client-side filter; works as a plain list without JS). */
+import type { CollectionEntry } from 'astro:content';
+import { articleHref } from '../../lib/graph';
+interface Props { entries: CollectionEntry<'blog'>[] }
+const { entries } = Astro.props;
+const clusters = [...new Set(entries.map((e) => e.data.cluster))];
+const label = (c: string) => c.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()).replace('Aeo', 'AEO').replace('Seo', 'SEO');
+---
+<div data-filter-root>
+  <div class="filters" role="group" aria-label="Filter by topic">
+    <button class="chip" aria-pressed="true" data-filter="all">All</button>
+    {clusters.map((c) => <button class="chip" aria-pressed="false" data-filter={c}>{label(c)}</button>)}
+  </div>
+  <div class="grid grid-3 mt-1">
+    {entries.map((a) => (
+      <article class="card" data-cluster={a.data.cluster}>
+        <div class="tags"><span class="tag tag--neutral">{a.data.category}</span>{a.data.pillar && <span class="tag">Guide</span>}</div>
+        <h2 class="h"><a class="card-link" href={articleHref(a)}>{a.data.title}</a></h2>
+        <p>{a.data.description}</p>
+        <p class="meta">Updated {a.data.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} · {a.data.searchIntent}</p>
+      </article>
+    ))}
+  </div>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-filter-root]').forEach((root) => {
+    const chips = root.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    chips.forEach((c) => c.addEventListener('click', () => {
+      chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
+      root.querySelectorAll<HTMLElement>('[data-cluster]').forEach((card) => {
+        card.hidden = c.dataset.filter !== 'all' && card.dataset.cluster !== c.dataset.filter;
+      });
+    }));
+  });
+</script>
+<style>
+  .h { font-size: var(--step-1); font-family: var(--font-sans); font-weight: 650; }
+</style>

@@ -1,0 +1,64 @@
+title: B2B Marketing & Lead Generation
+order: 4
+featured: true
+summary: Pipeline-focused B2B marketing — search, LinkedIn, content and CRM working together across long sales cycles.
+overview: >-
+  B2B purchases involve buying committees, long cycles and high deal values. Marketing's job is to reach the
+  right accounts, build credibility before sales engages, generate qualified conversations and prove
+  contribution to pipeline — not just lead volume.
+journey:
+  - stage: Problem recognition
+    detail: A business pain or opportunity emerges.
+  - stage: Research
+    detail: Search, peers, analyst content, AI assistants.
+  - stage: Vendor shortlist
+    detail: Websites, case studies, comparisons, references.
+  - stage: Evaluation
+    detail: Demos, proposals, procurement.
+  - stage: Decision
+    detail: Committee sign-off.
+funnel:
+  - stage: Target account reach
+    metric: Account coverage
+  - stage: Leads
+    metric: CPL
+  - stage: MQL / SQL
+    metric: Cost per SQL
+  - stage: Opportunities
+    metric: Pipeline value
+  - stage: Closed won
+    metric: CAC, win rate
+challenges:
+  - Lead volume that sales rejects
+  - Long cycles that make last-click attribution meaningless
+  - Content that does not help buyers decide
+  - Misalignment between marketing and sales
+channels:
+  - channel: Google Search
+    role: Captures active problem and solution searches.
+  - channel: LinkedIn
+    role: Reaches buying committees by role and company.
+  - channel: SEO and content
+    role: Builds authority and answers buyer questions.
+  - channel: CRM and email
+    role: Nurtures long cycles.
+kpis:
+  - Cost per SQL
+  - Pipeline created and influenced
+  - Win rate by source
+  - Sales cycle length
+strategy:
+  - title: Agree definitions with sales
+    body: MQL, SQL and opportunity criteria written down and reported consistently.
+  - title: Measure pipeline, not leads
+    body: Offline conversion imports and opportunity-level reporting.
+  - title: Create decision content
+    body: Comparisons, case studies, pricing guidance and ROI tools.
+faqs:
+  - q: How long does B2B lead generation take to show results?
+    a: Search campaigns can produce enquiries within weeks, but pipeline impact follows your sales cycle — often months. Measure leading indicators in the meantime.
+services: [linkedin-ads, google-ads, seo, content-marketing, crm-automation]
+tools: [cac-calculator, cpl-calculator]
+glossary: [mql, sql, attribution]
+compare: [google-ads-vs-linkedin-ads, lead-generation-vs-demand-generation]
+updated: 2026-09-25

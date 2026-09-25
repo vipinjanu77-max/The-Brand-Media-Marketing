@@ -1,0 +1,12 @@
+title: Marketing KPI Dashboard Template
+description: The core KPIs TBM reports on — spend to revenue — with definitions and formulas.
+format: CSV
+gated: true
+status: available
+order: 3
+tools:
+- cac-calculator
+- roas-calculator
+services:
+- analytics
+file: /downloads/tbm-marketing-kpi-dashboard.csv

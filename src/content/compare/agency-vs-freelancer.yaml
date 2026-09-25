@@ -1,0 +1,41 @@
+title: Agency vs Freelancer
+a: Agency
+b: Freelancer
+directAnswer: A freelancer is often more affordable and flexible for a specific, well-defined skill. An agency offers
+  a team across strategy, channels, creative and analytics, with continuity when individuals are unavailable. Choose
+  based on scope, the coordination you can do yourself and the risk of depending on one person.
+rows:
+- criterion: Breadth of skills
+  a: Multi-disciplinary team
+  b: Usually one or two specialisms
+- criterion: Cost
+  a: Higher fee, broader coverage
+  b: Lower fee
+- criterion: Continuity
+  a: Team cover
+  b: Depends on one person
+- criterion: Strategy and coordination
+  a: Typically included
+  b: Often your responsibility
+- criterion: Best for
+  a: Multi-channel growth programmes
+  b: Specific tasks or channels
+chooseA:
+- You need strategy plus execution across several channels
+- You don't have an in-house marketing lead to coordinate specialists
+chooseB:
+- You need one specific skill
+- You have in-house strategy and management capacity
+together: Some businesses use an agency for strategy, paid media and analytics while freelancers handle specific
+  content. Clear ownership prevents gaps.
+faqs:
+- q: How do I evaluate either option?
+  a: 'Use the same criteria: relevant evidence, transparent reporting, account ownership, clear pricing and references.
+    Our agency evaluation checklist applies to freelancers too.'
+services:
+- performance-marketing
+tools:
+- agency-evaluation-checklist
+glossary:
+- kpi
+updated: '2026-09-25'

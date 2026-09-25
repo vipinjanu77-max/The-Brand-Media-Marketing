@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import GrowthSystem from '../../components/home/GrowthSystem.astro';
+import SectionHead from '../../components/ui/SectionHead.astro';
+import { auditHref } from '../../lib/site';
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const groups: Record<string, [string, string]> = {
+  performance: ['Acquisition', 'Paid media that is planned from unit economics and measured on customers.'],
+  search: ['Search & AI visibility', 'Be found in search results and cited in AI answers.'],
+  social: ['Social & reputation', 'Community, content and trust signals.'],
+  creative: ['Brand & creative', 'Positioning and creative that earns attention.'],
+  web: ['Conversion', 'Sites and pages that turn traffic into customers.'],
+  crm: ['CRM & messaging', 'Follow-up, nurturing and closed-loop measurement.'],
+  analytics: ['Measurement', 'Data you can trust — and act on.'],
+};
+const crumbs = [{ name: 'Services', href: '/services/' }];
+---
+<Base title="Digital Marketing Services" description="Performance marketing, Google Ads, Meta Ads, SEO, AEO, social, content, branding, creative, websites, CRM, WhatsApp and analytics — delivered as one connected growth system." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Services" title="Every capability you need. Connected into one system." lede="Each service page explains what it is, who needs it, what we do, the process, deliverables, KPIs, timeline, common mistakes and costs — so you can judge fit before you talk to us.">
+    <a class="btn" href={auditHref}>Get Growth Audit</a>
+    <a class="btn btn--ghost" href="/pricing/">See pricing</a>
+  </PageHero>
+  <section class="section">
+    <div class="container stack" style="--stack:4rem">
+      {Object.entries(groups).map(([g, [label, desc]]) => {
+        const list = services.filter((s) => s.data.group === g);
+        return list.length > 0 && (
+          <div>
+            <SectionHead as="h2" eyebrow={label} title={desc} />
+            <div class="grid grid-3">
+              {list.map((s) => (
+                <article class="card">
+                  <h3><a class="card-link" href={`/services/${s.id}/`}>{s.data.title}</a></h3>
+                  <p>{s.data.summary}</p>
+                  {s.data.subServices.length > 0 && <p class="meta">{s.data.subServices.map((x) => x.name).join(' · ')}</p>}
+                </article>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+  <section class="section section--navy">
+    <div class="container">
+      <SectionHead eyebrow="How services fit together" title="The TBM Growth System" />
+      <GrowthSystem />
+    </div>
+  </section>
+  <CTABand stage="mofu" />
+</Base>

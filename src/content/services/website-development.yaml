@@ -1,0 +1,84 @@
+title: Website Development
+navLabel: Website Development
+group: web
+order: 40
+summary: Fast, accessible, SEO-ready websites engineered for conversion and easy for your team to update.
+definition: >-
+  Website development is planning, designing and building the site your marketing depends on — its
+  structure, content, performance, tracking and the systems your team uses to update it.
+whoNeedsIt:
+  - Businesses whose website looks dated, loads slowly or does not convert
+  - Companies planning a rebrand or migration
+  - Brands launching e-commerce or expanding into new markets
+whyItMatters: >-
+  Every channel sends people to your website. A slow, confusing or untrackable site taxes every rupee of
+  marketing. A good site improves conversion across all channels at once.
+whatWeDo:
+  - title: Information architecture
+    body: Page structure mapped to buyer journeys and search demand.
+  - title: Conversion-led design
+    body: Clear messaging, proof and calls to action on every template.
+  - title: Performance engineering
+    body: Core Web Vitals, image optimisation and minimal JavaScript.
+  - title: SEO and tracking built in
+    body: Clean URLs, schema, redirects, GA4 and GTM from day one.
+  - title: Editable CMS
+    body: Your team can update content without developers.
+subServices:
+  - name: Corporate websites
+    description: Credible, content-rich sites for established businesses.
+  - name: Landing pages
+    description: Campaign pages built for conversion.
+  - name: E-commerce
+    description: Shopify, WooCommerce and headless builds.
+  - name: Conversion optimisation
+    description: Testing and improving existing sites.
+process:
+  - step: Discover
+    detail: Goals, audiences, content audit and technical requirements.
+  - step: Architect
+    detail: Sitemap, wireframes and content plan.
+  - step: Design
+    detail: Visual design and design system.
+  - step: Build
+    detail: Development, CMS, integrations, tracking.
+  - step: Launch
+    detail: QA, redirects, performance and SEO checks.
+  - step: Improve
+    detail: Post-launch CRO and iteration.
+deliverables:
+  - Sitemap and wireframes
+  - Visual design
+  - Built website with CMS
+  - Redirect map and SEO launch checklist
+  - Tracking implementation
+  - Training and documentation
+kpis:
+  - name: Conversion rate
+    why: The site's primary job.
+  - name: Core Web Vitals
+    why: Speed affects both experience and search.
+  - name: Organic visibility post-launch
+    why: Migrations should protect or grow search traffic.
+timeline:
+  - period: Weeks 1–3
+    detail: Discovery and architecture.
+  - period: Weeks 4–7
+    detail: Design.
+  - period: Weeks 8–12
+    detail: Build and QA.
+mistakes:
+  - Redesigning without a redirect plan
+  - Choosing design over speed
+  - Launching without conversion tracking
+  - A CMS only developers can use
+faqs:
+  - q: How much does a website cost?
+    a: It depends on the number of templates, content, integrations and CMS requirements. See our rate card for how we scope landing pages, corporate sites, e-commerce and custom builds.
+  - q: Will a redesign hurt my SEO?
+    a: It can if URLs, content and internal links change without a plan. We map redirects and protect ranking pages as part of every migration.
+services: [landing-pages, seo, analytics, branding]
+industries: [real-estate, professional-services, manufacturing, education]
+tools: [seo-health-checker]
+glossary: [core-web-vitals, cro, conversion-rate]
+updated: 2026-09-25

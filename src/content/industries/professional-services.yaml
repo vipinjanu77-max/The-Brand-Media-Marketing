@@ -1,0 +1,46 @@
+title: Professional Services Marketing
+order: 13
+summary: Authority-led marketing for law, consulting, accounting and advisory firms.
+overview: >-
+  Professional services are bought on trust and expertise. Marketing must make the firm's expertise visible,
+  credible and easy to evaluate, while respecting professional-body rules on advertising.
+journey:
+  - stage: Need
+    detail: Problem or regulatory trigger.
+  - stage: Research
+    detail: Referrals, search, articles, AI assistants.
+  - stage: Shortlist
+    detail: Profiles, expertise, case examples.
+  - stage: Consultation
+    detail: First meeting.
+funnel:
+  - stage: Visitors
+    metric: Organic traffic
+  - stage: Enquiries
+    metric: Cost per enquiry
+  - stage: Consultations
+    metric: Consultation rate
+  - stage: Clients
+    metric: Conversion rate
+challenges:
+  - Professional advertising restrictions
+  - Undifferentiated messaging
+channels:
+  - channel: SEO and AEO
+    role: Expertise content and entity clarity.
+  - channel: LinkedIn
+    role: Partner and firm thought leadership.
+  - channel: Google Ads
+    role: Urgent-intent services.
+kpis:
+  - Qualified consultations
+  - Organic visibility for practice areas
+strategy:
+  - title: Make experts visible
+    body: Author pages, published expertise and clear practice-area pages.
+faqs:
+  - q: Are law firms allowed to advertise in India?
+    a: Rules for advocates in India are restrictive. We work within applicable professional rules and your firm's counsel decides what is permissible.
+services: [seo, aeo, content-marketing, linkedin-ads, branding]
+glossary: [e-e-a-t, entity]
+updated: 2026-09-25

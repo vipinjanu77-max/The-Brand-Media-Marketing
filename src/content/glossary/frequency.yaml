@@ -1,0 +1,13 @@
+term: Frequency
+definition: Frequency is the average number of times a person saw your ad in a period.
+explanation: Rising frequency with falling CTR is a classic sign of creative fatigue or an audience that is too
+  small.
+formula: Frequency = Impressions ÷ Reach
+services:
+- meta-ads
+- creative
+tools: []
+related:
+- cpm
+- ctr
+updated: '2026-09-25'

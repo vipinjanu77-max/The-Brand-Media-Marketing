@@ -1,0 +1,24 @@
+name: India
+kind: country
+published: true
+summary: TBM's home market. We work with businesses across India — from single-city local businesses to national
+  brands — and with international companies entering India.
+marketContext:
+- India's digital advertising spend reached an estimated ₹71,621 crore in 2025, 59% of total advertising (dentsu-e4m
+  Digital Advertising Report 2026).
+- DataReportal estimates 1.03 billion internet users in India at the end of 2025 — 70% of the population — meaning
+  three in ten people were still offline.
+- Buyer behaviour differs sharply between metros and tier-2/3 cities in language, device, payment preferences (including
+  COD) and channel mix.
+industries:
+- real-estate
+- d2c
+- education
+- healthcare
+- b2b
+services:
+- performance-marketing
+- seo
+- aeo
+- google-ads
+- meta-ads

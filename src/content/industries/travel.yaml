@@ -1,0 +1,42 @@
+title: Travel Marketing
+order: 15
+summary: Enquiry and booking growth for tour operators, travel agencies and destination brands.
+overview: >-
+  Travel decisions start with inspiration and end with detailed comparison of itineraries, prices and
+  reviews. Long planning windows and seasonality make remarketing and content important.
+journey:
+  - stage: Inspiration
+    detail: Social, video, creators.
+  - stage: Planning
+    detail: Itineraries, reviews, prices.
+  - stage: Enquiry or booking
+    detail: Quote requests and bookings.
+funnel:
+  - stage: Enquiries
+    metric: Cost per enquiry
+  - stage: Quotes sent
+    metric: Quote rate
+  - stage: Bookings
+    metric: Cost per booking
+challenges:
+  - Seasonality
+  - Price-comparison behaviour
+channels:
+  - channel: Meta and YouTube
+    role: Inspiration.
+  - channel: Google Search
+    role: Destination and package intent.
+  - channel: WhatsApp
+    role: Quotes and follow-up.
+kpis:
+  - Cost per booking
+  - Enquiry-to-booking rate
+strategy:
+  - title: Nurture long planning windows
+    body: Remarketing and WhatsApp follow-ups over weeks, not days.
+faqs:
+  - q: When should travel campaigns run?
+    a: Ahead of booking windows for each season, not when travel happens.
+services: [meta-ads, google-ads, whatsapp-marketing, content-marketing]
+glossary: [remarketing]
+updated: 2026-09-25

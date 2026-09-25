@@ -1,0 +1,41 @@
+title: Food & Beverage Marketing
+order: 19
+summary: Growth for restaurants, cloud kitchens and packaged food brands across social, delivery platforms and retail.
+overview: >-
+  Food and beverage brands compete on discovery, reviews and repeat. Restaurants depend on local search and
+  delivery platforms; packaged brands on social, retail visibility and quick commerce.
+journey:
+  - stage: Craving or discovery
+    detail: Social content, maps, delivery apps.
+  - stage: Choice
+    detail: Reviews, menu, offers.
+  - stage: Order or visit
+    detail: Delivery, dine-in or retail.
+funnel:
+  - stage: Reach
+    metric: Local reach
+  - stage: Orders
+    metric: Cost per order
+  - stage: Repeat
+    metric: Repeat rate
+challenges:
+  - Platform commissions
+  - Review sensitivity
+channels:
+  - channel: Instagram
+    role: Discovery.
+  - channel: Local SEO
+    role: Maps and reviews.
+kpis:
+  - Cost per order
+  - Repeat rate
+  - Rating
+strategy:
+  - title: Build owned demand
+    body: Direct ordering and loyalty to reduce platform dependence.
+faqs:
+  - q: Should restaurants invest in Instagram?
+    a: Usually yes for discovery, paired with local SEO and review management.
+services: [social-media, reputation-management, seo, meta-ads]
+glossary: [ctr]
+updated: 2026-09-25

@@ -1,0 +1,49 @@
+title: Websites
+order: 5
+service: website-development
+intro: Fixed-scope projects priced by templates, content, integrations and CMS needs.
+tiers:
+- name: Landing page
+  priceFrom: null
+  priceTo: null
+  unit: per page
+  bestFor: Campaign pages
+  includes:
+  - Design and build
+  - Form and CRM integration
+  - Tracking
+  excludes: &id001 []
+- name: Corporate website
+  priceFrom: null
+  priceTo: null
+  unit: per project
+  bestFor: Established businesses
+  includes:
+  - Architecture and design
+  - CMS
+  - SEO setup
+  - Tracking
+  excludes: *id001
+- name: E-commerce
+  priceFrom: null
+  priceTo: null
+  unit: per project
+  bestFor: Online stores
+  includes:
+  - Store setup
+  - Product templates
+  - Payments and shipping integrations
+  excludes: *id001
+- name: Custom
+  priceFrom: null
+  priceTo: null
+  unit: scoped
+  bestFor: Complex builds
+  includes:
+  - Custom functionality
+  - Integrations
+  - Headless architecture
+  excludes: *id001
+notes:
+- Final pricing depends on scope, market, competition, complexity and required resources.
+- Media spend, production and third-party tools are billed separately and transparently.

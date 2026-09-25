@@ -1,0 +1,12 @@
+term: Marketing Automation
+definition: Marketing automation is software-driven workflows that send the right message to the right person at
+  the right time based on their data and behaviour.
+explanation: Examples include instant enquiry follow-up, nurture sequences and re-engagement flows. Automation scales
+  a good process — and a bad one.
+services:
+- crm-automation
+- whatsapp-marketing
+tools: []
+related:
+- lead-scoring
+updated: '2026-09-25'

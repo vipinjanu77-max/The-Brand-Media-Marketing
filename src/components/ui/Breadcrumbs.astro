@@ -1,0 +1,13 @@
+---
+import type { Crumb } from '../../layouts/Base.astro';
+interface Props { items: Crumb[] }
+const { items } = Astro.props;
+const all = [{ name: 'Home', href: '/' }, ...items];
+---
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {all.map((c, i) => (
+      <li>{i === all.length - 1 ? <span aria-current="page">{c.name}</span> : <a href={c.href}>{c.name}</a>}</li>
+    ))}
+  </ol>
+</nav>

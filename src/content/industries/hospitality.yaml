@@ -1,0 +1,49 @@
+title: Hospitality Marketing
+order: 8
+summary: Direct bookings for hotels, resorts and restaurants — reducing dependence on OTAs and aggregators.
+overview: >-
+  Hospitality brands compete with online travel agencies and aggregators for the same guests. Marketing aims
+  to increase direct bookings, fill need periods and build repeat stays through visual storytelling and
+  reputation.
+journey:
+  - stage: Inspiration
+    detail: Social, video, creators.
+  - stage: Planning
+    detail: Search, OTAs, reviews, maps.
+  - stage: Booking
+    detail: Direct site vs OTA.
+  - stage: Stay and advocacy
+    detail: Experience, reviews, repeat.
+funnel:
+  - stage: Reach
+    metric: Engaged reach
+  - stage: Site visits
+    metric: CPC
+  - stage: Direct bookings
+    metric: Cost per booking
+challenges:
+  - OTA commission costs
+  - Seasonality
+  - Review-driven choice
+channels:
+  - channel: Google Hotel Ads and Search
+    role: Capture brand and destination searches.
+  - channel: Meta and Instagram
+    role: Inspiration and offers.
+  - channel: Reputation
+    role: Reviews across platforms.
+kpis:
+  - Direct booking share
+  - Cost per direct booking
+  - Review rating
+strategy:
+  - title: Protect brand search
+    body: Ensure your own site wins searches for your property name.
+  - title: Fill need periods
+    body: Targeted offers for low-occupancy dates.
+faqs:
+  - q: Can we reduce OTA dependence?
+    a: Usually partially. Brand search protection, direct-booking incentives and email to past guests shift share over time.
+services: [google-ads, social-media, reputation-management, meta-ads]
+glossary: [roas]
+updated: 2026-09-25

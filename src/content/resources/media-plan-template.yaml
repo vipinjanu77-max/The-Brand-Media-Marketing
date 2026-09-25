@@ -1,0 +1,12 @@
+title: Media Plan Template
+description: A channel-by-channel media plan with budget, assumptions, implied clicks, leads and CPL — ready to
+  fill with your own numbers.
+format: CSV (opens in Excel / Google Sheets)
+gated: true
+status: available
+order: 1
+tools:
+- media-planner
+services:
+- performance-marketing
+file: /downloads/tbm-media-plan-template.csv

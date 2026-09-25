@@ -1,0 +1,34 @@
+---
+/** Number → Source → Year → Geography → Context. Every statistic on the site renders through this. */
+import VerificationBadge from './VerificationBadge.astro';
+import KindBadge from './KindBadge.astro';
+import type { CollectionEntry } from 'astro:content';
+interface Props { stat: CollectionEntry<'statistics'>; compact?: boolean }
+const { stat, compact } = Astro.props;
+const s = stat.data;
+---
+<article class="stat" id={`stat-${stat.id}`}>
+  <p class="value num">{s.value}{s.unit && <span class="unit"> {s.unit}</span>}</p>
+  <p class="statement">{s.statement}</p>
+  <dl class="meta">
+    <div><dt>Source</dt><dd><a href={s.sourceUrl} rel="noopener" target="_blank">{s.source}</a> — {s.publication}</dd></div>
+    <div><dt>Period</dt><dd>{s.referencePeriod}</dd></div>
+    <div><dt>Geography</dt><dd>{s.geography}</dd></div>
+    {!compact && s.sampleSize && <div><dt>Sample</dt><dd>{s.sampleSize}</dd></div>}
+    {!compact && s.methodology && <div><dt>Method</dt><dd>{s.methodology}</dd></div>}
+  </dl>
+  {!compact && <p class="context"><strong>Context:</strong> {s.context}</p>}
+  <div class="tags"><KindBadge kind={s.kind} /><VerificationBadge status={s.verification} /></div>
+  {!compact && <p class="accessed">Accessed {s.accessedOn.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>}
+</article>
+<style>
+  .stat { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+  .value { font-family: var(--font-serif); font-size: var(--step-3); color: var(--navy-900); line-height: 1; }
+  .unit { font-size: 0.5em; color: var(--ink-3); font-family: var(--font-sans); font-weight: 600; }
+  .statement { font-weight: 560; color: var(--ink); }
+  .meta { display: grid; gap: 0.3rem; font-size: 0.84rem; color: var(--ink-2); }
+  .meta div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.5rem; }
+  dt { color: var(--ink-3); font-weight: 600; }
+  .context { font-size: 0.88rem; color: var(--ink-2); }
+  .accessed { font-size: 0.78rem; color: var(--ink-3); margin-top: auto; }
+</style>

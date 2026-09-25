@@ -1,0 +1,41 @@
+---
+import { site } from '../../lib/site';
+const cfg = site.exitIntent;
+---
+{cfg.enabled && (
+  <dialog class="exit-modal" data-exit aria-labelledby="exit-title">
+    <form method="dialog" class="close-row"><button class="x" aria-label="Close">×</button></form>
+    <p class="eyebrow">Free resource</p>
+    <h2 id="exit-title">{cfg.headline}</h2>
+    <p class="muted">{cfg.body}</p>
+    <div class="btn-row">
+      <a class="btn" href={`/resources/${cfg.resourceSlug}/`} data-track="exit_intent_click">Get the checklist</a>
+      <a class="btn btn--ghost" href="/tools/agency-evaluation-checklist/" data-track="exit_intent_tool">Use the interactive version</a>
+    </div>
+  </dialog>
+)}
+<script>
+  // Desktop only, once per session, never within the first 15 seconds, never on forms.
+  const d = document.querySelector<HTMLDialogElement>('[data-exit]');
+  const already = (() => { try { return sessionStorage.getItem('tbm-exit') === '1'; } catch { return true; } })();
+  if (d && !already && matchMedia('(hover: hover) and (min-width: 900px)').matches) {
+    const start = Date.now();
+    const onLeave = (e: MouseEvent) => {
+      if (e.clientY > 8 || Date.now() - start < 15000) return;
+      if (document.activeElement?.closest('form')) return;
+      document.removeEventListener('mouseout', onLeave);
+      try { sessionStorage.setItem('tbm-exit', '1'); } catch {}
+      d.showModal();
+      (window as any).tbmTrack?.('exit_intent_shown');
+    };
+    document.addEventListener('mouseout', onLeave);
+  }
+</script>
+<style>
+  .exit-modal { max-width: 520px; width: calc(100% - 2rem); border: 0; border-radius: var(--radius); padding: 2rem; box-shadow: 0 30px 80px -20px rgb(10 26 63 / 0.5); }
+  .exit-modal::backdrop { background: rgb(5 13 36 / 0.55); }
+  .exit-modal h2 { font-size: var(--step-2); margin: 0.6rem 0; }
+  .exit-modal .btn-row { margin-top: 1.25rem; }
+  .close-row { display: flex; justify-content: flex-end; margin: -1rem -1rem 0 0; }
+  .x { background: none; border: 0; font-size: 1.8rem; line-height: 1; color: var(--ink-3); width: 40px; height: 40px; }
+</style>

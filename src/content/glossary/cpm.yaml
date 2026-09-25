@@ -1,0 +1,16 @@
+term: CPM (Cost per Mille)
+abbreviation: CPM
+definition: CPM is the cost of 1,000 ad impressions.
+explanation: CPM reflects audience competition and ad quality on auction-based platforms. It is the starting point
+  for estimating reach-based campaigns.
+formula: CPM = Spend ÷ Impressions × 1,000
+services:
+- meta-ads
+- performance-marketing
+tools:
+- media-planner
+related:
+- cpc
+- ctr
+- frequency
+updated: '2026-09-25'

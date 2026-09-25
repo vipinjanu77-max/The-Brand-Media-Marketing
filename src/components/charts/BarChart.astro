@@ -1,0 +1,88 @@
+---
+/**
+ * Server-rendered SVG column chart (zero JS). Single series in the sequential blue;
+ * forecast values use a hatched texture + "(F)" label so a forecast is never mistaken for a fact.
+ * Every chart carries source, year, geography and method, plus an accessible table view.
+ */
+import KindBadge from '../ui/KindBadge.astro';
+interface Datum { label: string; value: number; forecast?: boolean }
+interface Props {
+  title: string;
+  data: Datum[];
+  unit?: string;
+  source: string;
+  sourceUrl?: string;
+  year: string;
+  geography: string;
+  methodology: string;
+  kind: string;
+  id?: string;
+}
+const { title, data, unit = '', source, sourceUrl, year, geography, methodology, kind } = Astro.props;
+const id = Astro.props.id ?? `c-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40)}`;
+const W = 640, H = 300, pad = { t: 28, r: 12, b: 44, l: 12 };
+const max = Math.max(...data.map((d) => d.value), 0) * 1.12 || 1;
+const bw = (W - pad.l - pad.r) / data.length;
+const barW = Math.min(56, bw * 0.62);
+const y = (v: number) => pad.t + (H - pad.t - pad.b) * (1 - v / max);
+const fmt = (v: number) => v.toLocaleString('en-IN', { maximumFractionDigits: 1 });
+const hasForecast = data.some((d) => d.forecast);
+---
+<figure class="chart" aria-labelledby={`${id}-t`}>
+  <figcaption id={`${id}-t`} class="chart-title">{title}{unit && <span class="u"> ({unit})</span>}</figcaption>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${title}. ${data.map((d) => `${d.label}: ${fmt(d.value)}${unit ? ' ' + unit : ''}${d.forecast ? ' (forecast)' : ''}`).join('; ')}`}>
+    <defs>
+      <pattern id={`${id}-hatch`} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="6" height="6" fill="#cde2fb" /><line x1="0" y1="0" x2="0" y2="6" stroke="#2a78d6" stroke-width="2.2" />
+      </pattern>
+    </defs>
+    {[0.25, 0.5, 0.75, 1].map((f) => (
+      <line x1={pad.l} x2={W - pad.r} y1={y(max * f / 1.12)} y2={y(max * f / 1.12)} stroke="var(--chart-grid)" stroke-width="1" />
+    ))}
+    <line x1={pad.l} x2={W - pad.r} y1={y(0)} y2={y(0)} stroke="#9aa1b1" stroke-width="1" />
+    {data.map((d, i) => {
+      const cx = pad.l + bw * i + bw / 2;
+      const h = y(0) - y(d.value);
+      return (
+        <g class="bar" tabindex="0" aria-label={`${d.label}: ${fmt(d.value)} ${unit}${d.forecast ? ' (forecast)' : ''}`}>
+          <rect class="hit" x={cx - bw / 2} y={pad.t} width={bw} height={H - pad.t - pad.b} fill="transparent" />
+          <path
+            d={`M${cx - barW / 2},${y(0)} v${-(h - 4)} q0,-4 4,-4 h${barW - 8} q4,0 4,4 v${h - 4} z`}
+            fill={d.forecast ? `url(#${id}-hatch)` : 'var(--series-1)'}
+            stroke={d.forecast ? 'var(--series-1)' : 'none'}
+            stroke-width="1.5"
+          />
+          <text x={cx} y={y(d.value) - 8} text-anchor="middle" class="val">{fmt(d.value)}{d.forecast ? ' (F)' : ''}</text>
+          <text x={cx} y={H - pad.b + 20} text-anchor="middle" class="lbl">{d.label}</text>
+        </g>
+      );
+    })}
+  </svg>
+  <div class="chart-meta">
+    <div class="tags"><KindBadge kind={kind} />{hasForecast && <span class="tag tag--warn">Hatched = forecast</span>}</div>
+    <p><strong>Source:</strong> {sourceUrl ? <a href={sourceUrl} rel="noopener" target="_blank">{source}</a> : source} · <strong>Year:</strong> {year} · <strong>Geography:</strong> {geography}</p>
+    <p><strong>Method:</strong> {methodology}</p>
+  </div>
+  <details class="table-view">
+    <summary>View as table</summary>
+    <table class="data-table">
+      <thead><tr><th scope="col">Label</th><th scope="col">Value{unit && ` (${unit})`}</th><th scope="col">Type</th></tr></thead>
+      <tbody>{data.map((d) => <tr><th scope="row">{d.label}</th><td class="num">{fmt(d.value)}</td><td>{d.forecast ? 'Forecast' : 'Reported'}</td></tr>)}</tbody>
+    </table>
+  </details>
+</figure>
+<style>
+  .chart { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; background: #fff; display: grid; gap: 0.9rem; }
+  .chart-title { font-weight: 650; color: var(--navy-900); }
+  .u { color: var(--ink-3); font-weight: 500; }
+  svg { width: 100%; height: auto; overflow: visible; }
+  .val { font-size: 13px; font-weight: 600; fill: var(--ink); font-variant-numeric: tabular-nums; }
+  .lbl { font-size: 12px; fill: var(--ink-3); }
+  .bar { outline: none; }
+  .bar path { transition: opacity 0.15s; }
+  svg:has(.bar:hover, .bar:focus-visible) .bar:not(:hover, :focus-visible) path { opacity: 0.45; }
+  .bar:focus-visible .hit { stroke: var(--royal-500); stroke-width: 2; }
+  .chart-meta { font-size: 0.82rem; color: var(--ink-2); display: grid; gap: 0.35rem; }
+  .table-view summary { cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--royal-600); }
+  .table-view table { margin-top: 0.75rem; min-width: 0; }
+</style>

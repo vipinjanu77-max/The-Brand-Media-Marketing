@@ -1,0 +1,7 @@
+---
+interface Props { status: 'pending-review' | 'editor-verified' }
+const { status } = Astro.props;
+---
+{status === 'editor-verified'
+  ? <span class="tag tag--good" title="An editor has checked this figure against the primary source.">Editor verified</span>
+  : <span class="tag tag--warn" title="Sourced, but awaiting TBM editorial check against the primary publication.">Pending editorial verification</span>}

@@ -1,0 +1,27 @@
+---
+import { getEntry } from 'astro:content';
+interface Props { author: string; reviewer?: string; published?: Date; updated: Date; readingMinutes?: number }
+const { author, reviewer, published, updated, readingMinutes } = Astro.props;
+const a = await getEntry('team', author);
+const r = reviewer ? await getEntry('team', reviewer) : undefined;
+const fmt = (d: Date) => d.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<div class="byline">
+  <div>
+    <span class="k">Written by</span>
+    {a ? <a href={`/team/${a.id}/`}>{a.data.name}</a> : <span>{author}</span>}
+  </div>
+  <div>
+    <span class="k">Reviewed by</span>
+    {r && !r.data.placeholder ? <a href={`/team/${r.id}/`}>{r.data.name}</a> : <span class="placeholder placeholder--inline">[REVIEWER — ADMIN TO ASSIGN]</span>}
+  </div>
+  {published && <div><span class="k">Published</span><time datetime={published.toISOString()}>{fmt(published)}</time></div>}
+  <div><span class="k">Last updated</span><time datetime={updated.toISOString()}>{fmt(updated)}</time></div>
+  {readingMinutes && <div><span class="k">Reading time</span><span>{readingMinutes} min</span></div>}
+</div>
+<style>
+  .byline { display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-size: 0.88rem; padding-block: 1rem; border-block: 1px solid var(--line); margin-top: 1.75rem; }
+  .byline > div { display: grid; gap: 0.1rem; }
+  .k { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+  a { font-weight: 600; text-decoration: none; }
+</style>

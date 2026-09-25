@@ -1,0 +1,15 @@
+term: Conversion Rate
+definition: Conversion rate is the percentage of visitors, clicks or leads that complete a defined action, such
+  as a purchase, enquiry or booking.
+explanation: Always define the numerator and denominator. Landing page conversion rate (leads ÷ visitors) is different
+  from lead-to-customer rate (customers ÷ leads). Both matter.
+formula: Conversion rate = Conversions ÷ Visitors × 100
+services:
+- landing-pages
+- analytics
+tools:
+- cpl-calculator
+related:
+- cro
+- ab-testing
+updated: '2026-09-25'

@@ -1,0 +1,11 @@
+term: Impression Share
+definition: Impression share is the percentage of eligible ad impressions your ads actually received.
+explanation: In Google Ads, lost impression share is split into budget and rank, showing whether you are losing
+  visibility to limited budget or to ad quality and bids.
+formula: Impression share = Impressions ÷ Eligible impressions
+services:
+- google-ads
+tools: []
+related:
+- quality-score
+updated: '2026-09-25'

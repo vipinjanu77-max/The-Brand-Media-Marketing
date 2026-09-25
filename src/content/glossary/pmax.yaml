@@ -1,0 +1,12 @@
+term: Performance Max
+abbreviation: PMax
+definition: Performance Max (PMax) is a Google Ads campaign type that uses automation to serve ads across Search,
+  Shopping, YouTube, Display, Discover, Gmail and Maps from one campaign.
+explanation: PMax depends heavily on conversion signal quality and asset quality. Without safeguards it can shift
+  budget to branded or remarketing traffic that would have converted anyway.
+services:
+- google-ads
+tools: []
+related:
+- roas
+updated: '2026-09-25'

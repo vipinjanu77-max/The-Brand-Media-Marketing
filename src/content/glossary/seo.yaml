@@ -1,0 +1,14 @@
+term: SEO (Search Engine Optimisation)
+abbreviation: SEO
+definition: Search engine optimisation (SEO) is improving a website so search engines can crawl, understand and
+  trust it, earning more visibility in organic search results.
+explanation: SEO spans technical foundations, content quality, internal linking and authority. It compounds over
+  time but takes months.
+services:
+- seo
+tools:
+- seo-health-checker
+related:
+- aeo
+- core-web-vitals
+updated: '2026-09-25'

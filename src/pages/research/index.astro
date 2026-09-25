@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import KindBadge from '../../components/ui/KindBadge.astro';
+import SectionHead from '../../components/ui/SectionHead.astro';
+const research = (await getCollection('research', (e) => !e.data.draft)).sort((a, b) => +b.data.updated - +a.data.updated);
+const categories = [
+  'Digital Marketing Statistics', 'India Marketing Statistics', 'Global Marketing Statistics', 'Consumer Behaviour', 'Search Trends',
+  'SEO Research', 'AI Search Research', 'Social Media Research', 'Paid Advertising Research', 'E-commerce Research',
+  'Real Estate Marketing Research', 'B2B Marketing Research', 'D2C Research', 'Education Marketing Research', 'Healthcare Marketing Research',
+];
+const count = (c: string) => research.filter((r) => r.data.category === c).length;
+const crumbs = [{ name: 'Research', href: '/research/' }];
+---
+<Base title="TBM Marketing Intelligence — Research Hub" description="Sourced, dated and clearly labelled marketing research: India and global statistics, AI search, advertising, SEO, social, e-commerce and industry research." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="TBM Marketing Intelligence" title="Research you can cite — and check." lede="Every research page states its question, method, sources, geography, sample and limitations, and separates reported facts, third-party estimates, forecasts and TBM analysis." wide>
+    <a class="btn" href="/statistics/">Browse the statistics database</a>
+    <a class="btn btn--ghost" href="/legal/research-methodology/">Our methodology</a>
+  </PageHero>
+  <section class="section">
+    <div class="container">
+      <SectionHead title="Latest research" />
+      <div class="grid grid-3">
+        {research.map((r) => (
+          <article class="card">
+            <div class="tags"><KindBadge kind={r.data.label} /><span class="tag tag--neutral">{r.data.geography}</span></div>
+            <h3><a class="card-link" href={`/research/${r.id}/`}>{r.data.title}</a></h3>
+            <p>{r.data.description}</p>
+            <p class="meta">{r.data.category} · Updated {r.data.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHead eyebrow="Research categories" title="A platform that grows every month." lede="Categories without published research yet are marked as in production. We publish only when the evidence is ready." />
+      <ul class="cats" role="list">
+        {categories.map((c) => <li><span>{c}</span>{count(c) > 0 ? <span class="tag">{count(c)} published</span> : <span class="tag tag--neutral">In production</span>}</li>)}
+      </ul>
+      <div class="grid grid-3 mt-3">
+        <a class="card" href="/research/market-data/"><h3>TBM Market Data</h3><p>Our own anonymised benchmark programme — methodology, sample and confidence published.</p></a>
+        <a class="card" href="/research/dashboards/"><h3>Market dashboards</h3><p>Charts of India’s digital market with source, year, geography and method on every chart.</p></a>
+        <a class="card" href="/statistics/"><h3>Statistics database</h3><p>Every number with its source, year, geography and context.</p></a>
+      </div>
+    </div>
+  </section>
+  <CTABand stage="tofu" />
+</Base>
+<style>
+  .cats { list-style: none; padding: 0; display: grid; gap: 0.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+  .cats li { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.85rem 1rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); font-weight: 560; }
+</style>

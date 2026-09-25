@@ -1,0 +1,58 @@
+title: Video Marketing
+navLabel: Video Marketing
+group: creative
+order: 32
+summary: Video strategy and production for YouTube, Reels, ads, product demos and thought leadership.
+definition: >-
+  Video marketing is the use of video to attract, educate and convert audiences — from short-form social
+  content and performance ads to explainers, testimonials and long-form YouTube.
+whoNeedsIt:
+  - Brands with products that are easier to show than describe
+  - B2B companies explaining complex solutions
+  - Advertisers on Meta, YouTube and short-form platforms
+whyItMatters: >-
+  Video carries demonstration, emotion and trust in a way static formats cannot. It is also the default
+  format on the platforms where audiences spend their time.
+whatWeDo:
+  - title: Video strategy
+    body: Role of video at each funnel stage and platform.
+  - title: Scripting
+    body: Hooks, story and calls to action written for retention.
+  - title: Production
+    body: Studio, on-location, UGC-style and animated.
+  - title: Distribution
+    body: YouTube SEO, paid promotion and repurposing.
+process:
+  - step: Plan
+    detail: Objectives, formats and distribution.
+  - step: Script
+    detail: Concepts and scripts.
+  - step: Produce
+    detail: Shoot and edit.
+  - step: Distribute and measure
+    detail: Publishing, promotion and analysis.
+deliverables:
+  - Video strategy
+  - Scripts and storyboards
+  - Edited videos in platform formats
+  - Performance reporting
+kpis:
+  - name: View-through and retention
+    why: Whether people watch.
+  - name: Actions after viewing
+    why: Whether video drives outcomes.
+timeline:
+  - period: Weeks 1–2
+    detail: Strategy and scripts.
+  - period: Weeks 3–6
+    detail: Production and first release.
+mistakes:
+  - Slow openings that lose viewers in the first seconds
+  - One video format for every platform
+  - No distribution budget
+faqs:
+  - q: Do we need expensive production?
+    a: Not always. For many performance uses, authentic, well-scripted content outperforms polished production. We match production value to the job.
+services: [creative, social-media, performance-marketing]
+industries: [d2c, education, real-estate, saas]
+updated: 2026-09-25

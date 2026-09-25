@@ -1,0 +1,27 @@
+---
+interface Props { light?: boolean }
+const { light = false } = Astro.props;
+---
+<a href="/" class:list={['logo', { 'logo--light': light }]} aria-label="The Brand Media Marketing — home">
+  <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true">
+    <rect width="64" height="64" rx="14" fill={light ? '#fff' : '#0a1a3f'} />
+    <path d="M14 20h22v6h-8v20h-6V26h-8z" fill={light ? '#0a1a3f' : '#fff'} />
+    <rect x="38" y="34" width="5" height="12" rx="1" fill="#3566e8" />
+    <rect x="45" y="27" width="5" height="19" rx="1" fill="#6f95f5" />
+    <rect x="52" y="20" width="5" height="26" rx="1" fill={light ? '#0a1a3f' : '#fff'} />
+  </svg>
+  <span class="logo-text">
+    <span class="logo-name">The Brand Media Marketing</span>
+    <span class="logo-sub">Growth systems</span>
+  </span>
+</a>
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--navy-900); }
+  .logo svg { flex: none; }
+  .logo-text { display: grid; line-height: 1.1; }
+  .logo-name { font-family: var(--font-serif); font-weight: 620; font-size: 1.02rem; letter-spacing: -0.01em; }
+  .logo-sub { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+  .logo--light { color: #fff; }
+  .logo--light .logo-sub { color: #9aa7c7; }
+  @media (max-width: 380px) { .logo-sub { display: none; } }
+</style>

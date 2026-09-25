@@ -1,0 +1,96 @@
+title: Google Ads Management
+navLabel: Google Ads
+group: performance
+order: 2
+summary: Search, Performance Max, Demand Gen, Shopping and YouTube campaigns built around buyer intent and profitable conversion.
+definition: >-
+  Google Ads is Google's advertising platform. It lets you show ads when people search on Google, watch
+  YouTube, browse partner websites and apps, or use Gmail and Maps. Its core strength is intent: search ads
+  reach people at the moment they are actively looking for what you sell.
+whoNeedsIt:
+  - Businesses whose customers search for their category, service or problem
+  - High-consideration sectors — real estate, education, healthcare, B2B services — where intent matters more than reach
+  - E-commerce brands that need Shopping and Performance Max to work profitably
+  - Companies whose Google Ads spend is rising faster than their results
+whyItMatters: >-
+  Search demand is the closest thing to a warm lead that paid media offers. But Google Ads increasingly
+  automates bidding, targeting and placements. Automation amplifies whatever signal you give it — good
+  conversion data produces good results; weak or wrong signals get expensive, fast.
+whatWeDo:
+  - title: Intent mapping
+    body: Keyword and search-term research mapped to funnel stage and commercial value, with aggressive negative keyword management.
+  - title: Conversion signal engineering
+    body: Enhanced conversions, offline conversion imports and value-based bidding so Google optimises for qualified leads and revenue.
+  - title: Account architecture
+    body: Campaign structures that balance automation with control — separating brand, non-brand, competitor and PMax traffic.
+  - title: Landing page alignment
+    body: Message match between query, ad and page, with CRO testing on the pages that carry most spend.
+  - title: Search term and placement hygiene
+    body: Weekly reviews of what you actually paid for, not just what you targeted.
+subServices:
+  - name: Search campaigns
+    description: High-intent keyword campaigns with tight query control.
+  - name: Performance Max
+    description: Asset groups, audience signals and feed optimisation with brand-exclusion safeguards.
+  - name: Shopping
+    description: Merchant Center feed management and product-level bidding.
+  - name: YouTube & Demand Gen
+    description: Video and visual campaigns to create and capture demand.
+  - name: Local campaigns
+    description: Location-led campaigns for multi-branch and service-area businesses.
+process:
+  - step: Account audit
+    detail: Structure, search terms, wasted spend, conversion setup, Quality Score patterns and auction insights.
+  - step: Tracking fix
+    detail: GA4, GTM, enhanced conversions, offline conversion import from your CRM.
+  - step: Rebuild or restructure
+    detail: Campaigns rebuilt around intent tiers and business value.
+  - step: Test
+    detail: Bid strategies, ad copy, landing pages and audiences tested with clear success criteria.
+  - step: Scale
+    detail: Budget moved to proven intent pockets; new keyword and campaign types added carefully.
+deliverables:
+  - Google Ads audit with wasted-spend analysis
+  - Keyword and intent map
+  - Conversion tracking and offline import setup
+  - Campaign build and ad copy
+  - Search term and negative keyword reviews
+  - Monthly performance and pipeline report
+kpis:
+  - name: Cost per qualified lead / CPA
+    why: The price of an outcome that matters to sales.
+  - name: Conversion value / ROAS
+    why: For e-commerce and value-based bidding.
+  - name: Search impression share
+    why: How much available demand you are capturing — and how much you are losing to budget or rank.
+  - name: Search term relevance
+    why: Share of spend going to queries that match your offer.
+timeline:
+  - period: Week 1
+    detail: Audit and tracking review.
+  - period: Weeks 2–3
+    detail: Restructure, build and launch.
+  - period: Weeks 4–10
+    detail: Learning phase and structured optimisation.
+  - period: Month 3+
+    detail: Scale and expand campaign types.
+mistakes:
+  - Using broad match with smart bidding before conversion data is trustworthy
+  - Letting Performance Max cannibalise branded search and report it as new revenue
+  - Never reviewing the search terms report
+  - Sending all ads to the homepage
+  - Counting page views or clicks on phone numbers as conversions
+faqs:
+  - q: How much should I spend on Google Ads?
+    a: Start from economics, not a round number. Estimate your likely cost per click, landing-page conversion rate and lead-to-customer rate; then work out the spend needed to produce enough conversions for the algorithm to learn and for you to judge results. Our CPL and ROI calculators do this with your own inputs.
+  - q: Is Google Ads better than Meta Ads?
+    a: They do different jobs. Google Ads captures existing demand; Meta Ads is usually stronger at creating demand. Most businesses benefit from a deliberate mix — see our Google Ads vs Meta Ads comparison.
+  - q: What is a good Quality Score?
+    a: Quality Score is a diagnostic from 1–10, not a KPI. Higher scores usually mean better ad relevance and landing page experience, which can lower costs. We use it to find problems, not as a target.
+services: [performance-marketing, landing-pages, analytics, seo]
+industries: [real-estate, education, healthcare, b2b, ecommerce, local-businesses]
+tools: [cpl-calculator, roas-calculator, media-planner]
+glossary: [cpc, ctr, quality-score, pmax, impression-share, conversion-rate]
+articles: [how-much-should-you-spend-on-google-ads, what-is-a-good-cpl]
+compare: [google-ads-vs-meta-ads, seo-vs-ppc, google-ads-vs-linkedin-ads]
+updated: 2026-09-25

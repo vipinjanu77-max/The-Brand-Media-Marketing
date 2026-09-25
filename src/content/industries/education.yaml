@@ -1,0 +1,59 @@
+title: Education Marketing
+order: 6
+featured: true
+summary: Admissions marketing for schools, universities, coaching and edtech — from enquiry to enrolment.
+overview: >-
+  Education marketing is seasonal, trust-driven and involves both students and parents. Admissions cycles
+  compress demand into short windows, and the path from enquiry to enrolment includes counselling, campus
+  visits, applications and fees.
+journey:
+  - stage: Exploration
+    detail: Courses, careers, rankings, fees and outcomes.
+  - stage: Shortlist
+    detail: Comparing institutions, reviews, alumni outcomes.
+  - stage: Enquiry
+    detail: Forms, calls, WhatsApp, events.
+  - stage: Counselling and visit
+    detail: Counsellor calls, campus visits, webinars.
+  - stage: Application and enrolment
+    detail: Applications, admissions, fee payment.
+funnel:
+  - stage: Enquiries
+    metric: Cost per enquiry
+  - stage: Counselled leads
+    metric: Contact rate
+  - stage: Applications
+    metric: Cost per application
+  - stage: Enrolments
+    metric: Cost per enrolment
+challenges:
+  - Seasonal demand spikes and rising competition during admissions windows
+  - Leads that counsellors cannot reach
+  - Claims about placements or outcomes that must be substantiated
+channels:
+  - channel: Google Search
+    role: Course and institution searches.
+  - channel: Meta and YouTube
+    role: Awareness and student storytelling.
+  - channel: WhatsApp
+    role: Fast counselling follow-up.
+  - channel: SEO
+    role: Course pages and career content.
+kpis:
+  - Cost per application
+  - Cost per enrolment
+  - Enquiry-to-counselled rate
+strategy:
+  - title: Plan around the admissions calendar
+    body: Build audiences and content before peak season; scale during windows.
+  - title: Optimise for applications
+    body: Feed application and enrolment data back to platforms.
+  - title: Substantiate outcome claims
+    body: Placement and ranking claims must be verifiable.
+faqs:
+  - q: When should admissions campaigns start?
+    a: Awareness and remarketing audiences should be built months before the application window, so peak-season spend works harder.
+services: [google-ads, meta-ads, whatsapp-marketing, crm-automation, seo]
+tools: [cpl-calculator]
+glossary: [cpl, lead-scoring]
+updated: 2026-09-25

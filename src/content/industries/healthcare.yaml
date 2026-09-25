@@ -1,0 +1,53 @@
+title: Healthcare Marketing
+order: 7
+featured: true
+summary: Patient acquisition for hospitals, clinics and health brands — compliant, trust-first and focused on booked appointments.
+overview: >-
+  Healthcare marketing has to earn trust, respect patient privacy and comply with advertising rules and
+  platform health policies. Patients search locally and urgently for some needs and research extensively for
+  others.
+journey:
+  - stage: Symptom or need
+    detail: Search for symptoms, treatments, specialists.
+  - stage: Provider research
+    detail: Doctor profiles, reviews, location, insurance.
+  - stage: Appointment
+    detail: Call, WhatsApp or online booking.
+  - stage: Visit and follow-up
+    detail: Care experience and reviews.
+funnel:
+  - stage: Searches and reach
+    metric: Impression share
+  - stage: Enquiries
+    metric: Cost per enquiry
+  - stage: Appointments
+    metric: Cost per booked appointment
+  - stage: Patients
+    metric: Show rate
+challenges:
+  - Advertising restrictions and platform health policies
+  - Patient privacy in tracking and remarketing
+  - Reputation and reviews shaping choice
+channels:
+  - channel: Google Search and Maps
+    role: Local and specialty intent.
+  - channel: SEO and content
+    role: Condition and treatment information reviewed by clinicians.
+  - channel: Reputation management
+    role: Reviews and profile accuracy.
+kpis:
+  - Cost per booked appointment
+  - Show rate
+  - Review rating and volume
+strategy:
+  - title: Clinician-reviewed content
+    body: Medical content reviewed by qualified professionals.
+  - title: Privacy-safe measurement
+    body: Tracking designed to avoid sensitive health data.
+faqs:
+  - q: Can healthcare providers use remarketing?
+    a: Platform policies restrict personalised advertising based on health conditions. We design campaigns and audiences to comply with those policies and applicable law.
+services: [google-ads, seo, reputation-management, aeo]
+tools: [cpl-calculator]
+glossary: [e-e-a-t]
+updated: 2026-09-25

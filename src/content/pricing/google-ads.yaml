@@ -1,0 +1,40 @@
+title: Google Ads
+order: 2
+service: google-ads
+intro: Management fee is separate from media spend. You pay Google directly from an account you own.
+tiers:
+- name: Setup
+  priceFrom: null
+  priceTo: null
+  unit: one-time
+  bestFor: New accounts or full rebuilds
+  includes:
+  - Account audit
+  - Conversion tracking
+  - Campaign architecture
+  - Ad copy and extensions
+  excludes: &id001 []
+- name: Management fee
+  priceFrom: null
+  priceTo: null
+  unit: per month or % of spend
+  bestFor: Ongoing optimisation
+  includes:
+  - Bid and budget management
+  - Search term reviews
+  - Ad and landing page testing
+  - Monthly report and review call
+  excludes:
+  - Media spend
+  - Landing page development
+- name: Minimum recommended media budget
+  priceFrom: null
+  priceTo: null
+  unit: per month
+  bestFor: Enough data for the algorithm to learn
+  includes:
+  - Set per market and objective during scoping
+  excludes: *id001
+notes:
+- Final pricing depends on scope, market, competition, complexity and required resources.
+- Media spend, production and third-party tools are billed separately and transparently.

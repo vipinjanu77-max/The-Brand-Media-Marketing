@@ -1,0 +1,14 @@
+term: MQL (Marketing Qualified Lead)
+abbreviation: MQL
+definition: A marketing qualified lead (MQL) is a lead that meets agreed fit and engagement criteria indicating
+  it is worth passing to sales.
+explanation: MQL definitions only work when written down and agreed with sales. Otherwise 'lead quality' becomes
+  an argument instead of a metric.
+services:
+- crm-automation
+tools:
+- cpl-calculator
+related:
+- sql
+- lead-scoring
+updated: '2026-09-25'

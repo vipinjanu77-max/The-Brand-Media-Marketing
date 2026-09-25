@@ -1,0 +1,41 @@
+title: Retail Marketing
+order: 11
+summary: Omnichannel marketing that drives store footfall and online sales for multi-location retailers.
+overview: >-
+  Retailers need to connect online discovery with offline purchase. Local search, store pages, offers and
+  measurement of store visits all matter.
+journey:
+  - stage: Discovery
+    detail: Search, maps, social.
+  - stage: Evaluation
+    detail: Stock, price, store hours.
+  - stage: Visit or order
+    detail: Store visit, click-and-collect or delivery.
+funnel:
+  - stage: Local searches
+    metric: Profile views
+  - stage: Actions
+    metric: Directions, calls
+  - stage: Sales
+    metric: Store and online revenue
+challenges:
+  - Measuring offline impact
+  - Inconsistent store listings
+channels:
+  - channel: Local SEO
+    role: Store pages and Google Business Profiles.
+  - channel: Google and Meta local campaigns
+    role: Footfall and offers.
+kpis:
+  - Store visits (modelled)
+  - Local actions
+  - Revenue by store
+strategy:
+  - title: Fix local foundations
+    body: Accurate listings and store pages for every location.
+faqs:
+  - q: Can digital marketing drive store footfall?
+    a: Yes, and it can be estimated through local actions, store visit modelling and offer redemption — each with limitations we explain.
+services: [seo, google-ads, meta-ads, reputation-management]
+glossary: [seo]
+updated: 2026-09-25

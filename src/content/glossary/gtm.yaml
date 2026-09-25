@@ -1,0 +1,12 @@
+term: GTM (Google Tag Manager)
+abbreviation: GTM
+definition: Google Tag Manager (GTM) is a tag management system that lets you deploy and manage tracking tags without
+  editing site code for every change.
+explanation: GTM centralises analytics and advertising tags, triggers and a data layer. Poorly governed containers
+  cause duplicate or missing conversions.
+services:
+- analytics
+tools: []
+related:
+- ga4
+updated: '2026-09-25'

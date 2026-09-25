@@ -1,0 +1,308 @@
+- id: india-internet-users-2025
+  statement: Individuals using the internet in India at the end of 2025
+  value: '1.03'
+  unit: billion
+  category: internet-mobile
+  kind: third-party-estimate
+  referencePeriod: End of 2025
+  context: Internet adoption figures are modelled estimates that combine multiple sources; DataReportal notes figures
+    may not be directly comparable with earlier editions because of source revisions.
+  tags:
+  - india-internet
+  source: DataReportal (Kepios, with We Are Social & Meltwater)
+  publication: 'Digital 2026: India'
+  sourceUrl: https://datareportal.com/reports/digital-2026-india
+  year: 2026
+  geography: India
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-internet-penetration-2025
+  statement: Internet penetration in India (share of total population online)
+  value: '70.0'
+  unit: '%'
+  category: internet-mobile
+  kind: third-party-estimate
+  referencePeriod: End of 2025
+  context: Means roughly three in ten people in India were still offline at the end of 2025 — relevant for any business
+    whose customers include rural or older populations.
+  tags:
+  - india-internet
+  source: DataReportal (Kepios, with We Are Social & Meltwater)
+  publication: 'Digital 2026: India'
+  sourceUrl: https://datareportal.com/reports/digital-2026-india
+  year: 2026
+  geography: India
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-cellular-connections-2025
+  statement: Active cellular mobile connections in India
+  value: '1.06'
+  unit: billion
+  category: internet-mobile
+  kind: third-party-estimate
+  referencePeriod: Late 2025
+  context: Equivalent to 72.5% of the population. Connections are not people — one person may hold several SIMs,
+    and some connections are for devices.
+  tags:
+  - india-internet
+  source: DataReportal (Kepios, with We Are Social & Meltwater)
+  publication: 'Digital 2026: India'
+  sourceUrl: https://datareportal.com/reports/digital-2026-india
+  year: 2026
+  geography: India
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-social-identities-2025
+  statement: Social media user identities in India
+  value: '500'
+  unit: million
+  category: social-media
+  kind: third-party-estimate
+  referencePeriod: October 2025
+  context: Equal to 34.1% of the total population. User identities may not represent unique individuals — one person
+    can hold multiple accounts.
+  tags:
+  - india-social
+  source: DataReportal (Kepios, with We Are Social & Meltwater)
+  publication: 'Digital 2026: India'
+  sourceUrl: https://datareportal.com/reports/digital-2026-india
+  year: 2026
+  geography: India
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-social-share-of-internet-2025
+  statement: Share of India's internet users using at least one social media platform
+  value: '48.7'
+  unit: '%'
+  category: social-media
+  kind: third-party-estimate
+  referencePeriod: October 2025
+  context: Suggests a large share of India's internet users are not reachable through social platforms alone — search,
+    video and messaging also matter.
+  tags:
+  - india-social
+  source: DataReportal (Kepios, with We Are Social & Meltwater)
+  publication: 'Digital 2026: India'
+  sourceUrl: https://datareportal.com/reports/digital-2026-india
+  year: 2026
+  geography: India
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-social-female-share-2025
+  statement: Share of India's social media user identities that are female
+  value: '35.6'
+  unit: '%'
+  category: social-media
+  kind: third-party-estimate
+  referencePeriod: October 2025
+  context: Male users account for 64.4%. Targeting assumptions based on global gender splits may not hold in India.
+  tags:
+  - india-social
+  source: DataReportal (Kepios, with We Are Social & Meltwater)
+  publication: 'Digital 2026: India'
+  sourceUrl: https://datareportal.com/reports/digital-2026-india
+  year: 2026
+  geography: India
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-digital-adspend-2025
+  statement: Digital advertising expenditure in India
+  value: ₹71,621
+  unit: crore
+  category: advertising
+  kind: third-party-estimate
+  referencePeriod: Calendar year 2025
+  context: Digital accounted for 59% of total Indian advertising spend in 2025 according to the report.
+  tags:
+  - india-ad-spend
+  source: dentsu India & exchange4media
+  publication: dentsu-e4m Digital Advertising Report 2026
+  sourceUrl: https://www.dentsu.com/in/en/reports/dentsu_e4m_digital_advertising_2026
+  year: 2026
+  geography: India
+  methodology: Industry estimates compiled by dentsu India from market and publisher inputs; see report for methodology.
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-digital-share-2025
+  statement: Digital media's share of total advertising spend in India
+  value: '59'
+  unit: '%'
+  category: advertising
+  kind: third-party-estimate
+  referencePeriod: '2025'
+  context: Up from 12% in 2016 according to the same report series — a structural shift in how Indian advertisers
+    allocate budgets.
+  tags:
+  - india-ad-spend
+  source: dentsu India & exchange4media
+  publication: dentsu-e4m Digital Advertising Report 2026
+  sourceUrl: https://www.dentsu.com/in/en/reports/dentsu_e4m_digital_advertising_2026
+  year: 2026
+  geography: India
+  methodology: Industry estimates compiled by dentsu India from market and publisher inputs; see report for methodology.
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-digital-share-2016
+  statement: Digital media's share of total advertising spend in India in 2016
+  value: '12'
+  unit: '%'
+  category: advertising
+  kind: third-party-estimate
+  referencePeriod: '2016'
+  context: Baseline for the shift to 59% by 2025.
+  tags:
+  - india-ad-spend
+  source: dentsu India & exchange4media
+  publication: dentsu-e4m Digital Advertising Report 2026
+  sourceUrl: https://www.dentsu.com/in/en/reports/dentsu_e4m_digital_advertising_2026
+  year: 2026
+  geography: India
+  methodology: Industry estimates compiled by dentsu India from market and publisher inputs; see report for methodology.
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-digital-adspend-growth-2025
+  statement: Growth in India's digital advertising spend in 2025
+  value: '19'
+  unit: '%'
+  category: advertising
+  kind: third-party-estimate
+  referencePeriod: 2025 vs 2024
+  context: Growth in total spend also reflects rising media costs — more spend does not necessarily mean more reach.
+  tags:
+  - india-ad-spend
+  source: dentsu India & exchange4media
+  publication: dentsu-e4m Digital Advertising Report 2026
+  sourceUrl: https://www.dentsu.com/in/en/reports/dentsu_e4m_digital_advertising_2026
+  year: 2026
+  geography: India
+  methodology: Industry estimates compiled by dentsu India from market and publisher inputs; see report for methodology.
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-digital-adspend-2027f
+  statement: Projected digital advertising spend in India by 2027
+  value: ₹98,034
+  unit: crore
+  category: advertising
+  kind: forecast
+  referencePeriod: 2027 (forecast)
+  context: A forecast, not a current fact. The report projects digital reaching nearly 70% of total advertising
+    by 2027.
+  tags:
+  - india-ad-spend
+  source: dentsu India & exchange4media
+  publication: dentsu-e4m Digital Advertising Report 2026
+  sourceUrl: https://www.dentsu.com/in/en/reports/dentsu_e4m_digital_advertising_2026
+  year: 2026
+  geography: India
+  methodology: Industry estimates compiled by dentsu India from market and publisher inputs; see report for methodology.
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-social-share-of-digital-2025
+  statement: Social media's share of digital advertising spend in India
+  value: '29'
+  unit: '%'
+  category: advertising
+  kind: third-party-estimate
+  referencePeriod: '2025'
+  context: Valued at ₹21,057 crore — the largest single digital segment in the report.
+  tags:
+  - india-ad-spend
+  source: dentsu India & exchange4media
+  publication: dentsu-e4m Digital Advertising Report 2026
+  sourceUrl: https://www.dentsu.com/in/en/reports/dentsu_e4m_digital_advertising_2026
+  year: 2026
+  geography: India
+  methodology: Industry estimates compiled by dentsu India from market and publisher inputs; see report for methodology.
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-video-share-of-digital-2025
+  statement: Online video's share of digital advertising spend in India
+  value: '28'
+  unit: '%'
+  category: video
+  kind: third-party-estimate
+  referencePeriod: '2025'
+  context: Valued at ₹20,004 crore.
+  tags:
+  - india-ad-spend
+  source: dentsu India & exchange4media
+  publication: dentsu-e4m Digital Advertising Report 2026
+  sourceUrl: https://www.dentsu.com/in/en/reports/dentsu_e4m_digital_advertising_2026
+  year: 2026
+  geography: India
+  methodology: Industry estimates compiled by dentsu India from market and publisher inputs; see report for methodology.
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-search-share-of-digital-2025
+  statement: Paid search's share of digital advertising spend in India
+  value: '23'
+  unit: '%'
+  category: advertising
+  kind: third-party-estimate
+  referencePeriod: '2025'
+  context: Valued at ₹16,581 crore.
+  tags:
+  - india-ad-spend
+  source: dentsu India & exchange4media
+  publication: dentsu-e4m Digital Advertising Report 2026
+  sourceUrl: https://www.dentsu.com/in/en/reports/dentsu_e4m_digital_advertising_2026
+  year: 2026
+  geography: India
+  methodology: Industry estimates compiled by dentsu India from market and publisher inputs; see report for methodology.
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-display-share-of-digital-2025
+  statement: Display advertising's share of digital advertising spend in India
+  value: '16'
+  unit: '%'
+  category: advertising
+  kind: third-party-estimate
+  referencePeriod: '2025'
+  context: Remaining share is attributed to other formats in the report.
+  tags:
+  - india-ad-spend
+  source: dentsu India & exchange4media
+  publication: dentsu-e4m Digital Advertising Report 2026
+  sourceUrl: https://www.dentsu.com/in/en/reports/dentsu_e4m_digital_advertising_2026
+  year: 2026
+  geography: India
+  methodology: Industry estimates compiled by dentsu India from market and publisher inputs; see report for methodology.
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: india-wireless-subscribers-jun-2026
+  statement: Total wireless (mobile + fixed wireless access) subscribers in India
+  value: 1,300.25
+  unit: million
+  category: internet-mobile
+  kind: fact
+  source: Telecom Regulatory Authority of India (TRAI)
+  publication: Telecom Subscription Data, June 2026
+  sourceUrl: https://www.trai.gov.in/release-publication/reports/telecom-subscriptions-reports
+  year: 2026
+  referencePeriod: As of 30 June 2026
+  geography: India
+  methodology: Regulatory data reported by telecom service providers to TRAI.
+  context: Up from 1,294.46 million at the end of May 2026. Subscriptions, not unique users.
+  tags:
+  - india-internet
+  accessedOn: '2026-09-25'
+  verification: pending-review
+- id: global-ai-overviews-users-2025
+  statement: Monthly users of Google's AI Overviews in Search
+  value: 2+
+  unit: billion
+  category: search-ai
+  kind: fact
+  source: Alphabet Inc.
+  publication: Q2 2025 earnings call remarks (CEO Sundar Pichai)
+  sourceUrl: https://blog.google/inside-google/message-ceo/alphabet-earnings-q2-2025/
+  year: 2025
+  referencePeriod: Q2 2025 (reported July 2025)
+  geography: Global (200+ countries and territories, 40 languages)
+  methodology: Company-reported figure.
+  context: Company-reported, not independently audited. Shows AI-generated answers are a mainstream search surface
+    — the reason TBM builds for AEO as well as SEO.
+  tags:
+  - ai-search
+  accessedOn: '2026-09-25'
+  verification: pending-review

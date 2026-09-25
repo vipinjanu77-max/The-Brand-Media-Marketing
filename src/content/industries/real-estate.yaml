@@ -1,0 +1,74 @@
+title: Real Estate Marketing
+order: 1
+featured: true
+summary: Lead generation and site-visit funnels for developers, channel partners and brokers — optimised for qualified site visits and bookings, not cheap enquiries.
+overview: >-
+  Real estate is a high-value, high-consideration purchase with long cycles, multiple decision-makers and
+  heavy dependence on trust. Marketing typically has to generate enquiries at scale during launches, filter
+  them hard, and hand qualified buyers to sales teams quickly enough to secure site visits.
+journey:
+  - stage: Trigger
+    detail: Life event, investment intent or upgrade need.
+  - stage: Research
+    detail: Location, builder reputation, price, RERA status, possession timelines, loan eligibility.
+  - stage: Shortlist
+    detail: Comparing projects, reading reviews, visiting portals and project websites.
+  - stage: Site visit
+    detail: The critical conversion — most bookings happen only after a visit.
+  - stage: Negotiation and booking
+    detail: Pricing, offers, payment plans and paperwork.
+funnel:
+  - stage: Ad impressions and search demand
+    metric: Reach, impression share
+  - stage: Enquiries
+    metric: CPL
+  - stage: Qualified leads
+    metric: Cost per qualified lead, qualification rate
+  - stage: Site visits
+    metric: Cost per site visit, lead-to-visit rate
+  - stage: Bookings
+    metric: Cost per booking, visit-to-booking rate
+challenges:
+  - High lead volume with low qualification — wrong budget, location or timeline
+  - Slow follow-up; leads go cold within hours
+  - Portal dependence and shared leads across competitors
+  - Launch-phase spikes followed by expensive sustenance phases
+  - Attribution breaks between online enquiry and offline booking
+channels:
+  - channel: Google Search
+    role: Captures active buyers searching by location, configuration and project name.
+  - channel: Meta Ads
+    role: Generates volume during launches; requires strong qualification.
+  - channel: WhatsApp
+    role: Instant response, brochures, site-visit scheduling.
+  - channel: Landing pages
+    role: Project-specific pages with pricing, floor plans and RERA details.
+  - channel: CRM
+    role: Routing, follow-up SLAs and offline conversion feedback to ad platforms.
+kpis:
+  - Cost per qualified lead
+  - Lead-to-site-visit rate
+  - Cost per site visit
+  - Visit-to-booking rate
+  - Cost per booking and marketing cost as % of sales value
+strategy:
+  - title: Optimise for site visits, not leads
+    body: Send qualified-lead and site-visit events from the CRM back to Google and Meta so bidding learns what a real buyer looks like.
+  - title: Qualify in the form and in the first message
+    body: Budget, configuration and timeline questions plus instant WhatsApp follow-up filter low-intent enquiries early.
+  - title: Plan launch and sustenance separately
+    body: Launch phases justify aggressive reach; sustenance phases need tighter intent targeting and retargeting.
+  - title: Build trust assets
+    body: RERA information, construction updates, walkthrough videos and genuine reviews reduce drop-off before the visit.
+faqs:
+  - q: What is a good CPL for real estate?
+    a: It varies widely by city, price point, project stage and channel. A lower CPL is not better if those leads don't visit. Track cost per site visit and cost per booking — our CPL calculator shows the maximum you can afford.
+  - q: Google Ads or Meta Ads for real estate?
+    a: Google captures people already searching; Meta creates volume, especially at launch. Most projects use both, with CRM feedback deciding the budget split.
+statTags: [india-internet, india-ad-spend]
+services: [google-ads, meta-ads, whatsapp-marketing, crm-automation, landing-pages]
+tools: [cpl-calculator, marketing-roi-calculator, media-planner]
+glossary: [cpl, lead-scoring, mql]
+articles: [what-is-a-good-cpl]
+compare: [google-ads-vs-meta-ads]
+updated: 2026-09-25

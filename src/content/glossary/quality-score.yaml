@@ -1,0 +1,12 @@
+term: Quality Score
+definition: Quality Score is Google Ads' 1–10 diagnostic estimate of ad quality compared with other advertisers,
+  based on expected CTR, ad relevance and landing page experience.
+explanation: It is a diagnostic, not a KPI and not a direct auction input. Use it to find relevance and landing
+  page problems.
+services:
+- google-ads
+tools: []
+related:
+- cpc
+- ctr
+updated: '2026-09-25'

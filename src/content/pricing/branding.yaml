@@ -1,0 +1,39 @@
+title: Branding
+order: 6
+service: branding
+intro: Scoped by research depth and the number of brand applications required.
+tiers:
+- name: Starter
+  priceFrom: null
+  priceTo: null
+  unit: per project
+  bestFor: New businesses
+  includes:
+  - Positioning workshop
+  - Logo and core identity
+  - Basic guidelines
+  excludes: &id001 []
+- name: Growth
+  priceFrom: null
+  priceTo: null
+  unit: per project
+  bestFor: Growing brands
+  includes:
+  - Customer research
+  - Messaging framework
+  - Full identity system
+  excludes: *id001
+- name: Complete identity
+  priceFrom: null
+  priceTo: null
+  unit: per project
+  bestFor: Rebrands and multi-brand organisations
+  includes:
+  - Research programme
+  - Naming (if required)
+  - Comprehensive guidelines
+  - Rollout templates
+  excludes: *id001
+notes:
+- Final pricing depends on scope, market, competition, complexity and required resources.
+- Media spend, production and third-party tools are billed separately and transparently.

@@ -1,0 +1,17 @@
+term: AEO (Answer Engine Optimisation)
+abbreviation: AEO
+definition: Answer Engine Optimisation (AEO) is structuring content, entity information and evidence so AI answer
+  engines can understand a business, extract accurate answers and cite it as a source.
+explanation: AEO extends SEO. It emphasises direct answers, clear definitions, consistent entity information across
+  the web, structured data and citable original evidence. It cannot guarantee inclusion in AI answers; it improves
+  the conditions that make accurate citation more likely.
+services:
+- aeo
+- seo
+tools:
+- seo-health-checker
+related:
+- seo
+- entity
+- schema-markup
+updated: '2026-09-25'
