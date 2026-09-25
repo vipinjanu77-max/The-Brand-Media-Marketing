@@ -2,6 +2,8 @@
 import '@fontsource-variable/inter';
 import '@fontsource-variable/source-serif-4';
 import '../styles/global.css';
+import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import serifLatin from '@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2?url';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import MobileCTA from '../components/layout/MobileCTA.astro';
@@ -53,6 +55,8 @@ const gsc = site.analytics.searchConsoleVerification;
     {meta.noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
     <link rel="alternate" hreflang="en-IN" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={serifLatin} as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title={`${site.name} — Insights`} href="/rss.xml" />
@@ -87,7 +91,7 @@ const gsc = site.analytics.searchConsoleVerification;
       <slot />
     </main>
     <Footer />
-    <MobileCTA />
+    {!/^\/(contact|thank-you)\//.test(Astro.url.pathname) && <MobileCTA />}
     <CookieConsent />
     {exitIntent && <ExitIntent />}
     <script>

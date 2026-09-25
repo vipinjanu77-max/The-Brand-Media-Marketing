@@ -27,7 +27,8 @@
   };
   let stored = null;
   try { stored = localStorage.getItem('tbm-consent'); } catch {}
-  if (!stored) el.hidden = false;
+  // Show after web fonts settle (avoids layout shift) and after first paint of the page content.
+  if (!stored) (document.fonts?.ready ?? Promise.resolve()).then(() => setTimeout(() => (el.hidden = false), 600));
   el.addEventListener('click', (e) => {
     const action = (e.target as HTMLElement).closest<HTMLElement>('[data-consent-action]')?.dataset.consentAction;
     if (action === 'accept') save({ analytics: true, marketing: true });

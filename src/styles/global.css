@@ -129,7 +129,7 @@ table { border-collapse: collapse; width: 100%; }
   color: var(--royal-600);
 }
 .eyebrow::before { content: ''; width: 18px; height: 2px; background: currentColor; }
-.section--navy .eyebrow { color: #8fb0ff; }
+.section--navy .eyebrow, .card--navy .eyebrow { color: #8fb0ff; }
 .section-head { max-width: 780px; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
 .section-head > * + * { margin-top: 1rem; }
 .section-head--center { margin-inline: auto; text-align: center; }
@@ -144,7 +144,7 @@ table { border-collapse: collapse; width: 100%; }
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
   min-height: 48px; padding: 0.75rem 1.35rem; border-radius: 999px;
   background: var(--bg); color: var(--fg); border: 1.5px solid var(--bd);
-  font-weight: 600; font-size: 0.97rem; text-decoration: none; line-height: 1.2;
+  font-weight: 600; font-size: 0.97rem; text-decoration: none; line-height: 1.2; text-align: center;
   transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
 }
 .btn:hover { --bg: var(--royal-700); --bd: var(--royal-700); color: var(--fg); }
@@ -321,7 +321,7 @@ a.card:hover, .card:has(a.card-link:hover) { border-color: var(--royal-500); box
 .notice--demo strong { color: #6d4b00; }
 
 /* ---------- Document layout (service / industry / guide pages) ---------- */
-.doc-layout { display: grid; gap: 3rem; padding-block: clamp(3rem, 6vw, 5rem); }
+.doc-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 3rem; padding-block: clamp(3rem, 6vw, 5rem); }
 .doc-toc { display: none; }
 @media (min-width: 1000px) {
   .doc-layout { grid-template-columns: 220px minmax(0, 1fr); }
@@ -331,7 +331,7 @@ a.card:hover, .card:has(a.card-link:hover) { border-color: var(--royal-500); box
 .doc-toc ol { list-style: none; padding: 0; display: grid; gap: 0.1rem; border-left: 1px solid var(--line); }
 .doc-toc a { display: block; padding: 0.3rem 0 0.3rem 1rem; margin-left: -1px; border-left: 2px solid transparent; font-size: 0.88rem; color: var(--ink-2); text-decoration: none; }
 .doc-toc a:hover { color: var(--royal-600); border-left-color: var(--royal-600); }
-.doc-body { display: grid; gap: clamp(3rem, 5vw, 4.5rem); max-width: 860px; min-width: 0; }
+.doc-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(3rem, 5vw, 4.5rem); max-width: 860px; min-width: 0; }
 .doc-body > section > h2 { font-size: var(--step-3); margin-bottom: 1.25rem; }
 .tl { list-style: none; padding: 0; display: grid; border-left: 2px solid var(--royal-100); }
 .tl li { position: relative; padding: 0 0 1.25rem 1.5rem; }

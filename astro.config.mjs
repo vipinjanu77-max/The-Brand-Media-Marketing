@@ -7,6 +7,17 @@ import mdx from '@astrojs/mdx';
 // SITE_URL must be set in production so canonicals, sitemap and schema use the live domain.
 const site = process.env.SITE_URL || 'https://www.thebrandmediamarketing.com';
 
+// Hosts the server trusts in Host / X-Forwarded-Host headers. Without this, Astro treats every
+// request as http://localhost and the origin check rejects same-origin form posts (403).
+// ALLOWED_HOSTS lets you add e.g. a staging domain or localhost:4321 for local testing.
+const allowedDomains = [site, ...(process.env.ALLOWED_HOSTS ?? '').split(',')]
+  .map((h) => h.trim())
+  .filter(Boolean)
+  .map((h) => {
+    const u = new URL(h.includes('://') ? h : `https://${h}`);
+    return { hostname: u.hostname, protocol: u.protocol.replace(':', ''), ...(u.port ? { port: u.port } : {}) };
+  });
+
 export default defineConfig({
   site,
   trailingSlash: 'always',
@@ -22,9 +33,10 @@ export default defineConfig({
     }),
   ],
   prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
-  build: { inlineStylesheets: 'auto' },
+  // Inline CSS (≈30 KB) to remove the render-blocking stylesheet request on first visit.
+  build: { inlineStylesheets: 'always' },
   image: { responsiveStyles: true },
-  security: { checkOrigin: true },
+  security: { checkOrigin: true, allowedDomains },
   redirects: {
     // 301s — keep legacy / alias URLs pointing to canonical pages.
     '/contact-us': '/contact/',
@@ -32,5 +44,7 @@ export default defineConfig({
     '/services/search-engine-optimization': '/services/seo/',
     '/tools/roi-calculator': '/tools/marketing-roi-calculator/',
     '/pricing/rate-card': '/pricing/',
+    '/compare/meta-ads-vs-google-ads': '/compare/google-ads-vs-meta-ads/',
+    '/rate-card': '/pricing/',
   },
 });

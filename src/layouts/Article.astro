@@ -76,7 +76,7 @@ const toc = headings.filter((h) => h.depth === 2);
   .art-head { padding-block: clamp(2rem, 5vw, 4rem) 1rem; background: linear-gradient(180deg, var(--royal-50), #fff); }
   .art-head h1 { font-size: var(--step-4); margin-top: 0.75rem; }
   .art-head .lede { margin-top: 1rem; }
-  .art-grid { display: grid; gap: 2.5rem; padding-block: 2.5rem 4rem; }
+  .art-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; padding-block: 2.5rem 4rem; }
   @media (min-width: 1000px) { .art-grid { grid-template-columns: 240px minmax(0, 1fr); } }
   .art-body { min-width: 0; }
 </style>

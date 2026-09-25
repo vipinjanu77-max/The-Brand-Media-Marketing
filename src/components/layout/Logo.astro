@@ -2,7 +2,7 @@
 interface Props { light?: boolean }
 const { light = false } = Astro.props;
 ---
-<a href="/" class:list={['logo', { 'logo--light': light }]} aria-label="The Brand Media Marketing — home">
+<a href="/" class:list={['logo', { 'logo--light': light }]}>
   <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true">
     <rect width="64" height="64" rx="14" fill={light ? '#fff' : '#0a1a3f'} />
     <path d="M14 20h22v6h-8v20h-6V26h-8z" fill={light ? '#0a1a3f' : '#fff'} />
@@ -13,6 +13,7 @@ const { light = false } = Astro.props;
   <span class="logo-text">
     <span class="logo-name">The Brand Media Marketing</span>
     <span class="logo-sub">Growth systems</span>
+    <span class="sr-only">— home</span>
   </span>
 </a>
 <style>
@@ -23,5 +24,6 @@ const { light = false } = Astro.props;
   .logo-sub { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
   .logo--light { color: #fff; }
   .logo--light .logo-sub { color: #9aa7c7; }
-  @media (max-width: 380px) { .logo-sub { display: none; } }
+  @media (min-width: 1100px) { .logo-name { white-space: nowrap; } }
+  @media (max-width: 380px) { .logo-sub { display: none; } .logo-name { font-size: 0.92rem; } }
 </style>
