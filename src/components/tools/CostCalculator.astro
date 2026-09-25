@@ -1,0 +1,54 @@
+---
+import NumField from './NumField.astro';
+import { costAssumptions } from '../../lib/calculators';
+const channels = [
+  ['google-ads', 'Google Ads'], ['meta-ads', 'Meta Ads'], ['linkedin-ads', 'LinkedIn Ads'], ['youtube-ads', 'YouTube'],
+  ['seo', 'SEO'], ['content', 'Content'], ['social', 'Organic social'], ['whatsapp-crm', 'WhatsApp & CRM'],
+];
+const pct = (a: number) => `${Math.round(a * 100)}%`;
+---
+<div class="tool" data-tool="cost">
+  <form class="inputs" onsubmit="return false" aria-label="Cost calculator inputs">
+    <div class="two">
+      <div class="field"><label for="bt">Business type</label><select id="bt" class="select" data-in="businessType"><option value="b2c">B2C</option><option value="d2c">D2C / e-commerce</option><option value="b2b">B2B</option><option value="local">Local business</option></select></div>
+      <div class="field"><label for="ind">Industry competition</label><select id="ind" class="select" data-in="competition"><option value="high">High (real estate, finance, education, healthcare, SaaS)</option><option value="medium" selected>Medium (most categories)</option><option value="low">Low (niche / local services)</option></select></div>
+      <div class="field"><label for="geo">Target market</label><select id="geo" class="select" data-in="geography"><option value="local">One city</option><option value="regional">State / region</option><option value="national" selected>All India</option><option value="international">International</option></select></div>
+      <div class="field"><label for="obj">Main objective</label><select id="obj" class="select" data-in="objective"><option value="leads">Generate leads</option><option value="sales">Online sales</option><option value="brand">Brand awareness</option><option value="launch">Launch / new market</option></select></div>
+      <NumField k="monthlyRevenue" label="Monthly revenue" prefix="₹" value={5000000} step={100000} />
+      <div class="field"><label for="amb">Desired scale</label><select id="amb" class="select" data-in="ambition"><option value="maintain">Maintain</option><option value="grow" selected>Grow steadily</option><option value="scale">Scale fast</option><option value="aggressive">Aggressive / launch</option></select></div>
+    </div>
+    <fieldset><legend>Channels you plan to use</legend>
+      <div class="checks">{channels.map(([v, l], i) => <label class="check"><input type="checkbox" data-in="channels" data-multi value={v} checked={i < 2 || v === 'seo'} /> {l}</label>)}</div>
+    </fieldset>
+  </form>
+  <section class="results" aria-live="polite">
+    <h2>Recommended monthly investment</h2>
+    <p class="out-value big" data-out="total">—</p>
+    <div class="split-bars" data-out="bars" data-html></div>
+    <p class="disclaimer">This is a <strong>TBM planning heuristic, not market data</strong>. It starts from a share of revenue by growth ambition ({Object.entries(costAssumptions.ambition).map(([k, [a, b]]) => `${k} ${pct(a)}–${pct(b)}`).join(', ')}), adjusts for competition and geography, then splits by how paid-media-heavy your channel mix is. Real budgets should be built from your unit economics — try the ROI calculator. Estimates, not guarantees.</p>
+    <a class="btn btn--light" href="/contact/?intent=proposal" data-track="cta_click" data-cta="cost_calc_proposal">Request a scoped proposal</a>
+  </section>
+</div>
+<script>
+  import { bindCalc } from '../../lib/toolkit';
+  import { costEstimate, inr } from '../../lib/calculators';
+  const labels: Record<string, string> = { media: 'Media spend', agency: 'Agency / team', creative: 'Creative & production', technology: 'Technology', contingency: 'Contingency & testing' };
+  document.querySelectorAll<HTMLElement>('[data-tool="cost"]').forEach((root) =>
+    bindCalc(root, 'cost', (i) => {
+      const channels = Array.isArray(i.channels) ? i.channels : [];
+      const e = costEstimate({ monthlyRevenue: i.monthlyRevenue as number, ambition: i.ambition as string, competition: i.competition as string, geography: i.geography as string, channels });
+      const bars = e.parts.map((p) => `<div class="sb"><div class="sb-top"><span>${labels[p.key]}</span><span>${inr(p.low)} – ${inr(p.high)}</span></div><div class="sb-track"><span style="width:${Math.round(p.share * 100)}%"></span></div></div>`).join('');
+      return { total: `${inr(e.totalLow)} – ${inr(e.totalHigh)}`, bars };
+    }),
+  );
+</script>
+<style>
+  .checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; }
+  .check { display: flex; gap: 0.5rem; align-items: center; padding: 0.6rem 0.75rem; border: 1px solid var(--line-2); border-radius: 8px; font-weight: 550; font-size: 0.93rem; }
+  .check input { width: 18px; height: 18px; accent-color: var(--royal-600); }
+  .big { font-size: var(--step-3); }
+  .split-bars { display: grid; gap: 0.85rem; }
+  .split-bars :global(.sb-top) { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.88rem; color: #fff; }
+  .split-bars :global(.sb-track) { height: 8px; border-radius: 4px; background: rgb(255 255 255 / 0.1); margin-top: 0.35rem; }
+  .split-bars :global(.sb-track span) { display: block; height: 100%; border-radius: 4px; background: #6f95f5; }
+</style>

@@ -1,3 +1,5 @@
+# Edited via CMS → Statistics database. Every entry needs source, URL, period and geography.
+statistics:
 - id: india-internet-users-2025
   statement: Individuals using the internet in India at the end of 2025
   value: '1.03'

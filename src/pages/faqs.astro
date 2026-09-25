@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CTABand from '../components/ui/CTABand.astro';
+import { faqPage } from '../lib/schema';
+const groups = (await getCollection('faqs')).sort((a, b) => a.data.order - b.data.order);
+const services = await getCollection('services');
+const all = groups.flatMap((g) => g.data.items);
+const crumbs = [{ name: 'FAQs', href: '/faqs/' }];
+---
+<Base title="FAQs — Digital Marketing & Working With TBM" description="Answers to common questions about digital marketing, costs, contracts, reporting and working with TBM." crumbs={crumbs} schema={[faqPage(all)]}>
+  <PageHero crumbs={crumbs} eyebrow="FAQs" title="Real questions, direct answers." lede="The questions buyers ask us most — about marketing, pricing, contracts and how we work." />
+  <section class="section"><div class="container--narrow stack" style="--stack:3rem">
+    {groups.map((g) => (
+      <div>
+        <h2 class="h">{g.data.topic}</h2>
+        <div class="faq mt-1">{g.data.items.map((f) => <details><summary>{f.q}</summary><div class="faq-a"><p>{f.a}</p></div></details>)}</div>
+      </div>
+    ))}
+    <div>
+      <h2 class="h">Service-specific questions</h2>
+      <ul class="svc">{services.filter((s) => s.data.faqs.length).map((s) => <li><a href={`/services/${s.id}/#faq-h`}>{s.data.navLabel} FAQs</a> <span class="muted small">({s.data.faqs.length})</span></li>)}</ul>
+    </div>
+  </div></section>
+  <CTABand stage="bofu" />
+</Base>
+<style>.h { font-size: var(--step-3); } .svc { columns: 2; padding-left: 1.2rem; }</style>

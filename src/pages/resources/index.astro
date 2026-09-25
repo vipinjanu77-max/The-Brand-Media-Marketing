@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+const resources = (await getCollection('resources')).sort((a, b) => a.data.order - b.data.order);
+const crumbs = [{ name: 'Resources', href: '/resources/' }];
+---
+<Base title="Free Marketing Templates & Checklists" description="Downloadable marketing templates and checklists: media plan, content calendar, KPI dashboard, campaign brief, SEO audit, Google Ads and Meta Ads checklists, lead funnel and agency evaluation." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Resource center" title="Templates we actually use." lede="Practical, editable templates and checklists — built from how TBM plans, runs and measures campaigns." >
+    <a class="btn btn--ghost" href="/tools/">Interactive tools</a>
+  </PageHero>
+  <section class="section"><div class="container grid grid-3">
+    {resources.map((r) => (
+      <article class="card">
+        <div class="tags"><span class="tag tag--neutral">{r.data.format}</span>{r.data.status === 'in-production' && <span class="tag tag--warn">In production</span>}</div>
+        <h2 class="h"><a class="card-link" href={`/resources/${r.id}/`}>{r.data.title}</a></h2>
+        <p>{r.data.description}</p>
+      </article>
+    ))}
+  </div></section>
+  <CTABand stage="mofu" />
+</Base>
+<style>.h { font-size: var(--step-1); font-family: var(--font-sans); font-weight: 650; }</style>

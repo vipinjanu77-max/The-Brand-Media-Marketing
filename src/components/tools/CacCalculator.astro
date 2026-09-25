@@ -1,0 +1,36 @@
+---
+import NumField from './NumField.astro';
+---
+<div class="tool" data-tool="cac">
+  <form class="inputs" onsubmit="return false" aria-label="CAC calculator inputs">
+    <div class="two">
+      <NumField k="marketingCost" label="Marketing cost (media + fees + tools)" prefix="₹" value={400000} step={1000} />
+      <NumField k="salesCost" label="Sales cost (team, commissions)" prefix="₹" value={100000} step={1000} />
+      <NumField k="newCustomers" label="New customers in the period" value={25} />
+      <NumField k="monthlyRevenuePerCustomer" label="Monthly revenue per customer" prefix="₹" value={10000} step={100} />
+      <NumField k="grossMarginPct" label="Gross margin" suffix="%" value={60} max={100} />
+      <NumField k="avgLifetimeMonths" label="Average customer lifetime" suffix="months" value={18} />
+    </div>
+  </form>
+  <section class="results" aria-live="polite">
+    <h2>Acquisition economics</h2>
+    <div class="out-grid">
+      <div class="out"><span class="out-label">Blended CAC</span><span class="out-value" data-out="cac">—</span></div>
+      <div class="out"><span class="out-label">Marketing-only CAC</span><span class="out-value" data-out="mcac">—</span></div>
+      <div class="out"><span class="out-label">LTV (gross profit)</span><span class="out-value" data-out="ltv">—</span></div>
+      <div class="out"><span class="out-label">LTV : CAC</span><span class="out-value" data-out="ratio">—</span></div>
+      <div class="out out--wide"><span class="out-label">CAC payback</span><span class="out-value" data-out="payback">—</span></div>
+    </div>
+    <p class="disclaimer">Estimates, not guarantees. Use conservative lifetime assumptions — LTV is the number most often overstated.</p>
+  </section>
+</div>
+<script>
+  import { bindCalc } from '../../lib/toolkit';
+  import { cac, inr, num } from '../../lib/calculators';
+  document.querySelectorAll<HTMLElement>('[data-tool="cac"]').forEach((root) =>
+    bindCalc(root, 'cac', (i) => {
+      const r = cac(i as any);
+      return { cac: inr(r.blendedCac), mcac: inr(r.marketingCac), ltv: inr(r.ltv), ratio: r.ltvToCac ? `${num(r.ltvToCac, 1)} : 1` : '—', payback: r.paybackMonths ? `${num(r.paybackMonths, 1)} months` : '—' };
+    }),
+  );
+</script>

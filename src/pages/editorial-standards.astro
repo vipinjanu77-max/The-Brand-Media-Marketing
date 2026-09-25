@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+const crumbs = [{ name: 'Editorial standards', href: '/editorial-standards/' }];
+const checks = [
+  ['E-E-A-T check', ['Experience — does it draw on first-hand work?', 'Expertise — is it written or reviewed by someone qualified?', 'Authority — does it cite credible sources?', 'Trust — is every claim accurate, sourced and dated?']],
+  ['Search intent check', ['Informational, commercial, transactional or navigational — which is it?', 'Does the page answer that intent in its first lines?']],
+  ['Originality check', ['What does this add that the top 10 results don’t?', 'If the answer is “nothing”, we don’t publish it.']],
+] as const;
+---
+<Base title="Editorial Standards" description="How TBM researches, writes, reviews, sources and updates content — including E-E-A-T, search intent and originality checks." crumbs={crumbs}>
+  <PageHero crumbs={crumbs} eyebrow="Editorial standards" title="Research → Analysis → Original insight → Practical recommendation." lede="Every guide, article and research page follows this standard. If a piece can’t pass it, it doesn’t go live." />
+  <section class="section"><div class="container--narrow stack" style="--stack:2.5rem">
+    {checks.map(([t, items]) => <div><h2 class="h">{t}</h2><ul class="check-list mt-1">{items.map((i) => <li>{i}</li>)}</ul></div>)}
+    <div class="prose">
+      <h2>Authors and reviewers</h2>
+      <p>Every article names an author and a reviewer with a profile on our <a href="/team/">team page</a>. Where a reviewer has not yet been assigned, we say so openly rather than inventing one.</p>
+      <h2>Sources and data</h2>
+      <p>We follow our <a href="/legal/research-methodology/">research methodology</a>: no unsourced numbers, forecasts labelled as forecasts, TBM data separated from third-party data, and paraphrase-and-cite rather than copying.</p>
+      <h2>AI tools</h2>
+      <p>We may use AI tools for research support and drafting efficiency. Nothing is published without human expertise, fact-checking and review, and nothing is published unless it adds original value.</p>
+      <h2>Updates and corrections</h2>
+      <p>Pages show a last-updated date. We review important pages regularly and correct errors promptly. Report an issue through our <a href="/contact/">contact page</a>.</p>
+    </div>
+  </div></section>
+</Base>
+<style>.h { font-size: var(--step-2); }</style>

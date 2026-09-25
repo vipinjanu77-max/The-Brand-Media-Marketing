@@ -1,0 +1,209 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import { GOALS, REVENUE_BANDS, SPEND_BANDS, GEOGRAPHIES } from '../lib/leadScore';
+import { site, has } from '../lib/site';
+const industries = (await getCollection('industries')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const crumbs = [{ name: 'Contact', href: '/contact/' }];
+const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+const steps = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', 'Contact', 'Challenge'];
+---
+<Base title="Get Your Growth Audit" description="Tell us where your business is today. In eight short steps, we'll prepare a growth assessment and book a strategy call with the right TBM strategist." crumbs={crumbs}>
+  <PageHero crumbs={crumbs} eyebrow="Growth Audit" title="Tell us where your business is today." lede="Eight short steps, about two minutes. We use your answers to prepare a growth assessment and match you with the right strategist — not to spam you." />
+  <section class="section">
+    <div class="container contact-grid">
+      <form class="lead-form" method="post" action="/api/lead/" data-lead-form novalidate aria-labelledby="form-title">
+        <h2 id="form-title" class="sr-only">Growth Audit form</h2>
+        <input type="hidden" name="intent" value="growth-audit" data-intent />
+        <input type="hidden" name="source" value="" data-source />
+        <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label></div>
+
+        <div class="progress" aria-hidden="true"><span data-bar></span></div>
+        <p class="step-count small muted" aria-live="polite" data-step-label>Step 1 of {steps.length}: {steps[0]}</p>
+
+        <fieldset class="step" data-step="0">
+          <legend class="q">What do you want to achieve?</legend>
+          <div class="choice-grid">{GOALS.map((g) => <label class="choice"><input type="radio" name="goal" value={g.value} required /><span>{g.label}</span></label>)}</div>
+        </fieldset>
+
+        <fieldset class="step" data-step="1" hidden>
+          <legend class="q">Which industry are you in?</legend>
+          <div class="field"><label for="industry" class="sr-only">Industry</label>
+            <select id="industry" name="industry" class="select" required>
+              <option value="">Select your industry</option>
+              {industries.map((i) => <option value={i.id}>{i.data.title.replace(/ (Marketing|Brand Marketing|Marketing & Lead Generation)$/, '')}</option>)}
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="step" data-step="2" hidden>
+          <legend class="q">What is your monthly revenue range?</legend>
+          <div class="choice-grid">{REVENUE_BANDS.map((g) => <label class="choice"><input type="radio" name="revenue" value={g.value} required /><span>{g.label}</span></label>)}</div>
+        </fieldset>
+
+        <fieldset class="step" data-step="3" hidden>
+          <legend class="q">What do you currently spend on marketing each month?</legend>
+          <div class="choice-grid">{SPEND_BANDS.map((g) => <label class="choice"><input type="radio" name="spend" value={g.value} required /><span>{g.label}</span></label>)}</div>
+        </fieldset>
+
+        <fieldset class="step" data-step="4" hidden>
+          <legend class="q">Where are your customers?</legend>
+          <div class="choice-grid">{GEOGRAPHIES.map((g) => <label class="choice"><input type="radio" name="geography" value={g.value} required /><span>{g.label}</span></label>)}</div>
+        </fieldset>
+
+        <fieldset class="step" data-step="5" hidden>
+          <legend class="q">What is your website?</legend>
+          <div class="field"><label for="website">Website URL</label><input id="website" name="website" class="input" type="text" inputmode="url" autocomplete="url" placeholder="yourcompany.com" maxlength="200" /><span class="hint">Optional — skip if you don’t have one yet.</span></div>
+        </fieldset>
+
+        <fieldset class="step" data-step="6" hidden>
+          <legend class="q">Who should we prepare this for?</legend>
+          <div class="two">
+            <div class="field"><label for="name">Name</label><input id="name" name="name" class="input" autocomplete="name" required maxlength="100" /></div>
+            <div class="field"><label for="company">Company</label><input id="company" name="company" class="input" autocomplete="organization" required maxlength="120" /></div>
+            <div class="field"><label for="email">Work email</label><input id="email" name="email" class="input" type="email" autocomplete="email" required maxlength="160" /></div>
+            <div class="field"><label for="phone">Phone / WhatsApp</label><input id="phone" name="phone" class="input" type="tel" autocomplete="tel" required maxlength="20" minlength="7" /></div>
+          </div>
+          <label class="consent"><input type="checkbox" name="whatsappConsent" value="yes" /> Send my assessment and follow-ups on WhatsApp too.</label>
+        </fieldset>
+
+        <fieldset class="step" data-step="7" hidden>
+          <legend class="q">What is your primary challenge right now?</legend>
+          <div class="field"><label for="challenge" class="sr-only">Primary challenge</label><textarea id="challenge" name="challenge" class="textarea" maxlength="1500" placeholder="e.g. We get plenty of Meta leads but fewer than 1 in 20 pick up the phone." required></textarea></div>
+          <label class="consent"><input type="checkbox" name="privacy" value="yes" required /> I agree to TBM processing my details to respond to this enquiry, as described in the <a href="/legal/privacy-policy/">privacy policy</a>.</label>
+          {turnstile && <div class="cf-turnstile" data-sitekey={turnstile}></div>}
+        </fieldset>
+
+        <p class="error-msg" role="alert" data-error hidden></p>
+        <div class="nav-row">
+          <button type="button" class="btn btn--ghost" data-prev hidden>Back</button>
+          <button type="button" class="btn" data-next>Continue <span class="arrow" aria-hidden="true">→</span></button>
+          <button type="submit" class="btn" data-submit hidden>Get my Growth Assessment</button>
+        </div>
+
+        <div class="preparing" data-preparing hidden role="status">
+          <span class="spinner" aria-hidden="true"></span>
+          <p class="q">Your Growth Assessment is being prepared…</p>
+          <p class="muted">Taking you to book your consultation.</p>
+        </div>
+      </form>
+
+      <aside class="side">
+        <h2 class="h">What happens next</h2>
+        <ol class="steps">
+          <li><strong>Instant confirmation</strong><p class="muted">By email (and WhatsApp if you opt in), with a summary of what you told us.</p></li>
+          <li><strong>We review your numbers</strong><p class="muted">A strategist reviews your site, channels and funnel before the call.</p></li>
+          <li><strong>Strategy call</strong><p class="muted">30 minutes on where the biggest opportunities may be — and whether TBM is the right fit.</p></li>
+        </ol>
+        <div class="notice mt-2"><div><strong>Prefer to talk directly?</strong>
+          {has(site.email) ? <> Email <a href={`mailto:${site.email}`}>{site.email}</a>.</> : <> <span class="placeholder placeholder--inline">[CONTACT EMAIL — ADMIN TO ADD]</span></>}
+          {has(site.phone) && <> Call <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>.</>}
+        </div></div>
+        <p class="small muted mt-1">We never share your details. Marketing projections are estimates, not guarantees.</p>
+      </aside>
+    </div>
+  </section>
+  {turnstile && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer slot="head"></script>}
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-lead-form]')!;
+  const steps = [...form.querySelectorAll<HTMLFieldSetElement>('[data-step]')];
+  const names = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', 'Contact', 'Challenge'];
+  const prev = form.querySelector<HTMLButtonElement>('[data-prev]')!;
+  const next = form.querySelector<HTMLButtonElement>('[data-next]')!;
+  const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+  const err = form.querySelector<HTMLElement>('[data-error]')!;
+  const bar = form.querySelector<HTMLElement>('[data-bar]')!;
+  const label = form.querySelector<HTMLElement>('[data-step-label]')!;
+  let i = 0;
+
+  // Intent and source from URL (e.g. ?intent=proposal) — used for lead scoring and attribution.
+  const params = new URLSearchParams(location.search);
+  const intent = params.get('intent');
+  if (intent && /^[a-z-]{3,30}$/.test(intent)) form.querySelector<HTMLInputElement>('[data-intent]')!.value = intent;
+  form.querySelector<HTMLInputElement>('[data-source]')!.value = [params.get('utm_source'), params.get('utm_medium'), params.get('utm_campaign')].filter(Boolean).join('|').slice(0, 200) || document.referrer.slice(0, 200);
+
+  const show = (n: number) => {
+    steps.forEach((s, j) => (s.hidden = j !== n));
+    i = n;
+    prev.hidden = n === 0;
+    next.hidden = n === steps.length - 1;
+    submit.hidden = n !== steps.length - 1;
+    bar.style.width = `${((n + 1) / steps.length) * 100}%`;
+    label.textContent = `Step ${n + 1} of ${steps.length}: ${names[n]}`;
+    err.hidden = true;
+    (window as any).tbmTrack?.('form_step', { step: n + 1, step_name: names[n] });
+  };
+  const validate = (n: number) => {
+    const fields = [...steps[n].querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('input, select, textarea')];
+    for (const f of fields) {
+      f.removeAttribute('aria-invalid');
+      if (f.type === 'radio') {
+        if (f.required && !steps[n].querySelector(`input[name="${f.name}"]:checked`)) return fail(f, 'Please choose an option.');
+      } else if (!f.checkValidity()) {
+        return fail(f, f.type === 'email' ? 'Please enter a valid email address.' : f.type === 'tel' ? 'Please enter a valid phone number.' : f.type === 'checkbox' ? 'Please confirm to continue.' : 'Please complete this field.');
+      }
+    }
+    return true;
+  };
+  function fail(f: HTMLElement, msg: string) {
+    f.setAttribute('aria-invalid', 'true');
+    err.textContent = msg; err.hidden = false;
+    f.focus();
+    return false;
+  }
+  next.addEventListener('click', () => { if (validate(i)) { show(i + 1); steps[i].querySelector<HTMLElement>('input, select, textarea')?.focus(); } });
+  prev.addEventListener('click', () => show(i - 1));
+  // Auto-advance on single-choice steps for speed.
+  steps.forEach((s, n) => s.addEventListener('change', (e) => {
+    const t = e.target as HTMLInputElement;
+    if (t.type === 'radio' && n < steps.length - 1) setTimeout(() => show(n + 1), 180);
+  }));
+  form.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && (e.target as HTMLElement).tagName === 'INPUT' && i < steps.length - 1) { e.preventDefault(); next.click(); }
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate(i)) return;
+    submit.disabled = true;
+    const preparing = form.querySelector<HTMLElement>('[data-preparing]')!;
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.');
+      (window as any).tbmTrack?.('lead_submitted', { lead_tier: data.tier, intent: form.intent.value });
+      steps.forEach((s) => (s.hidden = true));
+      form.querySelector<HTMLElement>('.nav-row')!.hidden = true;
+      preparing.hidden = false;
+      setTimeout(() => (location.href = data.redirect || '/thank-you/'), 2200);
+    } catch (x) {
+      err.textContent = (x as Error).message; err.hidden = false;
+      submit.disabled = false;
+    }
+  });
+  show(0);
+  const serverError = params.get('error');
+  if (serverError) { err.textContent = serverError.slice(0, 200); err.hidden = false; }
+</script>
+
+<style>
+  .contact-grid { display: grid; gap: 3rem; align-items: start; }
+  @media (min-width: 1000px) { .contact-grid { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); } }
+  .lead-form { padding: clamp(1.25rem, 4vw, 2.5rem); border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: var(--shadow); display: grid; gap: 1.25rem; }
+  .progress { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+  .progress span { display: block; height: 100%; background: var(--royal-600); transition: width 0.3s var(--ease); }
+  .step { border: 0; padding: 0; display: grid; gap: 1rem; }
+  .q { font-family: var(--font-serif); font-size: var(--step-2); color: var(--navy-900); line-height: 1.2; margin-bottom: 0.5rem; }
+  .consent { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.9rem; color: var(--ink-2); }
+  .consent input { margin-top: 0.3rem; width: 18px; height: 18px; accent-color: var(--royal-600); flex: none; }
+  .nav-row { display: flex; gap: 0.75rem; justify-content: space-between; }
+  .nav-row [data-next], .nav-row [data-submit] { margin-left: auto; }
+  .preparing { display: grid; justify-items: center; text-align: center; gap: 0.75rem; padding: 2rem 0; }
+  .spinner { width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--royal-100); border-top-color: var(--royal-600); animation: spin 0.9s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .h { font-size: var(--step-2); margin-bottom: 1.25rem; }
+</style>

@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import Placeholder from '../components/ui/Placeholder.astro';
+import { site, has } from '../lib/site';
+const crumbs = [{ name: 'Careers', href: '/careers/' }];
+---
+<Base title="Careers" description="Careers at The Brand Media Marketing — for marketers who can explain their numbers." crumbs={crumbs}>
+  <PageHero crumbs={crumbs} eyebrow="Careers" title="For marketers who can explain their numbers." lede="We look for people who are curious about businesses, rigorous with data and clear in how they communicate." />
+  <section class="section">
+    <div class="container--narrow stack" style="--stack:2rem">
+      <div class="grid grid-2">
+        <div class="card"><h2 class="h">How we work</h2><p>Every account has a named owner, a written strategy and a monthly review against business outcomes.</p></div>
+        <div class="card"><h2 class="h">What we value</h2><p>Evidence over opinion, clarity over jargon, and teaching as a way of learning.</p></div>
+      </div>
+      <h2 class="h2">Open roles</h2>
+      <Placeholder label="OPEN ROLES — ADMIN TO ADD (title, location, type, description, how to apply)" />
+      <p>Not seeing a fit? {has(site.email) ? <>Email <a href={`mailto:${site.email}`}>{site.email}</a> with your CV and a piece of work you are proud of.</> : <span class="placeholder placeholder--inline">[CAREERS EMAIL — ADMIN TO ADD]</span>}</p>
+    </div>
+  </section>
+</Base>
+<style>.h { font-size: var(--step-1); } .h2 { font-size: var(--step-3); }</style>

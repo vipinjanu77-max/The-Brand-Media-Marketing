@@ -1,0 +1,58 @@
+---
+import NumField from './NumField.astro';
+---
+<div class="tool" data-tool="roi">
+  <form class="inputs" onsubmit="return false" aria-label="ROI calculator inputs">
+    <fieldset><legend>Your business today</legend>
+      <div class="two">
+        <NumField k="monthlyRevenue" label="Monthly revenue" prefix="₹" value={2000000} step={10000} />
+        <NumField k="aov" label="Average order / deal value" prefix="₹" value={50000} step={500} />
+        <NumField k="grossMarginPct" label="Gross margin" suffix="%" value={40} max={100} />
+        <NumField k="currentLeads" label="Current leads / month" value={200} />
+        <NumField k="leadToCustomerPct" label="Lead-to-customer conversion" suffix="%" value={5} step={0.1} max={100} />
+        <NumField k="adSpend" label="Current ad spend / month" prefix="₹" value={200000} step={5000} />
+        <NumField k="currentCpl" label="Current CPL (optional)" prefix="₹" value={0} hint="Leave 0 to derive from spend ÷ leads" />
+      </div>
+    </fieldset>
+    <fieldset><legend>Where you want to be</legend>
+      <div class="two">
+        <NumField k="targetRevenue" label="Target monthly revenue from marketing" prefix="₹" value={1000000} step={10000} />
+        <NumField k="conversionImprovementPct" label="Expected conversion improvement" suffix="%" value={10} hint="e.g. from better landing pages or faster follow-up" />
+      </div>
+    </fieldset>
+  </form>
+  <section class="results" aria-live="polite" aria-labelledby="roi-h">
+    <h2 id="roi-h">What it will take</h2>
+    <div class="out-grid">
+      <div class="out"><span class="out-label">Required customers</span><span class="out-value" data-out="customers">—</span></div>
+      <div class="out"><span class="out-label">Required leads</span><span class="out-value" data-out="leads">—</span></div>
+      <div class="out"><span class="out-label">Estimated CPL</span><span class="out-value" data-out="cpl">—</span></div>
+      <div class="out"><span class="out-label">Estimated CAC</span><span class="out-value" data-out="cac">—</span></div>
+      <div class="out"><span class="out-label">Required media budget</span><span class="out-value" data-out="budget">—</span></div>
+      <div class="out"><span class="out-label">Revenue potential at current spend</span><span class="out-value" data-out="potential">—</span></div>
+      <div class="out"><span class="out-label">Projected ROAS</span><span class="out-value" data-out="roas">—</span></div>
+      <div class="out"><span class="out-label">Break-even ROAS</span><span class="out-value" data-out="be">—</span></div>
+      <div class="out out--wide"><span class="out-label">Marketing efficiency (gross profit per ₹1 of media)</span><span class="out-value" data-out="eff">—</span></div>
+    </div>
+    <p class="verdict" data-out="verdict"></p>
+    <p class="disclaimer">Calculations are estimates, not guarantees. They assume your CPL holds as spend increases, which is rarely true at scale — auctions get more expensive as you buy more of them.</p>
+    <a class="btn btn--light" href="/contact/?intent=growth-audit" data-track="cta_click" data-cta="roi_calc_audit">Pressure-test these numbers with a strategist</a>
+  </section>
+</div>
+<script>
+  import { bindCalc } from '../../lib/toolkit';
+  import { roi, inr, num } from '../../lib/calculators';
+  document.querySelectorAll<HTMLElement>('[data-tool="roi"]').forEach((root) =>
+    bindCalc(root, 'roi', (i) => {
+      const r = roi(i as any);
+      const verdict = r.profitable === null ? 'Enter your numbers to see whether the target is profitable.' : r.profitable
+        ? `At these assumptions, the projected ROAS (${num(r.projectedRoas, 2)}) is above your break-even ROAS (${num(r.breakEvenRoas, 2)}) — the target looks profitable on first purchase.`
+        : `At these assumptions, the projected ROAS (${num(r.projectedRoas, 2)}) is below break-even (${num(r.breakEvenRoas, 2)}). Improve conversion, raise order value, count repeat revenue — or accept a payback period.`;
+      return {
+        customers: num(r.requiredCustomers, 1), leads: num(r.requiredLeads), cpl: inr(r.estimatedCpl), cac: inr(r.estimatedCac),
+        budget: inr(r.requiredBudget), potential: inr(r.revenuePotentialAtCurrentSpend), roas: r.projectedRoas ? `${num(r.projectedRoas, 2)}x` : '—',
+        be: r.breakEvenRoas ? `${num(r.breakEvenRoas, 2)}x` : '—', eff: r.grossProfitPerRupeeSpent !== null ? `₹${num(r.grossProfitPerRupeeSpent, 2)}` : '—', verdict,
+      };
+    }),
+  );
+</script>

@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import Placeholder from '../../components/ui/Placeholder.astro';
+const team = (await getCollection('team')).sort((a, b) => a.data.order - b.data.order);
+const crumbs = [{ name: 'Team', href: '/team/' }];
+---
+<Base title="Team" description="The people at The Brand Media Marketing — roles, expertise, experience and the work they write about." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Team" title="Named people. Real expertise." lede="You should know who works on your account. Every author and reviewer on this site has a profile here." />
+  <section class="section"><div class="container grid grid-3">
+    {team.map((m) => (
+      <article class="card person">
+        {m.data.photo ? <img src={m.data.photo} alt={m.data.photoAlt ?? m.data.name} width="400" height="400" loading="lazy" decoding="async" /> : <div class="ph" aria-hidden="true">{m.data.type === 'organization' ? 'TBM' : '?'}</div>}
+        {m.data.placeholder ? <Placeholder label="TEAM MEMBER — ADMIN TO ADD photo, name, role, expertise, experience, LinkedIn" /> : (
+          <>
+            <h2 class="h"><a class="card-link" href={`/team/${m.id}/`}>{m.data.name}</a></h2>
+            <p class="role">{m.data.role}</p>
+            {m.data.expertise.length > 0 && <p class="meta">{m.data.expertise.join(' · ')}</p>}
+          </>
+        )}
+      </article>
+    ))}
+  </div></section>
+  <section class="section section--alt"><div class="container">
+    <h2 class="h2">Work with us</h2>
+    <p class="lede mt-1">We hire people who can explain their numbers. <a href="/careers/">See careers</a>.</p>
+  </div></section>
+  <CTABand stage="bofu" />
+</Base>
+<style>
+  .ph { aspect-ratio: 1; border-radius: var(--radius-sm); background: var(--paper-3); display: grid; place-items: center; font-family: var(--font-serif); font-size: 2rem; color: var(--ink-3); }
+  .person img { border-radius: var(--radius-sm); aspect-ratio: 1; object-fit: cover; }
+  .h { font-size: var(--step-1); font-family: var(--font-sans); font-weight: 650; }
+  .h2 { font-size: var(--step-3); }
+  .role { color: var(--royal-600) !important; font-weight: 600; }
+</style>

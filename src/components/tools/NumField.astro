@@ -1,0 +1,14 @@
+---
+interface Props { k: string; label: string; value: number; hint?: string; prefix?: string; suffix?: string; step?: number; max?: number }
+const { k, label, value, hint, prefix, suffix, step = 1, max } = Astro.props;
+const id = `in-${k}`;
+---
+<div class="field">
+  <label for={id}>{label}</label>
+  <div class="affix">
+    {prefix && <span class="pre" aria-hidden="true">{prefix}</span>}
+    <input class="input" id={id} type="number" inputmode="decimal" min="0" max={max} step={step} value={value} data-in={k} aria-describedby={hint ? `${id}-h` : undefined} />
+    {suffix && <span class="suf" aria-hidden="true">{suffix}</span>}
+  </div>
+  {hint && <span class="hint" id={`${id}-h`}>{hint}</span>}
+</div>

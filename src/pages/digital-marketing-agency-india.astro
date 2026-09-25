@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import SectionHead from '../components/ui/SectionHead.astro';
+import DirectAnswer from '../components/ui/DirectAnswer.astro';
+import StatCard from '../components/ui/StatCard.astro';
+import FAQ from '../components/ui/FAQ.astro';
+import CTABand from '../components/ui/CTABand.astro';
+import Placeholder from '../components/ui/Placeholder.astro';
+import GrowthSystem from '../components/home/GrowthSystem.astro';
+import { faqPage, service } from '../lib/schema';
+import { auditHref, bookingHref } from '../lib/site';
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const industries = (await getCollection('industries')).filter((i) => i.data.featured);
+const stats = (await getCollection('statistics')).filter((s) => ['india-digital-adspend-2025', 'india-internet-users-2025', 'india-search-share-of-digital-2025'].includes(s.id));
+const cases = await getCollection('caseStudies', (c) => c.data.verified && c.data.clientApprovalOnFile && !c.data.draft && c.data.country === 'India');
+const origin = Astro.site?.origin ?? Astro.url.origin;
+const faqs = [
+  { q: 'What does a digital marketing agency in India do?', a: 'It plans and runs the online activities that help a business win customers — strategy, Google and Meta advertising, SEO, social media, content, creative, websites, analytics and automation — adapted to Indian buyer behaviour such as mobile-first browsing, regional languages and WhatsApp-led conversations.' },
+  { q: 'How much does a digital marketing agency cost in India?', a: 'Costs vary with scope, channels, competition and scale. Separate the agency fee from media spend, creative production and technology when comparing quotes. See our cost guide and public rate card.' },
+  { q: 'How do I choose the best digital marketing agency in India?', a: 'Compare agencies on verifiable evidence, the named team, strategy grounded in your unit economics, reporting on business outcomes, transparent pricing and account ownership. Our agency evaluation checklist helps you score each option fairly.' },
+  { q: 'Does TBM work with businesses outside India?', a: 'TBM’s home market is India. We also support international companies entering India. Other markets are listed only where we genuinely serve them.' },
+];
+const crumbs = [{ name: 'Digital Marketing Agency India', href: '/digital-marketing-agency-india/' }];
+---
+<Base title="Digital Marketing Agency in India — Performance, SEO & Growth" description="TBM is a digital marketing and performance marketing agency in India building growth systems across Google Ads, Meta Ads, SEO, AEO, creative, CRM and analytics — with transparent pricing." crumbs={crumbs}
+  schema={[service({ name: 'Digital marketing services in India', description: 'Strategy, performance marketing, SEO, AEO, creative, websites, CRM and analytics for businesses in India.', url: new URL('/digital-marketing-agency-india/', origin).href, origin, serviceType: 'Digital marketing agency' }), faqPage(faqs)]} exitIntent>
+  <PageHero crumbs={crumbs} eyebrow="Digital marketing agency · India" title="A digital marketing agency in India that builds growth systems." lede="Performance marketing, SEO, AEO, creative, websites, CRM and analytics — planned from your unit economics and measured on customers and revenue.">
+    <a class="btn" href={auditHref} data-track="cta_click" data-cta="india_lp_audit">Get Growth Audit</a>
+    <a class="btn btn--ghost" href={bookingHref()}>Talk to a growth strategist</a>
+  </PageHero>
+  <section class="section">
+    <div class="container split">
+      <SectionHead eyebrow="In short" title="What makes a good digital marketing company in India?" />
+      <div class="stack">
+        <DirectAnswer>A good digital marketing company in India connects strategy, paid media, SEO, creative, conversion and measurement to your economics — and adapts to how Indian customers actually buy: mobile-first, multilingual, price-aware and increasingly on WhatsApp.</DirectAnswer>
+        <p>India is a digital-first advertising market with a very large and diverse online audience. That means opportunity — and crowded auctions. The advantage goes to businesses with better conversion, better data and clearer positioning.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHead eyebrow="Market context" title="India’s digital market, sourced." />
+      <div class="grid grid-3">{stats.map((s) => <StatCard stat={s} compact />)}</div>
+      <p class="mt-1"><a href="/research/digital-marketing-statistics-india/">All India digital marketing statistics →</a></p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <SectionHead eyebrow="Services" title="Digital marketing services in India" />
+      <div class="grid grid-4">{services.map((s) => <a class="card" href={`/services/${s.id}/`}><h3>{s.data.navLabel}</h3><p class="small">{s.data.summary}</p></a>)}</div>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHead eyebrow="Industries" title="Sector expertise" />
+      <div class="grid grid-3">{industries.map((i) => <a class="card" href={`/industries/${i.id}/`}><h3>{i.data.title}</h3><p class="small">{i.data.summary}</p></a>)}</div>
+    </div>
+  </section>
+  <section class="section section--navy">
+    <div class="container"><SectionHead eyebrow="Process" title="How we work" /><GrowthSystem /></div>
+  </section>
+  <section class="section">
+    <div class="container grid grid-2">
+      <div><h2 class="h">Case studies</h2>{cases.length ? <ul>{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul> : <Placeholder label="VERIFIED INDIA CASE STUDIES REQUIRED — admin to publish in CMS" />}</div>
+      <div><h2 class="h">Pricing guidance</h2><p>Fees, media, creative and technology are always separated. See the <a href="/pricing/">rate card</a>, the <a href="/guides/digital-marketing-cost-india/">digital marketing cost guide for India</a>, or estimate with the <a href="/tools/digital-marketing-cost-calculator/">cost calculator</a>.</p></div>
+    </div>
+  </section>
+  <FAQ items={faqs} />
+  <CTABand stage="high-intent" />
+</Base>
+<style>.h { font-size: var(--step-2); margin-bottom: 1rem; }</style>

@@ -1,0 +1,65 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import { toolBySlug } from '../../lib/tools';
+export async function getStaticPaths() {
+  return (await getCollection('resources')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props as { entry: CollectionEntry<'resources'> };
+const d = entry.data;
+const crumbs = [{ name: 'Resources', href: '/resources/' }, { name: d.title, href: `/resources/${entry.id}/` }];
+const relatedTools = d.tools.map(toolBySlug).filter(Boolean);
+---
+<Base title={`${d.title} (Free Download)`} description={d.description} crumbs={crumbs}>
+  <PageHero crumbs={crumbs} eyebrow={`Free ${d.format}`} title={d.title} lede={d.description} />
+  <section class="section">
+    <div class="container--narrow">
+      {d.status === 'in-production' || !d.file ? (
+        <div class="card"><span class="tag tag--warn">In production</span><h2 class="h">This resource is being finalised.</h2><p>Leave your email on the <a href="/contact/?intent=growth-audit">Growth Audit form</a> or check back soon.</p></div>
+      ) : d.gated ? (
+        <form class="card gate" method="post" action="/api/resource/" data-gate novalidate>
+          <h2 class="h">Get the {d.format}</h2>
+          <p class="muted">Tell us where to send it. We’ll email occasional, genuinely useful research — unsubscribe any time.</p>
+          <input type="hidden" name="resource" value={entry.id} />
+          <div class="hp" aria-hidden="true"><label>Leave empty <input name="company_website" tabindex="-1" autocomplete="off" /></label></div>
+          <div class="two">
+            <div class="field"><label for="r-name">Name</label><input id="r-name" class="input" name="name" required maxlength="100" autocomplete="name" /></div>
+            <div class="field"><label for="r-email">Work email</label><input id="r-email" class="input" type="email" name="email" required maxlength="160" autocomplete="email" /></div>
+          </div>
+          <div class="field"><label for="r-company">Company (optional)</label><input id="r-company" class="input" name="company" maxlength="120" autocomplete="organization" /></div>
+          <label class="consent"><input type="checkbox" name="privacy" value="yes" required /> I agree to the <a href="/legal/privacy-policy/">privacy policy</a>.</label>
+          <p class="error-msg" role="alert" hidden data-err></p>
+          <button class="btn" type="submit">Download</button>
+          <p class="ok" role="status" hidden data-ok>Your download has started. <a data-file href={d.file} download>Click here if it didn’t.</a></p>
+        </form>
+      ) : (
+        <a class="btn" href={d.file} download data-track="resource_download" data-resource={entry.id}>Download {d.format}</a>
+      )}
+      {relatedTools.length > 0 && <p class="mt-2">Prefer an interactive version? {relatedTools.map((t) => <a href={`/tools/${t!.slug}/`}>{t!.title}</a>)}</p>}
+    </div>
+  </section>
+  <CTABand stage="mofu" />
+</Base>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-gate]');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const err = form.querySelector<HTMLElement>('[data-err]')!;
+    err.hidden = true;
+    if (!form.checkValidity()) { err.textContent = 'Please enter your name, a valid email and accept the privacy policy.'; err.hidden = false; return; }
+    const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } }).catch(() => null);
+    const data = res ? await res.json().catch(() => ({})) : {};
+    if (!res || !res.ok) { err.textContent = data.error || 'Something went wrong. Please try again.'; err.hidden = false; return; }
+    (window as any).tbmTrack?.('resource_download', { resource: form.resource.value });
+    form.querySelector<HTMLElement>('[data-ok]')!.hidden = false;
+    form.querySelector<HTMLAnchorElement>('[data-file]')!.click();
+  });
+</script>
+<style>
+  .h { font-size: var(--step-2); }
+  .gate { gap: 1rem; }
+  .consent { display: flex; gap: 0.5rem; font-size: 0.9rem; }
+  .ok { color: var(--good); font-weight: 600; }
+</style>

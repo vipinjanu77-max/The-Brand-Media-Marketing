@@ -368,3 +368,28 @@ a.card:hover, .card:has(a.card-link:hover) { border-color: var(--royal-500); box
 .chip:hover { border-color: var(--royal-500); color: var(--navy-900); }
 .chip[aria-pressed='true'] { background: var(--navy-900); border-color: var(--navy-900); color: #fff; }
 [hidden] { display: none !important; }
+
+/* ---------- Tools ---------- */
+.tool { display: grid; gap: 2rem; align-items: start; }
+@media (min-width: 960px) { .tool { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .tool .results { position: sticky; top: 96px; } }
+.tool .inputs { display: grid; gap: 1.1rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+.tool .inputs fieldset { border: 0; padding: 0; display: grid; gap: 1.1rem; }
+.tool .inputs legend { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--royal-600); margin-bottom: 0.5rem; }
+.tool .results { padding: clamp(1.25rem, 3vw, 2rem); border-radius: var(--radius); background: var(--navy-900); color: #d7def0; display: grid; gap: 1.25rem; }
+.tool .results h2 { color: #fff; font-size: var(--step-2); }
+.out-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: rgb(255 255 255 / 0.1); border-radius: 12px; overflow: hidden; }
+.out { background: var(--navy-900); padding: 1rem; display: grid; gap: 0.2rem; }
+.out-label { font-size: 0.78rem; color: #9aa7c7; font-weight: 600; }
+.out-value { font-family: var(--font-serif); font-size: var(--step-2); color: #fff; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.out--wide { grid-column: 1 / -1; }
+.verdict { padding: 0.9rem 1rem; border-radius: 10px; background: rgb(255 255 255 / 0.07); font-size: 0.93rem; }
+.disclaimer { font-size: 0.8rem; color: #9aa7c7; }
+.results .btn { justify-self: start; }
+.affix { display: flex; align-items: stretch; }
+.affix .input { flex: 1; min-width: 0; }
+.affix .pre, .affix .suf { display: grid; place-items: center; padding-inline: 0.75rem; background: var(--paper-2); border: 1.5px solid var(--line-2); color: var(--ink-3); font-weight: 600; font-size: 0.9rem; }
+.affix .pre { border-right: 0; border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+.affix .suf { border-left: 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.affix .pre + .input { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.affix .input:has(+ .suf) { border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.two { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); }

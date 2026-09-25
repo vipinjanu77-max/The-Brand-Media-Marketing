@@ -1,0 +1,64 @@
+---
+import NumField from './NumField.astro';
+// Starting assumptions are ILLUSTRATIVE PLACEHOLDERS so the tool renders — not benchmarks.
+const rows = [
+  { name: 'Google Search', share: 40, cpm: 400, ctr: 4, cvr: 5 },
+  { name: 'Meta (FB/IG)', share: 35, cpm: 150, ctr: 1, cvr: 6 },
+  { name: 'YouTube', share: 10, cpm: 120, ctr: 0.5, cvr: 2 },
+  { name: 'LinkedIn', share: 0, cpm: 800, ctr: 0.6, cvr: 8 },
+  { name: 'Remarketing', share: 15, cpm: 100, ctr: 1.2, cvr: 8 },
+];
+---
+<div data-tool="media">
+  <div class="notice notice--demo"><div><strong>Replace the assumptions.</strong> The CPM, CTR and conversion values below are illustrative placeholders so the planner works — not benchmarks. Use numbers from your own ad accounts or Google Keyword Planner.</div></div>
+  <form class="mp-form" onsubmit="return false" aria-label="Media planner">
+    <div class="two">
+      <NumField k="budget" label="Monthly media budget" prefix="₹" value={500000} step={10000} />
+      <NumField k="close" label="Lead-to-customer rate" suffix="%" value={8} step={0.5} max={100} />
+    </div>
+    <div class="table-wrap mt-1">
+      <table class="data-table mp">
+        <thead><tr><th scope="col">Channel</th><th scope="col">Budget share %</th><th scope="col">CPM ₹</th><th scope="col">CTR %</th><th scope="col">Conv. %</th><th scope="col">Spend</th><th scope="col">Clicks</th><th scope="col">Leads</th><th scope="col">CPL</th></tr></thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr>
+              <th scope="row">{r.name}</th>
+              <td><input class="input sm" type="number" min="0" max="100" value={r.share} data-in={`s${i}`} aria-label={`${r.name} budget share`} /></td>
+              <td><input class="input sm" type="number" min="0" value={r.cpm} data-in={`m${i}`} aria-label={`${r.name} CPM`} /></td>
+              <td><input class="input sm" type="number" min="0" step="0.1" value={r.ctr} data-in={`c${i}`} aria-label={`${r.name} CTR`} /></td>
+              <td><input class="input sm" type="number" min="0" step="0.1" value={r.cvr} data-in={`v${i}`} aria-label={`${r.name} conversion rate`} /></td>
+              <td class="num" data-out={`sp${i}`}>—</td><td class="num" data-out={`cl${i}`}>—</td><td class="num" data-out={`ld${i}`}>—</td><td class="num" data-out={`cp${i}`}>—</td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot><tr><th scope="row">Total</th><td class="num" data-out="alloc">—</td><td></td><td></td><td></td><td class="num" data-out="tsp">—</td><td class="num" data-out="tcl">—</td><td class="num" data-out="tld">—</td><td class="num" data-out="tcp">—</td></tr></tfoot>
+      </table>
+    </div>
+    <p class="verdict-light mt-1" aria-live="polite" data-out="summary"></p>
+    <p class="small muted">Estimates, not guarantees. Costs rise as you buy more of any auction; model conservatively.</p>
+    <a class="btn btn--ghost btn--sm" href="/resources/media-plan-template/">Download the media plan template</a>
+  </form>
+</div>
+<script>
+  import { bindCalc } from '../../lib/toolkit';
+  import { mediaPlan, inr, num } from '../../lib/calculators';
+  document.querySelectorAll<HTMLElement>('[data-tool="media"]').forEach((root) => {
+    const names = [...root.querySelectorAll('tbody th')].map((t) => t.textContent ?? '');
+    bindCalc(root, 'media_planner', (i) => {
+      const plan = mediaPlan(i.budget as number, names.map((name, k) => ({ name, sharePct: i[`s${k}`] as number, cpm: i[`m${k}`] as number, ctrPct: i[`c${k}`] as number, cvrPct: i[`v${k}`] as number })), i.close as number);
+      const out: Record<string, string> = {};
+      plan.rows.forEach((r, k) => { out[`sp${k}`] = inr(r.spend); out[`cl${k}`] = num(r.clicks); out[`ld${k}`] = num(r.leads); out[`cp${k}`] = inr(r.cpl); });
+      out.alloc = `${num(plan.allocatedPct)}%`;
+      out.tsp = inr(plan.totals.spend); out.tcl = num(plan.totals.clicks); out.tld = num(plan.totals.leads); out.tcp = inr(plan.blendedCpl);
+      out.summary = plan.allocatedPct !== 100 ? `Budget shares add up to ${num(plan.allocatedPct)}% — adjust to 100%.` : `Implied: ${num(plan.totals.leads)} leads and about ${num(plan.totals.customers, 1)} customers a month at a blended CPL of ${inr(plan.blendedCpl)}.`;
+      return out;
+    });
+  });
+</script>
+<style>
+  .mp-form { margin-top: 1.5rem; display: grid; gap: 0.5rem; }
+  .mp { min-width: 860px; }
+  .mp .sm { min-height: 40px; padding: 0.4rem 0.5rem; width: 90px; }
+  .mp tfoot th, .mp tfoot td { font-weight: 700; background: var(--paper-2); }
+  .verdict-light { padding: 0.9rem 1rem; border-radius: 10px; background: var(--royal-50); color: var(--navy-900); font-weight: 560; }
+</style>

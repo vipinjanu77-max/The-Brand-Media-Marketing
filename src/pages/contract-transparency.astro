@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CTABand from '../components/ui/CTABand.astro';
+import FAQ from '../components/ui/FAQ.astro';
+import { faqPage } from '../lib/schema';
+const crumbs = [{ name: 'Contract transparency', href: '/contract-transparency/' }];
+const terms = [
+  ['Minimum commitment', 'Performance engagements typically include an initial period long enough to test properly (often three months), stated clearly in the proposal. Project work is fixed-scope.'],
+  ['Notice period', 'A written notice period for retainers after the initial term, stated in the agreement — no automatic multi-year renewals.'],
+  ['Account ownership', 'Ad accounts, analytics properties, tag manager containers and CRM are owned by your business. TBM works with user access you grant and can revoke.'],
+  ['Creative ownership', 'Creative produced for you and paid for is yours to use, subject to any third-party licence terms (stock, music, talent) disclosed up front.'],
+  ['Data ownership', 'Your customer, lead and performance data belongs to you. We use it only to deliver your services, and in anonymised benchmarks only with your permission.'],
+  ['Ad account ownership', 'Media is billed by platforms to your payment method. TBM does not mark up or resell media.'],
+  ['Reporting', 'Weekly notes and a monthly business review are standard. Dashboards stay accessible to you.'],
+  ['Confidentiality', 'Mutual confidentiality covering your business information and our methods.'],
+  ['Termination', 'On termination, we hand over access, assets and documentation, and remove our access promptly.'],
+  ['Payment terms', 'Fees are invoiced as set out in the proposal (typically monthly in advance for retainers, milestones for projects). Taxes extra as applicable.'],
+];
+const faqs = [
+  { q: 'Can we leave if it isn’t working?', a: 'Yes. After any initial term, you can end the engagement with the agreed notice period. You keep your accounts, data and creative.' },
+  { q: 'Do you charge for handover?', a: 'Standard handover — access, documentation and asset transfer — is part of termination, not an extra.' },
+];
+---
+<Base title="Contract Transparency" description="How TBM approaches minimum commitments, notice periods, account, creative and data ownership, reporting, confidentiality, termination and payment terms." crumbs={crumbs} schema={[faqPage(faqs)]}>
+  <PageHero crumbs={crumbs} eyebrow="Contract transparency" title="Know the terms before the pitch." lede="The principles we build every agreement on. Specific terms are set in each written proposal." />
+  <section class="section">
+    <div class="container--narrow">
+      <div class="notice notice--demo"><div><strong>Legal review required.</strong> These principles describe TBM’s approach in plain language. Final contract wording must be reviewed by a qualified legal professional before publication and use.</div></div>
+      <dl class="terms mt-2">{terms.map(([t, d]) => <div><dt>{t}</dt><dd>{d}</dd></div>)}</dl>
+    </div>
+  </section>
+  <FAQ items={faqs} />
+  <CTABand stage="commercial" />
+</Base>
+<style>
+  .terms div { display: grid; gap: 0.4rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  @media (min-width: 760px) { .terms div { grid-template-columns: 220px 1fr; gap: 2rem; } }
+  dt { font-weight: 700; color: var(--navy-900); }
+  dd { color: var(--ink-2); }
+</style>

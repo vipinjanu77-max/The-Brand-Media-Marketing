@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import CTABand from '../components/ui/CTABand.astro';
+import Placeholder from '../components/ui/Placeholder.astro';
+const cases = await getCollection('caseStudies', (c) => c.data.verified && c.data.clientApprovalOnFile && !c.data.draft);
+const rows = cases.flatMap((c) => c.data.metrics.map((m) => ({ c, m })));
+const uniq = (a: string[]) => [...new Set(a)].sort();
+const facets: Record<string, string[]> = {
+  industry: uniq(cases.map((c) => c.data.industry)),
+  service: uniq(cases.flatMap((c) => c.data.services)),
+  platform: uniq(cases.flatMap((c) => c.data.platforms)),
+  objective: uniq(cases.map((c) => c.data.objective)),
+  country: uniq(cases.map((c) => c.data.country)),
+  budget: uniq(cases.map((c) => c.data.budgetRange)),
+  timeline: uniq(cases.map((c) => c.data.timeline)),
+};
+const presets = ['Real Estate + Meta Ads + Lead Generation', 'India + Google Ads + B2B', 'D2C + Meta + ROAS'];
+const crumbs = [{ name: 'Results library', href: '/results/' }];
+---
+<Base title="Results Library — Verified Marketing Results" description="Search verified TBM campaign results by industry, service, platform, objective, country, budget range and timeline. Verified metrics only." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Results library" title="Search verified results." lede="Filter by industry, service, platform, objective, country, budget range and timeline — for example “Real Estate + Meta Ads + Lead Generation”. Only verified metrics appear here." wide />
+  <section class="section" data-hide-sticky>
+    <div class="container">
+      <form class="rl-filters" data-rl onsubmit="return false" aria-label="Filter results">
+        {Object.entries(facets).map(([k, vals]) => (
+          <div class="field"><label for={`f-${k}`}>{k[0].toUpperCase() + k.slice(1)}</label>
+            <select class="select" id={`f-${k}`} data-f={k} disabled={vals.length === 0}><option value="">All</option>{vals.map((v) => <option value={v}>{v}</option>)}</select>
+          </div>
+        ))}
+      </form>
+      <p class="small muted mt-1">Example searches: {presets.join(' · ')}</p>
+      {rows.length > 0 ? (
+        <div class="table-wrap mt-2"><table class="data-table">
+          <thead><tr><th scope="col">Case study</th><th scope="col">Industry</th><th scope="col">Platform</th><th scope="col">Metric</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Timeline</th></tr></thead>
+          <tbody>
+            {rows.map(({ c, m }) => (
+              <tr data-row data-industry={c.data.industry} data-service={c.data.services.join('|')} data-platform={c.data.platforms.join('|')} data-objective={c.data.objective} data-country={c.data.country} data-budget={c.data.budgetRange} data-timeline={c.data.timeline}>
+                <th scope="row"><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></th><td>{c.data.industry}</td><td>{c.data.platforms.join(', ')}</td><td>{m.label}</td><td class="num">{m.before}</td><td class="num">{m.after}</td><td>{c.data.timeline}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table></div>
+      ) : (
+        <div class="mt-2 stack">
+          <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED — the results library populates automatically from verified, client-approved case studies" />
+          <p class="muted">No verified results are published yet. When a case study is marked verified with client approval in the CMS, each of its metrics becomes a searchable row here.</p>
+        </div>
+      )}
+    </div>
+  </section>
+  <CTABand stage="bofu" />
+</Base>
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-rl]');
+  const rows = [...document.querySelectorAll<HTMLElement>('[data-row]')];
+  form?.addEventListener('change', () => {
+    const sel = [...form.querySelectorAll<HTMLSelectElement>('[data-f]')].map((s) => [s.dataset.f!, s.value] as const);
+    rows.forEach((r) => (r.hidden = !sel.every(([k, v]) => !v || (r.dataset[k] ?? '').split('|').includes(v))));
+  });
+</script>
+<style>
+  .rl-filters { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); padding: 1.25rem; background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius); }
+</style>

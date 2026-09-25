@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import SectionHead from '../components/ui/SectionHead.astro';
+import GrowthSystem from '../components/home/GrowthSystem.astro';
+import CTABand from '../components/ui/CTABand.astro';
+import { onboarding } from '../lib/growth';
+const crumbs = [{ name: 'Process', href: '/process/' }];
+const howToSchema = { '@type': 'HowTo', name: 'What happens after you hire TBM', step: onboarding.map((o, i) => ({ '@type': 'HowToStep', position: i + 1, name: `${o.when}: ${o.what}`, text: o.detail })) };
+---
+<Base title="Our Process — What Happens After You Hire TBM" description="The TBM Growth System and our week-by-week onboarding: discovery, audit, strategy, build, testing, optimisation and scale — with what we do and what we need from you." crumbs={crumbs} schema={[howToSchema]}>
+  <PageHero crumbs={crumbs} eyebrow="Process" title="What happens after you hire TBM?" lede="No mystery phase. Here is exactly what we do in the first months, what you get, and what we need from you." />
+  <section class="section">
+    <div class="container">
+      <ol class="ob" role="list">
+        {onboarding.map((o) => (
+          <li>
+            <div class="when">{o.when}</div>
+            <div class="what"><h2>{o.what}</h2><p>{o.detail}</p></div>
+            <div class="you"><span>What we need from you</span><p>{o.you}</p></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+  <section class="section section--navy">
+    <div class="container">
+      <SectionHead eyebrow="The operating model" title="The TBM Growth System" lede="Onboarding moves you through the system once. After that, stages 4–7 run continuously." />
+      <GrowthSystem />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container grid grid-3">
+      <div class="card"><h3>Weekly</h3><p>Performance notes: what changed, what we learned, what we are testing next.</p></div>
+      <div class="card"><h3>Monthly</h3><p>Business review: spend to revenue, CAC and pipeline, decisions and next month’s plan. <a href="/reporting-demo/">See a demo report</a>.</p></div>
+      <div class="card"><h3>Quarterly</h3><p>Strategy review: targets, channel mix, budget and market opportunities.</p></div>
+    </div>
+  </section>
+  <CTABand stage="bofu" />
+</Base>
+<style>
+  .ob { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  .ob li { display: grid; gap: 1rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); }
+  @media (min-width: 900px) { .ob li { grid-template-columns: 140px 1.4fr 1fr; align-items: start; } }
+  .when { font-family: var(--font-serif); font-size: var(--step-2); color: var(--royal-600); }
+  .what h2 { font-size: var(--step-2); }
+  .what p { color: var(--ink-2); margin-top: 0.4rem; }
+  .you { padding: 1rem; background: var(--paper-2); border-radius: var(--radius-sm); font-size: 0.92rem; }
+  .you span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+</style>

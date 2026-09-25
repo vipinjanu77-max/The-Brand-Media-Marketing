@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import Placeholder from '../../components/ui/Placeholder.astro';
+const cases = (await getCollection('caseStudies', (c) => c.data.verified && c.data.clientApprovalOnFile && !c.data.draft)).sort((a, b) => +b.data.date - +a.data.date);
+const industries = [...new Set(cases.map((c) => c.data.industry))];
+const crumbs = [{ name: 'Case studies', href: '/case-studies/' }];
+const fields = ['Client', 'Industry', 'Location', 'Business challenge', 'Starting point', 'Objective', 'Strategy', 'Execution', 'Campaign structure', 'Budget range', 'Timeline', 'Before', 'After', 'Results', 'Business impact', 'Learnings', 'Client testimonial', 'Visual evidence'];
+---
+<Base title="Case Studies" description="Verified TBM case studies — challenge, strategy, execution, budget range, timeline and before-and-after results, published only with client approval." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="Work" title="Case studies with the working shown." lede="Every case study states the starting point, the strategy, the campaign structure, budget range, timeline and verified before-and-after numbers — or it isn’t published." />
+  <section class="section">
+    <div class="container">
+      {cases.length > 0 ? (
+        <>
+          <div class="filters" role="group" aria-label="Filter by industry" data-cs-filter>
+            <button class="chip" aria-pressed="true" data-v="">All</button>
+            {industries.map((i) => <button class="chip" aria-pressed="false" data-v={i}>{i}</button>)}
+          </div>
+          <div class="grid grid-3 mt-2">
+            {cases.map((c) => (
+              <article class="card" data-industry={c.data.industry}>
+                <div class="tags"><span class="tag">{c.data.industry}</span><span class="tag tag--neutral">{c.data.location}</span></div>
+                <h2 class="h"><a class="card-link" href={`/case-studies/${c.id}/`}>{c.data.title}</a></h2>
+                <p>{c.data.challenge}</p>
+                {c.data.metrics[0] && <p class="meta"><strong>{c.data.metrics[0].label}:</strong> {c.data.metrics[0].before} → {c.data.metrics[0].after}</p>}
+              </article>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div class="empty">
+          <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED — publish case studies in the CMS (Case Studies collection) with verified: true and client approval on file" />
+          <h2 class="h">What every TBM case study will include</h2>
+          <ul class="tags" role="list">{fields.map((f) => <li class="tag tag--neutral">{f}</li>)}</ul>
+          <p class="muted">We don’t publish fabricated or unverifiable results. While case studies are being approved by clients, you can see <a href="/reporting-demo/">how we report</a> and <a href="/process/">how we work</a>, or ask for anonymised examples during a <a href="/contact/?intent=strategy-call">strategy call</a>.</p>
+        </div>
+      )}
+    </div>
+  </section>
+  <CTABand stage="bofu" />
+</Base>
+<script>
+  const root = document.querySelector('[data-cs-filter]');
+  root?.querySelectorAll<HTMLButtonElement>('button').forEach((b) => b.addEventListener('click', () => {
+    root.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    document.querySelectorAll<HTMLElement>('[data-industry]').forEach((c) => (c.hidden = !!b.dataset.v && c.dataset.industry !== b.dataset.v));
+  }));
+</script>
+<style>
+  .h { font-size: var(--step-1); font-family: var(--font-sans); font-weight: 650; }
+  .empty { display: grid; gap: 1.25rem; max-width: 860px; }
+  ul.tags { list-style: none; padding: 0; }
+</style>

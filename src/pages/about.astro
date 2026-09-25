@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import SectionHead from '../components/ui/SectionHead.astro';
+import CTABand from '../components/ui/CTABand.astro';
+import Placeholder from '../components/ui/Placeholder.astro';
+import { site, has } from '../lib/site';
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const markets = await getCollection('locations', (l) => l.data.published);
+const crumbs = [{ name: 'About', href: '/about/' }];
+const beliefs = [
+  ['Marketing is a system, not a menu.', 'Channels only work when strategy, conversion and measurement work with them.'],
+  ['Economics before tactics.', 'What a customer is worth decides what you can spend to win one.'],
+  ['Evidence over adjectives.', 'We show our methods, label our data and publish only verified results.'],
+  ['Clients own their assets.', 'Accounts, data and creative belong to the business that paid for them.'],
+  ['Teach the market.', 'Useful tools and research earn trust before any sales conversation.'],
+];
+---
+<Base title="About TBM" description="Why The Brand Media Marketing exists, how we work, what we believe, and how we measure success." crumbs={crumbs} pageType="AboutPage">
+  <PageHero crumbs={crumbs} eyebrow="About TBM" title="We exist because too much marketing can’t explain what it returned." lede={site.description} />
+  <section class="section">
+    <div class="container split">
+      <SectionHead eyebrow="Why TBM exists" title="Growth deserves an operating system." />
+      <div class="prose">
+        <p>Most businesses buy marketing in pieces: an SEO retainer here, an ads agency there, a freelancer for social, a developer for the website. Each piece reports its own numbers. Nobody owns the result.</p>
+        <p>The Brand Media Marketing was built to do the opposite — to connect <strong>strategy, acquisition, conversion and measurement</strong> into one system with one owner, and to judge it by the outcomes a business actually cares about: customers, revenue, CAC and payback.</p>
+        <p>We also believe an agency should be able to teach the market it serves. That is why this website includes a research hub, a statistics database with sources, and free calculators — the same thinking we bring to client work.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container">
+      <SectionHead eyebrow="What we believe" title="Five principles." />
+      <div class="grid grid-3">{beliefs.map(([t, d]) => <div class="card"><h3>{t}</h3><p>{d}</p></div>)}</div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split">
+      <SectionHead eyebrow="How we measure success" title="By your numbers, not ours." />
+      <ul class="check-list">
+        <li>Customers, revenue and pipeline attributed to marketing — reconciled with your CRM</li>
+        <li>Customer acquisition cost and payback against agreed targets</li>
+        <li>Cost per qualified lead, not just cost per lead</li>
+        <li>Conversion rate at each stage of the funnel</li>
+        <li>What we learned and changed each month</li>
+      </ul>
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container grid grid-2">
+      <div>
+        <h2 class="h">Founder & team</h2>
+        {has(site.founder) ? <p>Founded by {site.founder}{has(site.foundingYear) ? ` in ${site.foundingYear}` : ''}.</p> : <Placeholder label="FOUNDER STORY, EXPERIENCE AND FOUNDING YEAR — ADMIN TO ADD (verifiable facts only)" />}
+        <p class="mt-1"><a href="/team/">Meet the team →</a></p>
+      </div>
+      <div>
+        <h2 class="h">Capabilities</h2>
+        <ul class="caps" role="list">{services.map((s) => <li><a href={`/services/${s.id}/`}>{s.data.navLabel}</a></li>)}</ul>
+      </div>
+      <div>
+        <h2 class="h">Locations & markets served</h2>
+        {has(site.address.city) ? <p>{site.address.city}{has(site.address.region) ? `, ${site.address.region}` : ''}</p> : <Placeholder label="OFFICE LOCATION(S) — ADMIN TO ADD (real offices only)" />}
+        <p class="mt-1">Markets: {markets.map((m, i) => <>{i > 0 && ', '}<a href={`/markets/${m.id}/`}>{m.data.name}</a></>)}</p>
+      </div>
+      <div>
+        <h2 class="h">Experience, certifications & partnerships</h2>
+        <Placeholder label="VERIFIED CREDENTIALS — ADMIN TO ADD (only with evidence; none are claimed here)" />
+      </div>
+    </div>
+  </section>
+  <CTABand stage="bofu" />
+</Base>
+<style>
+  .h { font-size: var(--step-2); margin-bottom: 1rem; }
+  .caps { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .caps a { display: inline-block; padding: 0.35rem 0.75rem; border: 1px solid var(--line-2); border-radius: 999px; text-decoration: none; font-size: 0.88rem; background: #fff; }
+</style>

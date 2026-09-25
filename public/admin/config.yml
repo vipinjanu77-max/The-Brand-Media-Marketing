@@ -1,0 +1,1378 @@
+# Decap CMS configuration — every content collection is editable without code.
+# Role-based access: repository permissions (GitHub) control who can log in; editorial_workflow
+# requires changes to be reviewed and merged before they go live.
+# Authentication: GitHub backend needs an OAuth provider (e.g. Decap/Netlify OAuth or a self-hosted
+# OAuth proxy). Set `backend.base_url` to that proxy URL before first use. See docs/CMS.md.
+backend:
+  name: github
+  repo: vipinjanu77-max/the-brand-media-marketing
+  branch: main
+publish_mode: editorial_workflow
+site_url: https://www.thebrandmediamarketing.com
+media_folder: public/images/uploads
+public_folder: /images/uploads
+collections:
+- name: settings
+  label: Site settings
+  files:
+  - label: Global settings
+    name: site
+    file: src/data/settings.json
+    fields:
+    - label: Name
+      name: name
+      widget: string
+    - label: Short name
+      name: shortName
+      widget: string
+    - label: Legal name
+      name: legalName
+      widget: string
+    - label: Tagline
+      name: tagline
+      widget: string
+    - label: Positioning
+      name: positioning
+      widget: string
+    - label: Description (entity description — keep consistent everywhere)
+      name: description
+      widget: text
+    - label: Founding year
+      name: foundingYear
+      widget: string
+      required: false
+    - label: Founder
+      name: founder
+      widget: string
+      required: false
+    - label: Email
+      name: email
+      widget: string
+      required: false
+    - label: Phone
+      name: phone
+      widget: string
+      required: false
+    - label: WhatsApp number
+      name: whatsapp
+      widget: string
+      required: false
+    - label: Address
+      name: address
+      widget: object
+      fields:
+      - label: Street
+        name: street
+        widget: string
+        required: false
+      - label: City
+        name: city
+        widget: string
+        required: false
+      - label: Region
+        name: region
+        widget: string
+        required: false
+      - label: Postal code
+        name: postalCode
+        widget: string
+        required: false
+      - label: Country
+        name: country
+        widget: string
+    - label: Areas served
+      name: areaServed
+      widget: list
+    - label: Booking URL (Calendly / Google Calendar etc.)
+      name: bookingUrl
+      widget: string
+      required: false
+    - label: Social profiles
+      name: social
+      widget: object
+      fields:
+      - label: linkedin
+        name: linkedin
+        widget: string
+        required: false
+      - label: instagram
+        name: instagram
+        widget: string
+        required: false
+      - label: youtube
+        name: youtube
+        widget: string
+        required: false
+      - label: x
+        name: x
+        widget: string
+        required: false
+      - label: facebook
+        name: facebook
+        widget: string
+        required: false
+      - label: googleBusinessProfile
+        name: googleBusinessProfile
+        widget: string
+        required: false
+    - label: Analytics (public IDs only — never secrets)
+      name: analytics
+      widget: object
+      fields:
+      - label: gtmId
+        name: gtmId
+        widget: string
+        required: false
+      - label: ga4Id
+        name: ga4Id
+        widget: string
+        required: false
+      - label: metaPixelId
+        name: metaPixelId
+        widget: string
+        required: false
+      - label: googleAdsId
+        name: googleAdsId
+        widget: string
+        required: false
+      - label: searchConsoleVerification
+        name: searchConsoleVerification
+        widget: string
+        required: false
+    - label: Exit-intent offer
+      name: exitIntent
+      widget: object
+      fields:
+      - label: Enabled
+        name: enabled
+        widget: boolean
+      - label: Headline
+        name: headline
+        widget: string
+      - label: Body
+        name: body
+        widget: text
+      - label: Resource slug
+        name: resourceSlug
+        widget: string
+    - label: Verified client logos (with written permission)
+      name: verifiedClientLogos
+      widget: list
+      required: false
+      fields:
+      - label: Client
+        name: name
+        widget: string
+      - label: Logo
+        name: logo
+        widget: image
+      - label: Permission on file
+        name: permission
+        widget: boolean
+- name: services
+  label: Services
+  folder: src/content/services
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Nav label
+    name: navLabel
+    widget: string
+  - label: Group
+    name: group
+    widget: select
+    options:
+    - performance
+    - search
+    - social
+    - creative
+    - web
+    - crm
+    - analytics
+  - label: Order
+    name: order
+    widget: number
+  - label: Summary
+    name: summary
+    widget: text
+  - label: Definition (direct answer)
+    name: definition
+    widget: text
+  - label: Who needs it
+    name: whoNeedsIt
+    widget: list
+  - label: Why it matters
+    name: whyItMatters
+    widget: text
+  - label: What TBM does
+    name: whatWeDo
+    widget: list
+    fields:
+    - label: Title
+      name: title
+      widget: string
+    - label: Body
+      name: body
+      widget: text
+  - label: Sub-services
+    name: subServices
+    widget: list
+    required: false
+    fields:
+    - label: Name
+      name: name
+      widget: string
+    - label: Description
+      name: description
+      widget: text
+  - label: Process
+    name: process
+    widget: list
+    fields:
+    - label: Step
+      name: step
+      widget: string
+    - label: Detail
+      name: detail
+      widget: text
+  - label: Deliverables
+    name: deliverables
+    widget: list
+  - label: KPIs
+    name: kpis
+    widget: list
+    fields:
+    - label: KPI
+      name: name
+      widget: string
+    - label: Why
+      name: why
+      widget: text
+  - label: Timeline
+    name: timeline
+    widget: list
+    fields:
+    - label: Period
+      name: period
+      widget: string
+    - label: Detail
+      name: detail
+      widget: string
+  - label: Common mistakes
+    name: mistakes
+    widget: list
+  - &id001
+    label: FAQs
+    name: faqs
+    widget: list
+    required: false
+    fields:
+    - label: Question
+      name: q
+      widget: string
+    - label: Answer
+      name: a
+      widget: text
+  - &id002
+    label: Related services
+    name: services
+    widget: relation
+    collection: services
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - &id003
+    label: Related industries
+    name: industries
+    widget: relation
+    collection: industries
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - &id004
+    label: Related tools (slugs)
+    name: tools
+    widget: list
+    required: false
+  - &id005
+    label: Related glossary terms
+    name: glossary
+    widget: relation
+    collection: glossary
+    search_fields:
+    - term
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{term}}'
+    multiple: true
+    required: false
+  - &id006
+    label: Related articles
+    name: articles
+    widget: relation
+    collection: blog
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - &id007
+    label: Related research
+    name: research
+    widget: relation
+    collection: research
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - &id008
+    label: Related comparisons
+    name: compare
+    widget: relation
+    collection: compare
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - &id009
+    label: Last updated
+    name: updated
+    widget: datetime
+    format: YYYY-MM-DD
+    date_format: YYYY-MM-DD
+    time_format: false
+  - &id010
+    label: SEO overrides (optional — suggestions are generated automatically)
+    name: seo
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+      required: false
+    - label: Meta description
+      name: description
+      widget: text
+      required: false
+    - label: OG title
+      name: ogTitle
+      widget: string
+      required: false
+    - label: OG description
+      name: ogDescription
+      widget: text
+      required: false
+    - label: Social image
+      name: ogImage
+      widget: image
+      required: false
+    - label: Canonical URL
+      name: canonical
+      widget: string
+      required: false
+    - label: No-index
+      name: noindex
+      widget: boolean
+      default: false
+      required: false
+- name: industries
+  label: Industries
+  folder: src/content/industries
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Order
+    name: order
+    widget: number
+  - label: Featured
+    name: featured
+    widget: boolean
+    default: false
+  - label: Summary
+    name: summary
+    widget: text
+  - label: Overview
+    name: overview
+    widget: text
+  - label: Customer journey
+    name: journey
+    widget: list
+    fields:
+    - label: Stage
+      name: stage
+      widget: string
+    - label: Detail
+      name: detail
+      widget: text
+  - label: Funnel
+    name: funnel
+    widget: list
+    fields:
+    - label: Stage
+      name: stage
+      widget: string
+    - label: Metric
+      name: metric
+      widget: string
+  - label: Challenges
+    name: challenges
+    widget: list
+  - label: Channels
+    name: channels
+    widget: list
+    fields:
+    - label: Channel
+      name: channel
+      widget: string
+    - label: Role
+      name: role
+      widget: text
+  - label: KPIs
+    name: kpis
+    widget: list
+  - label: TBM strategy
+    name: strategy
+    widget: list
+    fields:
+    - label: Title
+      name: title
+      widget: string
+    - label: Body
+      name: body
+      widget: text
+  - *id001
+  - label: Statistic tags
+    name: statTags
+    widget: list
+    required: false
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - *id009
+  - *id010
+- name: caseStudies
+  label: Case studies
+  folder: src/content/case-studies
+  create: true
+  slug: '{{slug}}'
+  summary: '{{title}} — verified: {{verified}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Client
+    name: client
+    widget: string
+  - label: Show client name publicly
+    name: clientNamePublic
+    widget: boolean
+    default: true
+  - label: Industry
+    name: industry
+    widget: string
+  - label: Location
+    name: location
+    widget: string
+  - label: Country
+    name: country
+    widget: string
+  - label: Services
+    name: services
+    widget: relation
+    collection: services
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Platforms
+    name: platforms
+    widget: list
+  - label: Objective
+    name: objective
+    widget: text
+  - label: Business challenge
+    name: challenge
+    widget: text
+  - label: Starting point
+    name: startingPoint
+    widget: text
+  - label: Budget range
+    name: budgetRange
+    widget: select
+    options:
+    - < ₹1L/mo
+    - ₹1–5L/mo
+    - ₹5–20L/mo
+    - ₹20L+/mo
+    - Undisclosed
+  - label: Timeline
+    name: timeline
+    widget: string
+  - label: Before / after metrics (verified only)
+    name: metrics
+    widget: list
+    fields:
+    - label: Metric
+      name: label
+      widget: string
+    - label: Before
+      name: before
+      widget: string
+    - label: After
+      name: after
+      widget: string
+    - label: Change
+      name: change
+      widget: string
+      required: false
+  - label: Business impact
+    name: businessImpact
+    widget: text
+  - label: Learnings
+    name: learnings
+    widget: list
+    required: false
+  - label: Client testimonial
+    name: testimonial
+    widget: object
+    required: false
+    fields:
+    - label: Quote
+      name: quote
+      widget: text
+    - label: Person
+      name: person
+      widget: string
+    - label: Role
+      name: role
+      widget: string
+  - label: Visual evidence
+    name: evidence
+    widget: list
+    required: false
+    fields:
+    - label: Image
+      name: image
+      widget: image
+    - label: Alt text
+      name: alt
+      widget: string
+    - label: Caption
+      name: caption
+      widget: string
+  - label: VERIFIED against platform/CRM data
+    name: verified
+    widget: boolean
+    default: false
+  - label: Client approval on file
+    name: clientApprovalOnFile
+    widget: boolean
+    default: false
+  - label: Author (team slug)
+    name: author
+    widget: string
+  - label: Date
+    name: date
+    widget: datetime
+  - label: Draft
+    name: draft
+    widget: boolean
+    default: true
+  - label: Strategy, execution & campaign structure
+    name: body
+    widget: markdown
+  - *id010
+- name: research
+  label: Research
+  folder: src/content/research
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Description
+    name: description
+    widget: text
+  - label: Category
+    name: category
+    widget: string
+  - label: Label
+    name: label
+    widget: select
+    options:
+    - Industry Research
+    - TBM Analysis
+    - TBM Original Dataset
+  - label: Research question
+    name: researchQuestion
+    widget: text
+  - label: Methodology
+    name: methodology
+    widget: text
+  - label: Data sources
+    name: dataSources
+    widget: list
+  - label: Geography
+    name: geography
+    widget: string
+  - label: Sample size
+    name: sampleSize
+    widget: string
+    required: false
+  - label: Findings
+    name: findings
+    widget: list
+  - label: Limitations
+    name: limitations
+    widget: list
+  - label: Charts
+    name: charts
+    widget: list
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+    - label: Type
+      name: type
+      widget: select
+      options:
+      - bar
+      - line
+      - column
+    - label: Unit
+      name: unit
+      widget: string
+      required: false
+    - label: Source
+      name: source
+      widget: string
+    - label: Source URL
+      name: sourceUrl
+      widget: string
+      required: false
+    - label: Year
+      name: year
+      widget: string
+    - label: Geography
+      name: geography
+      widget: string
+    - label: Methodology
+      name: methodology
+      widget: text
+    - label: Kind
+      name: kind
+      widget: select
+      options:
+      - fact
+      - third-party-estimate
+      - forecast
+      - tbm-dataset
+    - label: Data
+      name: data
+      widget: list
+      fields:
+      - label: Label
+        name: label
+        widget: string
+      - label: Value
+        name: value
+        widget: number
+        value_type: float
+      - label: Forecast
+        name: forecast
+        widget: boolean
+        default: false
+  - label: Statistic tags
+    name: statTags
+    widget: list
+    required: false
+  - *id001
+  - label: Author (team slug)
+    name: author
+    widget: string
+  - label: Reviewer (team slug)
+    name: reviewer
+    widget: string
+    required: false
+  - label: Published
+    name: published
+    widget: datetime
+  - label: Updated
+    name: updated
+    widget: datetime
+  - label: Draft
+    name: draft
+    widget: boolean
+    default: false
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - label: Body (analysis — label TBM interpretation clearly)
+    name: body
+    widget: markdown
+  - *id010
+- name: statistics
+  label: Statistics database
+  files:
+  - label: All statistics
+    name: statistics
+    file: src/content/statistics/statistics.yaml
+    fields:
+    - label: Statistics
+      name: statistics
+      widget: list
+      summary: '{{fields.value}} {{fields.unit}} — {{fields.statement}}'
+      fields:
+      - label: ID (unique slug)
+        name: id
+        widget: string
+      - label: Statement
+        name: statement
+        widget: text
+      - label: Value
+        name: value
+        widget: string
+      - label: Unit
+        name: unit
+        widget: string
+        required: false
+      - label: Category
+        name: category
+        widget: select
+        options:
+        - internet-mobile
+        - social-media
+        - advertising
+        - search-ai
+        - ecommerce
+        - video
+        - email-whatsapp
+        - seo
+      - label: Type
+        name: kind
+        widget: select
+        options:
+        - fact
+        - third-party-estimate
+        - forecast
+      - label: Source
+        name: source
+        widget: string
+      - label: Publication
+        name: publication
+        widget: string
+      - label: Source URL
+        name: sourceUrl
+        widget: string
+      - label: Year
+        name: year
+        widget: number
+      - label: Reference period
+        name: referencePeriod
+        widget: string
+      - label: Geography
+        name: geography
+        widget: string
+      - label: Sample size
+        name: sampleSize
+        widget: string
+        required: false
+      - label: Methodology
+        name: methodology
+        widget: text
+        required: false
+      - label: Context
+        name: context
+        widget: text
+      - label: Accessed on
+        name: accessedOn
+        widget: datetime
+      - label: Verification
+        name: verification
+        widget: select
+        options:
+        - pending-review
+        - editor-verified
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+- name: blog
+  label: Blog & guides
+  folder: src/content/blog
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Description
+    name: description
+    widget: text
+  - label: Direct answer (AEO — 40–60 words)
+    name: directAnswer
+    widget: text
+  - label: Author (team slug)
+    name: author
+    widget: string
+  - label: Reviewer (team slug)
+    name: reviewer
+    widget: string
+    required: false
+  - label: Category
+    name: category
+    widget: string
+  - label: Cluster
+    name: cluster
+    widget: select
+    options:
+    - digital-marketing
+    - seo
+    - paid-advertising
+    - agency-selection
+    - industry
+    - aeo
+    - analytics
+  - label: Pillar guide
+    name: pillar
+    widget: boolean
+    default: false
+  - label: Keywords
+    name: keywords
+    widget: list
+    required: false
+  - label: Search intent
+    name: searchIntent
+    widget: select
+    options:
+    - informational
+    - commercial
+    - transactional
+    - navigational
+  - label: Originality — what does this add that the top 10 results don't?
+    name: originality
+    widget: text
+  - label: Featured image
+    name: featuredImage
+    widget: image
+    required: false
+  - label: Featured image alt
+    name: featuredImageAlt
+    widget: string
+    required: false
+  - label: Sources
+    name: sources
+    widget: list
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+    - label: Publisher
+      name: publisher
+      widget: string
+    - label: Year
+      name: year
+      widget: string
+    - label: URL
+      name: url
+      widget: string
+  - *id001
+  - label: Published
+    name: published
+    widget: datetime
+  - label: Updated
+    name: updated
+    widget: datetime
+  - label: Draft
+    name: draft
+    widget: boolean
+    default: true
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - label: Body
+    name: body
+    widget: markdown
+  - *id010
+- name: glossary
+  label: Glossary
+  folder: src/content/glossary
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Term
+    name: term
+    widget: string
+  - label: Abbreviation
+    name: abbreviation
+    widget: string
+    required: false
+  - label: Definition (direct answer)
+    name: definition
+    widget: text
+  - label: Explanation
+    name: explanation
+    widget: text
+  - label: Formula
+    name: formula
+    widget: string
+    required: false
+  - label: Example
+    name: example
+    widget: text
+    required: false
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - label: Related terms
+    name: related
+    widget: relation
+    collection: glossary
+    search_fields:
+    - term
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{term}}'
+    multiple: true
+    required: false
+  - *id009
+  - *id010
+- name: compare
+  label: Comparisons
+  folder: src/content/compare
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Option A
+    name: a
+    widget: string
+  - label: Option B
+    name: b
+    widget: string
+  - label: Direct answer
+    name: directAnswer
+    widget: text
+  - label: Rows
+    name: rows
+    widget: list
+    fields:
+    - label: Criterion
+      name: criterion
+      widget: string
+    - label: A
+      name: a
+      widget: text
+    - label: B
+      name: b
+      widget: text
+  - label: Choose A when
+    name: chooseA
+    widget: list
+  - label: Choose B when
+    name: chooseB
+    widget: list
+  - label: Using both together
+    name: together
+    widget: text
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - *id009
+  - *id010
+- name: team
+  label: Team & authors
+  folder: src/content/team
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Name
+    name: name
+    widget: string
+  - label: Role
+    name: role
+    widget: string
+  - label: Type
+    name: type
+    widget: select
+    options:
+    - person
+    - organization
+    default: person
+  - label: Placeholder (hide from index)
+    name: placeholder
+    widget: boolean
+    default: false
+  - label: Order
+    name: order
+    widget: number
+  - label: Photo
+    name: photo
+    widget: image
+    required: false
+  - label: Photo alt
+    name: photoAlt
+    widget: string
+    required: false
+  - label: Bio (verifiable facts only)
+    name: bio
+    widget: text
+  - label: Expertise
+    name: expertise
+    widget: list
+    required: false
+  - label: Experience
+    name: experience
+    widget: string
+    required: false
+  - label: LinkedIn URL
+    name: linkedin
+    widget: string
+    required: false
+  - label: Projects
+    name: projects
+    widget: list
+    required: false
+  - *id010
+- name: testimonials
+  label: Testimonials
+  folder: src/content/testimonials
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Quote (verbatim)
+    name: quote
+    widget: text
+  - label: Person
+    name: person
+    widget: string
+  - label: Role
+    name: role
+    widget: string
+  - label: Company
+    name: company
+    widget: string
+  - label: Case study slug
+    name: caseStudy
+    widget: string
+    required: false
+  - label: Verified real client
+    name: verified
+    widget: boolean
+    default: false
+  - label: Written consent on file
+    name: consentOnFile
+    widget: boolean
+    default: false
+- name: pricing
+  label: Pricing / rate card
+  folder: src/content/pricing
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Order
+    name: order
+    widget: number
+  - label: Intro
+    name: intro
+    widget: text
+  - label: Service slug
+    name: service
+    widget: string
+    required: false
+  - label: Tiers
+    name: tiers
+    widget: list
+    fields:
+    - label: Name
+      name: name
+      widget: string
+    - label: Price from (₹, blank = not set)
+      name: priceFrom
+      widget: number
+      required: false
+    - label: Price to (₹)
+      name: priceTo
+      widget: number
+      required: false
+    - label: Unit
+      name: unit
+      widget: string
+    - label: Best for
+      name: bestFor
+      widget: string
+    - label: Includes
+      name: includes
+      widget: list
+    - label: Excludes
+      name: excludes
+      widget: list
+      required: false
+  - label: Notes
+    name: notes
+    widget: list
+    required: false
+- name: faqs
+  label: FAQ groups
+  folder: src/content/faqs
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Topic
+    name: topic
+    widget: string
+  - label: Order
+    name: order
+    widget: number
+  - label: Items
+    name: items
+    widget: list
+    fields:
+    - label: Question
+      name: q
+      widget: string
+    - label: Answer
+      name: a
+      widget: text
+- name: resources
+  label: Resources
+  folder: src/content/resources
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Description
+    name: description
+    widget: text
+  - label: Format
+    name: format
+    widget: string
+  - label: File
+    name: file
+    widget: file
+    required: false
+  - label: Gated (capture email)
+    name: gated
+    widget: boolean
+    default: true
+  - label: Status
+    name: status
+    widget: select
+    options:
+    - available
+    - in-production
+  - label: Order
+    name: order
+    widget: number
+  - label: Tools
+    name: tools
+    widget: list
+    required: false
+  - label: Services
+    name: services
+    widget: list
+    required: false
+- name: datasets
+  label: TBM market data
+  folder: src/content/datasets
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Label
+    name: label
+    widget: select
+    options:
+    - TBM Original Dataset
+    - Third-Party Market Data
+  - label: Status
+    name: status
+    widget: select
+    options:
+    - collecting
+    - published
+  - label: Description
+    name: description
+    widget: text
+  - label: Sample size
+    name: sampleSize
+    widget: string
+  - label: Date range
+    name: dateRange
+    widget: string
+  - label: Methodology
+    name: methodology
+    widget: text
+  - label: Limitations
+    name: limitations
+    widget: list
+  - label: Confidence
+    name: confidence
+    widget: select
+    options:
+    - low
+    - moderate
+    - high
+  - label: Breakdowns
+    name: breakdowns
+    widget: list
+    required: false
+  - label: Metrics
+    name: metrics
+    widget: list
+    required: false
+    fields:
+    - label: Metric
+      name: metric
+      widget: string
+    - label: Segment
+      name: segment
+      widget: string
+    - label: Value
+      name: value
+      widget: string
+    - label: n (sample)
+      name: n
+      widget: number
+- name: locations
+  label: Markets & locations
+  folder: src/content/locations
+  extension: yaml
+  format: yaml
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: Name
+    name: name
+    widget: string
+  - label: Kind
+    name: kind
+    widget: select
+    options:
+    - city
+    - country
+  - label: Published (only if genuinely served, with unique research)
+    name: published
+    widget: boolean
+    default: false
+  - label: Summary
+    name: summary
+    widget: text
+  - label: Market context (sourced)
+    name: marketContext
+    widget: list
+    required: false
+  - label: Industries
+    name: industries
+    widget: list
+    required: false
+  - label: Services
+    name: services
+    widget: list
+    required: false
+  - label: Office (real offices only)
+    name: office
+    widget: string
+    required: false
+  - *id010
+- name: legal
+  label: Legal pages
+  folder: src/content/legal
+  create: false
+  slug: '{{slug}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Description
+    name: description
+    widget: string
+  - label: Updated
+    name: updated
+    widget: datetime
+  - label: Reviewed by counsel
+    name: reviewedByCounsel
+    widget: boolean
+  - label: Body
+    name: body
+    widget: markdown

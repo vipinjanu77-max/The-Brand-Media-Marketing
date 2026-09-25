@@ -12,6 +12,7 @@
  */
 import { defineCollection, z } from 'astro:content';
 import { glob, file } from 'astro/loaders';
+import yaml from 'js-yaml';
 
 const seo = z
   .object({
@@ -120,7 +121,10 @@ const compare = defineCollection({
 });
 
 const statistics = defineCollection({
-  loader: file('./src/content/statistics/statistics.yaml'),
+  loader: file('./src/content/statistics/statistics.yaml', {
+    // The CMS stores statistics under a top-level `statistics:` list.
+    parser: (text) => (yaml.load(text) as { statistics: Record<string, unknown>[] }).statistics,
+  }),
   schema: z.object({
     statement: z.string(),
     value: z.string(),

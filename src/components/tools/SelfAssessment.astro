@@ -1,0 +1,99 @@
+---
+/**
+ * Generic scored self-assessment (Yes / Partly / No). Used by the agency evaluation,
+ * marketing audit and SEO health checker. Optional downloadable HTML report.
+ */
+import type { Section } from '../../lib/assessments';
+interface Props { id: string; sections: Section[]; subjectLabel?: string; downloadable?: boolean; reportTitle: string; cta: { label: string; href: string } }
+const { id, sections, subjectLabel, downloadable, reportTitle, cta } = Astro.props;
+let n = 0;
+---
+<div class="tool sa" data-sa={id} data-title={reportTitle}>
+  <form class="inputs" onsubmit="return false" aria-label={reportTitle}>
+    {subjectLabel && <div class="field"><label for={`${id}-subject`}>{subjectLabel}</label><input class="input" id={`${id}-subject`} data-subject maxlength="80" /></div>}
+    {sections.map((s) => (
+      <fieldset data-section={s.name}>
+        <legend>{s.name}</legend>
+        {s.questions.map((q) => {
+          const k = `${id}-q${n++}`;
+          return (
+            <div class="sa-q" data-q data-fix={q.fix}>
+              <p id={`${k}-l`}>{q.q}</p>
+              <div class="sa-opts" role="radiogroup" aria-labelledby={`${k}-l`}>
+                {[['2', 'Yes'], ['1', 'Partly'], ['0', 'No']].map(([v, l]) => <label><input type="radio" name={k} value={v} /> <span>{l}</span></label>)}
+              </div>
+            </div>
+          );
+        })}
+      </fieldset>
+    ))}
+  </form>
+  <section class="results" aria-live="polite">
+    <h2>Your score</h2>
+    <p class="out-value big" data-score>—</p>
+    <p class="small" data-answered></p>
+    <div class="sa-bars" data-bars></div>
+    <div><p class="out-label">Top priorities</p><ol class="sa-fixes" data-fixes><li>Answer the questions to see priorities.</li></ol></div>
+    {downloadable && <button type="button" class="btn btn--light" data-download>Download evaluation report</button>}
+    <a class="btn btn--outline-light" href={cta.href} data-track="cta_click" data-cta={`${id}_cta`}>{cta.label}</a>
+    <p class="disclaimer">A structured self-assessment, not a professional audit. Your answers stay in your browser.</p>
+  </section>
+</div>
+<script>
+  import { download, escapeHtml } from '../../lib/toolkit';
+  document.querySelectorAll<HTMLElement>('[data-sa]').forEach((root) => {
+    let tracked = false;
+    const sections = [...root.querySelectorAll<HTMLElement>('[data-section]')];
+    const state = () => sections.map((s) => {
+      const qs = [...s.querySelectorAll<HTMLElement>('[data-q]')].map((q) => {
+        const v = q.querySelector<HTMLInputElement>('input:checked')?.value;
+        return { text: q.querySelector('p')!.textContent!, fix: q.dataset.fix!, v: v === undefined ? null : Number(v) };
+      });
+      const answered = qs.filter((q) => q.v !== null);
+      return { name: s.dataset.section!, qs, pct: answered.length ? Math.round((answered.reduce((a, q) => a + q.v!, 0) / (answered.length * 2)) * 100) : null };
+    });
+    const render = () => {
+      const st = state();
+      const all = st.flatMap((s) => s.qs);
+      const ans = all.filter((q) => q.v !== null);
+      const pct = ans.length ? Math.round((ans.reduce((a, q) => a + q.v!, 0) / (ans.length * 2)) * 100) : null;
+      root.querySelector('[data-score]')!.textContent = pct === null ? '—' : `${pct}%`;
+      root.querySelector('[data-answered]')!.textContent = `${ans.length} of ${all.length} answered`;
+      root.querySelector('[data-bars]')!.innerHTML = st.map((s) => `<div class="sb"><div class="sb-top"><span>${escapeHtml(s.name)}</span><span>${s.pct === null ? '—' : s.pct + '%'}</span></div><div class="sb-track"><span style="width:${s.pct ?? 0}%"></span></div></div>`).join('');
+      const fixes = ans.filter((q) => q.v! < 2).sort((a, b) => a.v! - b.v!).slice(0, 5);
+      root.querySelector('[data-fixes]')!.innerHTML = fixes.length ? fixes.map((f) => `<li>${escapeHtml(f.fix)}</li>`).join('') : `<li>${ans.length ? 'No gaps flagged in your answers so far.' : 'Answer the questions to see priorities.'}</li>`;
+      return { st, pct };
+    };
+    root.addEventListener('change', () => {
+      render();
+      if (!tracked) { tracked = true; (window as any).tbmTrack?.('tool_used', { tool: root.dataset.sa }); }
+    });
+    render();
+    root.querySelector('[data-download]')?.addEventListener('click', () => {
+      const { st, pct } = render();
+      const subject = (root.querySelector<HTMLInputElement>('[data-subject]')?.value || 'Unnamed').trim();
+      const label = (v: number | null) => (v === null ? 'Not answered' : ['No', 'Partly', 'Yes'][v]);
+      const body = st.map((s) => `<h2>${escapeHtml(s.name)} — ${s.pct ?? '—'}%</h2><table><tr><th>Criterion</th><th>Answer</th><th>Follow-up</th></tr>${s.qs.map((q) => `<tr><td>${escapeHtml(q.text)}</td><td>${label(q.v)}</td><td>${q.v === 2 ? '' : escapeHtml(q.fix)}</td></tr>`).join('')}</table>`).join('');
+      const title = root.dataset.title!;
+      const html = `<!doctype html><html><head><meta charset="utf-8"><title>${escapeHtml(title)} — ${escapeHtml(subject)}</title><style>body{font-family:system-ui,sans-serif;max-width:820px;margin:2rem auto;padding:0 1rem;color:#0e1424}h1{color:#0a1a3f}table{border-collapse:collapse;width:100%;margin-bottom:1.5rem}td,th{border:1px solid #d2d6de;padding:.5rem;text-align:left;vertical-align:top;font-size:.9rem}th{background:#f3f6fe}</style></head><body><h1>${escapeHtml(title)}</h1><p><strong>Subject:</strong> ${escapeHtml(subject)}<br><strong>Overall score:</strong> ${pct ?? '—'}%<br><strong>Date:</strong> ${new Date().toLocaleDateString('en-IN')}</p>${body}<p style="font-size:.8rem;color:#5d6477">Generated with the Agency Evaluation Checklist by The Brand Media Marketing (TBM). A structured self-assessment — apply the same criteria to every agency you evaluate, including TBM.</p></body></html>`;
+      download(`agency-evaluation-${subject.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html`, html);
+      (window as any).tbmTrack?.('resource_download', { resource: 'agency_evaluation_report' });
+    });
+  });
+</script>
+<style>
+  .sa-q { padding-block: 0.75rem; border-bottom: 1px solid var(--line); display: grid; gap: 0.6rem; }
+  .sa-q p { font-weight: 550; }
+  .sa-opts { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .sa-opts label { position: relative; }
+  .sa-opts input { position: absolute; opacity: 0; inset: 0; }
+  .sa-opts span { display: inline-block; min-width: 76px; text-align: center; padding: 0.45rem 0.8rem; border: 1.5px solid var(--line-2); border-radius: 999px; font-size: 0.88rem; font-weight: 600; }
+  .sa-opts input:checked + span { background: var(--navy-900); border-color: var(--navy-900); color: #fff; }
+  .sa-opts input:focus-visible + span { outline: 3px solid var(--royal-500); outline-offset: 2px; }
+  .big { font-size: var(--step-4); }
+  .sa-bars { display: grid; gap: 0.75rem; }
+  .sa-bars :global(.sb-top) { display: flex; justify-content: space-between; font-size: 0.88rem; color: #fff; }
+  .sa-bars :global(.sb-track) { height: 8px; border-radius: 4px; background: rgb(255 255 255 / 0.1); margin-top: 0.3rem; }
+  .sa-bars :global(.sb-track span) { display: block; height: 100%; border-radius: 4px; background: #6f95f5; }
+  .sa-fixes { padding-left: 1.2rem; display: grid; gap: 0.4rem; font-size: 0.92rem; margin-top: 0.4rem; }
+</style>

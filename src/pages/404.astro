@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page Not Found" description="The page you were looking for doesn't exist or has moved." seo={{ noindex: true }}>
+  <section class="section">
+    <div class="container--narrow stack" style="--stack:1.5rem">
+      <p class="eyebrow">404</p>
+      <h1>This page doesn’t exist — or it moved.</h1>
+      <p class="lede">Try searching, or start from one of these:</p>
+      <form action="/search/" method="get" role="search" class="s"><label for="q404" class="sr-only">Search</label><input id="q404" class="input" name="q" placeholder="Search guides, services, tools…" /><button class="btn">Search</button></form>
+      <ul class="check-list">
+        <li><a href="/services/">Services</a></li><li><a href="/insights/">Insights & research</a></li><li><a href="/tools/">Tools & calculators</a></li><li><a href="/contact/">Get a Growth Audit</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>
+<style>.s { display: flex; gap: 0.5rem; } .s .input { flex: 1; }</style>

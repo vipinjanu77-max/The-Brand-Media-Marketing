@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
+const crumbs = [{ name: 'Search', href: '/search/' }];
+---
+<Base title="Search" description="Search TBM's services, industries, research, statistics, guides, tools and glossary." crumbs={crumbs} seo={{ noindex: true }}>
+  <PageHero crumbs={crumbs} eyebrow="Search" title="What are you looking for?" />
+  <section class="section" data-hide-sticky>
+    <div class="container--narrow">
+      <form role="search" onsubmit="return false" class="sf"><label for="sq" class="sr-only">Search</label><input id="sq" class="input" type="search" name="q" placeholder="Try “CPL”, “real estate”, “SEO cost”" autocomplete="off" data-q /></form>
+      <p class="small muted mt-1" aria-live="polite" data-status>Loading index…</p>
+      <ol class="results" data-results role="list"></ol>
+    </div>
+  </section>
+</Base>
+<script>
+  type Item = { t: string; u: string; d: string; k: string; x: string };
+  const input = document.querySelector<HTMLInputElement>('[data-q]')!;
+  const list = document.querySelector<HTMLOListElement>('[data-results]')!;
+  const status = document.querySelector<HTMLElement>('[data-status]')!;
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  let items: Item[] = [];
+  const score = (it: Item, terms: string[]) => terms.reduce((s, t) => {
+    const title = it.t.toLowerCase(), body = `${it.d} ${it.x}`.toLowerCase();
+    if (!title.includes(t) && !body.includes(t)) return -Infinity;
+    return s + (title.startsWith(t) ? 6 : title.includes(t) ? 4 : 1);
+  }, 0);
+  const run = () => {
+    const q = input.value.trim().toLowerCase();
+    const u = new URL(location.href); q ? u.searchParams.set('q', q) : u.searchParams.delete('q'); history.replaceState(null, '', u);
+    if (q.length < 2) { list.innerHTML = ''; status.textContent = 'Type at least two characters.'; return; }
+    const terms = q.split(/\s+/).filter(Boolean);
+    const res = items.map((it) => ({ it, s: score(it, terms) })).filter((r) => r.s > -Infinity).sort((a, b) => b.s - a.s).slice(0, 30);
+    status.textContent = `${res.length} result${res.length === 1 ? '' : 's'} for “${q}”`;
+    list.innerHTML = res.map(({ it }) => `<li><a href="${esc(it.u)}"><span class="k">${esc(it.k)}</span><strong>${esc(it.t)}</strong><span class="d">${esc(it.d)}</span></a></li>`).join('');
+    (window as any).tbmTrack?.('site_search', { search_term: q, results: res.length });
+  };
+  fetch('/search-index.json').then((r) => r.json()).then((d: Item[]) => {
+    items = d;
+    input.value = new URLSearchParams(location.search).get('q') ?? '';
+    run();
+  }).catch(() => (status.textContent = 'Search is unavailable right now.'));
+  let t: number | undefined;
+  input.addEventListener('input', () => { clearTimeout(t); t = window.setTimeout(run, 150); });
+  input.focus();
+</script>
+<style>
+  .sf .input { font-size: 1.15rem; min-height: 56px; }
+  .results { list-style: none; padding: 0; margin-top: 1.5rem; display: grid; gap: 0.5rem; }
+  .results :global(a) { display: grid; gap: 0.2rem; padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: var(--radius-sm); text-decoration: none; color: var(--ink); }
+  .results :global(a:hover) { border-color: var(--royal-500); }
+  .results :global(.k) { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--royal-600); }
+  .results :global(strong) { color: var(--navy-900); }
+  .results :global(.d) { font-size: 0.9rem; color: var(--ink-3); }
+</style>

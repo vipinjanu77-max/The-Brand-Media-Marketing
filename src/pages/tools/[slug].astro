@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import CTABand from '../../components/ui/CTABand.astro';
+import RelatedContent from '../../components/ui/RelatedContent.astro';
+import DirectAnswer from '../../components/ui/DirectAnswer.astro';
+import RoiCalculator from '../../components/tools/RoiCalculator.astro';
+import CostCalculator from '../../components/tools/CostCalculator.astro';
+import RoasCalculator from '../../components/tools/RoasCalculator.astro';
+import CplCalculator from '../../components/tools/CplCalculator.astro';
+import CacCalculator from '../../components/tools/CacCalculator.astro';
+import MediaPlanner from '../../components/tools/MediaPlanner.astro';
+import SelfAssessment from '../../components/tools/SelfAssessment.astro';
+import { tools, type ToolDef } from '../../lib/tools';
+import { agencyCriteria, marketingAudit, seoHealth } from '../../lib/assessments';
+
+export function getStaticPaths() {
+  return tools.map((tool) => ({ params: { slug: tool.slug }, props: { tool } }));
+}
+const { tool } = Astro.props as { tool: ToolDef };
+const crumbs = [{ name: 'Tools', href: '/tools/' }, { name: tool.short, href: `/tools/${tool.slug}/` }];
+const origin = Astro.site?.origin ?? Astro.url.origin;
+const howTo: Record<string, { answer: string; formula?: string[] }> = {
+  'marketing-roi-calculator': { answer: 'Work backwards: required customers = target revenue ÷ order value; required leads = customers ÷ conversion rate; budget = leads × CPL. Then compare projected ROAS with break-even ROAS (1 ÷ gross margin).', formula: ['Required leads = (Target revenue ÷ AOV) ÷ Conversion rate', 'Budget = Required leads × CPL', 'CAC = CPL ÷ Conversion rate', 'Break-even ROAS = 1 ÷ Gross margin'] },
+  'digital-marketing-cost-calculator': { answer: 'A sensible budget starts from revenue and growth ambition, adjusts for competition and geography, and is then split into media, agency, creative, technology and contingency.' },
+  'agency-evaluation-checklist': { answer: 'Score every agency on the same 14 criteria — evidence, people, strategy, measurement and commercial terms — then compare. The best choice usually has the most verifiable evidence, not the boldest promises.' },
+  'marketing-audit': { answer: 'Most marketing leaks come from five places: unclear economics, unreliable tracking, weak conversion paths, channels without a clear job, and reporting that stops at clicks.' },
+  'media-planner': { answer: 'For each channel, spend ÷ CPM × 1,000 gives impressions; × CTR gives clicks; × conversion rate gives leads. Your own assumptions decide the answer.', formula: ['Impressions = Spend ÷ CPM × 1,000', 'Clicks = Impressions × CTR', 'Leads = Clicks × Conversion rate', 'CPL = Spend ÷ Leads'] },
+  'cac-calculator': { answer: 'CAC = (marketing cost + sales cost) ÷ new customers. Compare it with lifetime gross profit (LTV) and payback months to judge whether acquisition is sustainable.', formula: ['CAC = (Marketing + Sales cost) ÷ New customers', 'LTV = Monthly gross profit per customer × Lifetime months', 'Payback = CAC ÷ Monthly gross profit per customer'] },
+  'roas-calculator': { answer: 'ROAS = revenue ÷ ad spend. A good ROAS is one above your break-even ROAS, which is 1 ÷ gross margin — at a 40% margin, break-even is 2.5.', formula: ['ROAS = Revenue ÷ Ad spend', 'Break-even ROAS = 1 ÷ Gross margin'] },
+  'cpl-calculator': { answer: 'CPL = spend ÷ leads. The most you can afford per lead is deal value × margin × qualification rate × close rate.', formula: ['CPL = Spend ÷ Leads', 'Break-even CPL = Deal value × Margin × Qualified % × Close rate'] },
+  'seo-health-checker': { answer: 'SEO health rests on five areas: technical access, on-page clarity, useful content, authority and — increasingly — readiness for AI answer engines.' },
+};
+const h = howTo[tool.slug];
+const appSchema = { '@type': 'WebApplication', name: tool.title, description: tool.description, applicationCategory: 'BusinessApplication', operatingSystem: 'Any', url: new URL(`/tools/${tool.slug}/`, origin).href, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } };
+---
+<Base title={tool.title} description={tool.description} crumbs={crumbs} schema={[appSchema]}>
+  <PageHero crumbs={crumbs} eyebrow="Free tool" title={tool.title} lede={tool.description} />
+  <section class="section" data-hide-sticky>
+    <div class="container">
+      {tool.slug === 'marketing-roi-calculator' && <RoiCalculator />}
+      {tool.slug === 'digital-marketing-cost-calculator' && <CostCalculator />}
+      {tool.slug === 'roas-calculator' && <RoasCalculator />}
+      {tool.slug === 'cpl-calculator' && <CplCalculator />}
+      {tool.slug === 'cac-calculator' && <CacCalculator />}
+      {tool.slug === 'media-planner' && <MediaPlanner />}
+      {tool.slug === 'agency-evaluation-checklist' && <SelfAssessment id="agency" sections={agencyCriteria} subjectLabel="Agency name" downloadable reportTitle="Agency Evaluation Report" cta={{ label: 'Evaluate TBM on the same criteria', href: '/contact/?intent=strategy-call' }} />}
+      {tool.slug === 'marketing-audit' && <SelfAssessment id="audit" sections={marketingAudit} reportTitle="Marketing Self-Audit" cta={{ label: 'Get a full Growth Audit', href: '/contact/?intent=growth-audit' }} />}
+      {tool.slug === 'seo-health-checker' && <SelfAssessment id="seo" sections={seoHealth} reportTitle="SEO Health Check" cta={{ label: 'Get an SEO & AEO audit', href: '/contact/?intent=growth-audit' }} />}
+    </div>
+  </section>
+  <section class="section section--alt">
+    <div class="container--narrow stack" style="--stack:1.5rem">
+      <h2 class="q">{tool.question}</h2>
+      <DirectAnswer>{h.answer}</DirectAnswer>
+      {h.formula && <div class="table-wrap"><table class="data-table"><thead><tr><th scope="col">Formulas used</th></tr></thead><tbody>{h.formula.map((f) => <tr><td><code>{f}</code></td></tr>)}</tbody></table></div>}
+      <p class="small muted">Calculations are estimates, not guarantees. See our <a href="/legal/marketing-results-disclaimer/">results disclaimer</a>.</p>
+    </div>
+  </section>
+  <RelatedContent type="tool" slug={tool.slug} />
+  <CTABand stage={tool.stage === 'commercial' ? 'commercial' : 'mofu'} />
+</Base>
+<style>.q { font-size: var(--step-2); }</style>
