@@ -1,8 +1,10 @@
 # The Brand Media Marketing (TBM) — website & marketing intelligence platform
 
-A production-ready, SEO/AEO-first website for TBM built with **Astro 5** (static pages + a small Node server for form APIs), a **git-based CMS** (Decap) over typed content collections, and almost no client-side JavaScript.
+A production-ready, SEO/AEO-first website for TBM built with **Astro 7** (static pages + a small Node server for form APIs), a **git-based CMS** (Decap) over typed content collections, and almost no client-side JavaScript.
 
-> **Credibility rule:** nothing on this site invents clients, logos, testimonials, awards, certifications, results or statistics. Where TBM information is still needed, the site shows a visible `[ADMIN …]` placeholder. Run `npm run audit:content` to count what remains.
+> **Credibility rule:** nothing on this site invents clients, logos, testimonials, awards, certifications, results or statistics.
+>
+> **Preview vs production:** in `npm run dev` (or with `PUBLIC_SHOW_PLACEHOLDERS=true`) missing information shows as yellow `[ADMIN …]` placeholders. Production builds hide them and render honest public fallbacks (e.g. "Published case studies appear here as clients approve them"), so the site can launch before every item is filled. Run a preview build + `npm run audit:content` to count what remains.
 
 ## Quick start
 
@@ -16,6 +18,28 @@ npm start            # run the built server (node dist/server/entry.mjs)
 ```
 
 Environment variables: see `.env.example`. **`SITE_URL` must be set at build time** — it drives canonicals, the sitemap, schema and the trusted-host list for form posts.
+
+## Deploy
+
+**Docker (recommended):**
+```bash
+docker build --build-arg SITE_URL=https://www.yourdomain.com -t tbm-site .
+docker run -d -p 4321:4321 --env-file .env -v $(pwd)/data:/app/data tbm-site
+```
+Put it behind HTTPS (see `deploy/nginx.conf` for a reverse proxy with security and caching headers). Any Node 22 host works (Render, Railway, Fly.io, a VPS): `npm ci && npm run build && npm start`.
+
+Without a CRM webhook, leads are saved to `data/leads/leads.jsonl` so none are lost — mount `data/` as a volume.
+
+## Visual system
+
+- `src/components/art/Artwork.astro` — generated, deterministic cover artwork (one motif per service/industry/topic in `src/lib/motifs.ts`). New CMS entries get artwork automatically; zero image weight.
+- `src/components/home/HeroVisual.astro` — homepage hero composite.
+- `src/components/infographics/` — system map, growth-loop ring, investment split, onboarding Gantt.
+- Real photography (team, office, work) can be uploaded in the CMS (`photo` fields, case-study `evidence`, article `featuredImage`) and replaces artwork where provided.
+
+## Pricing
+
+The rate card (`src/content/pricing/*.yaml`) holds TBM's indicative prices (INR, excl. GST), benchmarked in September 2026 against published Indian agency price guides — see `/research/digital-marketing-agency-pricing-india-2026/`. **Owners should review and adjust these before launch**; they are editable in the CMS.
 
 ## Architecture
 

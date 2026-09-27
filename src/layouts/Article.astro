@@ -11,6 +11,8 @@ import FAQ from '../components/ui/FAQ.astro';
 import CTABand from '../components/ui/CTABand.astro';
 import RelatedContent from '../components/ui/RelatedContent.astro';
 import { article, faqPage } from '../lib/schema';
+import Artwork from '../components/art/Artwork.astro';
+import { clusterMotif } from '../lib/motifs';
 
 interface Props { entry: CollectionEntry<'blog'>; headings: { depth: number; slug: string; text: string }[] }
 const { entry, headings } = Astro.props;
@@ -53,6 +55,9 @@ const toc = headings.filter((h) => h.depth === 2);
       <h1>{d.title}</h1>
       <p class="lede">{d.description}</p>
       <Byline author={d.author} reviewer={d.reviewer} published={d.published} updated={d.updated} readingMinutes={minutes} />
+      <div class="art-cover">
+        {d.featuredImage ? <img src={d.featuredImage} alt={d.featuredImageAlt ?? ''} width="1200" height="514" /> : <Artwork seed={entry.id} motif={d.pillar ? 'book' : clusterMotif[d.cluster]} variant={d.pillar ? 'royal' : 'deep'} ratio="21/9" label={d.pillar ? 'Guide' : d.category} />}
+      </div>
     </div>
   </header>
   <div class="container art-grid">
@@ -76,6 +81,8 @@ const toc = headings.filter((h) => h.depth === 2);
   .art-head { padding-block: clamp(2rem, 5vw, 4rem) 1rem; background: linear-gradient(180deg, var(--royal-50), #fff); }
   .art-head h1 { font-size: var(--step-4); margin-top: 0.75rem; }
   .art-head .lede { margin-top: 1rem; }
+  .art-cover { margin-top: 2rem; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px -34px rgb(10 26 63 / 0.5); }
+  .art-cover img { width: 100%; height: auto; aspect-ratio: 21/9; object-fit: cover; }
   .art-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; padding-block: 2.5rem 4rem; }
   @media (min-width: 1000px) { .art-grid { grid-template-columns: 240px minmax(0, 1fr); } }
   .art-body { min-width: 0; }

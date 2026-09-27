@@ -7,6 +7,8 @@ import CTABand from '../components/ui/CTABand.astro';
 import FAQ from '../components/ui/FAQ.astro';
 import { faqPage } from '../lib/schema';
 import { proposalHref } from '../lib/site';
+import InvestmentSplit from '../components/infographics/InvestmentSplit.astro';
+import Placeholder from '../components/ui/Placeholder.astro';
 
 const pricing = (await getCollection('pricing')).sort((a, b) => a.data.order - b.data.order);
 const faqs = (await getCollection('faqs')).find((f) => f.id === 'pricing')?.data.items ?? [];
@@ -24,7 +26,7 @@ const components = [
 const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
 ---
 <Base title="Pricing & Rate Card" description="TBM's transparent rate card and pricing philosophy — agency fees separated from media spend, creative, production and technology for SEO, Google Ads, Meta Ads, social, websites, branding and consulting." crumbs={crumbs} schema={[faqPage(faqs)]}>
-  <PageHero crumbs={crumbs} eyebrow="Pricing" title="Marketing should be an investment, not a black box." lede="You should be able to see exactly what you are paying for. Our rate card is public, and every proposal separates fees, media, creative, production and technology.">
+  <PageHero crumbs={crumbs} art={{ seed: 'pricing', motif: 'coin', variant: 'light' }} eyebrow="Pricing" title="Marketing should be an investment, not a black box." lede="You should be able to see exactly what you are paying for. Our rate card is public, and every proposal separates fees, media, creative, production and technology.">
     <a class="btn" href={proposalHref} data-track="cta_click" data-cta="pricing_proposal">Request proposal</a>
     <a class="btn btn--ghost" href="/tools/digital-marketing-cost-calculator/">Estimate your budget</a>
   </PageHero>
@@ -32,7 +34,11 @@ const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
   <section class="section">
     <div class="container">
       <SectionHead eyebrow="Pricing philosophy" title="Six lines, never blended." lede="Agency fee ≠ media spend ≠ production cost ≠ technology cost. Here is what each covers — and what it doesn't." />
-      <div class="grid grid-3">
+      <div class="split-card">
+        <h3 class="sc-h">Where a typical investment goes</h3>
+        <InvestmentSplit />
+      </div>
+      <div class="grid grid-3 mt-2">
         {components.map((c) => (
           <div class="card">
             <h3>{c.t}</h3><p>{c.d}</p>
@@ -45,8 +51,9 @@ const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
 
   <section class="section section--alt" id="rate-card">
     <div class="container">
-      <SectionHead eyebrow="Rate card" title="TBM rate card" lede="Final pricing depends on scope, market, competition, complexity and required resources. Prices below are maintained in our CMS and reviewed regularly." />
-      <nav class="filters" aria-label="Rate card sections">{pricing.map((p) => <a class="chip" href={`#${p.id}`}>{p.data.title}</a>)}</nav>
+      <SectionHead eyebrow="Rate card" title="TBM rate card" lede="Final pricing depends on scope, market, competition, complexity and required resources. Prices are reviewed regularly and shown excluding GST." />
+      <div class="notice notice--bench"><div><strong>How we set these prices.</strong> Indicative starting prices in INR, excluding GST, benchmarked in September 2026 against the price ranges Indian agencies publish. See the <a href="/research/digital-marketing-agency-pricing-india-2026/">agency pricing benchmark</a> for the market ranges, sources and where TBM sits.</div></div>
+      <nav class="filters mt-2" aria-label="Rate card sections">{pricing.map((p) => <a class="chip" href={`#${p.id}`}>{p.data.title}</a>)}</nav>
       <div class="stack mt-2" style="--stack:3rem">
         {pricing.map((p) => (
           <section id={p.id} class="rc" aria-labelledby={`${p.id}-h`}>
@@ -61,7 +68,7 @@ const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
                 return (
                   <div class="tier">
                     <p class="tier-name">{t.name}</p>
-                    {pr ? <p class="tier-price num">{pr}<span> {t.unit}</span></p> : <p class="tier-price"><span class="placeholder placeholder--inline">[PRICE — ADMIN TO SET IN CMS]</span><span> {t.unit}</span></p>}
+                    {pr ? <p class="tier-price num">{pr}<span> {t.unit}</span></p> : <p class="tier-price"><Placeholder inline label="PRICE — ADMIN TO SET IN CMS">Quoted on scope</Placeholder><span> {t.unit}</span></p>}
                     <p class="small muted">Best for: {t.bestFor}</p>
                     <ul class="check-list small">{t.includes.map((x) => <li>{x}</li>)}</ul>
                     {t.excludes.length > 0 && <p class="small muted">Not included: {t.excludes.join('; ')}</p>}
@@ -81,6 +88,9 @@ const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
   <CTABand stage="commercial" />
 </Base>
 <style>
+  .split-card { padding: clamp(1.5rem, 3vw, 2.25rem); border-radius: 20px; background: var(--navy-900); color: #d7def0; margin-bottom: 1rem; }
+  .split-card a { color: #9fb8ff; }
+  .sc-h { color: #fff; font-family: var(--font-serif); font-weight: 560; font-size: var(--step-2); margin-bottom: 1.25rem; }
   .rc { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: clamp(1.25rem, 3vw, 2rem); scroll-margin-top: 100px; }
   .rc-head { display: grid; gap: 0.4rem; margin-bottom: 1.5rem; }
   .rc-head h3 { font-size: var(--step-3); font-family: var(--font-serif); font-weight: 560; }
@@ -88,7 +98,7 @@ const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
   .tier { display: grid; gap: 0.6rem; align-content: start; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2); }
   .tier-name { font-weight: 700; color: var(--navy-900); }
   .tier-price { font-family: var(--font-serif); font-size: var(--step-1); color: var(--navy-900); }
-  .tier-price span:last-child { font-family: var(--font-sans); font-size: 0.8rem; color: var(--ink-3); }
+  .tier-price span:last-child { display: block; margin-top: 0.15rem; font-family: var(--font-sans); font-size: 0.8rem; color: var(--ink-3); }
   .notes { margin-top: 1rem; padding-left: 1.2rem; font-size: 0.88rem; color: var(--ink-2); }
   .filters a { text-decoration: none; }
 </style>

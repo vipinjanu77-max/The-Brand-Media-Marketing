@@ -1,0 +1,41 @@
+title: AEO & Content
+order: 8
+service: aeo
+intro: Answer-engine optimisation and research-led content, priced by volume and research depth.
+tiers:
+- name: AEO foundation
+  priceFrom: 60000
+  priceTo: 120000
+  unit: one-time
+  bestFor: Brands starting on AI search visibility
+  includes:
+  - AI visibility baseline
+  - Entity consistency audit
+  - Schema implementation
+  - Priority-question content map
+  excludes: &id001 []
+- name: Content programme
+  priceFrom: 40000
+  priceTo: 120000
+  unit: per month
+  bestFor: Ongoing authority building
+  includes:
+  - 4–8 researched articles or guides
+  - Expert interviews
+  - Editing and fact-checking
+  - Distribution plan
+  excludes: *id001
+- name: Research report
+  priceFrom: 150000
+  priceTo: 400000
+  unit: per report
+  bestFor: Original data and citable research
+  includes:
+  - Survey or dataset design
+  - Analysis and charts
+  - Published methodology
+  excludes: *id001
+notes:
+- Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
+  and required resources.
+- Media spend, production and third-party tools are billed separately and transparently.

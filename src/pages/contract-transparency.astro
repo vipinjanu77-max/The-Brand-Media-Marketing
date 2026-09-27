@@ -4,6 +4,7 @@ import PageHero from '../components/ui/PageHero.astro';
 import CTABand from '../components/ui/CTABand.astro';
 import FAQ from '../components/ui/FAQ.astro';
 import { faqPage } from '../lib/schema';
+import { preview } from '../lib/site';
 const crumbs = [{ name: 'Contract transparency', href: '/contract-transparency/' }];
 const terms = [
   ['Minimum commitment', 'Performance engagements typically include an initial period long enough to test properly (often three months), stated clearly in the proposal. Project work is fixed-scope.'],
@@ -23,10 +24,11 @@ const faqs = [
 ];
 ---
 <Base title="Contract Transparency" description="How TBM approaches minimum commitments, notice periods, account, creative and data ownership, reporting, confidentiality, termination and payment terms." crumbs={crumbs} schema={[faqPage(faqs)]}>
-  <PageHero crumbs={crumbs} eyebrow="Contract transparency" title="Know the terms before the pitch." lede="The principles we build every agreement on. Specific terms are set in each written proposal." />
+  <PageHero crumbs={crumbs} art={{ seed: 'contract', motif: 'document', variant: 'light' }} eyebrow="Contract transparency" title="Know the terms before the pitch." lede="The principles we build every agreement on. Specific terms are set in each written proposal." />
   <section class="section">
     <div class="container--narrow">
-      <div class="notice notice--demo"><div><strong>Legal review required.</strong> These principles describe TBM’s approach in plain language. Final contract wording must be reviewed by a qualified legal professional before publication and use.</div></div>
+      {preview && <div class="notice notice--demo"><div><strong>Legal review required.</strong> These principles describe TBM’s approach in plain language. Final contract wording must be reviewed by a qualified legal professional before publication and use.</div></div>}
+      <p class="lede">These principles describe how we structure every agreement. Your written proposal sets out the specific terms.</p>
       <dl class="terms mt-2">{terms.map(([t, d]) => <div><dt>{t}</dt><dd>{d}</dd></div>)}</dl>
     </div>
   </section>

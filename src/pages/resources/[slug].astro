@@ -13,7 +13,7 @@ const crumbs = [{ name: 'Resources', href: '/resources/' }, { name: d.title, hre
 const relatedTools = d.tools.map(toolBySlug).filter(Boolean);
 ---
 <Base title={`${d.title} (Free Download)`} description={d.description} crumbs={crumbs}>
-  <PageHero crumbs={crumbs} eyebrow={`Free ${d.format}`} title={d.title} lede={d.description} />
+  <PageHero crumbs={crumbs} art={{ seed: entry.id, motif: 'document', variant: 'light' }} eyebrow={`Free ${d.format}`} title={d.title} lede={d.description} />
   <section class="section">
     <div class="container--narrow">
       {d.status === 'in-production' || !d.file ? (

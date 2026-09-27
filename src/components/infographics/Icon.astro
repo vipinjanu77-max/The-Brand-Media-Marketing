@@ -1,0 +1,6 @@
+---
+import { motifs } from '../../lib/motifs';
+interface Props { name: string; size?: number }
+const { name, size = 28 } = Astro.props;
+---
+<svg class="ico" viewBox="0 0 100 100" width={size} height={size} fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><Fragment set:html={motifs[name] ?? ''} /></svg>

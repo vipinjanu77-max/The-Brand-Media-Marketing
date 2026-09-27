@@ -9,7 +9,7 @@ const checks = [
 ] as const;
 ---
 <Base title="Editorial Standards" description="How TBM researches, writes, reviews, sources and updates content — including E-E-A-T, search intent and originality checks." crumbs={crumbs}>
-  <PageHero crumbs={crumbs} eyebrow="Editorial standards" title="Research → Analysis → Original insight → Practical recommendation." lede="Every guide, article and research page follows this standard. If a piece can’t pass it, it doesn’t go live." />
+  <PageHero crumbs={crumbs} art={{ seed: 'editorial', motif: 'pen', variant: 'light' }} eyebrow="Editorial standards" title="Research → Analysis → Original insight → Practical recommendation." lede="Every guide, article and research page follows this standard. If a piece can’t pass it, it doesn’t go live." />
   <section class="section"><div class="container--narrow stack" style="--stack:2.5rem">
     {checks.map(([t, items]) => <div><h2 class="h">{t}</h2><ul class="check-list mt-1">{items.map((i) => <li>{i}</li>)}</ul></div>)}
     <div class="prose">

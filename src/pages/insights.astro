@@ -29,7 +29,7 @@ const clusters = [
 const crumbs = [{ name: 'Insights', href: '/insights/' }];
 ---
 <Base title="Insights — Research, Guides & Marketing Knowledge" description="TBM's marketing knowledge platform: research, statistics, pillar guides, articles, comparisons, glossary and FAQs, organised into topic clusters." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} eyebrow="Insights" title="A marketing knowledge platform, not a content calendar." lede="Research → analysis → original insight → practical recommendation. Organised into topic clusters so you can go from question to decision." />
+  <PageHero crumbs={crumbs} art={{ seed: 'insights', motif: 'network', variant: 'royal' }} eyebrow="Insights" title="A marketing knowledge platform, not a content calendar." lede="Research → analysis → original insight → practical recommendation. Organised into topic clusters so you can go from question to decision." />
   <section class="section"><div class="container grid grid-4">
     {hubs.map(([t, h, m]) => <a class="card" href={h}><h2 class="h">{t}</h2><p class="meta">{m}</p></a>)}
   </div></section>

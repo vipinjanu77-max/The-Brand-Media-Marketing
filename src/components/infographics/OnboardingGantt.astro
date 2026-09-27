@@ -1,0 +1,33 @@
+---
+/** Infographic: onboarding timeline as a Gantt-style chart (weeks 1–16+). */
+const rows = [
+  { t: 'Discovery', s: 0, e: 1 }, { t: 'Audit', s: 1, e: 2 }, { t: 'Strategy', s: 2, e: 3 }, { t: 'Build', s: 3, e: 4 },
+  { t: 'Testing', s: 4, e: 8 }, { t: 'Optimization', s: 8, e: 12 }, { t: 'Scale', s: 12, e: 16, open: true },
+];
+const cols = 16;
+const marks = [['W1', 0], ['W4', 3], ['M2', 4], ['M3', 8], ['M4+', 12]] as const;
+---
+<figure class="gt" aria-label="Onboarding timeline: Discovery week 1, Audit week 2, Strategy week 3, Build week 4, Testing month 2, Optimization month 3, Scale from month 4">
+  <div class="gt-scale" aria-hidden="true">{marks.map(([l, c]) => <span style={`left:calc(var(--lbl) + (100% - var(--lbl)) * ${c / cols})`}>{l}</span>)}</div>
+  {rows.map((r, i) => (
+    <div class="gt-row">
+      <span class="gt-l">{r.t}</span>
+      <span class="gt-track"><span class:list={['gt-bar', { open: r.open }]} style={`left:${(r.s / cols) * 100}%;width:${((r.e - r.s) / cols) * 100}%;--i:${i}`}></span></span>
+    </div>
+  ))}
+</figure>
+<style>
+  .gt { --lbl: 120px; position: relative; display: grid; gap: 0.5rem; padding: 2.25rem 1.25rem 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+  .gt-scale { position: absolute; left: 1.25rem; right: 1.25rem; top: 0.75rem; height: 1rem; }
+  .gt-scale span { position: absolute; font-size: 0.72rem; font-weight: 700; color: var(--ink-3); }
+  .gt-row { display: grid; grid-template-columns: var(--lbl) 1fr; align-items: center; }
+  .gt-l { font-size: 0.88rem; font-weight: 620; color: var(--navy-900); }
+  .gt-track { position: relative; height: 26px; border-radius: 8px; background: repeating-linear-gradient(90deg, var(--paper-2) 0 calc(100% / 16 - 2px), #fff calc(100% / 16 - 2px) calc(100% / 16)); }
+  .gt-bar { position: absolute; top: 3px; bottom: 3px; border-radius: 6px; background: linear-gradient(90deg, #1f4fd8, #6f95f5); }
+  .gt-bar.open { background: linear-gradient(90deg, #1f4fd8, rgb(111 149 245 / 0.1)); }
+  @media (max-width: 520px) { .gt { --lbl: 92px; } .gt-l { font-size: 0.78rem; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .gt-bar { animation: gbar 0.8s var(--ease) both; animation-delay: calc(var(--i) * 0.1s); transform-origin: left; }
+    @keyframes gbar { from { transform: scaleX(0); } }
+  }
+</style>

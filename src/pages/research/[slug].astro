@@ -10,6 +10,7 @@ import FAQ from '../../components/ui/FAQ.astro';
 import CTABand from '../../components/ui/CTABand.astro';
 import RelatedContent from '../../components/ui/RelatedContent.astro';
 import { article, faqPage } from '../../lib/schema';
+import Artwork from '../../components/art/Artwork.astro';
 
 export async function getStaticPaths() {
   return (await getCollection('research', (e) => !e.data.draft)).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
@@ -35,6 +36,7 @@ const sourceUrls = [...new Set([...d.charts.map((c) => c.sourceUrl).filter(Boole
       <h1>{d.title}</h1>
       <p class="lede">{d.description}</p>
       <Byline author={d.author} reviewer={d.reviewer} published={d.published} updated={d.updated} />
+      <div class="r-cover"><Artwork seed={entry.id} motif="chart" variant="royal" ratio="21/9" label={d.label} /></div>
     </div>
   </header>
 
@@ -92,6 +94,7 @@ const sourceUrls = [...new Set([...d.charts.map((c) => c.sourceUrl).filter(Boole
   .r-head { padding-block: clamp(2rem, 5vw, 4rem) 1rem; background: linear-gradient(180deg, var(--royal-50), #fff); }
   .r-head h1 { font-size: var(--step-4); margin-top: 0.75rem; }
   .r-head .lede { margin-top: 1rem; }
+  .r-cover { margin-top: 2rem; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px -34px rgb(10 26 63 / 0.5); }
   .r-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 3rem; padding-block: 2.5rem 4rem; }
   .r-body h2 { font-size: var(--step-3); margin-bottom: 1rem; }
   .method { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2); padding: 1.5rem; }

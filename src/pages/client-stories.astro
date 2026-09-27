@@ -8,11 +8,11 @@ const items = await getCollection('testimonials', (t) => t.data.verified && t.da
 const crumbs = [{ name: 'Client stories', href: '/client-stories/' }];
 ---
 <Base title="Client Stories" description="What TBM clients say about working with us — published only with verified identity and written consent." crumbs={crumbs}>
-  <PageHero crumbs={crumbs} eyebrow="Client stories" title="In our clients’ words." lede="We publish testimonials only from real clients, with their name and role, and with written consent on file. We never write, edit for meaning, or incentivise reviews." />
+  <PageHero crumbs={crumbs} art={{ seed: 'client-stories', motif: 'answer', variant: 'royal' }} eyebrow="Client stories" title="In our clients’ words." lede="We publish testimonials only from real clients, with their name and role, and with written consent on file. We never write, edit for meaning, or incentivise reviews." />
   <section class="section"><div class="container">
     {items.length > 0 ? (
       <div class="grid grid-2">{items.map((t) => <figure class="card"><blockquote class="q">“{t.data.quote}”</blockquote><figcaption><strong>{t.data.person}</strong>, {t.data.role}, {t.data.company}{t.data.caseStudy && <> · <a href={`/case-studies/${t.data.caseStudy}/`}>Read the case study</a></>}</figcaption></figure>)}</div>
-    ) : <Placeholder label="CLIENT TESTIMONIALS — ADMIN TO ADD (verified: true, consentOnFile: true)" />}
+    ) : <Placeholder label="CLIENT TESTIMONIALS — ADMIN TO ADD (verified: true, consentOnFile: true)" fallback="Client stories are published here as clients approve them. We are happy to arrange reference calls with current clients during your strategy call." />}
   </div></section>
   <CTABand stage="bofu" />
 </Base>

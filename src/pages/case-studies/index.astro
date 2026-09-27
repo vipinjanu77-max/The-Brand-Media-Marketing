@@ -10,7 +10,7 @@ const crumbs = [{ name: 'Case studies', href: '/case-studies/' }];
 const fields = ['Client', 'Industry', 'Location', 'Business challenge', 'Starting point', 'Objective', 'Strategy', 'Execution', 'Campaign structure', 'Budget range', 'Timeline', 'Before', 'After', 'Results', 'Business impact', 'Learnings', 'Client testimonial', 'Visual evidence'];
 ---
 <Base title="Case Studies" description="Verified TBM case studies — challenge, strategy, execution, budget range, timeline and before-and-after results, published only with client approval." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} eyebrow="Work" title="Case studies with the working shown." lede="Every case study states the starting point, the strategy, the campaign structure, budget range, timeline and verified before-and-after numbers — or it isn’t published." />
+  <PageHero crumbs={crumbs} art={{ seed: 'case-studies', motif: 'frame', variant: 'deep' }} eyebrow="Work" title="Case studies with the working shown." lede="Every case study states the starting point, the strategy, the campaign structure, budget range, timeline and verified before-and-after numbers — or it isn’t published." />
   <section class="section">
     <div class="container">
       {cases.length > 0 ? (

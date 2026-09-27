@@ -11,7 +11,7 @@ const planned = ['Global digital advertising', 'Search behaviour', 'E-commerce',
 const crumbs = [{ name: 'Research', href: '/research/' }, { name: 'Market dashboards', href: '/research/dashboards/' }];
 ---
 <Base title="Marketing Market Dashboards" description="Interactive charts of India's digital market — advertising, internet, social media and AI search — each labelled with source, year, geography and methodology." crumbs={crumbs}>
-  <PageHero crumbs={crumbs} eyebrow="Market dashboards" title="The market, charted — with the source on every chart." lede="We use live or API data only where a reliable source exists. Everything else is a manually verified dataset with its source, year, geography and method shown below the chart." />
+  <PageHero crumbs={crumbs} art={{ seed: 'dashboards', motif: 'chart', variant: 'royal' }} eyebrow="Market dashboards" title="The market, charted — with the source on every chart." lede="We use live or API data only where a reliable source exists. Everything else is a manually verified dataset with its source, year, geography and method shown below the chart." />
   <section class="section">
     <div class="container grid grid-2">
       {charts.map((c) => (

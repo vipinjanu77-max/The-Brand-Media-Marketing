@@ -5,6 +5,7 @@ import PageHero from '../../components/ui/PageHero.astro';
 import CTABand from '../../components/ui/CTABand.astro';
 import KindBadge from '../../components/ui/KindBadge.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
+import Artwork from '../../components/art/Artwork.astro';
 const research = (await getCollection('research', (e) => !e.data.draft)).sort((a, b) => +b.data.updated - +a.data.updated);
 const categories = [
   'Digital Marketing Statistics', 'India Marketing Statistics', 'Global Marketing Statistics', 'Consumer Behaviour', 'Search Trends',
@@ -15,7 +16,7 @@ const count = (c: string) => research.filter((r) => r.data.category === c).lengt
 const crumbs = [{ name: 'Research', href: '/research/' }];
 ---
 <Base title="TBM Marketing Intelligence — Research Hub" description="Sourced, dated and clearly labelled marketing research: India and global statistics, AI search, advertising, SEO, social, e-commerce and industry research." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} eyebrow="TBM Marketing Intelligence" title="Research you can cite — and check." lede="Every research page states its question, method, sources, geography, sample and limitations, and separates reported facts, third-party estimates, forecasts and TBM analysis." wide>
+  <PageHero crumbs={crumbs} eyebrow="TBM Marketing Intelligence" title="Research you can cite — and check." lede="Every research page states its question, method, sources, geography, sample and limitations, and separates reported facts, third-party estimates, forecasts and TBM analysis." art={{ seed: 'research-hub', motif: 'chart', variant: 'royal', label: 'Marketing Intelligence' }}>
     <a class="btn" href="/statistics/">Browse the statistics database</a>
     <a class="btn btn--ghost" href="/legal/research-methodology/">Our methodology</a>
   </PageHero>
@@ -25,6 +26,7 @@ const crumbs = [{ name: 'Research', href: '/research/' }];
       <div class="grid grid-3">
         {research.map((r) => (
           <article class="card">
+            <div class="card-media"><Artwork seed={r.id} motif="chart" variant="deep" /></div>
             <div class="tags"><KindBadge kind={r.data.label} /><span class="tag tag--neutral">{r.data.geography}</span></div>
             <h3><a class="card-link" href={`/research/${r.id}/`}>{r.data.title}</a></h3>
             <p>{r.data.description}</p>

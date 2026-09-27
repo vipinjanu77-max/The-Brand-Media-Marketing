@@ -3,13 +3,16 @@ import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/ui/PageHero.astro';
 import CTABand from '../../components/ui/CTABand.astro';
 import { tools } from '../../lib/tools';
+import Artwork from '../../components/art/Artwork.astro';
+import { toolMotif } from '../../lib/motifs';
 const crumbs = [{ name: 'Tools', href: '/tools/' }];
 ---
 <Base title="Free Marketing Calculators & Tools" description="Free marketing ROI, cost, CAC, ROAS and CPL calculators, a media planner, agency evaluation checklist, marketing self-audit and SEO health checker." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} eyebrow="Tools & calculators" title="Put your own numbers to work." lede="Every tool runs in your browser on the assumptions you enter, shows its formulas and labels its limits. Outputs are estimates, not guarantees." />
+  <PageHero crumbs={crumbs} eyebrow="Tools & calculators" title="Put your own numbers to work." lede="Every tool runs in your browser on the assumptions you enter, shows its formulas and labels its limits. Outputs are estimates, not guarantees." art={{ seed: 'tools-hub', motif: 'target', variant: 'light' }} />
   <section class="section"><div class="container grid grid-3">
     {tools.map((t) => (
       <article class="card">
+        <div class="card-media"><Artwork seed={t.slug} motif={toolMotif[t.slug]} variant="light" /></div>
         <p class="q">“{t.question}”</p>
         <h2 class="h"><a class="card-link" href={`/tools/${t.slug}/`}>{t.title}</a></h2>
         <p>{t.description}</p>

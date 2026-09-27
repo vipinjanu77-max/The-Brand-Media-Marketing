@@ -1,0 +1,42 @@
+title: CRM, WhatsApp & Automation
+order: 9
+service: crm-automation
+intro: Setup is a fixed project; platform subscriptions are billed by the vendor to you.
+tiers:
+- name: CRM & lead management setup
+  priceFrom: 60000
+  priceTo: 200000
+  unit: one-time
+  bestFor: Businesses without clean lead routing
+  includes:
+  - Pipeline and lifecycle design
+  - Integrations with forms and ads
+  - Lead scoring
+  - Dashboards
+  excludes:
+  - CRM subscription fees
+- name: WhatsApp journeys
+  priceFrom: 40000
+  priceTo: 125000
+  unit: one-time
+  bestFor: Fast lead response and nurturing
+  includes:
+  - Business verification support
+  - Templates and flows
+  - CRM sync
+  excludes:
+  - WhatsApp platform and message fees
+- name: Automation retainer
+  priceFrom: 25000
+  priceTo: 75000
+  unit: per month
+  bestFor: Ongoing optimisation
+  includes:
+  - Nurture sequences
+  - Workflow improvements
+  - Monthly reporting
+  excludes: []
+notes:
+- Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
+  and required resources.
+- Media spend, production and third-party tools are billed separately and transparently.

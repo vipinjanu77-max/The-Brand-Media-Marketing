@@ -1,11 +1,11 @@
 # Launch checklist
 
-Run `npm run build && npm run audit:content`; the audit lists remaining placeholders.
+Production builds hide placeholders automatically, so the site *can* launch as-is. For a list of what is still missing, build with `PUBLIC_SHOW_PLACEHOLDERS=true npm run build:fast && npm run audit:content`.
 
 ## Must supply (currently placeholders)
 - [ ] Settings: legal name, email, phone, WhatsApp, address (real office only), booking URL, social profiles, analytics IDs
 - [ ] Founder and team profiles (photo, role, expertise, verifiable experience, LinkedIn); assign reviewers to articles
-- [ ] Rate-card prices in CMS
+- [ ] Review the indicative rate-card prices (pre-filled from Sept 2026 market research) and adjust to TBM's actual pricing
 - [ ] Verified case studies with client approval; testimonials with consent; verified client logos with permission
 - [ ] About page: founder story, locations, credentials (only with evidence)
 - [ ] Careers roles

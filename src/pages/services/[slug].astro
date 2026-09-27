@@ -34,7 +34,7 @@ const toc = [
   schema={[serviceSchema({ name: s.title, description: s.definition, url, origin, serviceType: s.navLabel }), faqPage(s.faqs)]}
   exitIntent
 >
-  <PageHero crumbs={crumbs} eyebrow="Service" title={s.title} lede={s.summary}>
+  <PageHero crumbs={crumbs} eyebrow="Service" title={s.title} lede={s.summary} art={{ seed: entry.id, variant: 'deep', label: s.navLabel }}>
     <a class="btn" href={auditHref} data-track="cta_click" data-cta={`service_${entry.id}_audit`}>Get Growth Audit</a>
     <a class="btn btn--ghost" href={bookingHref()} data-track="cta_click" data-cta={`service_${entry.id}_call`}>Book Strategy Call</a>
   </PageHero>
@@ -114,7 +114,7 @@ const toc = [
         {cases.length > 0 ? (
           <ul class="list">{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul>
         ) : (
-          <Placeholder label={`VERIFIED ${s.navLabel.toUpperCase()} CASE STUDY REQUIRED — admin to publish in CMS`} />
+          <Placeholder label={`VERIFIED ${s.navLabel.toUpperCase()} CASE STUDY REQUIRED — admin to publish in CMS`}><p class="muted">Published case studies appear here as clients approve them. Ask for anonymised {s.navLabel} examples on a <a href="/contact/?intent=strategy-call">strategy call</a>, or see <a href="/reporting-demo/">how we report</a>.</p></Placeholder>
         )}
       </section>
       <p class="updated small muted">Last updated {s.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</p>

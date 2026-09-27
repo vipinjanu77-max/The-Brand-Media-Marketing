@@ -4,36 +4,39 @@ service: meta-ads
 intro: 'Three costs, shown separately: management, creative production and media spend.'
 tiers:
 - name: Management
-  priceFrom: null
-  priceTo: null
-  unit: per month
+  priceFrom: 30000
+  priceTo: 125000
+  unit: per month — or 12–15% of spend above ₹5 lakh/month
   bestFor: Ongoing campaign management
   includes:
   - Campaign structure and audiences
   - Conversions API setup
-  - Testing roadmap
+  - Creative testing roadmap
+  - Lead-quality feedback loop
   - Reporting
   excludes:
   - Media spend
   - Creative production
 - name: Creative production
-  priceFrom: null
-  priceTo: null
-  unit: per batch or per month
+  priceFrom: 25000
+  priceTo: 100000
+  unit: per month (8–20 assets)
   bestFor: Brands needing a steady creative pipeline
   includes:
   - Static and carousel ads
-  - Short-form video edits
+  - Short-form video / Reels edits
   - Copy variants
-  excludes: &id001 []
-- name: Media spend
-  priceFrom: null
+  excludes:
+  - Shoots, talent and UGC creator fees
+- name: Minimum recommended media budget
+  priceFrom: 75000
   priceTo: null
-  unit: paid to Meta
-  bestFor: Your advertising budget
+  unit: per month, paid to Meta
+  bestFor: Enough volume to test creative properly
   includes:
   - Billed directly by Meta to your account
-  excludes: *id001
+  excludes: []
 notes:
-- Final pricing depends on scope, market, competition, complexity and required resources.
+- Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
+  and required resources.
 - Media spend, production and third-party tools are billed separately and transparently.

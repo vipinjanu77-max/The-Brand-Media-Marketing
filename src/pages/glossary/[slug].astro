@@ -16,7 +16,7 @@ const crumbs = [{ name: 'Glossary', href: '/glossary/' }, { name: d.abbreviation
 const question = d.abbreviation ? `What is ${d.abbreviation}?` : `What is ${d.term.replace(/ \(.*\)$/, '')}?`;
 ---
 <Base title={`${d.term} — Definition & Meaning`} description={d.definition} seo={d.seo} crumbs={crumbs} schema={[definedTerm({ term: d.term, definition: d.definition, url: new URL(`/glossary/${entry.id}/`, origin).href, origin })]}>
-  <PageHero crumbs={crumbs} eyebrow="Marketing glossary" title={d.term} />
+  <PageHero crumbs={crumbs} art={{ seed: entry.id, motif: 'book', variant: 'light' }} eyebrow="Marketing glossary" title={d.term} />
   <section class="section">
     <div class="container--narrow stack" style="--stack:2rem">
       <div>

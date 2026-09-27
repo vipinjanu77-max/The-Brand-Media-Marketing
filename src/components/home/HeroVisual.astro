@@ -1,0 +1,64 @@
+---
+/**
+ * Homepage hero composite: channels feed the funnel, the funnel produces revenue.
+ * Purely illustrative — no numbers are shown, so nothing can be read as a claim.
+ */
+import Artwork from '../art/Artwork.astro';
+const channels = ['Google Ads', 'Meta', 'SEO + AEO', 'Content', 'WhatsApp'];
+const stages = ['Traffic', 'Leads', 'Qualified leads', 'Customers', 'Revenue'];
+---
+<div class="hv" role="img" aria-label="Illustration: marketing channels feed a funnel from traffic to leads, qualified leads, customers and revenue, measured end to end.">
+  <div class="hv-bg"><Artwork seed="tbm-hero" variant="royal" ratio="1/1" bare /></div>
+
+  <div class="hv-channels" aria-hidden="true">
+    {channels.map((c, i) => <span class="chip-f" style={`--i:${i}`}>{c}</span>)}
+  </div>
+
+  <div class="hv-funnel" aria-hidden="true">
+    <p class="hv-title">Growth system</p>
+    {stages.map((s, i) => (
+      <div class="st" style={`--i:${i};--w:${100 - i * 14}%`}><span class="bar"><span class="flow"></span></span><span class="nm">{s}</span></div>
+    ))}
+  </div>
+
+  <div class="hv-card" aria-hidden="true">
+    <p class="hv-k">Qualified pipeline</p>
+    <svg viewBox="0 0 160 56" class="spark"><defs><linearGradient id="hvsp" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#6f95f5" stop-opacity=".45" /><stop offset="1" stop-color="#6f95f5" stop-opacity="0" /></linearGradient></defs><path d="M0 46 C20 44 30 40 45 38 S70 30 85 28 110 18 125 16 150 8 160 6 L160 56 L0 56Z" fill="url(#hvsp)" /><path class="spark-line" d="M0 46 C20 44 30 40 45 38 S70 30 85 28 110 18 125 16 150 8 160 6" fill="none" stroke="#1f4fd8" stroke-width="2.5" stroke-linecap="round" /></svg>
+    <p class="hv-note">Illustrative</p>
+  </div>
+
+  <div class="hv-badge" aria-hidden="true"><span class="dot"></span>Measured end to end</div>
+</div>
+<style>
+  .hv { position: relative; aspect-ratio: 1 / 1.02; width: 100%; max-width: 560px; margin-inline: auto; container-type: inline-size; }
+  .hv-bg { position: absolute; inset: 6% 0 0 8%; border-radius: 28px; overflow: hidden; box-shadow: 0 50px 90px -40px rgb(10 26 63 / 0.7); }
+  .hv-bg :global(.artwork) { height: 100%; }
+  .hv-channels { position: absolute; left: 0; top: 0; right: 10%; display: flex; flex-wrap: wrap; gap: 0.4rem; z-index: 2; }
+  .chip-f { padding: 0.4em 0.85em; border-radius: 999px; background: #fff; color: var(--navy-900); font-size: clamp(0.66rem, 2.6cqi, 0.82rem); font-weight: 650; box-shadow: 0 8px 20px -10px rgb(10 26 63 / 0.45); border: 1px solid var(--line); }
+  .hv-funnel { position: absolute; left: 17%; right: 6%; top: 15%; padding: 5% 6%; border-radius: 20px; background: rgb(255 255 255 / 0.1); border: 1px solid rgb(255 255 255 / 0.22); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: grid; gap: 0.45rem; z-index: 1; }
+  .hv-title { color: #c9d7ff; font-size: clamp(0.62rem, 2.4cqi, 0.75rem); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .st { position: relative; display: grid; justify-items: center; }
+  .bar { position: relative; display: block; width: var(--w); height: clamp(26px, 7.4cqi, 40px); border-radius: 9px; background: linear-gradient(90deg, #3566e8, #6f95f5); overflow: hidden; }
+  .st:nth-child(5) .bar, .st:nth-child(6) .bar { background: linear-gradient(90deg, #fff, #dfe8ff); }
+  .nm { position: absolute; top: 50%; transform: translateY(-50%); color: #fff; font-weight: 650; font-size: clamp(0.7rem, 2.8cqi, 0.9rem); }
+  .st:nth-child(5) .nm, .st:nth-child(6) .nm { color: var(--navy-900); }
+  .flow { position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.4), transparent); transform: translateX(-100%); }
+  .hv-card { position: absolute; left: 0; bottom: 1%; width: 42%; padding: 4% 5%; border-radius: 16px; background: #fff; box-shadow: 0 24px 50px -24px rgb(10 26 63 / 0.55); z-index: 3; }
+  .hv-k { font-size: clamp(0.64rem, 2.5cqi, 0.8rem); font-weight: 700; color: var(--navy-900); }
+  .spark { width: 100%; height: auto; margin-top: 0.35rem; }
+  .hv-note { font-size: clamp(0.58rem, 2.1cqi, 0.7rem); color: var(--ink-3); margin-top: 0.2rem; }
+  .hv-badge { position: absolute; right: 4%; bottom: 7%; display: inline-flex; gap: 0.45rem; align-items: center; padding: 0.5em 0.9em; border-radius: 999px; background: var(--navy-900); color: #fff; font-size: clamp(0.62rem, 2.5cqi, 0.8rem); font-weight: 650; z-index: 3; box-shadow: 0 16px 30px -16px rgb(5 13 36 / 0.8); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #3ddc97; box-shadow: 0 0 0 4px rgb(61 220 151 / 0.25); }
+  @media (prefers-reduced-motion: no-preference) {
+    .chip-f { animation: floaty 6s ease-in-out infinite; animation-delay: calc(var(--i) * -1.1s); }
+    @keyframes floaty { 50% { transform: translateY(-5px); } }
+    .flow { animation: sweep 3.6s var(--ease) infinite; animation-delay: calc(var(--i) * 0.35s); }
+    @keyframes sweep { 0% { transform: translateX(-100%); } 60%, 100% { transform: translateX(100%); } }
+    .bar { animation: grow 0.9s var(--ease) both; animation-delay: calc(var(--i) * 0.1s + 0.2s); transform-origin: center; }
+    @keyframes grow { from { transform: scaleX(0.4); opacity: 0; } }
+    .spark-line { stroke-dasharray: 220; stroke-dashoffset: 220; animation: draw 1.8s var(--ease) 0.6s forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .hv-card, .hv-badge { animation: pop 0.8s var(--ease) both 0.5s; }
+    @keyframes pop { from { opacity: 0; transform: translateY(12px); } }
+  }
+</style>

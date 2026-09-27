@@ -1,21 +1,22 @@
 title: Social Media
 order: 4
 service: social-media
-intro: Priced by platforms, content volume and whether video and community management are included.
+intro: Priced by platforms, content volume and whether video and community management are included. Each additional
+  platform typically adds 30–50%.
 tiers:
 - name: Content
-  priceFrom: null
-  priceTo: null
-  unit: per month
+  priceFrom: 20000
+  priceTo: 45000
+  unit: per month (2 platforms)
   bestFor: Consistent publishing
   includes:
   - Content calendar
-  - Copywriting
-  - Scheduling
+  - 12–16 posts per month
+  - Copywriting and scheduling
   excludes: &id001 []
 - name: Design
-  priceFrom: null
-  priceTo: null
+  priceFrom: 15000
+  priceTo: 40000
   unit: per month
   bestFor: Static and carousel creative
   includes:
@@ -23,18 +24,19 @@ tiers:
   - Monthly designs
   excludes: *id001
 - name: Video
-  priceFrom: null
-  priceTo: null
-  unit: per month or per video
+  priceFrom: 25000
+  priceTo: 90000
+  unit: per month (4–8 videos)
   bestFor: Reels, Shorts and ads
   includes:
   - Scripting
   - Editing
   - Platform formats
-  excludes: *id001
+  excludes:
+  - Shoots and talent
 - name: Community management
-  priceFrom: null
-  priceTo: null
+  priceFrom: 10000
+  priceTo: 30000
   unit: per month
   bestFor: Active audiences
   includes:
@@ -42,5 +44,6 @@ tiers:
   - Escalation workflow
   excludes: *id001
 notes:
-- Final pricing depends on scope, market, competition, complexity and required resources.
+- Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
+  and required resources.
 - Media spend, production and third-party tools are billed separately and transparently.

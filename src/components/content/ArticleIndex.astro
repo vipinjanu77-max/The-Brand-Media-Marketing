@@ -2,6 +2,8 @@
 /** Filterable article listing (client-side filter; works as a plain list without JS). */
 import type { CollectionEntry } from 'astro:content';
 import { articleHref } from '../../lib/graph';
+import Artwork from '../art/Artwork.astro';
+import { clusterMotif } from '../../lib/motifs';
 interface Props { entries: CollectionEntry<'blog'>[] }
 const { entries } = Astro.props;
 const clusters = [...new Set(entries.map((e) => e.data.cluster))];
@@ -15,6 +17,7 @@ const label = (c: string) => c.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUp
   <div class="grid grid-3 mt-1">
     {entries.map((a) => (
       <article class="card" data-cluster={a.data.cluster}>
+        <div class="card-media"><Artwork seed={a.id} motif={a.data.pillar ? 'book' : clusterMotif[a.data.cluster]} variant={a.data.pillar ? 'royal' : 'deep'} /></div>
         <div class="tags"><span class="tag tag--neutral">{a.data.category}</span>{a.data.pillar && <span class="tag">Guide</span>}</div>
         <h2 class="h"><a class="card-link" href={articleHref(a)}>{a.data.title}</a></h2>
         <p>{a.data.description}</p>

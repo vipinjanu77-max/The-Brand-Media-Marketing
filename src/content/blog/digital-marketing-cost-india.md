@@ -24,7 +24,8 @@ faqs:
   - q: Why do quotes from different agencies vary so much?
     a: They often include different scopes, seniority of people, volumes of creative and content, reporting depth and whether media is included. Compare on deliverables and evidence, not the headline price.
 published: 2026-09-25
-updated: 2026-09-25
+updated: 2026-09-27
+research: [digital-marketing-agency-pricing-india-2026]
 services: [performance-marketing, seo, google-ads, meta-ads, social-media, website-development]
 tools: [digital-marketing-cost-calculator, marketing-roi-calculator]
 glossary: [media-spend, cac]
@@ -51,7 +52,7 @@ When a quote gives one number, ask how it breaks down. A ₹50,000 "package" tha
 
 ## Cost by service
 
-We don't publish invented "market average" prices. Instead, here is what drives cost up or down for each service. TBM's own ranges are on our [rate card](/pricing/).
+We don't publish invented "market average" prices. Below is what drives cost up or down for each service. For the price ranges Indian agencies actually publish — with sources — see our [agency pricing benchmark](/research/digital-marketing-agency-pricing-india-2026/). TBM's own indicative ranges are on our [rate card](/pricing/).
 
 ### SEO
 - **Drivers:** number of pages, technical condition, competition for your keywords, content volume, link-earning effort, local vs national vs international.

@@ -1,0 +1,52 @@
+---
+/** Circular infographic of the 7-stage TBM Growth System. */
+import { growthSystem } from '../../lib/growth';
+interface Props { dark?: boolean }
+const { dark = false } = Astro.props;
+const R = 150, C = 200;
+const pts = growthSystem.map((s, i) => {
+  const a = (i / growthSystem.length) * Math.PI * 2 - Math.PI / 2;
+  return { ...s, x: C + R * Math.cos(a), y: C + R * Math.sin(a), a };
+});
+---
+<figure class:list={['gl', { 'gl--dark': dark }]}>
+  <svg viewBox="-10 -10 420 420" role="img" aria-label={`The TBM Growth System loop: ${growthSystem.map((s) => s.name).join(', ')}, then repeat.`}>
+    <defs>
+      <linearGradient id="glring" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#1f4fd8" /><stop offset="1" stop-color="#6f95f5" /></linearGradient>
+      <marker id="glarrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#6f95f5" /></marker>
+    </defs>
+    <circle cx={C} cy={C} r={R} fill="none" stroke="url(#glring)" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" class="gl-ring" />
+    {pts.map((p, i) => {
+      const n = pts[(i + 1) % pts.length];
+      const mid = (p.a + (i === pts.length - 1 ? n.a + Math.PI * 2 : n.a)) / 2;
+      return <path d={`M${C + (R + 0) * Math.cos(mid - 0.12)} ${C + R * Math.sin(mid - 0.12)} A${R} ${R} 0 0 1 ${C + R * Math.cos(mid + 0.12)} ${C + R * Math.sin(mid + 0.12)}`} fill="none" stroke="#6f95f5" stroke-width="2.5" marker-end="url(#glarrow)" />;
+    })}
+    <circle cx={C} cy={C} r="84" class="gl-core" />
+    <text x={C} y={C - 12} text-anchor="middle" class="gl-t1">TBM</text>
+    <text x={C} y={C + 10} text-anchor="middle" class="gl-t2">Growth System</text>
+    <text x={C} y={C + 30} text-anchor="middle" class="gl-t3">continuous loop</text>
+    {pts.map((p) => (
+      <g class="gl-node">
+        <circle cx={p.x} cy={p.y} r="33" class="gl-dot" />
+        <text x={p.x} y={p.y - 4} text-anchor="middle" class="gl-num">{p.n}</text>
+        <text x={p.x} y={p.y + 11} text-anchor="middle" class="gl-name">{p.name}</text>
+      </g>
+    ))}
+  </svg>
+</figure>
+<style>
+  .gl { width: 100%; max-width: 520px; margin-inline: auto; }
+  .gl svg { width: 100%; height: auto; overflow: visible; }
+  .gl-core { fill: var(--navy-900); }
+  .gl--dark .gl-core { fill: rgb(255 255 255 / 0.06); stroke: rgb(255 255 255 / 0.18); }
+  .gl-t1 { fill: #fff; font-family: var(--font-serif); font-size: 26px; font-weight: 600; }
+  .gl-t2 { fill: #c9d7ff; font-size: 13px; font-weight: 650; }
+  .gl-t3 { fill: #8fa3d6; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .gl-dot { fill: #fff; stroke: #1f4fd8; stroke-width: 2.5; filter: drop-shadow(0 6px 10px rgb(10 26 63 / 0.25)); }
+  .gl-num { fill: #1f4fd8; font-family: var(--font-serif); font-size: 13px; }
+  .gl-name { fill: var(--navy-900); font-size: 10.5px; font-weight: 700; }
+  @media (prefers-reduced-motion: no-preference) {
+    .gl-ring { transform-origin: 200px 200px; animation: spin 60s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  }
+</style>

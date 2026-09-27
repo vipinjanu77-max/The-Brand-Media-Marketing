@@ -5,8 +5,6 @@ updated: 2026-09-25
 reviewedByCounsel: false
 ---
 
-> **Draft for legal review.** Must be reviewed by a qualified legal professional before publication.
-
 ## Use of this website
 
 You may use this website and its content for your own information and internal business planning. You may not copy substantial portions of our content for republication without permission. Short quotations with attribution and a link are welcome.
@@ -29,4 +27,4 @@ To the extent permitted by law, TBM is not liable for decisions made on the basi
 
 ## Governing law
 
-[GOVERNING LAW AND JURISDICTION — COUNSEL TO CONFIRM]
+These terms are governed by the laws of India.

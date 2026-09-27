@@ -20,7 +20,7 @@ const presets = ['Real Estate + Meta Ads + Lead Generation', 'India + Google Ads
 const crumbs = [{ name: 'Results library', href: '/results/' }];
 ---
 <Base title="Results Library — Verified Marketing Results" description="Search verified TBM campaign results by industry, service, platform, objective, country, budget range and timeline. Verified metrics only." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} eyebrow="Results library" title="Search verified results." lede="Filter by industry, service, platform, objective, country, budget range and timeline — for example “Real Estate + Meta Ads + Lead Generation”. Only verified metrics appear here." wide />
+  <PageHero crumbs={crumbs} art={{ seed: 'results', motif: 'chart', variant: 'royal' }} eyebrow="Results library" title="Search verified results." lede="Filter by industry, service, platform, objective, country, budget range and timeline — for example “Real Estate + Meta Ads + Lead Generation”. Only verified metrics appear here." />
   <section class="section" data-hide-sticky>
     <div class="container">
       <form class="rl-filters" data-rl onsubmit="return false" aria-label="Filter results">
@@ -45,7 +45,7 @@ const crumbs = [{ name: 'Results library', href: '/results/' }];
       ) : (
         <div class="mt-2 stack">
           <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED — the results library populates automatically from verified, client-approved case studies" />
-          <p class="muted">No verified results are published yet. When a case study is marked verified with client approval in the CMS, each of its metrics becomes a searchable row here.</p>
+          <p class="muted">Verified results are added here as clients approve publication — every metric checked against platform or CRM data. Until then, ask for anonymised examples on a <a href="/contact/?intent=strategy-call">strategy call</a>.</p>
         </div>
       )}
     </div>

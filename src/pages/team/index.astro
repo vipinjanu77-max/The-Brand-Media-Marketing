@@ -4,11 +4,12 @@ import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/ui/PageHero.astro';
 import CTABand from '../../components/ui/CTABand.astro';
 import Placeholder from '../../components/ui/Placeholder.astro';
-const team = (await getCollection('team')).sort((a, b) => a.data.order - b.data.order);
+import { preview } from '../../lib/site';
+const team = (await getCollection('team', (t) => preview || !t.data.placeholder)).sort((a, b) => a.data.order - b.data.order);
 const crumbs = [{ name: 'Team', href: '/team/' }];
 ---
 <Base title="Team" description="The people at The Brand Media Marketing — roles, expertise, experience and the work they write about." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} eyebrow="Team" title="Named people. Real expertise." lede="You should know who works on your account. Every author and reviewer on this site has a profile here." />
+  <PageHero crumbs={crumbs} art={{ seed: 'team', motif: 'network', variant: 'deep' }} eyebrow="Team" title="Named people. Real expertise." lede="You should know who works on your account. Every author and reviewer on this site has a profile here." />
   <section class="section"><div class="container grid grid-3">
     {team.map((m) => (
       <article class="card person">

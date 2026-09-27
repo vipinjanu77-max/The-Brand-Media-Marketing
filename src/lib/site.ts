@@ -16,3 +16,10 @@ export const proposalHref = '/contact/?intent=proposal';
 export const bookingHref = (): string => (has(site.bookingUrl) ? site.bookingUrl : strategyCallHref);
 
 export const sameAs = (): string[] => Object.values(site.social).filter(has);
+
+/**
+ * Preview mode shows yellow [ADMIN …] placeholders so editors can see what is missing.
+ * Production builds (default) hide them and render honest public fallbacks instead.
+ * Enable with PUBLIC_SHOW_PLACEHOLDERS=true (e.g. on a staging deploy); always on in `npm run dev`.
+ */
+export const preview: boolean = import.meta.env.DEV || import.meta.env.PUBLIC_SHOW_PLACEHOLDERS === 'true';

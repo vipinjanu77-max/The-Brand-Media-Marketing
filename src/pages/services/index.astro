@@ -6,6 +6,8 @@ import CTABand from '../../components/ui/CTABand.astro';
 import GrowthSystem from '../../components/home/GrowthSystem.astro';
 import SectionHead from '../../components/ui/SectionHead.astro';
 import { auditHref } from '../../lib/site';
+import Artwork from '../../components/art/Artwork.astro';
+
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const groups: Record<string, [string, string]> = {
   performance: ['Acquisition', 'Paid media that is planned from unit economics and measured on customers.'],
@@ -19,7 +21,7 @@ const groups: Record<string, [string, string]> = {
 const crumbs = [{ name: 'Services', href: '/services/' }];
 ---
 <Base title="Digital Marketing Services" description="Performance marketing, Google Ads, Meta Ads, SEO, AEO, social, content, branding, creative, websites, CRM, WhatsApp and analytics — delivered as one connected growth system." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} eyebrow="Services" title="Every capability you need. Connected into one system." lede="Each service page explains what it is, who needs it, what we do, the process, deliverables, KPIs, timeline, common mistakes and costs — so you can judge fit before you talk to us.">
+  <PageHero crumbs={crumbs} eyebrow="Services" title="Every capability you need. Connected into one system." lede="Each service page explains what it is, who needs it, what we do, the process, deliverables, KPIs, timeline, common mistakes and costs — so you can judge fit before you talk to us." art={{ seed: 'services-hub', motif: 'target', variant: 'royal' }}>
     <a class="btn" href={auditHref}>Get Growth Audit</a>
     <a class="btn btn--ghost" href="/pricing/">See pricing</a>
   </PageHero>
@@ -33,6 +35,7 @@ const crumbs = [{ name: 'Services', href: '/services/' }];
             <div class="grid grid-3">
               {list.map((s) => (
                 <article class="card">
+                  <div class="card-media"><Artwork seed={s.id} variant="deep" /></div>
                   <h3><a class="card-link" href={`/services/${s.id}/`}>{s.data.title}</a></h3>
                   <p>{s.data.summary}</p>
                   {s.data.subServices.length > 0 && <p class="meta">{s.data.subServices.map((x) => x.name).join(' · ')}</p>}

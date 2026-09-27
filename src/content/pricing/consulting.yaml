@@ -3,8 +3,8 @@ order: 7
 intro: Strategic advice without execution — for teams that want senior input.
 tiers:
 - name: Hourly
-  priceFrom: null
-  priceTo: null
+  priceFrom: 4000
+  priceTo: 7500
   unit: per hour
   bestFor: Specific questions and reviews
   includes:
@@ -12,8 +12,8 @@ tiers:
   - Account or plan reviews
   excludes: &id001 []
 - name: Project
-  priceFrom: null
-  priceTo: null
+  priceFrom: 75000
+  priceTo: 300000
   unit: per project
   bestFor: Audits, plans and workshops
   includes:
@@ -22,8 +22,8 @@ tiers:
   - Team workshops
   excludes: *id001
 - name: Monthly advisory
-  priceFrom: null
-  priceTo: null
+  priceFrom: 60000
+  priceTo: 150000
   unit: per month
   bestFor: Ongoing senior guidance
   includes:
@@ -32,5 +32,6 @@ tiers:
   - Hiring and agency selection support
   excludes: *id001
 notes:
-- Final pricing depends on scope, market, competition, complexity and required resources.
+- Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
+  and required resources.
 - Media spend, production and third-party tools are billed separately and transparently.

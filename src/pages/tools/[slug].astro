@@ -12,6 +12,7 @@ import CacCalculator from '../../components/tools/CacCalculator.astro';
 import MediaPlanner from '../../components/tools/MediaPlanner.astro';
 import SelfAssessment from '../../components/tools/SelfAssessment.astro';
 import { tools, type ToolDef } from '../../lib/tools';
+import { toolMotif } from '../../lib/motifs';
 import { agencyCriteria, marketingAudit, seoHealth } from '../../lib/assessments';
 
 export function getStaticPaths() {
@@ -35,7 +36,7 @@ const h = howTo[tool.slug];
 const appSchema = { '@type': 'WebApplication', name: tool.title, description: tool.description, applicationCategory: 'BusinessApplication', operatingSystem: 'Any', url: new URL(`/tools/${tool.slug}/`, origin).href, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' } };
 ---
 <Base title={tool.title} description={tool.description} crumbs={crumbs} schema={[appSchema]}>
-  <PageHero crumbs={crumbs} eyebrow="Free tool" title={tool.title} lede={tool.description} />
+  <PageHero crumbs={crumbs} eyebrow="Free tool" title={tool.title} lede={tool.description} art={{ seed: tool.slug, motif: toolMotif[tool.slug], variant: 'light', label: 'Free tool' }} />
   <section class="section" data-hide-sticky>
     <div class="container">
       {tool.slug === 'marketing-roi-calculator' && <RoiCalculator />}

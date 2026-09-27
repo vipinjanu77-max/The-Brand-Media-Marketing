@@ -26,7 +26,7 @@ const crumbs = [{ name: 'Digital Marketing Agency India', href: '/digital-market
 ---
 <Base title="Digital Marketing Agency in India — Performance, SEO & Growth" description="TBM is a digital marketing and performance marketing agency in India building growth systems across Google Ads, Meta Ads, SEO, AEO, creative, CRM and analytics — with transparent pricing." crumbs={crumbs}
   schema={[service({ name: 'Digital marketing services in India', description: 'Strategy, performance marketing, SEO, AEO, creative, websites, CRM and analytics for businesses in India.', url: new URL('/digital-marketing-agency-india/', origin).href, origin, serviceType: 'Digital marketing agency' }), faqPage(faqs)]} exitIntent>
-  <PageHero crumbs={crumbs} eyebrow="Digital marketing agency · India" title="A digital marketing agency in India that builds growth systems." lede="Performance marketing, SEO, AEO, creative, websites, CRM and analytics — planned from your unit economics and measured on customers and revenue.">
+  <PageHero crumbs={crumbs} art={{ seed: 'india', motif: 'pin', variant: 'royal' }} eyebrow="Digital marketing agency · India" title="A digital marketing agency in India that builds growth systems." lede="Performance marketing, SEO, AEO, creative, websites, CRM and analytics — planned from your unit economics and measured on customers and revenue.">
     <a class="btn" href={auditHref} data-track="cta_click" data-cta="india_lp_audit">Get Growth Audit</a>
     <a class="btn btn--ghost" href={bookingHref()}>Talk to a growth strategist</a>
   </PageHero>
@@ -63,7 +63,7 @@ const crumbs = [{ name: 'Digital Marketing Agency India', href: '/digital-market
   </section>
   <section class="section">
     <div class="container grid grid-2">
-      <div><h2 class="h">Case studies</h2>{cases.length ? <ul>{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul> : <Placeholder label="VERIFIED INDIA CASE STUDIES REQUIRED — admin to publish in CMS" />}</div>
+      <div><h2 class="h">Case studies</h2>{cases.length ? <ul>{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul> : <Placeholder label="VERIFIED INDIA CASE STUDIES REQUIRED — admin to publish in CMS"><p class="muted">Published case studies appear here as clients approve them. Ask for anonymised examples on a <a href="/contact/?intent=strategy-call">strategy call</a>.</p></Placeholder>}</div>
       <div><h2 class="h">Pricing guidance</h2><p>Fees, media, creative and technology are always separated. See the <a href="/pricing/">rate card</a>, the <a href="/guides/digital-marketing-cost-india/">digital marketing cost guide for India</a>, or estimate with the <a href="/tools/digital-marketing-cost-calculator/">cost calculator</a>.</p></div>
     </div>
   </section>

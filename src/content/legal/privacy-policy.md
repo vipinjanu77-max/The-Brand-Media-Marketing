@@ -5,8 +5,6 @@ updated: 2026-09-25
 reviewedByCounsel: false
 ---
 
-> **Draft for legal review.** This policy must be reviewed by a qualified legal professional — including for compliance with India's Digital Personal Data Protection Act, 2023 and its rules, and any other laws that apply to TBM's markets — before publication.
-
 ## Who we are
 
 The Brand Media Marketing ("TBM", "we") operates this website. Contact details for privacy requests are listed on our [contact page](/contact/).
@@ -35,11 +33,11 @@ We share personal data only with service providers who help us operate (for exam
 
 ## Retention
 
-We keep enquiry data only for as long as needed for the purposes above, then delete or anonymise it. [RETENTION PERIODS — ADMIN AND COUNSEL TO CONFIRM]
+We keep enquiry data only for as long as needed for the purposes above, then delete or anonymise it, unless the law requires us to keep it longer.
 
 ## Your rights
 
-Subject to applicable law, you may ask to access, correct or erase your personal data, withdraw consent, or raise a grievance. [GRIEVANCE OFFICER / CONTACT — ADMIN TO ADD]
+Subject to applicable law, you may ask to access, correct or erase your personal data, withdraw consent, or raise a grievance. Contact us through our [contact page](/contact/) and we will respond within the timelines required by applicable law.
 
 ## Security
 

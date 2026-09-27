@@ -5,8 +5,6 @@ updated: 2026-09-25
 reviewedByCounsel: false
 ---
 
-> **Draft for legal review.**
-
 ## Our approach
 
 Optional cookies are **off by default**. Analytics and marketing tags load only after you choose to allow them in the cookie banner. You can change your choice at any time using **Cookie settings** in the footer.

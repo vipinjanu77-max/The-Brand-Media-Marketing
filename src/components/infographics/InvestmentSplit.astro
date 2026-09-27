@@ -1,0 +1,41 @@
+---
+/**
+ * Where a marketing investment goes — illustrative split from TBM's planning heuristic
+ * (paid-media-led mix). Not market data; labelled as such.
+ */
+import { costAssumptions } from '../../lib/calculators';
+const s = costAssumptions.splitPaidHeavy;
+const parts = [
+  { k: 'Media spend', v: s.media, c: '#1f4fd8', d: 'Paid to platforms from your accounts' },
+  { k: 'Agency / team', v: s.agency, c: '#1a3fb8', d: 'Strategy, management, reporting' },
+  { k: 'Creative', v: s.creative, c: '#6f95f5', d: 'Ads, video, copy' },
+  { k: 'Contingency', v: s.contingency, c: '#9fb8ff', d: 'Testing headroom' },
+  { k: 'Technology', v: s.technology, c: '#cfdcff', d: 'CRM, tools, hosting' },
+];
+---
+<figure class="is">
+  <div class="is-bar" role="img" aria-label={`Illustrative split: ${parts.map((p) => `${p.k} ${Math.round(p.v * 100)}%`).join(', ')}`}>
+    {parts.map((p) => <span style={`flex:${p.v};background:${p.c}`}><b>{Math.round(p.v * 100)}%</b></span>)}
+  </div>
+  <ul class="is-legend" role="list">
+    {parts.map((p) => <li><i style={`background:${p.c}`}></i><strong>{p.k}</strong><span>{p.d}</span></li>)}
+  </ul>
+  <figcaption class="small">Illustrative split for a paid-media-led programme — TBM planning heuristic, not market data. Organic-led programmes shift weight from media to team and content. Model yours with the <a href="/tools/digital-marketing-cost-calculator/">cost calculator</a>.</figcaption>
+</figure>
+<style>
+  .is { display: grid; gap: 1.25rem; }
+  .is-bar { display: flex; height: 64px; border-radius: 14px; overflow: hidden; gap: 3px; background: rgb(255 255 255 / 0.15); }
+  .is-bar span { display: flex; align-items: center; justify-content: center; min-width: 0; }
+  .is-bar b { font-size: 0.85rem; color: #fff; }
+  .is-bar span:nth-child(n + 3) b { color: var(--navy-900); }
+  .is figcaption a { color: #bcd0ff; text-decoration: underline; }
+  .is-legend { list-style: none; padding: 0; display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+  .is-legend li { display: grid; grid-template-columns: 14px 1fr; column-gap: 0.6rem; align-items: baseline; }
+  .is-legend i { width: 12px; height: 12px; border-radius: 3px; grid-row: span 2; align-self: start; margin-top: 0.3rem; }
+  .is-legend span { grid-column: 2; font-size: 0.85rem; opacity: 0.8; }
+  @media (prefers-reduced-motion: no-preference) {
+    .is-bar span { animation: grow 1s var(--ease) both; transform-origin: left; }
+    .is-bar span:nth-child(2) { animation-delay: .1s } .is-bar span:nth-child(3) { animation-delay: .2s } .is-bar span:nth-child(4) { animation-delay: .3s } .is-bar span:nth-child(5) { animation-delay: .4s }
+    @keyframes grow { from { transform: scaleX(0); } }
+  }
+</style>

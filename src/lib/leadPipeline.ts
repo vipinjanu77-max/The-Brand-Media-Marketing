@@ -101,7 +101,8 @@ export async function deliverLead(lead: CleanLead) {
   const tasks: Promise<unknown>[] = [];
   const crm = env('CRM_WEBHOOK_URL');
   const follow = env('FOLLOWUP_WEBHOOK_URL');
-  const store = env('LEAD_STORE_PATH');
+  // Never drop a lead: without any webhook configured, fall back to a local JSONL file.
+  const store = env('LEAD_STORE_PATH') || (!crm && !follow ? './data/leads/leads.jsonl' : undefined);
   if (crm) tasks.push(postJson(crm, record, env('CRM_WEBHOOK_SECRET')));
   // Follow-up automation sends: thank-you, assessment summary, next step, meeting link,
   // relevant case study and industry research — chosen by nurture.sequence / industry / objective.

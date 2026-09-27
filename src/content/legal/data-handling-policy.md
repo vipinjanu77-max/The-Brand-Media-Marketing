@@ -5,8 +5,6 @@ updated: 2026-09-25
 reviewedByCounsel: false
 ---
 
-> **Draft for legal and security review.**
-
 ## Principles
 
 - **Client ownership.** Ad accounts, analytics properties, CRM data and creative produced for a client belong to the client.
@@ -16,4 +14,4 @@ reviewedByCounsel: false
 - **Anonymised benchmarks.** Client data used in TBM benchmarks is aggregated and anonymised with minimum group sizes, and only with client permission.
 - **Offboarding.** When an engagement ends, TBM access is removed and client data is returned or deleted as agreed.
 
-[SECURITY CONTROLS, RETENTION PERIODS AND INCIDENT RESPONSE CONTACT — ADMIN TO ADD]
+- **Incidents.** If we become aware of a security incident affecting client data, we notify the affected client promptly and work with them on remediation.

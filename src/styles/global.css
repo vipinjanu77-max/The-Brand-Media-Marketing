@@ -164,8 +164,9 @@ table { border-collapse: collapse; width: 100%; }
 
 /* ---------- Cards ---------- */
 .card {
+  --card-pad: clamp(1.25rem, 2.5vw, 1.75rem);
   position: relative; display: flex; flex-direction: column; gap: 0.75rem;
-  padding: clamp(1.25rem, 2.5vw, 1.75rem); background: var(--paper);
+  padding: var(--card-pad); background: var(--paper); overflow: hidden;
   border: 1px solid var(--line); border-radius: var(--radius);
   transition: border-color 0.2s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
 }
@@ -183,6 +184,11 @@ a.card:hover, .card:has(a.card-link:hover) { border-color: var(--royal-500); box
 .section--navy .card { background: rgb(255 255 255 / 0.03); border-color: rgb(255 255 255 / 0.12); }
 .section--navy .card p { color: #c4cde6; }
 .section--navy .card h3 { color: #fff; }
+
+/* Card cover artwork */
+.card-media { margin: calc(-1 * var(--card-pad)) calc(-1 * var(--card-pad)) 0.4rem; border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
+.card-media .artwork { transition: transform 0.6s var(--ease); }
+.card:hover .card-media .artwork { transform: scale(1.035); }
 
 /* ---------- Tags, badges, chips ---------- */
 .tag {

@@ -4,8 +4,8 @@ service: branding
 intro: Scoped by research depth and the number of brand applications required.
 tiers:
 - name: Starter
-  priceFrom: null
-  priceTo: null
+  priceFrom: 75000
+  priceTo: 150000
   unit: per project
   bestFor: New businesses
   includes:
@@ -14,8 +14,8 @@ tiers:
   - Basic guidelines
   excludes: &id001 []
 - name: Growth
-  priceFrom: null
-  priceTo: null
+  priceFrom: 175000
+  priceTo: 400000
   unit: per project
   bestFor: Growing brands
   includes:
@@ -24,8 +24,8 @@ tiers:
   - Full identity system
   excludes: *id001
 - name: Complete identity
-  priceFrom: null
-  priceTo: null
+  priceFrom: 400000
+  priceTo: 1000000
   unit: per project
   bestFor: Rebrands and multi-brand organisations
   includes:
@@ -35,5 +35,6 @@ tiers:
   - Rollout templates
   excludes: *id001
 notes:
-- Final pricing depends on scope, market, competition, complexity and required resources.
+- Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
+  and required resources.
 - Media spend, production and third-party tools are billed separately and transparently.

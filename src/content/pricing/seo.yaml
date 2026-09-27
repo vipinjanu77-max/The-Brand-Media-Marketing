@@ -1,57 +1,59 @@
 title: SEO
 order: 1
 service: seo
-intro: Monthly SEO retainers scoped by site size, competition and whether content production is included.
+intro: 'Monthly SEO retainers scoped by site size, competition and whether content production is included. Minimum
+  engagement: 6 months (SEO compounds slowly).'
 tiers:
 - name: Starter
-  priceFrom: null
-  priceTo: null
+  priceFrom: 25000
+  priceTo: 40000
   unit: per month
-  bestFor: Local or small sites with modest competition
+  bestFor: Local or small sites (up to ~25 pages), modest competition
   includes:
-  - Technical audit and fixes list
-  - Keyword strategy for priority pages
+  - Technical audit and prioritised fix list
+  - Keyword strategy for up to 15 priority pages
   - On-page optimisation
   - Google Business Profile optimisation
-  - Monthly report
+  - Monthly report and review call
   excludes:
   - Content writing beyond agreed pages
-  - Development implementation
+  - Developer implementation
 - name: Growth
-  priceFrom: null
-  priceTo: null
+  priceFrom: 50000
+  priceTo: 90000
   unit: per month
   bestFor: Growing businesses competing nationally
   includes:
   - Everything in Starter
   - Content strategy and briefs
-  - Content production (agreed volume)
+  - 4–6 SEO articles or page rewrites per month
   - Internal linking programme
   - Search Console and GA4 insights
   excludes:
   - Digital PR campaigns
 - name: Scale
-  priceFrom: null
-  priceTo: null
+  priceFrom: 100000
+  priceTo: 175000
   unit: per month
   bestFor: Competitive categories and larger sites
   includes:
   - Everything in Growth
-  - Digital PR and link earning
+  - Digital PR and research-led link earning
   - AEO / AI search optimisation
   - CRO for organic landing pages
   excludes: &id001 []
 - name: Enterprise
-  priceFrom: null
+  priceFrom: 200000
   priceTo: null
-  unit: scoped
+  unit: per month
   bestFor: Large, international or e-commerce sites
   includes:
   - Dedicated SEO lead
   - International and programmatic SEO
   - Migration support
-  - Custom reporting
+  - Custom reporting and governance
   excludes: *id001
 notes:
-- Final pricing depends on scope, market, competition, complexity and required resources.
+- Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
+  and required resources.
 - Media spend, production and third-party tools are billed separately and transparently.

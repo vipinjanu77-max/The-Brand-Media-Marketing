@@ -1,0 +1,40 @@
+title: Analytics & Tracking
+order: 10
+service: analytics
+intro: Measurement you can trust — implemented once, maintained as you grow.
+tiers:
+- name: Tracking audit
+  priceFrom: 25000
+  priceTo: 60000
+  unit: one-time
+  bestFor: Unsure whether numbers are right
+  includes:
+  - GA4, GTM and platform audit
+  - Discrepancy report
+  - Fix plan
+  excludes: &id001 []
+- name: Implementation
+  priceFrom: 50000
+  priceTo: 150000
+  unit: one-time
+  bestFor: New or broken setups
+  includes:
+  - Measurement plan
+  - GA4/GTM build
+  - Enhanced conversions and CAPI
+  - QA against CRM
+  excludes: *id001
+- name: Dashboards & reporting
+  priceFrom: 20000
+  priceTo: 60000
+  unit: per month
+  bestFor: Leadership reporting
+  includes:
+  - Unified dashboard
+  - Monthly insights
+  - Tracking maintenance
+  excludes: *id001
+notes:
+- Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
+  and required resources.
+- Media spend, production and third-party tools are billed separately and transparently.

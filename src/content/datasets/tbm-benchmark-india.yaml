@@ -4,8 +4,8 @@ status: collecting
 description: An anonymised, aggregated benchmark of campaign performance across TBM-managed accounts — CPL, CPC,
   CTR, conversion rate, CAC, ROAS, CPM and lead quality — broken down by industry, city, platform, business model
   and budget range.
-sampleSize: '[TO BE PUBLISHED — number of accounts, campaigns and conversions]'
-dateRange: '[TO BE PUBLISHED]'
+sampleSize: Published with the first results (minimum group sizes apply)
+dateRange: Data collection in progress
 methodology: Data will be exported from client ad platforms and CRMs with client permission, anonymised, aggregated
   with a minimum group size so no client can be identified, and reported as medians and interquartile ranges rather
   than averages. Segments below the minimum sample threshold will not be published.

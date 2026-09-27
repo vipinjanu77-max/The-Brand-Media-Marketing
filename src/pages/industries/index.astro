@@ -3,15 +3,18 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/ui/PageHero.astro';
 import CTABand from '../../components/ui/CTABand.astro';
+import Artwork from '../../components/art/Artwork.astro';
+
 const industries = (await getCollection('industries')).sort((a, b) => a.data.order - b.data.order);
 const crumbs = [{ name: 'Industries', href: '/industries/' }];
 ---
 <Base title="Industries We Serve" description="Digital marketing playbooks for real estate, D2C, e-commerce, B2B, SaaS, education, healthcare, hospitality, automotive, finance, retail, manufacturing and more." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} eyebrow="Industry hub" title="Marketing that starts from how your industry actually buys." lede="Each industry page maps the customer journey, the typical funnel, the challenges, the channels that tend to work, the KPIs that matter and how TBM approaches it." />
+  <PageHero crumbs={crumbs} eyebrow="Industry hub" title="Marketing that starts from how your industry actually buys." lede="Each industry page maps the customer journey, the typical funnel, the challenges, the channels that tend to work, the KPIs that matter and how TBM approaches it." art={{ seed: 'industries-hub', motif: 'network', variant: 'deep' }} />
   <section class="section">
     <div class="container grid grid-3">
       {industries.map((i) => (
         <article class="card">
+          <div class="card-media"><Artwork seed={i.id} variant={i.data.featured ? 'royal' : 'deep'} /></div>
           {i.data.featured && <span class="tag">Core focus</span>}
           <h2 class="h3"><a class="card-link" href={`/industries/${i.id}/`}>{i.data.title}</a></h2>
           <p>{i.data.summary}</p>

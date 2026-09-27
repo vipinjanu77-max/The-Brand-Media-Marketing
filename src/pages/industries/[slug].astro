@@ -24,7 +24,7 @@ const crumbs = [{ name: 'Industries', href: '/industries/' }, { name, href: `/in
 const toc = [['overview', 'Overview'], ['journey', 'Customer journey'], ['funnel', 'Typical funnel'], ['challenges', 'Challenges'], ['channels', 'Recommended channels'], ['kpis', 'KPIs & benchmarks'], ['strategy', 'TBM strategy'], ['stats', 'Industry statistics'], ['proof', 'Case studies']];
 ---
 <Base title={d.title} description={d.summary} seo={d.seo} crumbs={crumbs} schema={[faqPage(d.faqs)]} exitIntent>
-  <PageHero crumbs={crumbs} eyebrow="Industry" title={d.title} lede={d.summary}>
+  <PageHero crumbs={crumbs} eyebrow="Industry" title={d.title} lede={d.summary} art={{ seed: entry.id, variant: 'royal', label: name }}>
     <a class="btn" href={auditHref} data-track="cta_click" data-cta={`industry_${entry.id}_audit`}>Get Growth Audit</a>
     <a class="btn btn--ghost" href={bookingHref()}>Talk to a growth strategist</a>
   </PageHero>
@@ -70,11 +70,11 @@ const toc = [['overview', 'Overview'], ['journey', 'Customer journey'], ['funnel
       </section>
       <section id="stats">
         <h2>Relevant statistics</h2>
-        {stats.length > 0 ? <div class="grid grid-3">{stats.map((s) => <StatCard stat={s} compact />)}</div> : <Placeholder label={`SOURCED ${name.toUpperCase()} STATISTICS — editor to add to the statistics database`} />}
+        {stats.length > 0 ? <div class="grid grid-3">{stats.map((s) => <StatCard stat={s} compact />)}</div> : <Placeholder label={`SOURCED ${name.toUpperCase()} STATISTICS — editor to add to the statistics database`}><p class="muted">Industry-specific figures are added as we verify them. Meanwhile, see our <a href="/research/digital-marketing-statistics-india/">India digital marketing statistics</a>.</p></Placeholder>}
       </section>
       <section id="proof">
         <h2>Case studies</h2>
-        {cases.length > 0 ? <ul>{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul> : <Placeholder label={`VERIFIED ${name.toUpperCase()} CASE STUDY REQUIRED — admin to publish in CMS`} />}
+        {cases.length > 0 ? <ul>{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul> : <Placeholder label={`VERIFIED ${name.toUpperCase()} CASE STUDY REQUIRED — admin to publish in CMS`}><p class="muted">Published case studies appear here as clients approve them. We can walk you through anonymised {name.toLowerCase()} examples on a <a href="/contact/?intent=strategy-call">strategy call</a>.</p></Placeholder>}
       </section>
       <p class="small muted">Last updated {d.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
     </div>

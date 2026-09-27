@@ -2,6 +2,7 @@
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/ui/PageHero.astro';
+import { preview } from '../../lib/site';
 export async function getStaticPaths() {
   return (await getCollection('legal')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
@@ -12,7 +13,7 @@ const crumbs = [{ name: 'Legal', href: '/legal/privacy-policy/' }, { name: entry
 <Base title={entry.data.title} description={entry.data.description} crumbs={crumbs}>
   <PageHero crumbs={crumbs} eyebrow="Legal" title={entry.data.title} lede={`Last updated ${entry.data.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}`} />
   <section class="section"><div class="container--narrow prose">
-    {!entry.data.reviewedByCounsel && <p class="placeholder">[DRAFT — TO BE REVIEWED BY QUALIFIED LEGAL COUNSEL BEFORE PUBLICATION]</p>}
+    {preview && !entry.data.reviewedByCounsel && <p class="placeholder">[DRAFT — TO BE REVIEWED BY QUALIFIED LEGAL COUNSEL BEFORE PUBLICATION]</p>}
     <Content />
   </div></section>
 </Base>

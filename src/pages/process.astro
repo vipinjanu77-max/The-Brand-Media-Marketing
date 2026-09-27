@@ -5,14 +5,25 @@ import SectionHead from '../components/ui/SectionHead.astro';
 import GrowthSystem from '../components/home/GrowthSystem.astro';
 import CTABand from '../components/ui/CTABand.astro';
 import { onboarding } from '../lib/growth';
+import GrowthLoop from '../components/infographics/GrowthLoop.astro';
+import OnboardingGantt from '../components/infographics/OnboardingGantt.astro';
 const crumbs = [{ name: 'Process', href: '/process/' }];
 const howToSchema = { '@type': 'HowTo', name: 'What happens after you hire TBM', step: onboarding.map((o, i) => ({ '@type': 'HowToStep', position: i + 1, name: `${o.when}: ${o.what}`, text: o.detail })) };
 ---
 <Base title="Our Process — What Happens After You Hire TBM" description="The TBM Growth System and our week-by-week onboarding: discovery, audit, strategy, build, testing, optimisation and scale — with what we do and what we need from you." crumbs={crumbs} schema={[howToSchema]}>
-  <PageHero crumbs={crumbs} eyebrow="Process" title="What happens after you hire TBM?" lede="No mystery phase. Here is exactly what we do in the first months, what you get, and what we need from you." />
+  <PageHero crumbs={crumbs} art={{ seed: 'process', motif: 'flow', variant: 'royal' }} eyebrow="Process" title="What happens after you hire TBM?" lede="No mystery phase. Here is exactly what we do in the first months, what you get, and what we need from you." />
   <section class="section">
     <div class="container">
-      <ol class="ob" role="list">
+      <div class="split split--even ob-intro">
+        <div class="section-head">
+          <p class="eyebrow">At a glance</p>
+          <h2>Four weeks to launch. Then a loop that never stops learning.</h2>
+          <p class="lede">The first month builds the foundations. From month two, every cycle runs the same loop: acquire, convert, measure, optimize.</p>
+        </div>
+        <GrowthLoop />
+      </div>
+      <OnboardingGantt />
+      <ol class="ob mt-2" role="list">
         {onboarding.map((o) => (
           <li>
             <div class="when">{o.when}</div>
@@ -39,6 +50,7 @@ const howToSchema = { '@type': 'HowTo', name: 'What happens after you hire TBM',
   <CTABand stage="bofu" />
 </Base>
 <style>
+  .ob-intro { align-items: center; margin-bottom: 2.5rem; }
   .ob { list-style: none; padding: 0; display: grid; gap: 1rem; }
   .ob li { display: grid; gap: 1rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); }
   @media (min-width: 900px) { .ob li { grid-template-columns: 140px 1.4fr 1fr; align-items: start; } }

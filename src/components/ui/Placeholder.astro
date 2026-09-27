@@ -1,6 +1,17 @@
 ---
-/** Visible admin placeholder. Used wherever verified TBM information is still required. */
-interface Props { label: string; inline?: boolean }
-const { label, inline } = Astro.props;
+/**
+ * Admin placeholder. In preview it renders a visible "[LABEL]" box; in production it
+ * renders the public `fallback` text (or the default slot), or nothing at all.
+ */
+import { preview } from '../../lib/site';
+interface Props { label: string; inline?: boolean; fallback?: string }
+const { label, inline, fallback } = Astro.props;
+const Tag = inline ? 'span' : 'p';
 ---
-<span class:list={['placeholder', { 'placeholder--inline': inline }]} role="note">[{label}]</span>
+{preview ? (
+  <span class:list={['placeholder', { 'placeholder--inline': inline }]} role="note">[{label}]</span>
+) : Astro.slots.has('default') ? (
+  <slot />
+) : fallback ? (
+  <Tag class="muted">{fallback}</Tag>
+) : null}

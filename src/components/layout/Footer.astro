@@ -2,6 +2,7 @@
 import Logo from './Logo.astro';
 import { footerNav, legalNav } from '../../lib/nav';
 import { site, has } from '../../lib/site';
+import Placeholder from '../ui/Placeholder.astro';
 const year = new Date().getFullYear();
 const socials = Object.entries(site.social).filter(([, v]) => has(v));
 const labels: Record<string, string> = { linkedin: 'LinkedIn', instagram: 'Instagram', youtube: 'YouTube', x: 'X', facebook: 'Facebook', googleBusinessProfile: 'Google Business Profile' };
@@ -14,7 +15,7 @@ const labels: Record<string, string> = { linkedin: 'LinkedIn', instagram: 'Insta
         <p>{site.description}</p>
         <p class="positioning">{site.positioning}</p>
         <address>
-          {has(site.email) ? <a href={`mailto:${site.email}`}>{site.email}</a> : <span class="placeholder placeholder--inline">[CONTACT EMAIL — ADMIN TO ADD]</span>}
+          {has(site.email) ? <a href={`mailto:${site.email}`}>{site.email}</a> : <Placeholder inline label="CONTACT EMAIL — ADMIN TO ADD"><a href="/contact/">Contact us</a></Placeholder>}
           {has(site.phone) && <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>}
           {has(site.address.city) && <span>{site.address.city}{has(site.address.region) ? `, ${site.address.region}` : ''}</span>}
         </address>

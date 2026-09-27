@@ -6,8 +6,9 @@ import CTABand from '../../components/ui/CTABand.astro';
 import Placeholder from '../../components/ui/Placeholder.astro';
 import { person } from '../../lib/schema';
 import { articleHref } from '../../lib/graph';
+import { preview } from '../../lib/site';
 export async function getStaticPaths() {
-  return (await getCollection('team')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+  return (await getCollection('team', (t) => preview || !t.data.placeholder)).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
 const { entry } = Astro.props as { entry: CollectionEntry<'team'> };
 const d = entry.data;

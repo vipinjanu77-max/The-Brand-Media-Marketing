@@ -1,0 +1,132 @@
+---
+/**
+ * Generated editorial artwork. Deterministic per `seed`, so every service, industry,
+ * article or research page gets a unique, consistent, on-brand cover — including new
+ * entries added in the CMS — with zero image weight. Decorative: hidden from screen readers.
+ */
+import { motifs, motifFor, seeded } from '../../lib/motifs';
+
+interface Props {
+  seed: string;
+  motif?: string;
+  variant?: 'deep' | 'royal' | 'light';
+  ratio?: '16/9' | '4/3' | '1/1' | '21/9' | '3/4';
+  label?: string;
+  class?: string;
+  eager?: boolean;
+  /** Background only — no central motif (for composites that layer their own content). */
+  bare?: boolean;
+}
+const { seed, variant = 'deep', ratio = '16/9', label, class: cls, bare = false } = Astro.props;
+const motifKey = Astro.props.motif ?? motifFor[seed] ?? 'target';
+const icon = motifs[motifKey] ?? motifs.target;
+const rnd = seeded(seed + variant);
+const [rw, rh] = ratio.split('/').map(Number);
+const W = 800;
+const H = Math.round((W * rh) / rw);
+const uid = `a${Math.floor(rnd() * 1e9).toString(36)}`;
+const light = variant === 'light';
+
+const bg = {
+  deep: ['#050d24', '#0f2a6b'],
+  royal: ['#0a1a3f', '#1f4fd8'],
+  light: ['#f7f9ff', '#dfe8ff'],
+}[variant];
+const ink = light ? '#1a3fb8' : '#ffffff';
+const accent = light ? '#3566e8' : '#8fb0ff';
+
+const glows = Array.from({ length: 3 }, (_, i) => ({
+  cx: Math.round(W * (0.15 + rnd() * 0.8)),
+  cy: Math.round(H * (0.1 + rnd() * 0.8)),
+  r: Math.round(H * (0.45 + rnd() * 0.5)),
+  c: [light ? '#b7ccff' : '#3566e8', light ? '#cfe0ff' : '#6f95f5', light ? '#e3ecff' : '#22b8f0'][i],
+  o: light ? 0.9 : [0.55, 0.35, 0.18][i],
+}));
+
+const waveCount = 6;
+const baseY = H * (0.45 + rnd() * 0.2);
+const amp = H * (0.12 + rnd() * 0.1);
+const phase = rnd() * Math.PI * 2;
+const waves = Array.from({ length: waveCount }, (_, i) => {
+  const off = (i - waveCount / 2) * (H * 0.035);
+  const pts = Array.from({ length: 9 }, (_, k) => {
+    const x = (W / 8) * k;
+    const y = baseY + off + Math.sin(k * 0.9 + phase + i * 0.18) * amp * (0.6 + i * 0.08);
+    return [x, y];
+  });
+  let d = `M${pts[0][0]},${pts[0][1].toFixed(1)}`;
+  for (let k = 1; k < pts.length; k++) {
+    const [x0, y0] = pts[k - 1];
+    const [x1, y1] = pts[k];
+    const mx = (x0 + x1) / 2;
+    d += ` C${mx},${y0.toFixed(1)} ${mx},${y1.toFixed(1)} ${x1},${y1.toFixed(1)}`;
+  }
+  return { d, o: 0.12 + (i / waveCount) * 0.35 };
+});
+
+const barN = 12;
+const barW = 14;
+const barX0 = W * 0.06;
+const bars = Array.from({ length: barN }, (_, i) => {
+  const h = H * (0.08 + rnd() * 0.22 + i * 0.012);
+  return { x: barX0 + i * (barW + 8), h };
+});
+
+const nodes = Array.from({ length: 7 }, () => ({ x: W * (0.05 + rnd() * 0.9), y: H * (0.08 + rnd() * 0.84), r: 2 + rnd() * 3 }));
+
+const box = Math.min(H * 0.52, 240);
+const bx = W * (0.62 + rnd() * 0.08) - box / 2;
+const by = H / 2 - box / 2 - H * 0.02;
+---
+<div class:list={['artwork', `artwork--${variant}`, cls]} style={`aspect-ratio:${ratio}`} aria-hidden="true">
+  <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" focusable="false">
+    <defs>
+      <linearGradient id={`${uid}-bg`} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color={bg[0]} /><stop offset="1" stop-color={bg[1]} />
+      </linearGradient>
+      {glows.map((g, i) => (
+        <radialGradient id={`${uid}-g${i}`} cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color={g.c} stop-opacity={g.o} /><stop offset="1" stop-color={g.c} stop-opacity="0" />
+        </radialGradient>
+      ))}
+      <linearGradient id={`${uid}-w`} x1="0" x2="1">
+        <stop offset="0" stop-color={accent} stop-opacity="0" /><stop offset=".45" stop-color={accent} /><stop offset="1" stop-color={ink} stop-opacity=".2" />
+      </linearGradient>
+      <linearGradient id={`${uid}-glass`} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color={light ? '#ffffff' : '#ffffff'} stop-opacity={light ? '.9' : '.14'} />
+        <stop offset="1" stop-color={light ? '#ffffff' : '#ffffff'} stop-opacity={light ? '.55' : '.03'} />
+      </linearGradient>
+      <pattern id={`${uid}-grid`} width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M40 0H0v40" fill="none" stroke={ink} stroke-opacity={light ? '.07' : '.06'} stroke-width="1" />
+      </pattern>
+    </defs>
+    <rect width={W} height={H} fill={`url(#${uid}-bg)`} />
+    {glows.map((g, i) => <circle cx={g.cx} cy={g.cy} r={g.r} fill={`url(#${uid}-g${i})`} />)}
+    <rect width={W} height={H} fill={`url(#${uid}-grid)`} />
+    <g fill={ink} fill-opacity={light ? '.12' : '.1'}>
+      {bars.map((b) => <rect x={b.x} y={H - b.h - H * 0.06} width={barW} height={b.h} rx="3" />)}
+    </g>
+    <g fill="none" stroke={`url(#${uid}-w)`} stroke-width="1.6">
+      {waves.map((w) => <path d={w.d} stroke-opacity={w.o} />)}
+    </g>
+    <g stroke={accent} stroke-opacity=".25" stroke-width="1">
+      {nodes.slice(1).map((n, i) => <line x1={nodes[i].x} y1={nodes[i].y} x2={n.x} y2={n.y} />)}
+    </g>
+    <g fill={accent}>{nodes.map((n) => <circle cx={n.x} cy={n.y} r={n.r} fill-opacity=".8" />)}</g>
+    {!bare && <g class="art-motif">
+      <rect x={bx} y={by} width={box} height={box} rx={box * 0.16} fill={`url(#${uid}-glass)`} stroke={ink} stroke-opacity={light ? '.18' : '.22'} />
+      <g transform={`translate(${bx + box * 0.2} ${by + box * 0.2}) scale(${(box * 0.6) / 100})`} fill="none" stroke={ink} stroke-width={2.4} stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+        <Fragment set:html={icon} />
+      </g>
+    </g>}
+  </svg>
+  {label && <span class="art-label">{label}</span>}
+</div>
+<style>
+  .artwork { position: relative; overflow: hidden; border-radius: inherit; background: #0a1a3f; isolation: isolate; }
+  .artwork--light { background: #eef3ff; }
+  .artwork svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .artwork :global(.art-motif path), .artwork :global(.art-motif circle), .artwork :global(.art-motif rect), .artwork :global(.art-motif ellipse), .artwork :global(.art-motif line) { vector-effect: non-scaling-stroke; }
+  .art-label { position: absolute; left: 1rem; bottom: 1rem; padding: 0.3rem 0.7rem; border-radius: 999px; background: rgb(255 255 255 / 0.14); backdrop-filter: blur(8px); color: #fff; font-size: 0.75rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; }
+  .artwork--light .art-label { background: rgb(10 26 63 / 0.08); color: var(--navy-900); }
+</style>

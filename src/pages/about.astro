@@ -5,7 +5,7 @@ import PageHero from '../components/ui/PageHero.astro';
 import SectionHead from '../components/ui/SectionHead.astro';
 import CTABand from '../components/ui/CTABand.astro';
 import Placeholder from '../components/ui/Placeholder.astro';
-import { site, has } from '../lib/site';
+import { site, has, preview } from '../lib/site';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const markets = await getCollection('locations', (l) => l.data.published);
 const crumbs = [{ name: 'About', href: '/about/' }];
@@ -18,7 +18,7 @@ const beliefs = [
 ];
 ---
 <Base title="About TBM" description="Why The Brand Media Marketing exists, how we work, what we believe, and how we measure success." crumbs={crumbs} pageType="AboutPage">
-  <PageHero crumbs={crumbs} eyebrow="About TBM" title="We exist because too much marketing can’t explain what it returned." lede={site.description} />
+  <PageHero crumbs={crumbs} art={{ seed: 'about', motif: 'compass', variant: 'deep' }} eyebrow="About TBM" title="We exist because too much marketing can’t explain what it returned." lede={site.description} />
   <section class="section">
     <div class="container split">
       <SectionHead eyebrow="Why TBM exists" title="Growth deserves an operating system." />
@@ -51,7 +51,7 @@ const beliefs = [
     <div class="container grid grid-2">
       <div>
         <h2 class="h">Founder & team</h2>
-        {has(site.founder) ? <p>Founded by {site.founder}{has(site.foundingYear) ? ` in ${site.foundingYear}` : ''}.</p> : <Placeholder label="FOUNDER STORY, EXPERIENCE AND FOUNDING YEAR — ADMIN TO ADD (verifiable facts only)" />}
+        {has(site.founder) ? <p>Founded by {site.founder}{has(site.foundingYear) ? ` in ${site.foundingYear}` : ''}.</p> : <Placeholder label="FOUNDER STORY, EXPERIENCE AND FOUNDING YEAR — ADMIN TO ADD (verifiable facts only)" fallback="Every account has named owners you can meet before you sign." />}
         <p class="mt-1"><a href="/team/">Meet the team →</a></p>
       </div>
       <div>
@@ -60,13 +60,15 @@ const beliefs = [
       </div>
       <div>
         <h2 class="h">Locations & markets served</h2>
-        {has(site.address.city) ? <p>{site.address.city}{has(site.address.region) ? `, ${site.address.region}` : ''}</p> : <Placeholder label="OFFICE LOCATION(S) — ADMIN TO ADD (real offices only)" />}
+        {has(site.address.city) ? <p>{site.address.city}{has(site.address.region) ? `, ${site.address.region}` : ''}</p> : <Placeholder label="OFFICE LOCATION(S) — ADMIN TO ADD (real offices only)" fallback="We work with businesses across India." />}
         <p class="mt-1">Markets: {markets.map((m, i) => <>{i > 0 && ', '}<a href={`/markets/${m.id}/`}>{m.data.name}</a></>)}</p>
       </div>
-      <div>
-        <h2 class="h">Experience, certifications & partnerships</h2>
-        <Placeholder label="VERIFIED CREDENTIALS — ADMIN TO ADD (only with evidence; none are claimed here)" />
-      </div>
+      {preview && (
+        <div>
+          <h2 class="h">Experience, certifications & partnerships</h2>
+          <Placeholder label="VERIFIED CREDENTIALS — ADMIN TO ADD (only with evidence; none are claimed here)" />
+        </div>
+      )}
     </div>
   </section>
   <CTABand stage="bofu" />

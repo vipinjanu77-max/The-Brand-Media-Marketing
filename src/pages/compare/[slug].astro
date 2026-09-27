@@ -15,7 +15,7 @@ const d = entry.data;
 const crumbs = [{ name: 'Comparisons', href: '/compare/' }, { name: d.title, href: `/compare/${entry.id}/` }];
 ---
 <Base title={`${d.title}: Which Is Right for You?`} description={d.directAnswer} seo={d.seo} crumbs={crumbs} schema={[faqPage(d.faqs)]}>
-  <PageHero crumbs={crumbs} eyebrow="Comparison" title={d.title} />
+  <PageHero crumbs={crumbs} art={{ seed: entry.id, motif: 'compass', variant: 'royal' }} eyebrow="Comparison" title={d.title} />
   <section class="section">
     <div class="container--narrow stack" style="--stack:3rem">
       <div><h2 class="q">{d.a} or {d.b} — which is better?</h2><DirectAnswer>{d.directAnswer}</DirectAnswer></div>

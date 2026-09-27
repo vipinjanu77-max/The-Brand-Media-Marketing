@@ -14,7 +14,7 @@ const metrics = ['Average CPL', 'CPC', 'CTR', 'Conversion rate', 'CAC', 'ROAS', 
 ---
 <Base title="TBM Market Data — Original Benchmarks" description="TBM's original, anonymised marketing benchmark programme for India — methodology, sample size, date range, limitations and data confidence published up front." crumbs={crumbs}
   schema={datasets.filter((d) => d.data.status === 'published').map((d) => datasetSchema({ name: d.data.title, description: d.data.description, url: new URL('/research/market-data/', origin).href, origin, temporal: d.data.dateRange, spatial: 'India' }))}>
-  <PageHero crumbs={crumbs} eyebrow="Original research" title="TBM Market Data" lede="Proprietary benchmarks built from campaigns we manage — published with the sample, method and limitations visible, and never passed off as a market average." />
+  <PageHero crumbs={crumbs} art={{ seed: 'market-data', motif: 'chart', variant: 'deep' }} eyebrow="Original research" title="TBM Market Data" lede="Proprietary benchmarks built from campaigns we manage — published with the sample, method and limitations visible, and never passed off as a market average." />
   <section class="section">
     <div class="container">
       <div class="compare-labels">
@@ -45,7 +45,7 @@ const metrics = ['Average CPL', 'CPC', 'CTR', 'Conversion rate', 'CAC', 'ROAS', 
               <thead><tr><th scope="col">Metric</th><th scope="col">Segment</th><th scope="col">Value</th><th scope="col">n</th></tr></thead>
               <tbody>{d.data.metrics.map((m) => <tr><th scope="row">{m.metric}</th><td>{m.segment}</td><td class="num">{m.value}</td><td class="num">{m.n}</td></tr>)}</tbody>
             </table></div>
-          ) : <Placeholder label="TBM DATASET RESULTS — to be published once minimum sample thresholds are met" />}
+          ) : <Placeholder label="TBM DATASET RESULTS — to be published once minimum sample thresholds are met" fallback="Results will be published once minimum sample thresholds are met." />}
         </article>
       ))}
     </div>
