@@ -10,7 +10,8 @@
  *  - statistics require a source, source URL, year and geography
  *  - research must declare a label that distinguishes TBM data from third-party data
  */
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob, file } from 'astro/loaders';
 import yaml from 'js-yaml';
 
@@ -21,10 +22,10 @@ const seo = z
     ogTitle: z.string().optional(),
     ogDescription: z.string().optional(),
     ogImage: z.string().optional(),
-    canonical: z.string().url().optional(),
+    canonical: z.url().optional(),
     noindex: z.boolean().default(false),
   })
-  .default({});
+  .default({ noindex: false });
 
 const faq = z.object({ q: z.string(), a: z.string() });
 const slugs = z.array(z.string()).default([]);
@@ -142,7 +143,7 @@ const statistics = defineCollection({
     kind: z.enum(['fact', 'third-party-estimate', 'forecast']),
     source: z.string(),
     publication: z.string(),
-    sourceUrl: z.string().url(),
+    sourceUrl: z.url(),
     year: z.number(),
     referencePeriod: z.string(),
     geography: z.string(),
@@ -160,7 +161,7 @@ const chart = z.object({
   type: z.enum(['bar', 'line', 'column']),
   unit: z.string().default(''),
   source: z.string(),
-  sourceUrl: z.string().url().optional(),
+  sourceUrl: z.url().optional(),
   year: z.string(),
   geography: z.string(),
   methodology: z.string(),
@@ -212,7 +213,7 @@ const blog = defineCollection({
     featuredImage: z.string().optional(),
     featuredImageAlt: z.string().optional(),
     sources: z
-      .array(z.object({ title: z.string(), publisher: z.string(), year: z.string(), url: z.string().url() }))
+      .array(z.object({ title: z.string(), publisher: z.string(), year: z.string(), url: z.url() }))
       .default([]),
     faqs: z.array(faq).default([]),
     published: z.coerce.date(),
