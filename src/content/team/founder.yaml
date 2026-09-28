@@ -1,10 +1,10 @@
-name: '[FOUNDER NAME — ADMIN TO ADD]'
+name: '[FOUNDER NAME: ADMIN TO ADD]'
 role: Founder
 placeholder: true
 order: 1
-bio: '[FOUNDER BIO — ADMIN TO ADD. Include verifiable experience, markets served and areas of expertise. Do not
-  include credentials that cannot be verified.]'
+bio: '[FOUNDER BIO: ADMIN TO ADD. Include verifiable experience, markets served and areas of expertise. Do not include
+  credentials that cannot be verified.]'
 expertise: []
-experience: '[YEARS AND AREAS OF EXPERIENCE — ADMIN TO ADD]'
+experience: '[YEARS AND AREAS OF EXPERIENCE: ADMIN TO ADD]'
 seo:
   noindex: true

@@ -19,8 +19,8 @@ const facets: Record<string, string[]> = {
 const presets = ['Real Estate + Meta Ads + Lead Generation', 'India + Google Ads + B2B', 'D2C + Meta + ROAS'];
 const crumbs = [{ name: 'Results library', href: '/results/' }];
 ---
-<Base title="Results Library — Verified Marketing Results" description="Search verified TBM campaign results by industry, service, platform, objective, country, budget range and timeline. Verified metrics only." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} art={{ seed: 'results', motif: 'chart', variant: 'royal' }} eyebrow="Results library" title="Search verified results." lede="Filter by industry, service, platform, objective, country, budget range and timeline — for example “Real Estate + Meta Ads + Lead Generation”. Only verified metrics appear here." />
+<Base title="Results Library, Verified Marketing Results" description="Search verified TBM campaign results by industry, service, platform, objective, country, budget range and timeline. Verified metrics only." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} art={{ seed: 'results', motif: 'chart', variant: 'royal' }} eyebrow="Results library" title="Search verified results." lede="Filter by industry, service, platform, objective, country, budget range and timeline, for example 'Real Estate + Meta Ads + Lead Generation'. Only verified metrics appear here." />
   <section class="section" data-hide-sticky>
     <div class="container">
       <form class="rl-filters" data-rl onsubmit="return false" aria-label="Filter results">
@@ -30,7 +30,7 @@ const crumbs = [{ name: 'Results library', href: '/results/' }];
           </div>
         ))}
       </form>
-      <p class="small muted mt-1">Example searches: {presets.join(' · ')}</p>
+      <p class="small muted mt-1">Example searches: {presets.join(' | ')}</p>
       {rows.length > 0 ? (
         <div class="table-wrap mt-2"><table class="data-table">
           <thead><tr><th scope="col">Case study</th><th scope="col">Industry</th><th scope="col">Platform</th><th scope="col">Metric</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Timeline</th></tr></thead>
@@ -44,8 +44,8 @@ const crumbs = [{ name: 'Results library', href: '/results/' }];
         </table></div>
       ) : (
         <div class="mt-2 stack">
-          <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED — the results library populates automatically from verified, client-approved case studies" />
-          <p class="muted">Verified results are added here as clients approve publication — every metric checked against platform or CRM data. Until then, ask for anonymised examples on a <a href="/contact/?intent=strategy-call">strategy call</a>.</p>
+          <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED: the results library populates automatically from verified, client-approved case studies" />
+          <p class="muted">Verified results are added here as clients approve publication, every metric checked against platform or CRM data. Until then, ask for anonymised examples on a <a href="/contact/?intent=strategy-call">strategy call</a>.</p>
         </div>
       )}
     </div>

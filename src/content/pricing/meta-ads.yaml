@@ -6,7 +6,7 @@ tiers:
 - name: Management
   priceFrom: 30000
   priceTo: 125000
-  unit: per month — or 12–15% of spend above ₹5 lakh/month
+  unit: per month, or 12-15% of spend above ₹5 lakh/month
   bestFor: Ongoing campaign management
   includes:
   - Campaign structure and audiences
@@ -20,7 +20,7 @@ tiers:
 - name: Creative production
   priceFrom: 25000
   priceTo: 100000
-  unit: per month (8–20 assets)
+  unit: per month (8-20 assets)
   bestFor: Brands needing a steady creative pipeline
   includes:
   - Static and carousel ads

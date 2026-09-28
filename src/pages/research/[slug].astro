@@ -24,7 +24,7 @@ const author = await getEntry('team', d.author);
 const stats = (await getCollection('statistics')).filter((s) => s.data.tags.some((t) => d.statTags.includes(t)));
 const statCats = [...new Set(stats.map((s) => s.data.category))];
 const catLabel: Record<string, string> = { 'internet-mobile': 'Internet & mobile', 'social-media': 'Social media', advertising: 'Advertising', 'search-ai': 'Search & AI search', ecommerce: 'E-commerce', video: 'Video', 'email-whatsapp': 'Email & WhatsApp', seo: 'SEO' };
-const crumbs = [{ name: 'Research', href: '/research/' }, { name: d.title.length > 48 ? `${d.title.slice(0, 45)}…` : d.title, href: `/research/${entry.id}/` }];
+const crumbs = [{ name: 'Research', href: '/research/' }, { name: d.title.length > 48 ? `${d.title.slice(0, 45)}...` : d.title, href: `/research/${entry.id}/` }];
 const sourceUrls = [...new Set([...d.charts.map((c) => c.sourceUrl).filter(Boolean), ...stats.map((s) => s.data.sourceUrl)])] as string[];
 ---
 <Base title={d.title} description={d.description} seo={d.seo} crumbs={crumbs} ogType="article" published={d.published} updated={d.updated} exitIntent
@@ -70,7 +70,7 @@ const sourceUrls = [...new Set([...d.charts.map((c) => c.sourceUrl).filter(Boole
     {stats.length > 0 && (
       <section id="statistics">
         <h2>Statistics</h2>
-        <p class="muted">Each figure shows number → source → period → geography → context. <a href="/statistics/">Full database</a>.</p>
+        <p class="muted">Each figure shows the number, source, period, geography and context. <a href="/statistics/">Full database</a>.</p>
         {statCats.map((c) => (
           <div class="mt-2">
             <h3>{catLabel[c] ?? c}</h3>

@@ -3,75 +3,89 @@ navLabel: LinkedIn Ads
 group: performance
 order: 4
 summary: B2B demand generation and account-based advertising that reaches decision-makers by role, company and seniority.
-definition: >-
-  LinkedIn Ads lets you target professionals by job title, function, seniority, company, industry and
-  company size. Clicks are typically more expensive than on consumer platforms, so it earns its place when the
-  value of a customer is high and the buying committee is specific.
+definition: LinkedIn Ads lets you target professionals by job title, function, seniority, company, industry and
+  company size. Clicks are typically more expensive than on consumer platforms, so it earns its place when the value
+  of a customer is high and the buying committee is specific.
 whoNeedsIt:
-  - B2B companies with high deal values and defined target accounts
-  - SaaS businesses selling to specific functions such as finance, HR or IT
-  - Professional services firms building senior-level awareness
-  - Companies running account-based marketing programmes
-whyItMatters: >-
-  B2B buying involves several people and long cycles. LinkedIn is one of the few channels where you can
-  reach that committee precisely. Used carelessly, it burns budget on clicks; used deliberately, it warms
-  target accounts so that sales conversations start from familiarity.
+- B2B companies with high deal values and defined target accounts
+- SaaS businesses selling to specific functions such as finance, HR or IT
+- Professional services firms building senior-level awareness
+- Companies running account-based marketing programmes
+whyItMatters: B2B buying involves several people and long cycles. LinkedIn is one of the few channels where you
+  can reach that committee precisely. Used carelessly, it burns budget on clicks; used deliberately, it warms target
+  accounts so that sales conversations start from familiarity.
 whatWeDo:
-  - title: Account and persona targeting
-    body: Target account lists, matched audiences and role-based segments aligned with sales.
-  - title: Thought-leadership distribution
-    body: Promoting expertise, research and founder content to the people who matter.
-  - title: Lead gen with qualification
-    body: Lead gen forms with qualifying fields synced to your CRM in real time.
-  - title: Pipeline measurement
-    body: Tracking influenced pipeline and opportunity creation, not just form fills.
+- title: Account and persona targeting
+  body: Target account lists, matched audiences and role-based segments aligned with sales.
+- title: Thought-leadership distribution
+  body: Promoting expertise, research and founder content to the people who matter.
+- title: Lead gen with qualification
+  body: Lead gen forms with qualifying fields synced to your CRM in real time.
+- title: Pipeline measurement
+  body: Tracking influenced pipeline and opportunity creation, not just form fills.
 subServices:
-  - name: Account-based campaigns
-    description: Target-account awareness and engagement sequencing.
-  - name: Lead gen forms
-    description: Native forms with CRM sync and qualification.
-  - name: Document and video ads
-    description: Distribution of research, guides and demos.
+- name: Account-based campaigns
+  description: Target-account awareness and engagement sequencing.
+- name: Lead gen forms
+  description: Native forms with CRM sync and qualification.
+- name: Document and video ads
+  description: Distribution of research, guides and demos.
 process:
-  - step: ICP and account list
-    detail: Define ideal customer profile and target accounts with sales.
-  - step: Offer design
-    detail: Build offers worth a senior buyer's time — research, benchmarks, tools, workshops.
-  - step: Launch
-    detail: Awareness, engagement and conversion layers with retargeting.
-  - step: Measure pipeline
-    detail: CRM integration to track account engagement and opportunities.
+- step: ICP and account list
+  detail: Define ideal customer profile and target accounts with sales.
+- step: Offer design
+  detail: 'Build offers worth a senior buyer''s time: research, benchmarks, tools, workshops.'
+- step: Launch
+  detail: Awareness, engagement and conversion layers with retargeting.
+- step: Measure pipeline
+  detail: CRM integration to track account engagement and opportunities.
 deliverables:
-  - ICP and target account strategy
-  - Campaign build and creative
-  - CRM sync for lead gen forms
-  - Account engagement reporting
+- ICP and target account strategy
+- Campaign build and creative
+- CRM sync for lead gen forms
+- Account engagement reporting
 kpis:
-  - name: Cost per sales-accepted lead
-    why: Filters LinkedIn's often high volume of low-fit form fills.
-  - name: Target account reach and engagement
-    why: Shows whether the right companies are seeing you.
-  - name: Influenced pipeline
-    why: B2B impact often shows up in opportunities, not last-click conversions.
+- name: Cost per sales-accepted lead
+  why: Filters LinkedIn's often high volume of low-fit form fills.
+- name: Target account reach and engagement
+  why: Shows whether the right companies are seeing you.
+- name: Influenced pipeline
+  why: B2B impact often shows up in opportunities, not last-click conversions.
 timeline:
-  - period: Weeks 1–2
-    detail: ICP, accounts, offers and tracking.
-  - period: Weeks 3–8
-    detail: Launch and test.
-  - period: Month 3+
-    detail: Pipeline review and scaling.
+- period: Weeks 1-2
+  detail: ICP, accounts, offers and tracking.
+- period: Weeks 3-8
+  detail: Launch and test.
+- period: Month 3+
+  detail: Pipeline review and scaling.
 mistakes:
-  - Targeting audiences that are too broad to justify LinkedIn costs
-  - Offering only "book a demo" to cold audiences
-  - Measuring LinkedIn on last-click conversions alone
+- Targeting audiences that are too broad to justify LinkedIn costs
+- Offering only "book a demo" to cold audiences
+- Measuring LinkedIn on last-click conversions alone
 faqs:
-  - q: Is LinkedIn advertising worth it?
-    a: When customer value is high and your buyers are identifiable by role and company, often yes. For low-ticket consumer products, usually not.
-  - q: LinkedIn Ads or Google Ads for B2B?
-    a: Google captures people already searching; LinkedIn reaches buyers before they search. Mature B2B programmes typically use both.
-services: [performance-marketing, content-marketing, crm-automation]
-industries: [b2b, saas, professional-services, manufacturing]
-tools: [cac-calculator, cpl-calculator]
-glossary: [mql, sql, cpl]
-compare: [google-ads-vs-linkedin-ads, lead-generation-vs-demand-generation]
+- q: Is LinkedIn advertising worth it?
+  a: When customer value is high and your buyers are identifiable by role and company, often yes. For low-ticket
+    consumer products, usually not.
+- q: LinkedIn Ads or Google Ads for B2B?
+  a: Google captures people already searching; LinkedIn reaches buyers before they search. Mature B2B programmes
+    typically use both.
+services:
+- performance-marketing
+- content-marketing
+- crm-automation
+industries:
+- b2b
+- saas
+- professional-services
+- manufacturing
+tools:
+- cac-calculator
+- cpl-calculator
+glossary:
+- mql
+- sql
+- cpl
+compare:
+- google-ads-vs-linkedin-ads
+- lead-generation-vs-demand-generation
 updated: 2026-09-25

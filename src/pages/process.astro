@@ -10,7 +10,7 @@ import OnboardingGantt from '../components/infographics/OnboardingGantt.astro';
 const crumbs = [{ name: 'Process', href: '/process/' }];
 const howToSchema = { '@type': 'HowTo', name: 'What happens after you hire TBM', step: onboarding.map((o, i) => ({ '@type': 'HowToStep', position: i + 1, name: `${o.when}: ${o.what}`, text: o.detail })) };
 ---
-<Base title="Our Process — What Happens After You Hire TBM" description="The TBM Growth System and our week-by-week onboarding: discovery, audit, strategy, build, testing, optimisation and scale — with what we do and what we need from you." crumbs={crumbs} schema={[howToSchema]}>
+<Base title="Our Process: What Happens After You Hire TBM" description="The TBM Growth System and our week-by-week onboarding: discovery, audit, strategy, build, testing, optimisation and scale, with what we do and what we need from you." crumbs={crumbs} schema={[howToSchema]}>
   <PageHero crumbs={crumbs} art={{ seed: 'process', motif: 'flow', variant: 'royal' }} eyebrow="Process" title="What happens after you hire TBM?" lede="No mystery phase. Here is exactly what we do in the first months, what you get, and what we need from you." />
   <section class="section">
     <div class="container">
@@ -36,14 +36,14 @@ const howToSchema = { '@type': 'HowTo', name: 'What happens after you hire TBM',
   </section>
   <section class="section section--navy">
     <div class="container">
-      <SectionHead eyebrow="The operating model" title="The TBM Growth System" lede="Onboarding moves you through the system once. After that, stages 4–7 run continuously." />
+      <SectionHead eyebrow="The operating model" title="The TBM Growth System" lede="Onboarding moves you through the system once. After that, stages 4-7 run continuously." />
       <GrowthSystem />
     </div>
   </section>
   <section class="section">
     <div class="container grid grid-3">
       <div class="card"><h3>Weekly</h3><p>Performance notes: what changed, what we learned, what we are testing next.</p></div>
-      <div class="card"><h3>Monthly</h3><p>Business review: spend to revenue, CAC and pipeline, decisions and next month’s plan. <a href="/reporting-demo/">See a demo report</a>.</p></div>
+      <div class="card"><h3>Monthly</h3><p>Business review: spend to revenue, CAC and pipeline, decisions and next month's plan. <a href="/reporting-demo/">See a demo report</a>.</p></div>
       <div class="card"><h3>Quarterly</h3><p>Strategy review: targets, channel mix, budget and market opportunities.</p></div>
     </div>
   </section>

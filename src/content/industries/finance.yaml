@@ -1,50 +1,58 @@
 title: Financial Services Marketing
 order: 10
-summary: Compliant acquisition for lenders, insurers, wealth managers and fintechs — optimised for approved, activated customers.
-overview: >-
-  Financial services marketing operates under regulatory scrutiny and platform financial-services policies.
-  Trust, disclosures and accurate claims are essential, and the metric that matters is usually an approved
-  application or funded account — not a sign-up.
+summary: Compliant acquisition for lenders, insurers, wealth managers and fintechs, optimised for approved, activated
+  customers.
+overview: Financial services marketing operates under regulatory scrutiny and platform financial-services policies.
+  Trust, disclosures and accurate claims are essential, and the metric that matters is usually an approved application
+  or funded account, not a sign-up.
 journey:
-  - stage: Need
-    detail: Loan, insurance, investment or payment need.
-  - stage: Comparison
-    detail: Rates, fees, reviews, aggregators.
-  - stage: Application
-    detail: KYC and documentation.
-  - stage: Approval and activation
-    detail: Funded, issued or activated.
+- stage: Need
+  detail: Loan, insurance, investment or payment need.
+- stage: Comparison
+  detail: Rates, fees, reviews, aggregators.
+- stage: Application
+  detail: KYC and documentation.
+- stage: Approval and activation
+  detail: Funded, issued or activated.
 funnel:
-  - stage: Applications started
-    metric: Cost per start
-  - stage: Completed applications
-    metric: Completion rate
-  - stage: Approved / funded
-    metric: Cost per approved customer
+- stage: Applications started
+  metric: Cost per start
+- stage: Completed applications
+  metric: Completion rate
+- stage: Approved / funded
+  metric: Cost per approved customer
 challenges:
-  - Regulatory and platform compliance
-  - Application drop-off during KYC
-  - Low approval rates from broad targeting
+- Regulatory and platform compliance
+- Application drop-off during KYC
+- Low approval rates from broad targeting
 channels:
-  - channel: Google Search
-    role: Product and comparison intent.
-  - channel: Meta
-    role: Awareness and app installs where permitted.
-  - channel: SEO and AEO
-    role: Educational content and calculators.
+- channel: Google Search
+  role: Product and comparison intent.
+- channel: Meta
+  role: Awareness and app installs where permitted.
+- channel: SEO and AEO
+  role: Educational content and calculators.
 kpis:
-  - Cost per approved customer
-  - Application completion rate
-  - Activation rate
+- Cost per approved customer
+- Application completion rate
+- Activation rate
 strategy:
-  - title: Optimise for approvals
-    body: Import approval data so platforms target eligible applicants.
-  - title: Compliance-first creative
-    body: Claims and disclosures reviewed before launch.
+- title: Optimise for approvals
+  body: Import approval data so platforms target eligible applicants.
+- title: Compliance-first creative
+  body: Claims and disclosures reviewed before launch.
 faqs:
-  - q: Do financial ads need special approvals?
-    a: Platforms may require advertiser verification for financial products in certain markets, and regulators set rules on claims and disclosures. We build these checks into our process; your compliance team retains sign-off.
-services: [google-ads, seo, aeo, analytics, crm-automation]
-tools: [cac-calculator]
-glossary: [cac]
+- q: Do financial ads need special approvals?
+  a: Platforms may require advertiser verification for financial products in certain markets, and regulators set
+    rules on claims and disclosures. We build these checks into our process; your compliance team retains sign-off.
+services:
+- google-ads
+- seo
+- aeo
+- analytics
+- crm-automation
+tools:
+- cac-calculator
+glossary:
+- cac
 updated: 2026-09-25

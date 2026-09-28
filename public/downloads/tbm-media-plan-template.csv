@@ -1,4 +1,4 @@
-"TBM Media Plan Template — replace every assumption with your own account data. Estimates are not guarantees."
+"TBM Media Plan Template: replace every assumption with your own account data. Estimates are not guarantees."
 Channel,Objective,Monthly budget (INR),Budget share %,Assumed CPM (INR),Assumed CTR %,Assumed landing-page conversion %,Impressions (=budget/CPM*1000),Clicks (=impressions*CTR),Leads (=clicks*CVR),CPL (=budget/leads),Lead-to-customer %,Customers,Notes / source of assumption
 Google Search,Capture demand,,,,,,,,,,,,
 Google Performance Max,Capture + expand,,,,,,,,,,,,

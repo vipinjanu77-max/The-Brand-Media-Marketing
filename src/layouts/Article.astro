@@ -18,7 +18,7 @@ interface Props { entry: CollectionEntry<'blog'>; headings: { depth: number; slu
 const { entry, headings } = Astro.props;
 const d = entry.data;
 const base = d.pillar ? '/guides/' : '/blog/';
-const crumbs = [{ name: d.pillar ? 'Guides' : 'Blog', href: base }, { name: d.title.length > 48 ? `${d.title.slice(0, 45)}…` : d.title, href: `${base}${entry.id}/` }];
+const crumbs = [{ name: d.pillar ? 'Guides' : 'Blog', href: base }, { name: d.title.length > 48 ? `${d.title.slice(0, 45)}...` : d.title, href: `${base}${entry.id}/` }];
 const origin = Astro.site?.origin ?? Astro.url.origin;
 const url = new URL(`${base}${entry.id}/`, origin).href;
 const author = await getEntry('team', d.author);
@@ -69,7 +69,7 @@ const toc = headings.filter((h) => h.depth === 2);
       <slot />
       <SourceList sources={d.sources} accessed={d.updated} />
       <aside class="notice mt-2" aria-label="Editorial standard">
-        <div><strong>Editorial standard.</strong> Written to TBM’s standard: research → analysis → original insight → practical recommendation. What this page adds: {d.originality} <a href="/editorial-standards/">How we write and review</a>.</div>
+        <div><strong>Editorial standard.</strong> Written to TBM's standard: research, analysis, original insight and practical recommendation. What this page adds: {d.originality} <a href="/editorial-standards/">How we write and review</a>.</div>
       </aside>
     </article>
   </div>

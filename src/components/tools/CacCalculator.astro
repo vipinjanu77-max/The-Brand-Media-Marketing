@@ -15,13 +15,13 @@ import NumField from './NumField.astro';
   <section class="results" aria-live="polite">
     <h2>Acquisition economics</h2>
     <div class="out-grid">
-      <div class="out"><span class="out-label">Blended CAC</span><span class="out-value" data-out="cac">—</span></div>
-      <div class="out"><span class="out-label">Marketing-only CAC</span><span class="out-value" data-out="mcac">—</span></div>
-      <div class="out"><span class="out-label">LTV (gross profit)</span><span class="out-value" data-out="ltv">—</span></div>
-      <div class="out"><span class="out-label">LTV : CAC</span><span class="out-value" data-out="ratio">—</span></div>
-      <div class="out out--wide"><span class="out-label">CAC payback</span><span class="out-value" data-out="payback">—</span></div>
+      <div class="out"><span class="out-label">Blended CAC</span><span class="out-value" data-out="cac">-</span></div>
+      <div class="out"><span class="out-label">Marketing-only CAC</span><span class="out-value" data-out="mcac">-</span></div>
+      <div class="out"><span class="out-label">LTV (gross profit)</span><span class="out-value" data-out="ltv">-</span></div>
+      <div class="out"><span class="out-label">LTV : CAC</span><span class="out-value" data-out="ratio">-</span></div>
+      <div class="out out--wide"><span class="out-label">CAC payback</span><span class="out-value" data-out="payback">-</span></div>
     </div>
-    <p class="disclaimer">Estimates, not guarantees. Use conservative lifetime assumptions — LTV is the number most often overstated.</p>
+    <p class="disclaimer">Estimates, not guarantees. Use conservative lifetime assumptions: LTV is the number most often overstated.</p>
   </section>
 </div>
 <script>
@@ -30,7 +30,7 @@ import NumField from './NumField.astro';
   document.querySelectorAll<HTMLElement>('[data-tool="cac"]').forEach((root) =>
     bindCalc(root, 'cac', (i) => {
       const r = cac(i as any);
-      return { cac: inr(r.blendedCac), mcac: inr(r.marketingCac), ltv: inr(r.ltv), ratio: r.ltvToCac ? `${num(r.ltvToCac, 1)} : 1` : '—', payback: r.paybackMonths ? `${num(r.paybackMonths, 1)} months` : '—' };
+      return { cac: inr(r.blendedCac), mcac: inr(r.marketingCac), ltv: inr(r.ltv), ratio: r.ltvToCac ? `${num(r.ltvToCac, 1)} : 1` : '-', payback: r.paybackMonths ? `${num(r.paybackMonths, 1)} months` : '-' };
     }),
   );
 </script>

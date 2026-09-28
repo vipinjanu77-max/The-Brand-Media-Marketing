@@ -15,7 +15,7 @@ export const GET: APIRoute = async ({ site: siteUrl }) => {
   ].sort((a, b) => +b.p - +a.p);
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
-<title>${esc(site.name)} — Insights</title><link>${origin}/insights/</link><description>${esc(site.description)}</description><language>en-in</language>
+<title>${esc(site.name)}: Insights</title><link>${origin}/insights/</link><description>${esc(site.description)}</description><language>en-in</language>
 ${items.map((i) => `<item><title>${esc(i.t)}</title><link>${origin}${i.u}</link><guid>${origin}${i.u}</guid><description>${esc(i.d)}</description><pubDate>${i.p.toUTCString()}</pubDate></item>`).join('\n')}
 </channel></rss>`;
   return new Response(xml, { headers: { 'content-type': 'application/rss+xml; charset=utf-8' } });

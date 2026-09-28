@@ -1,9 +1,9 @@
 title: SEO vs AEO
 a: SEO
 b: AEO
-directAnswer: SEO optimises for ranking in search results; AEO optimises for being understood, extracted and cited
-  in AI-generated answers. AEO is not a replacement — it builds on SEO fundamentals and adds emphasis on direct
-  answers, entity consistency and citable evidence.
+directAnswer: 'SEO optimises for ranking in search results; AEO optimises for being understood, extracted and cited
+  in AI-generated answers. AEO is not a replacement: it builds on SEO fundamentals and adds emphasis on direct answers,
+  entity consistency and citable evidence.'
 rows:
 - criterion: Goal
   a: Rank and earn clicks
@@ -18,7 +18,7 @@ rows:
   a: Rankings, clicks, conversions
   b: Mentions, citations, answer accuracy
 chooseA:
-- Always — it is the foundation
+- 'Always: it is the foundation'
 chooseB:
 - Your buyers research with AI assistants
 - You publish expertise that should be cited
@@ -26,7 +26,7 @@ together: Build SEO foundations, then structure priority content for answer engi
   credibility serves both.
 faqs:
 - q: Does AEO replace SEO?
-  a: No. Answer engines rely on content they can crawl, understand and trust — which is what SEO builds.
+  a: No. Answer engines rely on content they can crawl, understand and trust, which is what SEO builds.
 services:
 - seo
 - aeo

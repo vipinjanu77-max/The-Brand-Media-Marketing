@@ -23,13 +23,13 @@ const hubs = [
 const clusters = [
   { t: 'Digital Marketing in India', d: 'The pillar: what digital marketing is, how it works and what it costs.', links: [['What is digital marketing?', '/guides/what-is-digital-marketing/'], ['Digital marketing cost in India', '/guides/digital-marketing-cost-india/'], ['India statistics', '/research/digital-marketing-statistics-india/']] },
   { t: 'SEO & AI search', d: 'Organic visibility in results and in answers.', links: [['How long does SEO take?', '/blog/how-long-does-seo-take/'], ['What is AEO?', '/blog/what-is-aeo/'], ['SEO vs AEO', '/compare/seo-vs-aeo/']] },
-  { t: 'Paid advertising', d: 'Google, Meta and LinkedIn — budgets and targets.', links: [['Google Ads budget', '/blog/how-much-should-you-spend-on-google-ads/'], ['What is a good CPL?', '/blog/what-is-a-good-cpl/'], ['Google Ads vs Meta Ads', '/compare/google-ads-vs-meta-ads/']] },
+  { t: 'Paid advertising', d: 'Google, Meta and LinkedIn: budgets and targets.', links: [['Google Ads budget', '/blog/how-much-should-you-spend-on-google-ads/'], ['What is a good CPL?', '/blog/what-is-a-good-cpl/'], ['Google Ads vs Meta Ads', '/compare/google-ads-vs-meta-ads/']] },
   { t: 'Agency selection', d: 'Choosing and working with a partner.', links: [['How to choose an agency', '/guides/how-to-choose-a-digital-marketing-agency/'], ['Agency vs freelancer', '/compare/agency-vs-freelancer/'], ['Agency evaluation tool', '/tools/agency-evaluation-checklist/']] },
 ];
 const crumbs = [{ name: 'Insights', href: '/insights/' }];
 ---
-<Base title="Insights — Research, Guides & Marketing Knowledge" description="TBM's marketing knowledge platform: research, statistics, pillar guides, articles, comparisons, glossary and FAQs, organised into topic clusters." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} art={{ seed: 'insights', motif: 'network', variant: 'royal' }} eyebrow="Insights" title="A marketing knowledge platform, not a content calendar." lede="Research → analysis → original insight → practical recommendation. Organised into topic clusters so you can go from question to decision." />
+<Base title="Insights: Research, Guides & Marketing Knowledge" description="TBM's marketing knowledge platform: research, statistics, pillar guides, articles, comparisons, glossary and FAQs, organised into topic clusters." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} art={{ seed: 'insights', motif: 'network', variant: 'royal' }} eyebrow="Insights" title="A marketing knowledge platform, not a content calendar." lede="Built on research, analysis, original insight and practical recommendations. Organised into topic clusters so you can go from question to decision." />
   <section class="section"><div class="container grid grid-4">
     {hubs.map(([t, h, m]) => <a class="card" href={h}><h2 class="h">{t}</h2><p class="meta">{m}</p></a>)}
   </div></section>

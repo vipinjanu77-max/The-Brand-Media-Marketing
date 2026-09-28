@@ -1,10 +1,10 @@
 term: Break-even ROAS
-definition: Break-even ROAS is the return on ad spend at which advertising covers its own cost from gross margin
-  — calculated as 1 divided by gross margin percentage.
-explanation: If your gross margin is 40%, break-even ROAS is 1 ÷ 0.40 = 2.5. Below 2.5, each rupee of ads loses
+definition: Break-even ROAS is the return on ad spend at which advertising covers its own cost from gross margin,
+  calculated as 1 divided by gross margin percentage.
+explanation: If your gross margin is 40%, break-even ROAS is 1 / 0.40 = 2.5. Below 2.5, each rupee of ads loses
   money on the first order; above it, ads contribute profit. Include shipping, fees and returns in the margin for
   accuracy.
-formula: Break-even ROAS = 1 ÷ Gross margin %
+formula: Break-even ROAS = 1 / Gross margin %
 example: At a 25% margin, break-even ROAS is 4.0.
 services:
 - performance-marketing

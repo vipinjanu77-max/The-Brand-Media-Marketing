@@ -1,65 +1,80 @@
 title: D2C Brand Marketing
 order: 2
 featured: true
-summary: Profitable acquisition, creative testing and retention for direct-to-consumer brands — measured on contribution margin, not just ROAS.
-overview: >-
-  D2C brands sell directly to consumers through their own website and often marketplaces and quick commerce
-  too. Growth depends on creative that stops the scroll, a fast and trustworthy site, strong unit economics
-  and repeat purchase — because first orders alone rarely pay back acquisition cost.
+summary: Profitable acquisition, creative testing and retention for direct-to-consumer brands, measured on contribution
+  margin, not just ROAS.
+overview: D2C brands sell directly to consumers through their own website and often marketplaces and quick commerce
+  too. Growth depends on creative that stops the scroll, a fast and trustworthy site, strong unit economics and
+  repeat purchase, because first orders alone rarely pay back acquisition cost.
 journey:
-  - stage: Discovery
-    detail: Social feeds, creators, search and word of mouth.
-  - stage: Consideration
-    detail: Reviews, comparisons, price checks, marketplace listings.
-  - stage: First purchase
-    detail: Offer, shipping, COD availability and trust signals.
-  - stage: Repeat
-    detail: Product experience, email/WhatsApp and replenishment.
+- stage: Discovery
+  detail: Social feeds, creators, search and word of mouth.
+- stage: Consideration
+  detail: Reviews, comparisons, price checks, marketplace listings.
+- stage: First purchase
+  detail: Offer, shipping, COD availability and trust signals.
+- stage: Repeat
+  detail: Product experience, email/WhatsApp and replenishment.
 funnel:
-  - stage: Reach
-    metric: CPM, thumb-stop rate
-  - stage: Site visits
-    metric: CTR, CPC
-  - stage: Add to cart / checkout
-    metric: Add-to-cart rate, checkout completion
-  - stage: First order
-    metric: CAC, first-order ROAS
-  - stage: Repeat
-    metric: Repeat rate, LTV
+- stage: Reach
+  metric: CPM, thumb-stop rate
+- stage: Site visits
+  metric: CTR, CPC
+- stage: Add to cart / checkout
+  metric: Add-to-cart rate, checkout completion
+- stage: First order
+  metric: CAC, first-order ROAS
+- stage: Repeat
+  metric: Repeat rate, LTV
 challenges:
-  - Rising acquisition costs and creative fatigue
-  - ROAS that looks healthy but hides thin contribution margin
-  - COD, returns and RTO eroding real revenue
-  - Marketplace cannibalisation and attribution confusion
+- Rising acquisition costs and creative fatigue
+- ROAS that looks healthy but hides thin contribution margin
+- COD, returns and RTO eroding real revenue
+- Marketplace cannibalisation and attribution confusion
 channels:
-  - channel: Meta Ads
-    role: Primary prospecting engine for most D2C categories.
-  - channel: Google Search and Shopping
-    role: Captures brand and category demand.
-  - channel: Creators
-    role: Social proof and creative supply.
-  - channel: Email and WhatsApp
-    role: Retention and repeat purchase.
+- channel: Meta Ads
+  role: Primary prospecting engine for most D2C categories.
+- channel: Google Search and Shopping
+  role: Captures brand and category demand.
+- channel: Creators
+  role: Social proof and creative supply.
+- channel: Email and WhatsApp
+  role: Retention and repeat purchase.
 kpis:
-  - New-customer CAC
-  - First-order and blended ROAS vs break-even ROAS
-  - Contribution margin after marketing
-  - Repeat purchase rate and LTV:CAC
+- New-customer CAC
+- First-order and blended ROAS vs break-even ROAS
+- Contribution margin after marketing
+- Repeat purchase rate and LTV:CAC
 strategy:
-  - title: Set break-even ROAS from real margins
-    body: Include COGS, shipping, payment fees, returns and RTO so ROAS targets reflect profit.
-  - title: Build a creative engine
-    body: Continuous testing of angles and formats; creator content fed into paid.
-  - title: Fix conversion before scaling
-    body: Site speed, product pages, reviews and checkout friction.
-  - title: Make retention pay for acquisition
-    body: Post-purchase flows and replenishment reminders to lift LTV.
+- title: Set break-even ROAS from real margins
+  body: Include COGS, shipping, payment fees, returns and RTO so ROAS targets reflect profit.
+- title: Build a creative engine
+  body: Continuous testing of angles and formats; creator content fed into paid.
+- title: Fix conversion before scaling
+  body: Site speed, product pages, reviews and checkout friction.
+- title: Make retention pay for acquisition
+  body: Post-purchase flows and replenishment reminders to lift LTV.
 faqs:
-  - q: What ROAS should a D2C brand target?
-    a: At least your break-even ROAS, which is determined by your contribution margin. Use our ROAS calculator with your real margins.
-statTags: [india-social, india-ad-spend]
-services: [meta-ads, creative, google-ads, crm-automation, analytics]
-tools: [roas-calculator, cac-calculator]
-glossary: [roas, break-even-roas, ltv, cac]
-compare: [google-ads-vs-meta-ads]
+- q: What ROAS should a D2C brand target?
+  a: At least your break-even ROAS, which is determined by your contribution margin. Use our ROAS calculator with
+    your real margins.
+statTags:
+- india-social
+- india-ad-spend
+services:
+- meta-ads
+- creative
+- google-ads
+- crm-automation
+- analytics
+tools:
+- roas-calculator
+- cac-calculator
+glossary:
+- roas
+- break-even-roas
+- ltv
+- cac
+compare:
+- google-ads-vs-meta-ads
 updated: 2026-09-25

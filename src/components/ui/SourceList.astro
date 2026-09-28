@@ -7,7 +7,7 @@ const { sources, accessed } = Astro.props;
     <h2 id="sources-h">Sources</h2>
     <ol>
       {sources.map((s) => (
-        <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a> — {s.publisher}, {s.year}.</li>
+        <li><a href={s.url} rel="noopener" target="_blank">{s.title}</a> {s.publisher}, {s.year}.</li>
       ))}
     </ol>
     {accessed && <p class="small muted">Sources accessed or re-checked on {accessed.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}. We paraphrase and cite; we do not reproduce copyrighted material.</p>}

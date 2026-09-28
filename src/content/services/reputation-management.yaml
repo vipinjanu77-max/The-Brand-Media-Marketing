@@ -3,56 +3,63 @@ navLabel: Reputation Management
 group: social
 order: 21
 summary: Ethical review generation, response management and trust signals across Google, marketplaces and social.
-definition: >-
-  Online reputation management is the ongoing work of monitoring what customers and the web say about your
-  business, responding well, earning genuine reviews and making accurate information easy to find.
+definition: Online reputation management is the ongoing work of monitoring what customers and the web say about
+  your business, responding well, earning genuine reviews and making accurate information easy to find.
 whoNeedsIt:
-  - Local and multi-location businesses where reviews drive choice
-  - Healthcare, hospitality, education and real-estate brands
-  - Businesses with unanswered or unfair negative reviews
-whyItMatters: >-
-  Buyers check reviews before they call. Answer engines and local search also read reputation signals.
-  Reputation work is only sustainable when it is honest — fake reviews create legal and platform risk.
+- Local and multi-location businesses where reviews drive choice
+- Healthcare, hospitality, education and real-estate brands
+- Businesses with unanswered or unfair negative reviews
+whyItMatters: 'Buyers check reviews before they call. Answer engines and local search also read reputation signals.
+  Reputation work is only sustainable when it is honest: fake reviews create legal and platform risk.'
 whatWeDo:
-  - title: Monitoring
-    body: Reviews and brand mentions tracked across relevant platforms.
-  - title: Review generation
-    body: Compliant processes that ask real customers for honest feedback at the right moment.
-  - title: Response management
-    body: Professional, timely responses and escalation workflows.
-  - title: Listing accuracy
-    body: Consistent business information across profiles and directories.
+- title: Monitoring
+  body: Reviews and brand mentions tracked across relevant platforms.
+- title: Review generation
+  body: Compliant processes that ask real customers for honest feedback at the right moment.
+- title: Response management
+  body: Professional, timely responses and escalation workflows.
+- title: Listing accuracy
+  body: Consistent business information across profiles and directories.
 process:
-  - step: Audit
-    detail: Ratings, volume, recency, themes and listing accuracy.
-  - step: Fix
-    detail: Listings, response backlog and review request workflow.
-  - step: Operate
-    detail: Monitoring, responses and monthly reporting.
+- step: Audit
+  detail: Ratings, volume, recency, themes and listing accuracy.
+- step: Fix
+  detail: Listings, response backlog and review request workflow.
+- step: Operate
+  detail: Monitoring, responses and monthly reporting.
 deliverables:
-  - Reputation audit
-  - Review request workflow
-  - Response guidelines and management
-  - Monthly reputation report
+- Reputation audit
+- Review request workflow
+- Response guidelines and management
+- Monthly reputation report
 kpis:
-  - name: Review volume and recency
-    why: Fresh reviews signal an active business.
-  - name: Average rating trend
-    why: Direction matters more than a snapshot.
-  - name: Response rate and time
-    why: Shows customers you listen.
+- name: Review volume and recency
+  why: Fresh reviews signal an active business.
+- name: Average rating trend
+  why: Direction matters more than a snapshot.
+- name: Response rate and time
+  why: Shows customers you listen.
 timeline:
-  - period: Month 1
-    detail: Audit and setup.
-  - period: Ongoing
-    detail: Monitoring and response.
+- period: Month 1
+  detail: Audit and setup.
+- period: Ongoing
+  detail: Monitoring and response.
 mistakes:
-  - Buying or incentivising fake reviews
-  - Ignoring negative reviews
-  - Asking only happy customers in ways that breach platform policy
+- Buying or incentivising fake reviews
+- Ignoring negative reviews
+- Asking only happy customers in ways that breach platform policy
 faqs:
-  - q: Can you remove negative reviews?
-    a: We can help flag reviews that genuinely violate platform policies, but we do not promise removal and we never post fake reviews. The best answer to criticism is a professional response and a stream of genuine feedback.
-services: [seo, aeo, social-media]
-industries: [healthcare, hospitality, local-businesses, food-beverage, automotive]
+- q: Can you remove negative reviews?
+  a: We can help flag reviews that genuinely violate platform policies, but we do not promise removal and we never
+    post fake reviews. The best answer to criticism is a professional response and a stream of genuine feedback.
+services:
+- seo
+- aeo
+- social-media
+industries:
+- healthcare
+- hospitality
+- local-businesses
+- food-beverage
+- automotive
 updated: 2026-09-25

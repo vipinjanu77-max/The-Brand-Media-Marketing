@@ -2,78 +2,89 @@ title: Social Media Marketing
 navLabel: Social Media
 group: social
 order: 20
-summary: Social strategy, content, community and paid social tied to business objectives — not vanity metrics.
-definition: >-
-  Social media marketing uses platforms such as Instagram, LinkedIn, YouTube, Facebook and X to build
-  awareness, trust and demand — through organic content, community management, creators and paid promotion.
+summary: Social strategy, content, community and paid social tied to business objectives, not vanity metrics.
+definition: 'Social media marketing uses platforms such as Instagram, LinkedIn, YouTube, Facebook and X to build
+  awareness, trust and demand: through organic content, community management, creators and paid promotion.'
 whoNeedsIt:
-  - Consumer brands where discovery and social proof drive purchase
-  - B2B founders and leaders building personal and company authority
-  - Businesses posting regularly but unable to connect social to revenue
-whyItMatters: >-
-  Social media can build brand preference, lower paid acquisition costs and shorten sales cycles — but only
-  when content has a clear role in the funnel. Posting to keep a calendar full is not a strategy.
+- Consumer brands where discovery and social proof drive purchase
+- B2B founders and leaders building personal and company authority
+- Businesses posting regularly but unable to connect social to revenue
+whyItMatters: Social media can build brand preference, lower paid acquisition costs and shorten sales cycles, but
+  only when content has a clear role in the funnel. Posting to keep a calendar full is not a strategy.
 whatWeDo:
-  - title: Strategy
-    body: Platform choice, audience, content pillars and the role each plays in the funnel.
-  - title: Content production
-    body: Short-form video, carousels, static and copy designed per platform.
-  - title: Community management
-    body: Responses, moderation and escalation workflows.
-  - title: Paid social
-    body: Amplifying the content that works organically.
-  - title: Influencer campaigns
-    body: Creator selection, briefing, contracts, disclosure compliance and measurement.
+- title: Strategy
+  body: Platform choice, audience, content pillars and the role each plays in the funnel.
+- title: Content production
+  body: Short-form video, carousels, static and copy designed per platform.
+- title: Community management
+  body: Responses, moderation and escalation workflows.
+- title: Paid social
+  body: Amplifying the content that works organically.
+- title: Influencer campaigns
+  body: Creator selection, briefing, contracts, disclosure compliance and measurement.
 subServices:
-  - name: Social strategy
-    description: Platforms, pillars, cadence and measurement.
-  - name: Content
-    description: Design, copy and short-form video.
-  - name: Community
-    description: Engagement and moderation.
-  - name: Paid social
-    description: Promotion and performance campaigns.
-  - name: Influencer campaigns
-    description: Creator partnerships with ASCI-compliant disclosure.
+- name: Social strategy
+  description: Platforms, pillars, cadence and measurement.
+- name: Content
+  description: Design, copy and short-form video.
+- name: Community
+  description: Engagement and moderation.
+- name: Paid social
+  description: Promotion and performance campaigns.
+- name: Influencer campaigns
+  description: Creator partnerships with ASCI-compliant disclosure.
 process:
-  - step: Audit
-    detail: Current channels, audience, competitors and content performance.
-  - step: Strategy
-    detail: Objectives, pillars and a measurement plan.
-  - step: Produce
-    detail: Monthly content production and approvals.
-  - step: Engage and optimise
-    detail: Community management and monthly learning reviews.
+- step: Audit
+  detail: Current channels, audience, competitors and content performance.
+- step: Strategy
+  detail: Objectives, pillars and a measurement plan.
+- step: Produce
+  detail: Monthly content production and approvals.
+- step: Engage and optimise
+  detail: Community management and monthly learning reviews.
 deliverables:
-  - Social media strategy
-  - Monthly content calendar and production
-  - Community management
-  - Monthly performance report
+- Social media strategy
+- Monthly content calendar and production
+- Community management
+- Monthly performance report
 kpis:
-  - name: Engaged reach in target audience
-    why: Reach among people who could buy.
-  - name: Saves, shares and profile actions
-    why: Stronger intent signals than likes.
-  - name: Social-assisted conversions
-    why: Social's contribution to revenue.
+- name: Engaged reach in target audience
+  why: Reach among people who could buy.
+- name: Saves, shares and profile actions
+  why: Stronger intent signals than likes.
+- name: Social-assisted conversions
+  why: Social's contribution to revenue.
 timeline:
-  - period: Month 1
-    detail: Strategy and first content.
-  - period: Months 2–3
-    detail: Consistent publishing and testing formats.
-  - period: Months 3+
-    detail: Double down on what works.
+- period: Month 1
+  detail: Strategy and first content.
+- period: Months 2-3
+  detail: Consistent publishing and testing formats.
+- period: Months 3+
+  detail: Double down on what works.
 mistakes:
-  - Measuring success by follower count
-  - Same content on every platform
-  - No link between social and paid media
-  - Ignoring advertising disclosure rules for influencer content
+- Measuring success by follower count
+- Same content on every platform
+- No link between social and paid media
+- Ignoring advertising disclosure rules for influencer content
 faqs:
-  - q: Which social platforms should my business be on?
-    a: The ones your buyers actually use for the decision you want to influence. Most businesses do better with two platforms done well than five done poorly.
-  - q: Do you buy followers or engagement?
-    a: Never. It damages credibility and platform performance.
-services: [creative, video-marketing, meta-ads, content-marketing]
-industries: [d2c, fashion, beauty, hospitality, food-beverage, education]
-glossary: [ctr, frequency]
+- q: Which social platforms should my business be on?
+  a: The ones your buyers actually use for the decision you want to influence. Most businesses do better with two
+    platforms done well than five done poorly.
+- q: Do you buy followers or engagement?
+  a: Never. It damages credibility and platform performance.
+services:
+- creative
+- video-marketing
+- meta-ads
+- content-marketing
+industries:
+- d2c
+- fashion
+- beauty
+- hospitality
+- food-beverage
+- education
+glossary:
+- ctr
+- frequency
 updated: 2026-09-25

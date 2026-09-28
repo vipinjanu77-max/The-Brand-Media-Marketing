@@ -2,101 +2,125 @@ title: SEO Services
 navLabel: SEO
 group: search
 order: 10
-summary: Technical, on-page, content, local and international SEO built around commercial intent — so organic traffic turns into pipeline.
-definition: >-
-  Search engine optimisation (SEO) is the practice of making your website easier for search engines to crawl,
-  understand and trust, and more useful to the people searching — so it earns visibility in organic results
+summary: Technical, on-page, content, local and international SEO built around commercial intent, so organic traffic
+  turns into pipeline.
+definition: Search engine optimisation (SEO) is the practice of making your website easier for search engines to
+  crawl, understand and trust, and more useful to the people searching, so it earns visibility in organic results
   without paying per click.
 whoNeedsIt:
-  - Businesses whose customers research online before buying
-  - Companies over-dependent on paid acquisition
-  - Sites with traffic that does not convert or rank for commercial terms
-  - E-commerce and multi-location businesses with large, complex sites
-whyItMatters: >-
-  Organic search compounds. Pages that rank continue to attract customers without incremental media cost,
-  lowering blended CAC over time. But SEO without a commercial strategy produces traffic, not revenue.
-  TBM prioritises the searches closest to purchase first, then builds topical authority around them.
+- Businesses whose customers research online before buying
+- Companies over-dependent on paid acquisition
+- Sites with traffic that does not convert or rank for commercial terms
+- E-commerce and multi-location businesses with large, complex sites
+whyItMatters: Organic search compounds. Pages that rank continue to attract customers without incremental media
+  cost, lowering blended CAC over time. But SEO without a commercial strategy produces traffic, not revenue. TBM
+  prioritises the searches closest to purchase first, then builds topical authority around them.
 whatWeDo:
-  - title: Commercial keyword strategy
-    body: Keywords mapped to funnel stage, revenue potential and difficulty — prioritised by business value.
-  - title: Technical SEO
-    body: Crawlability, indexation, site architecture, Core Web Vitals, structured data and migrations.
-  - title: On-page and content
-    body: Page templates, internal linking and content that answers searcher intent better than what already ranks.
-  - title: Authority building
-    body: Digital PR, original research and earned links — no link schemes.
-  - title: Conversion from organic
-    body: CTAs, lead magnets and landing experiences for organic visitors.
+- title: Commercial keyword strategy
+  body: Keywords mapped to funnel stage, revenue potential and difficulty, prioritised by business value.
+- title: Technical SEO
+  body: Crawlability, indexation, site architecture, Core Web Vitals, structured data and migrations.
+- title: On-page and content
+  body: Page templates, internal linking and content that answers searcher intent better than what already ranks.
+- title: Authority building
+  body: Digital PR, original research and earned links, no link schemes.
+- title: Conversion from organic
+  body: CTAs, lead magnets and landing experiences for organic visitors.
 subServices:
-  - name: Technical SEO
-    description: Crawl, index, render, speed, schema, architecture and migrations.
-  - name: On-page SEO
-    description: Titles, headings, internal links, content structure and search-intent alignment.
-  - name: Off-page SEO
-    description: Digital PR, research-led link earning and brand mentions.
-  - name: Local SEO
-    description: Google Business Profile, local landing pages, citations and reviews.
-  - name: E-commerce SEO
-    description: Category architecture, faceted navigation, product templates and feeds.
-  - name: International SEO
-    description: Hreflang, market-specific content and domain strategy.
-  - name: Programmatic SEO
-    description: Data-driven page templates at scale — only where each page offers unique value.
+- name: Technical SEO
+  description: Crawl, index, render, speed, schema, architecture and migrations.
+- name: On-page SEO
+  description: Titles, headings, internal links, content structure and search-intent alignment.
+- name: Off-page SEO
+  description: Digital PR, research-led link earning and brand mentions.
+- name: Local SEO
+  description: Google Business Profile, local landing pages, citations and reviews.
+- name: E-commerce SEO
+  description: Category architecture, faceted navigation, product templates and feeds.
+- name: International SEO
+  description: Hreflang, market-specific content and domain strategy.
+- name: Programmatic SEO
+  description: Data-driven page templates at scale, only where each page offers unique value.
 process:
-  - step: Audit and baseline
-    detail: Technical crawl, Search Console analysis, content inventory and competitor gap analysis.
-  - step: Strategy
-    detail: Keyword-to-page map, topical clusters and a prioritised roadmap.
-  - step: Fix foundations
-    detail: Technical issues that block crawling, indexing or rendering come first.
-  - step: Create and optimise
-    detail: Commercial pages, supporting content and internal links.
-  - step: Earn authority
-    detail: Research, PR and partnerships that create reasons to link.
-  - step: Measure
-    detail: Rankings, organic conversions and revenue — reported monthly.
+- step: Audit and baseline
+  detail: Technical crawl, Search Console analysis, content inventory and competitor gap analysis.
+- step: Strategy
+  detail: Keyword-to-page map, topical clusters and a prioritised roadmap.
+- step: Fix foundations
+  detail: Technical issues that block crawling, indexing or rendering come first.
+- step: Create and optimise
+  detail: Commercial pages, supporting content and internal links.
+- step: Earn authority
+  detail: Research, PR and partnerships that create reasons to link.
+- step: Measure
+  detail: Rankings, organic conversions and revenue, reported monthly.
 deliverables:
-  - Technical SEO audit and fix list
-  - Keyword and content strategy
-  - Page-level optimisation briefs
-  - Content production (where in scope)
-  - Link-earning and PR plan
-  - Monthly SEO performance report
+- Technical SEO audit and fix list
+- Keyword and content strategy
+- Page-level optimisation briefs
+- Content production (where in scope)
+- Link-earning and PR plan
+- Monthly SEO performance report
 kpis:
-  - name: Organic conversions and revenue
-    why: The only SEO KPI a CFO cares about.
-  - name: Non-brand organic clicks
-    why: Growth beyond people who already know you.
-  - name: Rankings for priority commercial terms
-    why: Leading indicator for revenue pages.
-  - name: Indexation and Core Web Vitals
-    why: Technical health that underpins everything else.
+- name: Organic conversions and revenue
+  why: The only SEO KPI a CFO cares about.
+- name: Non-brand organic clicks
+  why: Growth beyond people who already know you.
+- name: Rankings for priority commercial terms
+  why: Leading indicator for revenue pages.
+- name: Indexation and Core Web Vitals
+  why: Technical health that underpins everything else.
 timeline:
-  - period: Month 1
-    detail: Audit, strategy and technical fixes.
-  - period: Months 2–3
-    detail: Commercial page optimisation and first content.
-  - period: Months 4–6
-    detail: Early ranking movement on lower-competition terms.
-  - period: Months 6–12
-    detail: Compounding traffic and authority on competitive terms.
+- period: Month 1
+  detail: Audit, strategy and technical fixes.
+- period: Months 2-3
+  detail: Commercial page optimisation and first content.
+- period: Months 4-6
+  detail: Early ranking movement on lower-competition terms.
+- period: Months 6-12
+  detail: Compounding traffic and authority on competitive terms.
 mistakes:
-  - Chasing traffic volume instead of commercial intent
-  - Publishing large volumes of generic AI-written content
-  - Buying links
-  - Ignoring technical issues because they are invisible
-  - Measuring SEO only by rankings
+- Chasing traffic volume instead of commercial intent
+- Publishing large volumes of generic AI-written content
+- Buying links
+- Ignoring technical issues because they are invisible
+- Measuring SEO only by rankings
 faqs:
-  - q: How long does SEO take?
-    a: Technical fixes can show impact within weeks; meaningful commercial results typically take 4–12 months depending on competition, site history and investment. Be wary of anyone promising page-one rankings by a date.
-  - q: How much does SEO cost in India?
-    a: It varies with site size, competition and whether content production is included. See our digital marketing cost guide and rate card for how we scope it.
-  - q: Is SEO still worth it with AI search?
-    a: Yes — AI answer engines draw on content that search engines can crawl and trust. Strong SEO foundations are a prerequisite for AI visibility. See our AEO service.
-services: [aeo, content-marketing, website-development, analytics]
-industries: [ecommerce, b2b, saas, healthcare, education, local-businesses]
-tools: [seo-health-checker, marketing-audit]
-glossary: [seo, core-web-vitals, schema-markup, e-e-a-t, programmatic-seo]
-articles: [how-long-does-seo-take, what-is-aeo]
-compare: [seo-vs-ppc, seo-vs-aeo, organic-vs-paid]
+- q: How long does SEO take?
+  a: Technical fixes can show impact within weeks; meaningful commercial results typically take 4-12 months depending
+    on competition, site history and investment. Be wary of anyone promising page-one rankings by a date.
+- q: How much does SEO cost in India?
+  a: It varies with site size, competition and whether content production is included. See our digital marketing
+    cost guide and rate card for how we scope it.
+- q: Is SEO still worth it with AI search?
+  a: Yes. AI answer engines draw on content that search engines can crawl and trust. Strong SEO foundations are
+    a prerequisite for AI visibility. See our AEO service.
+services:
+- aeo
+- content-marketing
+- website-development
+- analytics
+industries:
+- ecommerce
+- b2b
+- saas
+- healthcare
+- education
+- local-businesses
+tools:
+- seo-health-checker
+- marketing-audit
+glossary:
+- seo
+- core-web-vitals
+- schema-markup
+- e-e-a-t
+- programmatic-seo
+articles:
+- how-long-does-seo-take
+- what-is-aeo
+compare:
+- seo-vs-ppc
+- seo-vs-aeo
+- organic-vs-paid
 updated: 2026-09-25

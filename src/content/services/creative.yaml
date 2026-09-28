@@ -2,71 +2,78 @@ title: Creative & Ad Production
 navLabel: Creative
 group: creative
 order: 31
-summary: Performance creative, brand campaigns, photography, motion and copywriting — built to be tested, not just admired.
-definition: >-
-  Creative is the message people actually see: ads, videos, images, headlines and landing page copy. In
-  performance marketing, creative is the biggest lever you control once targeting is automated.
+summary: 'Performance creative, brand campaigns, photography, motion and copywriting: built to be tested, not just
+  admired.'
+definition: 'Creative is the message people actually see: ads, videos, images, headlines and landing page copy.
+  In performance marketing, creative is the biggest lever you control once targeting is automated.'
 whoNeedsIt:
-  - Advertisers whose performance declines as creative fatigues
-  - Brands with good products but forgettable ads
-  - Teams needing a steady flow of platform-native assets
-whyItMatters: >-
-  Ad platforms increasingly decide who sees your ads. What you control is what they see. A disciplined
-  creative system — research, hypotheses, variants, measurement — is what keeps paid media efficient.
+- Advertisers whose performance declines as creative fatigues
+- Brands with good products but forgettable ads
+- Teams needing a steady flow of platform-native assets
+whyItMatters: Ad platforms increasingly decide who sees your ads. What you control is what they see. A disciplined
+  creative system (research, hypotheses, variants, measurement) is what keeps paid media efficient.
 whatWeDo:
-  - title: Research-led briefs
-    body: Customer language, objections and motivations turned into creative hypotheses.
-  - title: Platform-native production
-    body: Formats designed for how each platform is consumed.
-  - title: Testing frameworks
-    body: Angles, hooks and formats tested systematically.
-  - title: Copywriting
-    body: Headlines, ad copy and landing page copy that match intent.
+- title: Research-led briefs
+  body: Customer language, objections and motivations turned into creative hypotheses.
+- title: Platform-native production
+  body: Formats designed for how each platform is consumed.
+- title: Testing frameworks
+  body: Angles, hooks and formats tested systematically.
+- title: Copywriting
+  body: Headlines, ad copy and landing page copy that match intent.
 subServices:
-  - name: Brand identity assets
-    description: Templates and systems for consistent output.
-  - name: Ad creatives
-    description: Static, carousel and video ads.
-  - name: Video
-    description: Scripted, UGC-style and edited performance video.
-  - name: Photography
-    description: Product, lifestyle and team photography.
-  - name: Motion graphics
-    description: Animated explainers and ad variants.
-  - name: Copywriting
-    description: Ads, landing pages, email and scripts.
+- name: Brand identity assets
+  description: Templates and systems for consistent output.
+- name: Ad creatives
+  description: Static, carousel and video ads.
+- name: Video
+  description: Scripted, UGC-style and edited performance video.
+- name: Photography
+  description: Product, lifestyle and team photography.
+- name: Motion graphics
+  description: Animated explainers and ad variants.
+- name: Copywriting
+  description: Ads, landing pages, email and scripts.
 process:
-  - step: Research
-    detail: Reviews, sales calls, competitor ads and customer interviews.
-  - step: Brief
-    detail: Hypotheses and concepts.
-  - step: Produce
-    detail: Variants built for testing.
-  - step: Learn
-    detail: Performance review feeds the next brief.
+- step: Research
+  detail: Reviews, sales calls, competitor ads and customer interviews.
+- step: Brief
+  detail: Hypotheses and concepts.
+- step: Produce
+  detail: Variants built for testing.
+- step: Learn
+  detail: Performance review feeds the next brief.
 deliverables:
-  - Creative strategy and testing roadmap
-  - Monthly creative production
-  - Performance-tagged creative library
+- Creative strategy and testing roadmap
+- Monthly creative production
+- Performance-tagged creative library
 kpis:
-  - name: Hook and hold rate
-    why: Early indicators of video creative strength.
-  - name: CTR and conversion rate by creative
-    why: Which ideas move people.
-  - name: Creative lifespan
-    why: How long winners last before fatigue.
+- name: Hook and hold rate
+  why: Early indicators of video creative strength.
+- name: CTR and conversion rate by creative
+  why: Which ideas move people.
+- name: Creative lifespan
+  why: How long winners last before fatigue.
 timeline:
-  - period: Week 1–2
-    detail: Research and first briefs.
-  - period: Ongoing
-    detail: Monthly production and testing cycles.
+- period: Week 1-2
+  detail: Research and first briefs.
+- period: Ongoing
+  detail: Monthly production and testing cycles.
 mistakes:
-  - Testing tiny variations instead of distinct ideas
-  - Producing creative without a hypothesis
-  - Ignoring what sales hears from customers
+- Testing tiny variations instead of distinct ideas
+- Producing creative without a hypothesis
+- Ignoring what sales hears from customers
 faqs:
-  - q: How many new creatives do we need each month?
-    a: It depends on spend and fatigue rate. Higher spend exhausts creative faster. We set volumes based on your data.
-services: [meta-ads, video-marketing, branding, social-media]
-industries: [d2c, fashion, beauty, real-estate]
+- q: How many new creatives do we need each month?
+  a: It depends on spend and fatigue rate. Higher spend exhausts creative faster. We set volumes based on your data.
+services:
+- meta-ads
+- video-marketing
+- branding
+- social-media
+industries:
+- d2c
+- fashion
+- beauty
+- real-estate
 updated: 2026-09-25

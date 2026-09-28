@@ -1,8 +1,8 @@
 ---
 /**
  * Generated editorial artwork. Deterministic per `seed`, so every service, industry,
- * article or research page gets a unique, consistent, on-brand cover — including new
- * entries added in the CMS — with zero image weight. Decorative: hidden from screen readers.
+ * article or research page gets a unique, consistent, on-brand cover, including new
+ * entries added in the CMS: with zero image weight. Decorative: hidden from screen readers.
  */
 import { motifs, motifFor, seeded } from '../../lib/motifs';
 
@@ -14,7 +14,7 @@ interface Props {
   label?: string;
   class?: string;
   eager?: boolean;
-  /** Background only — no central motif (for composites that layer their own content). */
+  /** Background only, no central motif (for composites that layer their own content). */
   bare?: boolean;
 }
 const { seed, variant = 'deep', ratio = '16/9', label, class: cls, bare = false } = Astro.props;

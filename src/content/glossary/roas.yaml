@@ -3,7 +3,7 @@ abbreviation: ROAS
 definition: Return on ad spend (ROAS) is revenue attributed to advertising divided by the advertising spend.
 explanation: ROAS ignores margins, so compare it with break-even ROAS. Platform-reported ROAS includes attribution
   assumptions and may double-count across platforms.
-formula: ROAS = Attributed revenue ÷ Ad spend
+formula: ROAS = Attributed revenue / Ad spend
 example: ₹3,00,000 revenue from ₹1,00,000 spend = 3.0 ROAS.
 services:
 - performance-marketing

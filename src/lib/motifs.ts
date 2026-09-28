@@ -1,5 +1,5 @@
 /**
- * Line-art motifs (drawn on a 100×100 grid, stroke only) used by <Artwork />.
+ * Line-art motifs (drawn on a 100x100 grid, stroke only) used by <Artwork />.
  * Keep each motif simple and geometric so it reads at small sizes.
  */
 export const motifs: Record<string, string> = {
@@ -42,7 +42,7 @@ export const motifs: Record<string, string> = {
   book: `<path d="M50 24c-10-8-26-8-38-4v60c12-4 28-4 38 4 10-8 26-8 38-4V20c-12-4-28-4-38 4z"/><path d="M50 24v60"/>`,
 };
 
-/** Slug → motif mapping for services, industries and content types. */
+/** Slug to motif mapping for services, industries and content types. */
 export const motifFor: Record<string, string> = {
   'real-estate': 'building', d2c: 'bag', ecommerce: 'bag', b2b: 'network', saas: 'app', education: 'cap',
   healthcare: 'pulse', hospitality: 'key', automotive: 'car', finance: 'coin', retail: 'bag',

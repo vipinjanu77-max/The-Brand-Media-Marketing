@@ -1,8 +1,8 @@
-title: TBM Digital Marketing Benchmark Report — India
+title: 'TBM Digital Marketing Benchmark Report: India'
 label: TBM Original Dataset
 status: collecting
-description: An anonymised, aggregated benchmark of campaign performance across TBM-managed accounts — CPL, CPC,
-  CTR, conversion rate, CAC, ROAS, CPM and lead quality — broken down by industry, city, platform, business model
+description: An anonymised, aggregated benchmark of campaign performance across TBM-managed accounts (CPL, CPC,
+  CTR, conversion rate, CAC, ROAS, CPM and lead quality) broken down by industry, city, platform, business model
   and budget range.
 sampleSize: Published with the first results (minimum group sizes apply)
 dateRange: Data collection in progress
@@ -10,7 +10,7 @@ methodology: Data will be exported from client ad platforms and CRMs with client
   with a minimum group size so no client can be identified, and reported as medians and interquartile ranges rather
   than averages. Segments below the minimum sample threshold will not be published.
 limitations:
-- Reflects TBM-managed accounts only — not a representative sample of the Indian market.
+- Reflects TBM-managed accounts only, not a representative sample of the Indian market.
 - Account mix is skewed towards the industries and cities TBM serves.
 - Platform-reported conversions include attribution assumptions.
 - Lead quality is measured using each client's CRM definitions, which vary.

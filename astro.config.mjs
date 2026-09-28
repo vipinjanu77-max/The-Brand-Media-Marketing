@@ -32,6 +32,8 @@ export default defineConfig({
       changefreq: 'weekly',
     }),
   ],
+  // Plain punctuation: no automatic curly quotes, long dashes or ellipsis characters in Markdown.
+  markdown: { smartypants: false },
   prefetch: { prefetchAll: false, defaultStrategy: 'hover' },
   // Inline CSS (≈30 KB) to remove the render-blocking stylesheet request on first visit.
   build: { inlineStylesheets: 'always' },

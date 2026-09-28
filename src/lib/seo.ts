@@ -27,7 +27,7 @@ export function suggestDescription(text: string, max = 158): string {
   const cut = t.slice(0, max);
   const sentence = cut.lastIndexOf('. ');
   if (sentence > 90) return cut.slice(0, sentence + 1);
-  return `${cut.slice(0, cut.lastIndexOf(' '))}…`;
+  return `${cut.slice(0, cut.lastIndexOf(' '))}...`;
 }
 
 export function resolveSeo(base: { title: string; description: string }, o: SeoOverrides = {}) {

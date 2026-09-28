@@ -33,18 +33,18 @@ const generalFaqs = (await getCollection('faqs')).sort((a, b) => a.data.order - 
 const groups: Record<string, string> = { performance: 'Acquisition', search: 'Search & AI', social: 'Social & Reputation', creative: 'Brand & Creative', web: 'Conversion', crm: 'CRM & Messaging', analytics: 'Measurement' };
 const pillars = ['Strategy', 'Performance', 'SEO', 'Creative', 'Technology', 'Analytics'];
 const why = [
-  { t: 'We start from your economics', d: 'Targets come from your margins, close rates and payback tolerance — not platform averages.' },
+  { t: 'We start from your economics', d: 'Targets come from your margins, close rates and payback tolerance, not platform averages.' },
   { t: 'One system, not a menu', d: 'Strategy, acquisition, conversion and measurement planned together, with one owner.' },
   { t: 'Evidence over adjectives', d: 'We publish our methods, label our data and only show verified results.' },
   { t: 'You own everything', d: 'Ad accounts, data, creative and dashboards stay in your name.' },
   { t: 'Transparent pricing', d: 'Fees, media, production and technology shown separately on every proposal.' },
-  { t: 'Built for AI-era search', d: 'SEO and AEO so your business is found and cited — in results and in answers.' },
+  { t: 'Built for AI-era search', d: 'SEO and AEO so your business is found and cited, in results and in answers.' },
 ];
 ---
 <Base
   title="Growth & Digital Marketing Agency in India"
   description="TBM combines strategy, performance marketing, SEO, AEO, creative, technology and analytics to help businesses acquire customers, improve conversion and build sustainable growth."
-  seo={{ title: 'The Brand Media Marketing (TBM) — Growth & Digital Marketing Agency' }}
+  seo={{ title: 'The Brand Media Marketing (TBM): Growth & Digital Marketing Agency' }}
   schema={[faqPage(generalFaqs)]}
   exitIntent
 >
@@ -52,14 +52,14 @@ const why = [
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Strategy · Acquisition · Conversion · Growth</p>
-        <h1>We Don’t Just Run Campaigns.<br /><span>We Build Growth Systems.</span></h1>
+        <p class="eyebrow">Strategy. Acquisition. Conversion. Growth.</p>
+        <h1>We Don't Just Run Campaigns.<br /><span>We Build Growth Systems.</span></h1>
         <p class="lede">TBM combines strategy, performance marketing, SEO, creative, technology and analytics to help businesses acquire customers, improve conversion and build sustainable growth.</p>
         <div class="btn-row">
-          <a href={auditHref} class="btn" data-track="cta_click" data-cta="hero_growth_audit">Get Your Free Growth Audit <span class="arrow" aria-hidden="true">→</span></a>
+          <a href={auditHref} class="btn" data-track="cta_click" data-cta="hero_growth_audit">Get Your Free Growth Audit <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="/case-studies/" class="btn btn--ghost" data-track="cta_click" data-cta="hero_explore_work">Explore Our Work</a>
         </div>
-        <p class="hero-note small muted">No lock-in pitch. A clear view of where your growth is leaking — and what to fix first.</p>
+        <p class="hero-note small muted">No lock-in pitch. A clear view of where your growth is leaking, and what to fix first.</p>
       </div>
       <div class="hero-visual"><HeroVisual /></div>
     </div>
@@ -79,7 +79,7 @@ const why = [
   <!-- 3. BUSINESS PROBLEM -->
   <section class="section">
     <div class="container">
-      <SectionHead eyebrow="The problem" title="Marketing shouldn’t be a collection of disconnected activities." lede="Most businesses don’t have a channel problem. They have a system problem — activities that each look busy but don’t add up to growth." />
+      <SectionHead eyebrow="The problem" title="Marketing shouldn't be a collection of disconnected activities." lede="Most businesses don't have a channel problem. They have a system problem: activities that each look busy but don't add up to growth." />
       <div class="grid grid-4 problems">
         {problems.map((p) => (
           <div class="problem reveal"><h3>{p.t}</h3><p>{p.d}</p></div>
@@ -95,9 +95,9 @@ const why = [
   <!-- 4. GROWTH SYSTEM -->
   <section class="section section--navy" id="growth-system">
     <div class="container">
-      <SectionHead eyebrow="Our Growth System" title="Seven stages. One accountable system." lede="Every engagement runs through the same operating model — so you always know what we are doing, why, and how it will be measured." />
+      <SectionHead eyebrow="Our Growth System" title="Seven stages. One accountable system." lede="Every engagement runs through the same operating model, so you always know what we are doing, why, and how it will be measured." />
       <GrowthSystem />
-      <p class="mt-2"><a href="/process/" class="text-link">See how onboarding works week by week <span aria-hidden="true">→</span></a></p>
+      <p class="mt-2"><a href="/process/" class="text-link">See how onboarding works week by week <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
     </div>
   </section>
 
@@ -130,7 +130,7 @@ const why = [
             <div class="card-media"><Artwork seed={i.id} variant="royal" /></div>
             <h3><a class="card-link" href={`/industries/${i.id}/`}>{i.data.title}</a></h3>
             <p>{i.data.summary}</p>
-            <p class="meta">KPIs: {i.data.kpis.slice(0, 3).join(' · ')}</p>
+            <p class="meta">KPIs: {i.data.kpis.slice(0, 3).join(' | ')}</p>
           </article>
         ))}
       </div>
@@ -156,7 +156,7 @@ const why = [
         </div>
       ) : (
         <div class="empty">
-          <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED — admin to publish verified case studies in the CMS" />
+          <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED: admin to publish verified case studies in the CMS" />
           <div class="empty-body">
             <p>Our case studies go live as clients approve publication. Each one will show the starting point, strategy, campaign structure, budget range, timeline, before-and-after metrics and what we learned.</p>
             <div class="btn-row">
@@ -172,7 +172,7 @@ const why = [
   <!-- 9 & 10. MARKETING INTELLIGENCE + ORIGINAL RESEARCH -->
   <section class="section section--alt">
     <div class="container">
-      <SectionHead eyebrow="TBM Marketing Intelligence" title="We teach the market before we sell to it." lede="A growing research platform with sourced, dated and clearly labelled data — so your decisions start from evidence." />
+      <SectionHead eyebrow="TBM Marketing Intelligence" title="We teach the market before we sell to it." lede="A growing research platform with sourced, dated and clearly labelled data, so your decisions start from evidence." />
       <div class="intel-grid">
         {marketChart && <div class="intel-chart"><BarChart {...marketChart} id="home-market" /></div>}
         <div class="intel-stats">{stats.map((s) => <StatCard stat={s} compact />)}</div>
@@ -181,15 +181,15 @@ const why = [
         <div>
           <p class="svc-label">Latest research</p>
           <ul class="list-links" role="list">
-            {research.slice(0, 4).map((r) => <li><a href={`/research/${r.id}/`}><strong>{r.data.title}</strong><span>{r.data.label} · Updated {r.data.updated.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</span></a></li>)}
+            {research.slice(0, 4).map((r) => <li><a href={`/research/${r.id}/`}><strong>{r.data.title}</strong><span>{r.data.label} | Updated {r.data.updated.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</span></a></li>)}
           </ul>
-          <a class="text-link mt-1" href="/research/">Explore Marketing Intelligence <span aria-hidden="true">→</span></a>
+          <a class="text-link mt-1" href="/research/">Explore Marketing Intelligence <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="card card--navy">
           <span class="eyebrow">Original research</span>
           <h3>{datasets[0]?.data.title ?? 'TBM Market Data'}</h3>
           <p>{datasets[0]?.data.description}</p>
-          <p class="small">Status: <strong>{datasets[0]?.data.status === 'collecting' ? 'Data collection in progress — methodology published' : 'Published'}</strong>. We will never present TBM’s own sample as an “India market average”.</p>
+          <p class="small">Status: <strong>{datasets[0]?.data.status === 'collecting' ? 'Data collection in progress: methodology published' : 'Published'}</strong>. We will never present TBM's own sample as an 'India market average'.</p>
           <a class="btn btn--light btn--sm" href="/research/market-data/">Read the methodology</a>
         </div>
       </div>
@@ -204,7 +204,7 @@ const why = [
         {tools.slice(0, 6).map((t) => (
           <article class="card reveal">
             <div class="card-media"><Artwork seed={t.slug} motif={toolMotif[t.slug]} variant="light" /></div>
-            <p class="tool-q">“{t.question}”</p>
+            <p class="tool-q">"{t.question}"</p>
             <h3><a class="card-link" href={`/tools/${t.slug}/`}>{t.title}</a></h3>
             <p>{t.description}</p>
           </article>
@@ -224,11 +224,11 @@ const why = [
   <!-- 13. PROCESS -->
   <section class="section">
     <div class="container">
-      <SectionHead eyebrow="Process" title="They have a clear process." lede="What happens after you hire TBM — week by week." />
+      <SectionHead eyebrow="Process" title="They have a clear process." lede="What happens after you hire TBM: week by week." />
       <ol class="timeline" role="list">
         {onboarding.map((o) => <li class="reveal"><span class="when">{o.when}</span><strong>{o.what}</strong><p>{o.detail}</p></li>)}
       </ol>
-      <p class="mt-2"><a href="/process/" class="text-link">Full onboarding detail <span aria-hidden="true">→</span></a></p>
+      <p class="mt-2"><a href="/process/" class="text-link">Full onboarding detail <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
     </div>
   </section>
 
@@ -236,15 +236,15 @@ const why = [
   {team.length > 0 && (
   <section class="section section--alt">
     <div class="container">
-      <SectionHead eyebrow="Team" title="The people behind the work." lede="You will know who works on your account — by name." />
+      <SectionHead eyebrow="Team" title="The people behind the work." lede="You will know who works on your account, by name." />
       <div class="grid grid-3">
         {team.map((m) => (
           <article class="card">
-            {m.data.placeholder ? <Placeholder label="TEAM MEMBER PHOTO, NAME, ROLE — ADMIN TO ADD" /> : <><h3>{m.data.name}</h3><p>{m.data.role}</p></>}
+            {m.data.placeholder ? <Placeholder label="TEAM MEMBER PHOTO, NAME, ROLE: ADMIN TO ADD" /> : <><h3>{m.data.name}</h3><p>{m.data.role}</p></>}
           </article>
         ))}
       </div>
-      <p class="mt-2"><a href="/team/" class="text-link">Meet the team <span aria-hidden="true">→</span></a></p>
+      <p class="mt-2"><a href="/team/" class="text-link">Meet the team <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
     </div>
   </section>
   )}
@@ -253,15 +253,15 @@ const why = [
   {(testimonials.length > 0 || preview) && (
   <section class="section">
     <div class="container">
-      <SectionHead eyebrow="Client testimonials" title="In our clients’ words." />
+      <SectionHead eyebrow="Client testimonials" title="In our clients' words." />
       {testimonials.length > 0 ? (
         <div class="grid grid-2">
           {testimonials.map((t) => (
-            <figure class="card quote"><blockquote>“{t.data.quote}”</blockquote><figcaption><strong>{t.data.person}</strong>, {t.data.role}, {t.data.company}</figcaption></figure>
+            <figure class="card quote"><blockquote>"{t.data.quote}"</blockquote><figcaption><strong>{t.data.person}</strong>, {t.data.role}, {t.data.company}</figcaption></figure>
           ))}
         </div>
       ) : (
-        <Placeholder label="CLIENT TESTIMONIALS — ADMIN TO ADD (verified, with written consent on file)" />
+        <Placeholder label="CLIENT TESTIMONIALS: ADMIN TO ADD (verified, with written consent on file)" />
       )}
     </div>
   </section>
@@ -270,7 +270,7 @@ const why = [
   <!-- 16. PRICING PHILOSOPHY -->
   <section class="section section--navy">
     <div class="container split">
-      <SectionHead eyebrow="Pricing philosophy" title="Marketing should be an investment, not a black box." lede="I can see what I’m paying for." />
+      <SectionHead eyebrow="Pricing philosophy" title="Marketing should be an investment, not a black box." lede="I can see what I'm paying for." />
       <div>
         <div class="cost-split" role="img" aria-label="Costs are separated into agency fee, media spend, creative and production, and technology">
           {['Agency fee', 'Media spend', 'Creative & production', 'Technology'].map((c) => <span>{c}</span>)}
@@ -339,7 +339,7 @@ const why = [
   .chain { list-style: none; padding: 0; margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; counter-reset: c; }
   .chain li { counter-increment: c; display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-radius: 999px; background: rgb(255 255 255 / 0.08); font-weight: 600; }
   .chain li::before { content: counter(c); font-size: 0.75rem; color: #9fb8ff; }
-  .chain li:not(:last-child)::after { content: '→'; margin-left: 0.5rem; color: #6f95f5; }
+  .chain li:not(:last-child)::after { content: ' to '; margin-left: 0.5rem; color: #6f95f5; }
 
   .svc-groups { display: grid; gap: 2rem 3rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); }
   .svc-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--royal-600); margin-bottom: 0.5rem; }

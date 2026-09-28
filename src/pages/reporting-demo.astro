@@ -8,11 +8,11 @@ const kpis = [
   ['cpl', 'CPL'], ['qualified', 'Qualified leads'], ['conversions', 'Conversions'], ['cac', 'CAC'], ['revenue', 'Revenue'], ['roas', 'ROAS'],
 ];
 ---
-<Base title="Reporting Demo — How TBM Reports" description="An interactive demo of a TBM performance dashboard — spend, impressions, clicks, CTR, CPC, leads, CPL, qualified leads, CAC, conversions, revenue and ROAS. Demo data only." crumbs={crumbs}>
+<Base title="Reporting Demo: How TBM Reports" description="An interactive demo of a TBM performance dashboard: spend, impressions, clicks, CTR, CPC, leads, CPL, qualified leads, CAC, conversions, revenue and ROAS. Demo data only." crumbs={crumbs}>
   <PageHero crumbs={crumbs} art={{ seed: 'reporting', motif: 'chart', variant: 'deep' }} eyebrow="Reporting demo" title="See how we report before you hire us." lede="This is the shape of the monthly view every TBM client gets: business outcomes first, platform metrics as the explanation." />
   <section class="section" data-hide-sticky>
     <div class="container" data-demo>
-      <div class="demo-banner" role="note"><strong>DEMO DATA — NOT CLIENT DATA.</strong> Every number on this page is synthetic sample data generated for illustration. It does not represent any client, benchmark or expected result.</div>
+      <div class="demo-banner" role="note"><strong>DEMO DATA: NOT CLIENT DATA.</strong> Every number on this page is synthetic sample data generated for illustration. It does not represent any client, benchmark or expected result.</div>
 
       <div class="controls" role="group" aria-label="Dashboard filters">
         <div class="filters" role="group" aria-label="Period">
@@ -28,7 +28,7 @@ const kpis = [
       </div>
 
       <div class="kpis">
-        {kpis.map(([k, l]) => <div class="kpi-tile"><span class="kpi-label">{l}</span><span class="kpi-value num" data-k={k}>—</span><span class="kpi-delta" data-d={k}></span></div>)}
+        {kpis.map(([k, l]) => <div class="kpi-tile"><span class="kpi-label">{l}</span><span class="kpi-value num" data-k={k}>-</span><span class="kpi-delta" data-d={k}></span></div>)}
       </div>
 
       <div class="charts">
@@ -50,10 +50,10 @@ const kpis = [
       <div class="panel mt-2 notes">
         <p class="ptitle">What a TBM monthly review adds</p>
         <ul class="check-list">
-          <li>What changed and why — in plain language, not just charts</li>
+          <li>What changed and why, in plain language, not just charts</li>
           <li>Numbers reconciled with your CRM, not only platform-reported conversions</li>
           <li>Tests run, results and decisions (scale, fix or stop)</li>
-          <li>Next month’s plan and budget recommendation</li>
+          <li>Next month's plan and budget recommendation</li>
         </ul>
       </div>
       <div class="tip" role="tooltip" hidden data-tip></div>
@@ -66,7 +66,7 @@ const kpis = [
   import { inr, num } from '../lib/calculators';
   const root = document.querySelector<HTMLElement>('[data-demo]')!;
   const tip = root.querySelector<HTMLElement>('[data-tip]')!;
-  // Deterministic synthetic data (seeded) — DEMO ONLY.
+  // Deterministic synthetic data (seeded): DEMO ONLY.
   let seed = 42;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
   const months = Array.from({ length: 12 }, (_, i) => new Date(2026, i - 11 + 8, 1).toLocaleDateString('en-IN', { month: 'short' }));
@@ -128,7 +128,7 @@ const kpis = [
       const el = root.querySelector<HTMLElement>(`[data-d="${k}"]`); if (!el) return;
       if (!a || !b) { el.textContent = ''; return; }
       const ch = ((a - b) / b) * 100, good = lowerBetter ? ch < 0 : ch > 0;
-      el.textContent = `${ch > 0 ? '▲' : '▼'} ${num(Math.abs(ch), 1)}% vs prior ${period}m`;
+      el.textContent = `${ch > 0 ? '+' : '-'} ${num(Math.abs(ch), 1)}% vs prior ${period}m`;
       el.className = `kpi-delta ${good ? 'up' : 'down'}`;
     };
     delta('cpl', now._cpl, before?._cpl, true); delta('cac', now._cac, before?._cac, true); delta('roas', now._roas, before?._roas); delta('qualified', now._q, before?._q);

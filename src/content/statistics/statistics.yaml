@@ -1,4 +1,4 @@
-# Edited via CMS → Statistics database. Every entry needs source, URL, period and geography.
+# Edited in the CMS under "Statistics database". Every entry needs source, URL, period and geography.
 statistics:
 - id: india-internet-users-2025
   statement: Individuals using the internet in India at the end of 2025
@@ -25,8 +25,8 @@ statistics:
   category: internet-mobile
   kind: third-party-estimate
   referencePeriod: End of 2025
-  context: Means roughly three in ten people in India were still offline at the end of 2025 — relevant for any business
-    whose customers include rural or older populations.
+  context: 'Means roughly three in ten people in India were still offline at the end of 2025: relevant for any business
+    whose customers include rural or older populations.'
   tags:
   - india-internet
   source: DataReportal (Kepios, with We Are Social & Meltwater)
@@ -43,8 +43,8 @@ statistics:
   category: internet-mobile
   kind: third-party-estimate
   referencePeriod: Late 2025
-  context: Equivalent to 72.5% of the population. Connections are not people — one person may hold several SIMs,
-    and some connections are for devices.
+  context: 'Equivalent to 72.5% of the population. Connections are not people: one person may hold several SIMs,
+    and some connections are for devices.'
   tags:
   - india-internet
   source: DataReportal (Kepios, with We Are Social & Meltwater)
@@ -61,8 +61,8 @@ statistics:
   category: social-media
   kind: third-party-estimate
   referencePeriod: October 2025
-  context: Equal to 34.1% of the total population. User identities may not represent unique individuals — one person
-    can hold multiple accounts.
+  context: 'Equal to 34.1% of the total population. User identities may not represent unique individuals: one person
+    can hold multiple accounts.'
   tags:
   - india-social
   source: DataReportal (Kepios, with We Are Social & Meltwater)
@@ -79,8 +79,8 @@ statistics:
   category: social-media
   kind: third-party-estimate
   referencePeriod: October 2025
-  context: Suggests a large share of India's internet users are not reachable through social platforms alone — search,
-    video and messaging also matter.
+  context: 'Suggests a large share of India''s internet users are not reachable through social platforms alone:
+    search, video and messaging also matter.'
   tags:
   - india-social
   source: DataReportal (Kepios, with We Are Social & Meltwater)
@@ -132,7 +132,7 @@ statistics:
   category: advertising
   kind: third-party-estimate
   referencePeriod: '2025'
-  context: Up from 12% in 2016 according to the same report series — a structural shift in how Indian advertisers
+  context: Up from 12% in 2016 according to the same report series, a structural shift in how Indian advertisers
     allocate budgets.
   tags:
   - india-ad-spend
@@ -169,7 +169,7 @@ statistics:
   category: advertising
   kind: third-party-estimate
   referencePeriod: 2025 vs 2024
-  context: Growth in total spend also reflects rising media costs — more spend does not necessarily mean more reach.
+  context: 'Growth in total spend also reflects rising media costs: more spend does not necessarily mean more reach.'
   tags:
   - india-ad-spend
   source: dentsu India & exchange4media
@@ -206,7 +206,7 @@ statistics:
   category: advertising
   kind: third-party-estimate
   referencePeriod: '2025'
-  context: Valued at ₹21,057 crore — the largest single digital segment in the report.
+  context: Valued at ₹21,057 crore, the largest single digital segment in the report.
   tags:
   - india-ad-spend
   source: dentsu India & exchange4media
@@ -302,8 +302,8 @@ statistics:
   referencePeriod: Q2 2025 (reported July 2025)
   geography: Global (200+ countries and territories, 40 languages)
   methodology: Company-reported figure.
-  context: Company-reported, not independently audited. Shows AI-generated answers are a mainstream search surface
-    — the reason TBM builds for AEO as well as SEO.
+  context: Company-reported, not independently audited. Shows AI-generated answers are a mainstream search surface,
+    the reason TBM builds for AEO as well as SEO.
   tags:
   - ai-search
   accessedOn: '2026-09-25'

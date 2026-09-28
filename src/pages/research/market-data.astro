@@ -12,14 +12,14 @@ const origin = Astro.site?.origin ?? Astro.url.origin;
 const crumbs = [{ name: 'Research', href: '/research/' }, { name: 'TBM Market Data', href: '/research/market-data/' }];
 const metrics = ['Average CPL', 'CPC', 'CTR', 'Conversion rate', 'CAC', 'ROAS', 'CPM', 'Lead quality', 'Search demand', 'Organic traffic growth', 'Paid traffic performance'];
 ---
-<Base title="TBM Market Data — Original Benchmarks" description="TBM's original, anonymised marketing benchmark programme for India — methodology, sample size, date range, limitations and data confidence published up front." crumbs={crumbs}
+<Base title="TBM Market Data: Original Benchmarks" description="TBM's original, anonymised marketing benchmark programme for India: methodology, sample size, date range, limitations and data confidence published up front." crumbs={crumbs}
   schema={datasets.filter((d) => d.data.status === 'published').map((d) => datasetSchema({ name: d.data.title, description: d.data.description, url: new URL('/research/market-data/', origin).href, origin, temporal: d.data.dateRange, spatial: 'India' }))}>
-  <PageHero crumbs={crumbs} art={{ seed: 'market-data', motif: 'chart', variant: 'deep' }} eyebrow="Original research" title="TBM Market Data" lede="Proprietary benchmarks built from campaigns we manage — published with the sample, method and limitations visible, and never passed off as a market average." />
+  <PageHero crumbs={crumbs} art={{ seed: 'market-data', motif: 'chart', variant: 'deep' }} eyebrow="Original research" title="TBM Market Data" lede="Proprietary benchmarks built from campaigns we manage, published with the sample, method and limitations visible, and never passed off as a market average." />
   <section class="section">
     <div class="container">
       <div class="compare-labels">
-        <div class="card"><KindBadge kind="TBM Original Dataset" /><h2 class="h">TBM Dataset</h2><p>Data TBM collected itself from managed accounts, with client permission, anonymised and aggregated. Representative of TBM’s client mix — not the whole market.</p></div>
-        <div class="card"><span class="tag tag--neutral">Third-Party Market Data</span><h2 class="h">Industry research</h2><p>Figures from regulators, platforms, research firms and industry bodies — cited with source, year, geography and method in our <a href="/statistics/">statistics database</a>.</p></div>
+        <div class="card"><KindBadge kind="TBM Original Dataset" /><h2 class="h">TBM Dataset</h2><p>Data TBM collected itself from managed accounts, with client permission, anonymised and aggregated. Representative of TBM's client mix, not the whole market.</p></div>
+        <div class="card"><span class="tag tag--neutral">Third-Party Market Data</span><h2 class="h">Industry research</h2><p>Figures from regulators, platforms, research firms and industry bodies, cited with source, year, geography and method in our <a href="/statistics/">statistics database</a>.</p></div>
       </div>
       {datasets.map((d) => (
         <article class="ds">
@@ -32,7 +32,7 @@ const metrics = ['Average CPL', 'CPC', 'CTR', 'Conversion rate', 'CAC', 'ROAS', 
           <dl class="ds-meta">
             <div><dt>Sample size</dt><dd>{d.data.sampleSize}</dd></div>
             <div><dt>Date range</dt><dd>{d.data.dateRange}</dd></div>
-            <div><dt>Breakdowns</dt><dd>{d.data.breakdowns.join(' · ')}</dd></div>
+            <div><dt>Breakdowns</dt><dd>{d.data.breakdowns.join(' | ')}</dd></div>
             <div><dt>Methodology</dt><dd>{d.data.methodology}</dd></div>
           </dl>
           <h3>Metrics we will report</h3>
@@ -45,7 +45,7 @@ const metrics = ['Average CPL', 'CPC', 'CTR', 'Conversion rate', 'CAC', 'ROAS', 
               <thead><tr><th scope="col">Metric</th><th scope="col">Segment</th><th scope="col">Value</th><th scope="col">n</th></tr></thead>
               <tbody>{d.data.metrics.map((m) => <tr><th scope="row">{m.metric}</th><td>{m.segment}</td><td class="num">{m.value}</td><td class="num">{m.n}</td></tr>)}</tbody>
             </table></div>
-          ) : <Placeholder label="TBM DATASET RESULTS — to be published once minimum sample thresholds are met" fallback="Results will be published once minimum sample thresholds are met." />}
+          ) : <Placeholder label="TBM DATASET RESULTS: to be published once minimum sample thresholds are met" fallback="Results will be published once minimum sample thresholds are met." />}
         </article>
       ))}
     </div>

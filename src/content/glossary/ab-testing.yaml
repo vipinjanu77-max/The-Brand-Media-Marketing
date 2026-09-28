@@ -2,7 +2,7 @@ term: A/B Testing
 definition: A/B testing is an experiment that compares two versions of an ad, page or message by randomly splitting
   traffic between them to see which performs better on a defined metric.
 explanation: A valid A/B test changes one meaningful thing, defines the success metric in advance and runs until
-  it reaches enough data to detect the effect you care about — usually across at least one full weekly cycle. Stopping
+  it reaches enough data to detect the effect you care about, usually across at least one full weekly cycle. Stopping
   a test the moment one version looks ahead is the most common way to reach a false conclusion.
 example: Testing two landing page headlines with 50% of paid traffic each, measuring qualified-lead conversion rate.
 services:

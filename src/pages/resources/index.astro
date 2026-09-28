@@ -7,7 +7,7 @@ const resources = (await getCollection('resources')).sort((a, b) => a.data.order
 const crumbs = [{ name: 'Resources', href: '/resources/' }];
 ---
 <Base title="Free Marketing Templates & Checklists" description="Downloadable marketing templates and checklists: media plan, content calendar, KPI dashboard, campaign brief, SEO audit, Google Ads and Meta Ads checklists, lead funnel and agency evaluation." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} art={{ seed: 'resources', motif: 'document', variant: 'light' }} eyebrow="Resource center" title="Templates we actually use." lede="Practical, editable templates and checklists — built from how TBM plans, runs and measures campaigns." >
+  <PageHero crumbs={crumbs} art={{ seed: 'resources', motif: 'document', variant: 'light' }} eyebrow="Resource center" title="Templates we actually use." lede="Practical, editable templates and checklists: built from how TBM plans, runs and measures campaigns." >
     <a class="btn btn--ghost" href="/tools/">Interactive tools</a>
   </PageHero>
   <section class="section"><div class="container grid grid-3">

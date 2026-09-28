@@ -1,6 +1,6 @@
 title: Consulting
 order: 7
-intro: Strategic advice without execution — for teams that want senior input.
+intro: Strategic advice without execution, for teams that want senior input.
 tiers:
 - name: Hourly
   priceFrom: 4000
@@ -10,7 +10,7 @@ tiers:
   includes:
   - Strategy sessions
   - Account or plan reviews
-  excludes: &id001 []
+  excludes: []
 - name: Project
   priceFrom: 75000
   priceTo: 300000
@@ -20,7 +20,7 @@ tiers:
   - Growth audit
   - Marketing plan
   - Team workshops
-  excludes: *id001
+  excludes: []
 - name: Monthly advisory
   priceFrom: 60000
   priceTo: 150000
@@ -30,7 +30,7 @@ tiers:
   - Monthly strategy sessions
   - Plan and performance reviews
   - Hiring and agency selection support
-  excludes: *id001
+  excludes: []
 notes:
 - Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
   and required resources.

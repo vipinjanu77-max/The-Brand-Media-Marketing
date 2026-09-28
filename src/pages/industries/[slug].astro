@@ -62,7 +62,7 @@ const toc = [['overview', 'Overview'], ['journey', 'Customer journey'], ['funnel
       <section id="kpis">
         <h2>KPIs and benchmarks</h2>
         <ul class="check-list">{d.kpis.map((k) => <li>{k}</li>)}</ul>
-        <div class="notice mt-1"><div><strong>About benchmarks:</strong> we don’t publish unsourced “industry average” CPLs or ROAS. Verified third-party figures appear in our <a href="/statistics/">statistics database</a>; TBM’s own anonymised benchmarks will appear in <a href="/research/market-data/">TBM Market Data</a> once sample sizes are sufficient. The most useful benchmark is your own break-even — try the <a href="/tools/cpl-calculator/">CPL calculator</a>.</div></div>
+        <div class="notice mt-1"><div><strong>About benchmarks:</strong> we don't publish unsourced "industry average" CPLs or ROAS. Verified third-party figures appear in our <a href="/statistics/">statistics database</a>; TBM's own anonymised benchmarks will appear in <a href="/research/market-data/">TBM Market Data</a> once sample sizes are sufficient. The most useful benchmark is your own break-even: try the <a href="/tools/cpl-calculator/">CPL calculator</a>.</div></div>
       </section>
       <section id="strategy">
         <h2>How TBM approaches {name.toLowerCase()}</h2>
@@ -70,11 +70,11 @@ const toc = [['overview', 'Overview'], ['journey', 'Customer journey'], ['funnel
       </section>
       <section id="stats">
         <h2>Relevant statistics</h2>
-        {stats.length > 0 ? <div class="grid grid-3">{stats.map((s) => <StatCard stat={s} compact />)}</div> : <Placeholder label={`SOURCED ${name.toUpperCase()} STATISTICS — editor to add to the statistics database`}><p class="muted">Industry-specific figures are added as we verify them. Meanwhile, see our <a href="/research/digital-marketing-statistics-india/">India digital marketing statistics</a>.</p></Placeholder>}
+        {stats.length > 0 ? <div class="grid grid-3">{stats.map((s) => <StatCard stat={s} compact />)}</div> : <Placeholder label={`SOURCED ${name.toUpperCase()} STATISTICS: editor to add to the statistics database`}><p class="muted">Industry-specific figures are added as we verify them. Meanwhile, see our <a href="/research/digital-marketing-statistics-india/">India digital marketing statistics</a>.</p></Placeholder>}
       </section>
       <section id="proof">
         <h2>Case studies</h2>
-        {cases.length > 0 ? <ul>{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul> : <Placeholder label={`VERIFIED ${name.toUpperCase()} CASE STUDY REQUIRED — admin to publish in CMS`}><p class="muted">Published case studies appear here as clients approve them. We can walk you through anonymised {name.toLowerCase()} examples on a <a href="/contact/?intent=strategy-call">strategy call</a>.</p></Placeholder>}
+        {cases.length > 0 ? <ul>{cases.map((c) => <li><a href={`/case-studies/${c.id}/`}>{c.data.title}</a></li>)}</ul> : <Placeholder label={`VERIFIED ${name.toUpperCase()} CASE STUDY REQUIRED: admin to publish in CMS`}><p class="muted">Published case studies appear here as clients approve them. We can walk you through anonymised {name.toLowerCase()} examples on a <a href="/contact/?intent=strategy-call">strategy call</a>.</p></Placeholder>}
       </section>
       <p class="small muted">Last updated {d.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
     </div>

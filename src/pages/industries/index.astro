@@ -18,7 +18,7 @@ const crumbs = [{ name: 'Industries', href: '/industries/' }];
           {i.data.featured && <span class="tag">Core focus</span>}
           <h2 class="h3"><a class="card-link" href={`/industries/${i.id}/`}>{i.data.title}</a></h2>
           <p>{i.data.summary}</p>
-          <p class="meta">{i.data.channels.map((c) => c.channel).slice(0, 3).join(' · ')}</p>
+          <p class="meta">{i.data.channels.map((c) => c.channel).slice(0, 3).join(' | ')}</p>
         </article>
       ))}
     </div>

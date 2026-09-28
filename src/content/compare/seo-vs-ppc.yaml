@@ -21,7 +21,7 @@ rows:
   a: Long-term demand capture and authority
   b: Immediate demand, testing, seasonal peaks
 chooseA:
-- You can invest for 6–12 months before expecting major returns
+- You can invest for 6-12 months before expecting major returns
 - Your category has consistent search demand
 - You want to lower dependence on paid media
 chooseB:
@@ -29,7 +29,7 @@ chooseB:
 - You want to test offers and messaging quickly
 - Search results are dominated by ads for your terms
 together: Use PPC data to learn which keywords convert, then prioritise those in SEO. As organic rankings grow,
-  reduce paid spend on terms you reliably win organically — but test before cutting brand campaigns.
+  reduce paid spend on terms you reliably win organically, but test before cutting brand campaigns.
 faqs:
 - q: Is SEO free?
   a: Organic clicks are free, but SEO requires investment in content, technical work and expertise.

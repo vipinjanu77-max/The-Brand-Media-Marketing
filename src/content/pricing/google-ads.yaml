@@ -13,11 +13,11 @@ tiers:
   - Conversion tracking (GA4, enhanced conversions)
   - Campaign architecture
   - Ad copy and assets
-  excludes: &id001 []
+  excludes: []
 - name: Management fee
   priceFrom: 30000
   priceTo: 150000
-  unit: per month — or 12–15% of spend above ₹5 lakh/month
+  unit: per month, or 12-15% of spend above ₹5 lakh/month
   bestFor: Ongoing optimisation
   includes:
   - Bid and budget management
@@ -34,7 +34,7 @@ tiers:
   bestFor: Enough conversions for bidding to learn
   includes:
   - Final recommendation set per market and objective during scoping
-  excludes: *id001
+  excludes: []
 notes:
 - Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
   and required resources.

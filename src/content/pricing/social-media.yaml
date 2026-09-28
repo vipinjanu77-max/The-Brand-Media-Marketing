@@ -2,7 +2,7 @@ title: Social Media
 order: 4
 service: social-media
 intro: Priced by platforms, content volume and whether video and community management are included. Each additional
-  platform typically adds 30–50%.
+  platform typically adds 30-50%.
 tiers:
 - name: Content
   priceFrom: 20000
@@ -11,9 +11,9 @@ tiers:
   bestFor: Consistent publishing
   includes:
   - Content calendar
-  - 12–16 posts per month
+  - 12-16 posts per month
   - Copywriting and scheduling
-  excludes: &id001 []
+  excludes: []
 - name: Design
   priceFrom: 15000
   priceTo: 40000
@@ -22,11 +22,11 @@ tiers:
   includes:
   - Branded templates
   - Monthly designs
-  excludes: *id001
+  excludes: []
 - name: Video
   priceFrom: 25000
   priceTo: 90000
-  unit: per month (4–8 videos)
+  unit: per month (4-8 videos)
   bestFor: Reels, Shorts and ads
   includes:
   - Scripting
@@ -42,7 +42,7 @@ tiers:
   includes:
   - Comment and DM responses
   - Escalation workflow
-  excludes: *id001
+  excludes: []
 notes:
 - Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
   and required resources.

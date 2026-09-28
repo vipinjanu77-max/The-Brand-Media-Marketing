@@ -1,8 +1,8 @@
 name: Delhi NCR
 kind: city
 published: false
-summary: '[LOCAL MARKET SUMMARY FOR DELHI NCR — ADMIN TO ADD. Publish only if TBM genuinely serves this market,
-  with unique local research.]'
+summary: '[LOCAL MARKET SUMMARY FOR DELHI NCR: ADMIN TO ADD. Publish only if TBM genuinely serves this market, with
+  unique local research.]'
 marketContext: []
 industries:
 - real-estate

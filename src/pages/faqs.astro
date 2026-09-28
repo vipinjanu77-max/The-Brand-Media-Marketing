@@ -9,8 +9,8 @@ const services = await getCollection('services');
 const all = groups.flatMap((g) => g.data.items);
 const crumbs = [{ name: 'FAQs', href: '/faqs/' }];
 ---
-<Base title="FAQs — Digital Marketing & Working With TBM" description="Answers to common questions about digital marketing, costs, contracts, reporting and working with TBM." crumbs={crumbs} schema={[faqPage(all)]}>
-  <PageHero crumbs={crumbs} art={{ seed: 'faqs', motif: 'answer', variant: 'light' }} eyebrow="FAQs" title="Real questions, direct answers." lede="The questions buyers ask us most — about marketing, pricing, contracts and how we work." />
+<Base title="FAQs: Digital Marketing & Working With TBM" description="Answers to common questions about digital marketing, costs, contracts, reporting and working with TBM." crumbs={crumbs} schema={[faqPage(all)]}>
+  <PageHero crumbs={crumbs} art={{ seed: 'faqs', motif: 'answer', variant: 'light' }} eyebrow="FAQs" title="Real questions, direct answers." lede="The questions buyers ask us most: about marketing, pricing, contracts and how we work." />
   <section class="section"><div class="container--narrow stack" style="--stack:3rem">
     {groups.map((g) => (
       <div>

@@ -7,7 +7,7 @@ reviewedByCounsel: false
 
 ## Our rules
 
-1. **No unsourced numbers.** Every statistic shows its source, publication, year, geography and context — and links to the original.
+1. **No unsourced numbers.** Every statistic shows its source, publication, year, geography and context, and links to the original.
 2. **Label the type of claim.** We distinguish between a **reported figure**, a **third-party estimate**, a **forecast**, **TBM analysis** and **opinion**. A forecast is never presented as a current fact.
 3. **Separate TBM data from market data.** Research compiled from other publishers is labelled **Industry Research**. Only research based on data TBM collected itself is labelled **TBM Original Dataset**, with its methodology, sample size, date range and limitations published.
 4. **Never generalise small samples.** TBM's own campaign data reflects the accounts we manage. We do not present it as an "India market average".

@@ -26,7 +26,7 @@ tiers:
   includes:
   - Everything in Starter
   - Content strategy and briefs
-  - 4–6 SEO articles or page rewrites per month
+  - 4-6 SEO articles or page rewrites per month
   - Internal linking programme
   - Search Console and GA4 insights
   excludes:
@@ -41,7 +41,7 @@ tiers:
   - Digital PR and research-led link earning
   - AEO / AI search optimisation
   - CRO for organic landing pages
-  excludes: &id001 []
+  excludes: []
 - name: Enterprise
   priceFrom: 200000
   priceTo: null
@@ -52,7 +52,7 @@ tiers:
   - International and programmatic SEO
   - Migration support
   - Custom reporting and governance
-  excludes: *id001
+  excludes: []
 notes:
 - Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
   and required resources.

@@ -72,7 +72,7 @@ describe('unit calculators', () => {
   it('inr formatting', () => {
     expect(inr(150_000)).toBe('₹1.5 L');
     expect(inr(25_000_000)).toBe('₹2.5 Cr');
-    expect(inr(null)).toBe('—');
+    expect(inr(null)).toBe('-');
   });
 });
 

@@ -14,7 +14,7 @@ const pricing = (await getCollection('pricing')).sort((a, b) => a.data.order - b
 const faqs = (await getCollection('faqs')).find((f) => f.id === 'pricing')?.data.items ?? [];
 const fmt = (n: number) => `₹${n.toLocaleString('en-IN')}`;
 const price = (from: number | null, to: number | null) =>
-  from === null ? null : to === null ? `From ${fmt(from)}` : `${fmt(from)} – ${fmt(to)}`;
+  from === null ? null : to === null ? `From ${fmt(from)}` : `${fmt(from)} to ${fmt(to)}`;
 const components = [
   { t: 'Media spend', d: 'Paid directly to Google, Meta, LinkedIn and others from ad accounts you own. Never marked up by TBM.', inc: 'Your advertising budget', exc: 'Any TBM fee' },
   { t: 'Agency fee', d: 'Strategy, management, optimisation, analysis and reporting by named TBM people.', inc: 'Scope listed in your proposal', exc: 'Media, production, third-party tools' },
@@ -25,7 +25,7 @@ const components = [
 ];
 const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
 ---
-<Base title="Pricing & Rate Card" description="TBM's transparent rate card and pricing philosophy — agency fees separated from media spend, creative, production and technology for SEO, Google Ads, Meta Ads, social, websites, branding and consulting." crumbs={crumbs} schema={[faqPage(faqs)]}>
+<Base title="Pricing & Rate Card" description="TBM's transparent rate card and pricing philosophy: agency fees separated from media spend, creative, production and technology for SEO, Google Ads, Meta Ads, social, websites, branding and consulting." crumbs={crumbs} schema={[faqPage(faqs)]}>
   <PageHero crumbs={crumbs} art={{ seed: 'pricing', motif: 'coin', variant: 'light' }} eyebrow="Pricing" title="Marketing should be an investment, not a black box." lede="You should be able to see exactly what you are paying for. Our rate card is public, and every proposal separates fees, media, creative, production and technology.">
     <a class="btn" href={proposalHref} data-track="cta_click" data-cta="pricing_proposal">Request proposal</a>
     <a class="btn btn--ghost" href="/tools/digital-marketing-cost-calculator/">Estimate your budget</a>
@@ -33,7 +33,7 @@ const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
 
   <section class="section">
     <div class="container">
-      <SectionHead eyebrow="Pricing philosophy" title="Six lines, never blended." lede="Agency fee ≠ media spend ≠ production cost ≠ technology cost. Here is what each covers — and what it doesn't." />
+      <SectionHead eyebrow="Pricing philosophy" title="Six lines, never blended." lede="Agency fee is not media spend is not production cost is not technology cost. Here is what each covers, and what it doesn't." />
       <div class="split-card">
         <h3 class="sc-h">Where a typical investment goes</h3>
         <InvestmentSplit />
@@ -60,7 +60,7 @@ const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
             <div class="rc-head">
               <h3 id={`${p.id}-h`}>{p.data.title}</h3>
               <p class="muted">{p.data.intro}</p>
-              {p.data.service && <a class="text-link small" href={`/services/${p.data.service}/`}>About this service →</a>}
+              {p.data.service && <a class="text-link small" href={`/services/${p.data.service}/`}>About this service</a>}
             </div>
             <div class="tiers">
               {p.data.tiers.map((t) => {
@@ -68,7 +68,7 @@ const crumbs = [{ name: 'Pricing', href: '/pricing/' }];
                 return (
                   <div class="tier">
                     <p class="tier-name">{t.name}</p>
-                    {pr ? <p class="tier-price num">{pr}<span> {t.unit}</span></p> : <p class="tier-price"><Placeholder inline label="PRICE — ADMIN TO SET IN CMS">Quoted on scope</Placeholder><span> {t.unit}</span></p>}
+                    {pr ? <p class="tier-price num">{pr}<span> {t.unit}</span></p> : <p class="tier-price"><Placeholder inline label="PRICE: ADMIN TO SET IN CMS">Quoted on scope</Placeholder><span> {t.unit}</span></p>}
                     <p class="small muted">Best for: {t.bestFor}</p>
                     <ul class="check-list small">{t.includes.map((x) => <li>{x}</li>)}</ul>
                     {t.excludes.length > 0 && <p class="small muted">Not included: {t.excludes.join('; ')}</p>}

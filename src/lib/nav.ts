@@ -49,7 +49,7 @@ export const nav: NavItem[] = [
     feature: {
       eyebrow: 'Our method',
       title: 'The TBM Growth System',
-      body: 'Seven stages from diagnosis to scale — the operating model behind every engagement.',
+      body: 'Seven stages from diagnosis to scale, the operating model behind every engagement.',
       href: '/process/',
       cta: 'See the system',
     },

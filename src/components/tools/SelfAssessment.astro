@@ -30,7 +30,7 @@ let n = 0;
   </form>
   <section class="results" aria-live="polite">
     <h2>Your score</h2>
-    <p class="out-value big" data-score>—</p>
+    <p class="out-value big" data-score>-</p>
     <p class="small" data-answered></p>
     <div class="sa-bars" data-bars></div>
     <div><p class="out-label">Top priorities</p><ol class="sa-fixes" data-fixes><li>Answer the questions to see priorities.</li></ol></div>
@@ -57,9 +57,9 @@ let n = 0;
       const all = st.flatMap((s) => s.qs);
       const ans = all.filter((q) => q.v !== null);
       const pct = ans.length ? Math.round((ans.reduce((a, q) => a + q.v!, 0) / (ans.length * 2)) * 100) : null;
-      root.querySelector('[data-score]')!.textContent = pct === null ? '—' : `${pct}%`;
+      root.querySelector('[data-score]')!.textContent = pct === null ? '-' : `${pct}%`;
       root.querySelector('[data-answered]')!.textContent = `${ans.length} of ${all.length} answered`;
-      root.querySelector('[data-bars]')!.innerHTML = st.map((s) => `<div class="sb"><div class="sb-top"><span>${escapeHtml(s.name)}</span><span>${s.pct === null ? '—' : s.pct + '%'}</span></div><div class="sb-track"><span style="width:${s.pct ?? 0}%"></span></div></div>`).join('');
+      root.querySelector('[data-bars]')!.innerHTML = st.map((s) => `<div class="sb"><div class="sb-top"><span>${escapeHtml(s.name)}</span><span>${s.pct === null ? '-' : s.pct + '%'}</span></div><div class="sb-track"><span style="width:${s.pct ?? 0}%"></span></div></div>`).join('');
       const fixes = ans.filter((q) => q.v! < 2).sort((a, b) => a.v! - b.v!).slice(0, 5);
       root.querySelector('[data-fixes]')!.innerHTML = fixes.length ? fixes.map((f) => `<li>${escapeHtml(f.fix)}</li>`).join('') : `<li>${ans.length ? 'No gaps flagged in your answers so far.' : 'Answer the questions to see priorities.'}</li>`;
       return { st, pct };
@@ -73,9 +73,9 @@ let n = 0;
       const { st, pct } = render();
       const subject = (root.querySelector<HTMLInputElement>('[data-subject]')?.value || 'Unnamed').trim();
       const label = (v: number | null) => (v === null ? 'Not answered' : ['No', 'Partly', 'Yes'][v]);
-      const body = st.map((s) => `<h2>${escapeHtml(s.name)} — ${s.pct ?? '—'}%</h2><table><tr><th>Criterion</th><th>Answer</th><th>Follow-up</th></tr>${s.qs.map((q) => `<tr><td>${escapeHtml(q.text)}</td><td>${label(q.v)}</td><td>${q.v === 2 ? '' : escapeHtml(q.fix)}</td></tr>`).join('')}</table>`).join('');
+      const body = st.map((s) => `<h2>${escapeHtml(s.name)}: ${s.pct ?? '-'}%</h2><table><tr><th>Criterion</th><th>Answer</th><th>Follow-up</th></tr>${s.qs.map((q) => `<tr><td>${escapeHtml(q.text)}</td><td>${label(q.v)}</td><td>${q.v === 2 ? '' : escapeHtml(q.fix)}</td></tr>`).join('')}</table>`).join('');
       const title = root.dataset.title!;
-      const html = `<!doctype html><html><head><meta charset="utf-8"><title>${escapeHtml(title)} — ${escapeHtml(subject)}</title><style>body{font-family:system-ui,sans-serif;max-width:820px;margin:2rem auto;padding:0 1rem;color:#0e1424}h1{color:#0a1a3f}table{border-collapse:collapse;width:100%;margin-bottom:1.5rem}td,th{border:1px solid #d2d6de;padding:.5rem;text-align:left;vertical-align:top;font-size:.9rem}th{background:#f3f6fe}</style></head><body><h1>${escapeHtml(title)}</h1><p><strong>Subject:</strong> ${escapeHtml(subject)}<br><strong>Overall score:</strong> ${pct ?? '—'}%<br><strong>Date:</strong> ${new Date().toLocaleDateString('en-IN')}</p>${body}<p style="font-size:.8rem;color:#5d6477">Generated with the Agency Evaluation Checklist by The Brand Media Marketing (TBM). A structured self-assessment — apply the same criteria to every agency you evaluate, including TBM.</p></body></html>`;
+      const html = `<!doctype html><html><head><meta charset="utf-8"><title>${escapeHtml(title)}: ${escapeHtml(subject)}</title><style>body{font-family:system-ui,sans-serif;max-width:820px;margin:2rem auto;padding:0 1rem;color:#0e1424}h1{color:#0a1a3f}table{border-collapse:collapse;width:100%;margin-bottom:1.5rem}td,th{border:1px solid #d2d6de;padding:.5rem;text-align:left;vertical-align:top;font-size:.9rem}th{background:#f3f6fe}</style></head><body><h1>${escapeHtml(title)}</h1><p><strong>Subject:</strong> ${escapeHtml(subject)}<br><strong>Overall score:</strong> ${pct ?? '-'}%<br><strong>Date:</strong> ${new Date().toLocaleDateString('en-IN')}</p>${body}<p style="font-size:.8rem;color:#5d6477">Generated with the Agency Evaluation Checklist by The Brand Media Marketing (TBM). A structured self-assessment: apply the same criteria to every agency you evaluate, including TBM.</p></body></html>`;
       download(`agency-evaluation-${subject.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html`, html);
       (window as any).tbmTrack?.('resource_download', { resource: 'agency_evaluation_report' });
     });

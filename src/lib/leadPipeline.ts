@@ -105,7 +105,7 @@ export async function deliverLead(lead: CleanLead) {
   const store = env('LEAD_STORE_PATH') || (!crm && !follow ? './data/leads/leads.jsonl' : undefined);
   if (crm) tasks.push(postJson(crm, record, env('CRM_WEBHOOK_SECRET')));
   // Follow-up automation sends: thank-you, assessment summary, next step, meeting link,
-  // relevant case study and industry research — chosen by nurture.sequence / industry / objective.
+  // relevant case study and industry research: chosen by nurture.sequence / industry / objective.
   if (follow) tasks.push(postJson(follow, { ...record, event: 'lead_created' }, env('CRM_WEBHOOK_SECRET')));
   if (store) tasks.push(mkdir(dirname(store), { recursive: true }).then(() => appendFile(store, JSON.stringify(record) + '\n', { mode: 0o600 })));
   const results = await Promise.allSettled(tasks);

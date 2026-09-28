@@ -8,7 +8,7 @@ import { preview } from '../lib/site';
 const crumbs = [{ name: 'Contract transparency', href: '/contract-transparency/' }];
 const terms = [
   ['Minimum commitment', 'Performance engagements typically include an initial period long enough to test properly (often three months), stated clearly in the proposal. Project work is fixed-scope.'],
-  ['Notice period', 'A written notice period for retainers after the initial term, stated in the agreement — no automatic multi-year renewals.'],
+  ['Notice period', 'A written notice period for retainers after the initial term, stated in the agreement, no automatic multi-year renewals.'],
   ['Account ownership', 'Ad accounts, analytics properties, tag manager containers and CRM are owned by your business. TBM works with user access you grant and can revoke.'],
   ['Creative ownership', 'Creative produced for you and paid for is yours to use, subject to any third-party licence terms (stock, music, talent) disclosed up front.'],
   ['Data ownership', 'Your customer, lead and performance data belongs to you. We use it only to deliver your services, and in anonymised benchmarks only with your permission.'],
@@ -19,15 +19,15 @@ const terms = [
   ['Payment terms', 'Fees are invoiced as set out in the proposal (typically monthly in advance for retainers, milestones for projects). Taxes extra as applicable.'],
 ];
 const faqs = [
-  { q: 'Can we leave if it isn’t working?', a: 'Yes. After any initial term, you can end the engagement with the agreed notice period. You keep your accounts, data and creative.' },
-  { q: 'Do you charge for handover?', a: 'Standard handover — access, documentation and asset transfer — is part of termination, not an extra.' },
+  { q: "Can we leave if it isn't working?", a: 'Yes. After any initial term, you can end the engagement with the agreed notice period. You keep your accounts, data and creative.' },
+  { q: 'Do you charge for handover?', a: 'Standard handover (access, documentation and asset transfer) is part of termination, not an extra.' },
 ];
 ---
 <Base title="Contract Transparency" description="How TBM approaches minimum commitments, notice periods, account, creative and data ownership, reporting, confidentiality, termination and payment terms." crumbs={crumbs} schema={[faqPage(faqs)]}>
   <PageHero crumbs={crumbs} art={{ seed: 'contract', motif: 'document', variant: 'light' }} eyebrow="Contract transparency" title="Know the terms before the pitch." lede="The principles we build every agreement on. Specific terms are set in each written proposal." />
   <section class="section">
     <div class="container--narrow">
-      {preview && <div class="notice notice--demo"><div><strong>Legal review required.</strong> These principles describe TBM’s approach in plain language. Final contract wording must be reviewed by a qualified legal professional before publication and use.</div></div>}
+      {preview && <div class="notice notice--demo"><div><strong>Legal review required.</strong> These principles describe TBM's approach in plain language. Final contract wording must be reviewed by a qualified legal professional before publication and use.</div></div>}
       <p class="lede">These principles describe how we structure every agreement. Your written proposal sets out the specific terms.</p>
       <dl class="terms mt-2">{terms.map(([t, d]) => <div><dt>{t}</dt><dd>{d}</dd></div>)}</dl>
     </div>

@@ -1,9 +1,9 @@
 term: CTR (Click-through Rate)
 abbreviation: CTR
 definition: Click-through rate (CTR) is the percentage of impressions that result in a click.
-explanation: CTR signals how relevant and compelling an ad is to the people who see it. It is a diagnostic metric
-  — high CTR with low conversion often means the ad over-promises.
-formula: CTR = Clicks ÷ Impressions × 100
+explanation: 'CTR signals how relevant and compelling an ad is to the people who see it. It is a diagnostic metric:
+  high CTR with low conversion often means the ad over-promises.'
+formula: CTR = Clicks / Impressions x 100
 services:
 - google-ads
 - meta-ads

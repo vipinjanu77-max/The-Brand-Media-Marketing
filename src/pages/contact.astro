@@ -11,7 +11,7 @@ const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 const steps = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', 'Contact', 'Challenge'];
 ---
 <Base title="Get Your Growth Audit" description="Tell us where your business is today. In eight short steps, we'll prepare a growth assessment and book a strategy call with the right TBM strategist." crumbs={crumbs}>
-  <PageHero crumbs={crumbs} eyebrow="Growth Audit" title="Tell us where your business is today." lede="Eight short steps, about two minutes. We use your answers to prepare a growth assessment and match you with the right strategist — not to spam you." />
+  <PageHero crumbs={crumbs} eyebrow="Growth Audit" title="Tell us where your business is today." lede="Eight short steps, about two minutes. We use your answers to prepare a growth assessment and match you with the right strategist, not to spam you." />
   <section class="section">
     <div class="container contact-grid">
       <form class="lead-form" method="post" action="/api/lead/" data-lead-form novalidate aria-labelledby="form-title">
@@ -56,7 +56,7 @@ const steps = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', '
 
         <fieldset class="step" data-step="5" hidden>
           <legend class="q">What is your website?</legend>
-          <div class="field"><label for="website">Website URL</label><input id="website" name="website" class="input" type="text" inputmode="url" autocomplete="url" placeholder="yourcompany.com" maxlength="200" /><span class="hint">Optional — skip if you don’t have one yet.</span></div>
+          <div class="field"><label for="website">Website URL</label><input id="website" name="website" class="input" type="text" inputmode="url" autocomplete="url" placeholder="yourcompany.com" maxlength="200" /><span class="hint">Optional: skip if you don't have one yet.</span></div>
         </fieldset>
 
         <fieldset class="step" data-step="6" hidden>
@@ -80,13 +80,13 @@ const steps = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', '
         <p class="error-msg" role="alert" data-error hidden></p>
         <div class="nav-row">
           <button type="button" class="btn btn--ghost" data-prev hidden>Back</button>
-          <button type="button" class="btn" data-next>Continue <span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="btn" data-next>Continue <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button type="submit" class="btn" data-submit hidden>Get my Growth Assessment</button>
         </div>
 
         <div class="preparing" data-preparing hidden role="status">
           <span class="spinner" aria-hidden="true"></span>
-          <p class="q">Your Growth Assessment is being prepared…</p>
+          <p class="q">Your Growth Assessment is being prepared...</p>
           <p class="muted">Taking you to book your consultation.</p>
         </div>
       </form>
@@ -96,10 +96,10 @@ const steps = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', '
         <ol class="steps">
           <li><strong>Instant confirmation</strong><p class="muted">By email (and WhatsApp if you opt in), with a summary of what you told us.</p></li>
           <li><strong>We review your numbers</strong><p class="muted">A strategist reviews your site, channels and funnel before the call.</p></li>
-          <li><strong>Strategy call</strong><p class="muted">30 minutes on where the biggest opportunities may be — and whether TBM is the right fit.</p></li>
+          <li><strong>Strategy call</strong><p class="muted">30 minutes on where the biggest opportunities may be, and whether TBM is the right fit.</p></li>
         </ol>
         <div class="notice mt-2"><div><strong>Prefer to talk directly?</strong>
-          {has(site.email) ? <> Email <a href={`mailto:${site.email}`}>{site.email}</a>.</> : <> <Placeholder inline label="CONTACT EMAIL — ADMIN TO ADD"><a href={bookingHref()}>Book a call directly</a>.</Placeholder></>}
+          {has(site.email) ? <> Email <a href={`mailto:${site.email}`}>{site.email}</a>.</> : <> <Placeholder inline label="CONTACT EMAIL: ADMIN TO ADD"><a href={bookingHref()}>Book a call directly</a>.</Placeholder></>}
           {has(site.phone) && <> Call <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>.</>}
         </div></div>
         <p class="small muted mt-1">We never share your details. Marketing projections are estimates, not guarantees.</p>
@@ -121,7 +121,7 @@ const steps = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', '
   const label = form.querySelector<HTMLElement>('[data-step-label]')!;
   let i = 0;
 
-  // Intent and source from URL (e.g. ?intent=proposal) — used for lead scoring and attribution.
+  // Intent and source from URL (e.g. ?intent=proposal), used for lead scoring and attribution.
   const params = new URLSearchParams(location.search);
   const intent = params.get('intent');
   if (intent && /^[a-z-]{3,30}$/.test(intent)) form.querySelector<HTMLInputElement>('[data-intent]')!.value = intent;

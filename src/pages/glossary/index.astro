@@ -7,8 +7,8 @@ const terms = (await getCollection('glossary')).sort((a, b) => a.data.term.local
 const letters = [...new Set(terms.map((t) => t.data.term[0].toUpperCase()))];
 const crumbs = [{ name: 'Glossary', href: '/glossary/' }];
 ---
-<Base title="Marketing Glossary — A to Z" description="Clear definitions of digital marketing terms — A/B testing, AEO, CAC, CPC, CPL, CPM, CTR, CRO, GA4, LTV, MQL, ROAS, SEO, SQL, TOFU, MOFU, BOFU and more — with formulas and examples." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} art={{ seed: 'glossary', motif: 'book', variant: 'light' }} eyebrow="Marketing glossary" title="Marketing terms, defined plainly." lede="Short definitions first, then the nuance, formulas and examples — each linked to the services, tools and guides where the term matters." />
+<Base title="Marketing Glossary, A to Z" description="Clear definitions of digital marketing terms (A/B testing, AEO, CAC, CPC, CPL, CPM, CTR, CRO, GA4, LTV, MQL, ROAS, SEO, SQL, TOFU, MOFU, BOFU and more) with formulas and examples." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} art={{ seed: 'glossary', motif: 'book', variant: 'light' }} eyebrow="Marketing glossary" title="Marketing terms, defined plainly." lede="Short definitions first, then the nuance, formulas and examples, each linked to the services, tools and guides where the term matters." />
   <section class="section">
     <div class="container">
       <nav aria-label="Jump to letter" class="az">{letters.map((l) => <a href={`#l-${l}`}>{l}</a>)}</nav>

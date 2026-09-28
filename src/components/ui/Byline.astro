@@ -15,7 +15,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-IN', { day: 'numeric', month: 
   {(r && !r.data.placeholder) ? (
     <div><span class="k">Reviewed by</span><a href={`/team/${r.id}/`}>{r.data.name}</a></div>
   ) : preview && (
-    <div><span class="k">Reviewed by</span><span class="placeholder placeholder--inline">[REVIEWER — ADMIN TO ASSIGN]</span></div>
+    <div><span class="k">Reviewed by</span><span class="placeholder placeholder--inline">[REVIEWER: ADMIN TO ASSIGN]</span></div>
   )}
   {published && <div><span class="k">Published</span><time datetime={published.toISOString()}>{fmt(published)}</time></div>}
   <div><span class="k">Last updated</span><time datetime={updated.toISOString()}>{fmt(updated)}</time></div>

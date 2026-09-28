@@ -45,14 +45,14 @@ const isActive = (href: string) => path.startsWith(href) && href !== '/';
                     <span class="eyebrow">{item.feature.eyebrow}</span>
                     <strong>{item.feature.title}</strong>
                     <span>{item.feature.body}</span>
-                    <span class="text-link">{item.feature.cta} <span aria-hidden="true">→</span></span>
+                    <span class="text-link">{item.feature.cta} <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                   </a>
                 ) : (
                   <a class="mega-feature" href={item.href}>
                     <span class="eyebrow">Overview</span>
                     <strong>All {item.label.toLowerCase()}</strong>
                     <span>Browse everything in {item.label}.</span>
-                    <span class="text-link">Explore <span aria-hidden="true">→</span></span>
+                    <span class="text-link">Explore <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                   </a>
                 )}
               </div>
@@ -79,7 +79,7 @@ const isActive = (href: string) => path.startsWith(href) && href !== '/';
       {nav.map((item) => (
         <details>
           <summary>{item.label}</summary>
-          <a href={item.href} class="mobile-overview">{item.label} overview →</a>
+          <a href={item.href} class="mobile-overview">{item.label} overview</a>
           {item.groups.map((g) => (
             <div class="mobile-group">
               <p class="mega-heading">{g.heading}</p>
@@ -190,7 +190,7 @@ const isActive = (href: string) => path.startsWith(href) && href !== '/';
   .mobile-nav summary { padding: 1rem 0; font-weight: 620; font-size: 1.1rem; cursor: pointer; color: var(--navy-900); list-style: none; }
   .mobile-nav summary::-webkit-details-marker { display: none; }
   .mobile-nav summary::after { content: '+'; float: right; color: var(--royal-600); }
-  .mobile-nav details[open] summary::after { content: '–'; }
+  .mobile-nav details[open] summary::after { content: '-'; }
   .mobile-overview { display: block; margin-bottom: 0.75rem; font-weight: 600; }
   .mobile-group { margin-bottom: 1rem; }
   .mobile-group ul { list-style: none; padding: 0; display: grid; gap: 0.1rem; }

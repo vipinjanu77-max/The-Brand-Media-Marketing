@@ -1,10 +1,10 @@
 term: CAC (Customer Acquisition Cost)
 abbreviation: CAC
-definition: Customer acquisition cost (CAC) is the total cost of acquiring one new customer — usually marketing
-  plus sales costs divided by the number of new customers in the period.
-explanation: Blended CAC includes all channels and costs; paid CAC isolates advertising. CAC is only meaningful
-  compared with what a customer is worth — see LTV and payback period.
-formula: CAC = (Marketing cost + Sales cost) ÷ New customers
+definition: Customer acquisition cost (CAC) is the total cost of acquiring one new customer, usually marketing plus
+  sales costs divided by the number of new customers in the period.
+explanation: 'Blended CAC includes all channels and costs; paid CAC isolates advertising. CAC is only meaningful
+  compared with what a customer is worth: see LTV and payback period.'
+formula: CAC = (Marketing cost + Sales cost) / New customers
 example: ₹5,00,000 spent to win 50 customers = ₹10,000 CAC.
 services:
 - performance-marketing

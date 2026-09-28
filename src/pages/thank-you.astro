@@ -6,17 +6,17 @@ const industries = (await getCollection('industries')).map((i) => ({ id: i.id, t
 const booking = bookingHref();
 const external = has(site.bookingUrl);
 ---
-<Base title="Your Growth Assessment Is Being Prepared" description="Thank you — here is what happens next." seo={{ noindex: true }}>
+<Base title="Your Growth Assessment Is Being Prepared" description="Thank you: here is what happens next." seo={{ noindex: true }}>
   <section class="section">
     <div class="container--narrow stack" style="--stack:1.5rem">
       <p class="eyebrow">Thank you</p>
       <h1 class="t">Your Growth Assessment is being prepared.</h1>
-      <p class="lede">We’ve received your answers. A confirmation with a summary of what you told us is on its way to your inbox.</p>
+      <p class="lede">We've received your answers. A confirmation with a summary of what you told us is on its way to your inbox.</p>
       <div class="card">
         <h2 class="h">Next step: book your strategy call</h2>
         <p>Pick a time that suits you. A strategist will review your website, channels and funnel before the call.</p>
-        <a class="btn" href={booking} data-track="booking_click" data-booking>Book your consultation <span class="arrow" aria-hidden="true">→</span></a>
-        {external && <p class="small muted" data-countdown>Taking you to the booking page…</p>}
+        <a class="btn" href={booking} data-track="booking_click" data-booking>Book your consultation <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        {external && <p class="small muted" data-countdown>Taking you to the booking page...</p>}
       </div>
       <div class="card card--muted" data-industry-box hidden>
         <h2 class="h">While you wait</h2>

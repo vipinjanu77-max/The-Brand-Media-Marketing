@@ -3,78 +3,91 @@ navLabel: Analytics & Measurement
 group: analytics
 order: 60
 summary: GA4, GTM, Search Console, conversion tracking, dashboards and attribution you can trust.
-definition: >-
-  Marketing analytics is the practice of collecting, connecting and interpreting data about how people find,
-  engage with and buy from your business — so decisions about budget and strategy are based on evidence.
+definition: Marketing analytics is the practice of collecting, connecting and interpreting data about how people
+  find, engage with and buy from your business, so decisions about budget and strategy are based on evidence.
 whoNeedsIt:
-  - Businesses unsure whether their tracking is accurate
-  - Teams whose platform numbers disagree with each other and with the CRM
-  - Leadership wanting a single, trusted view of marketing performance
-whyItMatters: >-
-  Every optimisation decision — by a person or an algorithm — depends on data quality. Broken tracking does
-  not just produce bad reports; it trains ad platforms on the wrong outcomes.
+- Businesses unsure whether their tracking is accurate
+- Teams whose platform numbers disagree with each other and with the CRM
+- Leadership wanting a single, trusted view of marketing performance
+whyItMatters: Every optimisation decision (by a person or an algorithm) depends on data quality. Broken tracking
+  does not just produce bad reports; it trains ad platforms on the wrong outcomes.
 whatWeDo:
-  - title: Measurement plan
-    body: Business questions, KPIs, events and definitions agreed before implementation.
-  - title: Implementation
-    body: GA4, Google Tag Manager, server-side tagging where useful, Conversions API and enhanced conversions.
-  - title: Consent and privacy
-    body: Consent mode and data handling aligned with applicable law.
-  - title: Dashboards
-    body: Looker Studio or BI dashboards that combine platform, analytics and CRM data.
-  - title: Attribution
-    body: Practical attribution and incrementality thinking — not blind faith in any single model.
+- title: Measurement plan
+  body: Business questions, KPIs, events and definitions agreed before implementation.
+- title: Implementation
+  body: GA4, Google Tag Manager, server-side tagging where useful, Conversions API and enhanced conversions.
+- title: Consent and privacy
+  body: Consent mode and data handling aligned with applicable law.
+- title: Dashboards
+  body: Looker Studio or BI dashboards that combine platform, analytics and CRM data.
+- title: Attribution
+  body: Practical attribution and incrementality thinking, not blind faith in any single model.
 subServices:
-  - name: GA4
-    description: Configuration, events, conversions and audiences.
-  - name: GTM
-    description: Tag management and data layer design.
-  - name: Search Console
-    description: Setup, monitoring and SEO insights.
-  - name: Dashboards
-    description: Unified performance reporting.
-  - name: Attribution
-    description: Model comparison and incrementality tests.
-  - name: Conversion tracking
-    description: Platform conversions and offline imports.
+- name: GA4
+  description: Configuration, events, conversions and audiences.
+- name: GTM
+  description: Tag management and data layer design.
+- name: Search Console
+  description: Setup, monitoring and SEO insights.
+- name: Dashboards
+  description: Unified performance reporting.
+- name: Attribution
+  description: Model comparison and incrementality tests.
+- name: Conversion tracking
+  description: Platform conversions and offline imports.
 process:
-  - step: Audit
-    detail: Current tags, events, conversions and data discrepancies.
-  - step: Plan
-    detail: Measurement framework and tracking specification.
-  - step: Implement
-    detail: Tags, data layer and integrations.
-  - step: Validate
-    detail: QA against real transactions and CRM records.
-  - step: Report
-    detail: Dashboards and interpretation.
+- step: Audit
+  detail: Current tags, events, conversions and data discrepancies.
+- step: Plan
+  detail: Measurement framework and tracking specification.
+- step: Implement
+  detail: Tags, data layer and integrations.
+- step: Validate
+  detail: QA against real transactions and CRM records.
+- step: Report
+  detail: Dashboards and interpretation.
 deliverables:
-  - Tracking audit
-  - Measurement plan and tracking spec
-  - GA4/GTM implementation
-  - Dashboards
-  - Data QA report
+- Tracking audit
+- Measurement plan and tracking spec
+- GA4/GTM implementation
+- Dashboards
+- Data QA report
 kpis:
-  - name: Tracking coverage
-    why: Share of conversions captured accurately.
-  - name: Platform-to-CRM match rate
-    why: How closely platform conversions match real outcomes.
+- name: Tracking coverage
+  why: Share of conversions captured accurately.
+- name: Platform-to-CRM match rate
+  why: How closely platform conversions match real outcomes.
 timeline:
-  - period: Weeks 1–2
-    detail: Audit and plan.
-  - period: Weeks 3–4
-    detail: Implementation and QA.
-  - period: Week 5+
-    detail: Dashboards and ongoing monitoring.
+- period: Weeks 1-2
+  detail: Audit and plan.
+- period: Weeks 3-4
+  detail: Implementation and QA.
+- period: Week 5+
+  detail: Dashboards and ongoing monitoring.
 mistakes:
-  - Counting micro-actions as conversions
-  - Duplicate conversion tracking
-  - Trusting any single attribution model completely
+- Counting micro-actions as conversions
+- Duplicate conversion tracking
+- Trusting any single attribution model completely
 faqs:
-  - q: Why do Google Ads, Meta and GA4 show different numbers?
-    a: They use different attribution windows, models and data sources, and each tends to credit itself. We reconcile them against CRM or sales data to establish the most reliable view.
-services: [crm-automation, performance-marketing, seo]
-industries: [ecommerce, d2c, b2b, saas]
-tools: [marketing-audit, cac-calculator, roas-calculator]
-glossary: [ga4, gtm, attribution, kpi]
+- q: Why do Google Ads, Meta and GA4 show different numbers?
+  a: They use different attribution windows, models and data sources, and each tends to credit itself. We reconcile
+    them against CRM or sales data to establish the most reliable view.
+services:
+- crm-automation
+- performance-marketing
+- seo
+industries:
+- ecommerce
+- d2c
+- b2b
+- saas
+tools:
+- marketing-audit
+- cac-calculator
+- roas-calculator
+glossary:
+- ga4
+- gtm
+- attribution
+- kpi
 updated: 2026-09-25

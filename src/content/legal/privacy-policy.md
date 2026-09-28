@@ -11,9 +11,9 @@ The Brand Media Marketing ("TBM", "we") operates this website. Contact details f
 
 ## What we collect
 
-- **Information you give us** — for example, your name, company, email, phone number, website and the answers you provide in our Growth Audit form.
-- **Usage information** — with your consent, analytics and advertising cookies collect information about how you use the site (see our [cookie policy](/legal/cookie-policy/)).
-- **Communications** — messages you send us by email, WhatsApp or other channels.
+- **Information you give us:** for example, your name, company, email, phone number, website and the answers you provide in our Growth Audit form.
+- **Usage information:** with your consent, analytics and advertising cookies collect information about how you use the site (see our [cookie policy](/legal/cookie-policy/)).
+- **Communications:** messages you send us by email, WhatsApp or other channels.
 
 ## Why we use it
 

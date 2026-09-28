@@ -10,9 +10,9 @@ import NumField from './NumField.astro';
   <section class="results" aria-live="polite">
     <h2>Your ROAS</h2>
     <div class="out-grid">
-      <div class="out"><span class="out-label">ROAS</span><span class="out-value" data-out="roas">—</span></div>
-      <div class="out"><span class="out-label">Break-even ROAS</span><span class="out-value" data-out="be">—</span></div>
-      <div class="out out--wide"><span class="out-label">Contribution after ad spend</span><span class="out-value" data-out="contrib">—</span></div>
+      <div class="out"><span class="out-label">ROAS</span><span class="out-value" data-out="roas">-</span></div>
+      <div class="out"><span class="out-label">Break-even ROAS</span><span class="out-value" data-out="be">-</span></div>
+      <div class="out out--wide"><span class="out-label">Contribution after ad spend</span><span class="out-value" data-out="contrib">-</span></div>
     </div>
     <p class="verdict" data-out="verdict"></p>
     <p class="disclaimer">Platform-reported revenue includes attribution assumptions and may double-count across platforms. Estimates, not guarantees.</p>
@@ -25,8 +25,8 @@ import NumField from './NumField.astro';
     bindCalc(root, 'roas', (i) => {
       const r = roas(i.revenue as number, i.spend as number, i.margin as number);
       return {
-        roas: r.roas ? `${num(r.roas, 2)}x` : '—', be: r.breakEvenRoas ? `${num(r.breakEvenRoas, 2)}x` : '—', contrib: inr(r.contribution),
-        verdict: r.status === 'profitable' ? 'Above break-even: each rupee of ads is covering its cost from gross margin on these orders.' : r.status ? 'Below break-even: ads are costing more than the gross profit they produce on these orders. Repeat purchases may still justify it — check LTV.' : '',
+        roas: r.roas ? `${num(r.roas, 2)}x` : '-', be: r.breakEvenRoas ? `${num(r.breakEvenRoas, 2)}x` : '-', contrib: inr(r.contribution),
+        verdict: r.status === 'profitable' ? 'Above break-even: each rupee of ads is covering its cost from gross margin on these orders.' : r.status ? 'Below break-even: ads are costing more than the gross profit they produce on these orders. Repeat purchases may still justify it: check LTV.' : '',
       };
     }),
   );

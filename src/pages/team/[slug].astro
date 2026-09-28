@@ -19,11 +19,11 @@ const research = await getCollection('research', (r) => !r.data.draft && (r.data
 const crumbs = [{ name: 'Team', href: '/team/' }, { name: d.placeholder ? 'Profile' : d.name, href: `/team/${entry.id}/` }];
 const schema = d.placeholder ? null : d.type === 'organization' ? null : person({ name: d.name, role: d.role, url, origin, image: d.photo, sameAs: d.linkedin ? [d.linkedin] : undefined, knowsAbout: d.expertise });
 ---
-<Base title={d.placeholder ? 'Team profile' : `${d.name} — ${d.role}`} description={d.bio.slice(0, 155)} seo={{ ...d.seo, noindex: d.placeholder || d.seo.noindex }} crumbs={crumbs} pageType="ProfilePage" schema={[schema]}>
+<Base title={d.placeholder ? 'Team profile' : `${d.name}: ${d.role}`} description={d.bio.slice(0, 155)} seo={{ ...d.seo, noindex: d.placeholder || d.seo.noindex }} crumbs={crumbs} pageType="ProfilePage" schema={[schema]}>
   <PageHero crumbs={crumbs} eyebrow={d.role} title={d.name} />
   <section class="section">
     <div class="container--narrow stack" style="--stack:1.5rem">
-      {d.placeholder && <Placeholder label="PLACEHOLDER PROFILE — not indexed. Admin to add verified details." />}
+      {d.placeholder && <Placeholder label="PLACEHOLDER PROFILE: not indexed. Admin to add verified details." />}
       <p class="lede">{d.bio}</p>
       {d.experience && <p><strong>Experience:</strong> {d.experience}</p>}
       {d.expertise.length > 0 && <div class="tags">{d.expertise.map((e) => <span class="tag tag--neutral">{e}</span>)}</div>}

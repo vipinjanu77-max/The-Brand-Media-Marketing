@@ -2,59 +2,68 @@ title: E-commerce Marketing
 order: 3
 featured: true
 summary: Shopping, Performance Max, SEO and retention for online stores with large catalogues.
-overview: >-
-  E-commerce marketing combines product-feed-driven advertising, category-level SEO, conversion optimisation
-  and lifecycle marketing. Catalogue size, margin variation across products and inventory changes make
-  structure and data quality critical.
+overview: E-commerce marketing combines product-feed-driven advertising, category-level SEO, conversion optimisation
+  and lifecycle marketing. Catalogue size, margin variation across products and inventory changes make structure
+  and data quality critical.
 journey:
-  - stage: Search or discovery
-    detail: Product searches, marketplaces, social discovery.
-  - stage: Evaluation
-    detail: Price, delivery, reviews and returns policy.
-  - stage: Purchase
-    detail: Checkout and payment.
-  - stage: Post-purchase
-    detail: Delivery experience and repeat.
+- stage: Search or discovery
+  detail: Product searches, marketplaces, social discovery.
+- stage: Evaluation
+  detail: Price, delivery, reviews and returns policy.
+- stage: Purchase
+  detail: Checkout and payment.
+- stage: Post-purchase
+  detail: Delivery experience and repeat.
 funnel:
-  - stage: Product impressions
-    metric: Impression share
-  - stage: Clicks
-    metric: CTR, CPC
-  - stage: Orders
-    metric: Conversion rate, AOV
-  - stage: Profit
-    metric: ROAS vs margin, contribution
+- stage: Product impressions
+  metric: Impression share
+- stage: Clicks
+  metric: CTR, CPC
+- stage: Orders
+  metric: Conversion rate, AOV
+- stage: Profit
+  metric: ROAS vs margin, contribution
 challenges:
-  - Feed quality and product data gaps
-  - Margin differences hidden inside a single ROAS target
-  - Faceted navigation creating SEO crawl problems
-  - Cart abandonment
+- Feed quality and product data gaps
+- Margin differences hidden inside a single ROAS target
+- Faceted navigation creating SEO crawl problems
+- Cart abandonment
 channels:
-  - channel: Google Shopping and PMax
-    role: Product-level demand capture.
-  - channel: SEO
-    role: Category and product page visibility.
-  - channel: Meta catalogue ads
-    role: Prospecting and dynamic retargeting.
-  - channel: Email and WhatsApp
-    role: Abandoned cart and repeat purchase.
+- channel: Google Shopping and PMax
+  role: Product-level demand capture.
+- channel: SEO
+  role: Category and product page visibility.
+- channel: Meta catalogue ads
+  role: Prospecting and dynamic retargeting.
+- channel: Email and WhatsApp
+  role: Abandoned cart and repeat purchase.
 kpis:
-  - ROAS by margin tier
-  - Conversion rate and AOV
-  - Organic category revenue
-  - Repeat purchase rate
+- ROAS by margin tier
+- Conversion rate and AOV
+- Organic category revenue
+- Repeat purchase rate
 strategy:
-  - title: Segment by margin
-    body: Group products by profitability so bidding targets reflect reality.
-  - title: Fix the feed
-    body: Titles, attributes, images and availability drive Shopping performance.
-  - title: Build category SEO
-    body: Crawlable category architecture with unique, useful content.
+- title: Segment by margin
+  body: Group products by profitability so bidding targets reflect reality.
+- title: Fix the feed
+  body: Titles, attributes, images and availability drive Shopping performance.
+- title: Build category SEO
+  body: Crawlable category architecture with unique, useful content.
 faqs:
-  - q: Should we use Performance Max?
-    a: Often, with safeguards — brand exclusions, feed quality and margin-based segmentation. We test it against standard Shopping where control matters.
-statTags: [india-ad-spend]
-services: [google-ads, seo, meta-ads, analytics]
-tools: [roas-calculator]
-glossary: [pmax, roas, conversion-rate]
+- q: Should we use Performance Max?
+  a: 'Often, with safeguards: brand exclusions, feed quality and margin-based segmentation. We test it against standard
+    Shopping where control matters.'
+statTags:
+- india-ad-spend
+services:
+- google-ads
+- seo
+- meta-ads
+- analytics
+tools:
+- roas-calculator
+glossary:
+- pmax
+- roas
+- conversion-rate
 updated: 2026-09-25

@@ -1,9 +1,9 @@
 term: CPC (Cost per Click)
 abbreviation: CPC
 definition: Cost per click (CPC) is the average amount paid for each click on an ad.
-explanation: CPC is driven by competition, ad relevance and targeting. Low CPC is only good if those clicks convert
-  — always read it together with conversion rate.
-formula: CPC = Spend ÷ Clicks
+explanation: 'CPC is driven by competition, ad relevance and targeting. Low CPC is only good if those clicks convert:
+  always read it together with conversion rate.'
+formula: CPC = Spend / Clicks
 services:
 - google-ads
 - performance-marketing

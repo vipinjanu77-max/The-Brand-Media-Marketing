@@ -21,7 +21,7 @@ const relatedTools = d.tools.map(toolBySlug).filter(Boolean);
       ) : d.gated ? (
         <form class="card gate" method="post" action="/api/resource/" data-gate novalidate>
           <h2 class="h">Get the {d.format}</h2>
-          <p class="muted">Tell us where to send it. We’ll email occasional, genuinely useful research — unsubscribe any time.</p>
+          <p class="muted">Tell us where to send it. We'll email occasional, genuinely useful research: unsubscribe any time.</p>
           <input type="hidden" name="resource" value={entry.id} />
           <div class="hp" aria-hidden="true"><label>Leave empty <input name="company_website" tabindex="-1" autocomplete="off" /></label></div>
           <div class="two">
@@ -32,7 +32,7 @@ const relatedTools = d.tools.map(toolBySlug).filter(Boolean);
           <label class="consent"><input type="checkbox" name="privacy" value="yes" required /> I agree to the <a href="/legal/privacy-policy/">privacy policy</a>.</label>
           <p class="error-msg" role="alert" hidden data-err></p>
           <button class="btn" type="submit">Download</button>
-          <p class="ok" role="status" hidden data-ok>Your download has started. <a data-file href={d.file} download>Click here if it didn’t.</a></p>
+          <p class="ok" role="status" hidden data-ok>Your download has started. <a data-file href={d.file} download>Click here if it didn't.</a></p>
         </form>
       ) : (
         <a class="btn" href={d.file} download data-track="resource_download" data-resource={entry.id}>Download {d.format}</a>

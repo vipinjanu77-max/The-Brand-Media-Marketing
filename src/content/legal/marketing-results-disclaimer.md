@@ -11,7 +11,7 @@ Marketing outcomes depend on factors including your product, pricing, market, co
 
 ## Calculators
 
-Our calculators use the assumptions you enter plus clearly labelled planning heuristics. They are designed to help you reason about budgets and targets — not to predict results.
+Our calculators use the assumptions you enter plus clearly labelled planning heuristics. They are designed to help you reason about budgets and targets, not to predict results.
 
 ## Case studies
 

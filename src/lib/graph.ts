@@ -7,7 +7,7 @@
  *   2. inbound links (anything that points at this node)
  *   3. second-degree links through shared services/industries
  * and returns ranked recommendations per content type, e.g.
- *   Google Ads article → Google Ads service → real-estate case study → CPL calculator.
+ *   Google Ads article to Google Ads service to real-estate case study to CPL calculator.
  */
 import { getCollection } from 'astro:content';
 import { tools } from './tools';

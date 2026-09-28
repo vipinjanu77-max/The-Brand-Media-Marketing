@@ -15,8 +15,8 @@ const categories = [
 const count = (c: string) => research.filter((r) => r.data.category === c).length;
 const crumbs = [{ name: 'Research', href: '/research/' }];
 ---
-<Base title="TBM Marketing Intelligence — Research Hub" description="Sourced, dated and clearly labelled marketing research: India and global statistics, AI search, advertising, SEO, social, e-commerce and industry research." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} eyebrow="TBM Marketing Intelligence" title="Research you can cite — and check." lede="Every research page states its question, method, sources, geography, sample and limitations, and separates reported facts, third-party estimates, forecasts and TBM analysis." art={{ seed: 'research-hub', motif: 'chart', variant: 'royal', label: 'Marketing Intelligence' }}>
+<Base title="TBM Marketing Intelligence: Research Hub" description="Sourced, dated and clearly labelled marketing research: India and global statistics, AI search, advertising, SEO, social, e-commerce and industry research." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} eyebrow="TBM Marketing Intelligence" title="Research you can cite, and check." lede="Every research page states its question, method, sources, geography, sample and limitations, and separates reported facts, third-party estimates, forecasts and TBM analysis." art={{ seed: 'research-hub', motif: 'chart', variant: 'royal', label: 'Marketing Intelligence' }}>
     <a class="btn" href="/statistics/">Browse the statistics database</a>
     <a class="btn btn--ghost" href="/legal/research-methodology/">Our methodology</a>
   </PageHero>
@@ -30,7 +30,7 @@ const crumbs = [{ name: 'Research', href: '/research/' }];
             <div class="tags"><KindBadge kind={r.data.label} /><span class="tag tag--neutral">{r.data.geography}</span></div>
             <h3><a class="card-link" href={`/research/${r.id}/`}>{r.data.title}</a></h3>
             <p>{r.data.description}</p>
-            <p class="meta">{r.data.category} · Updated {r.data.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
+            <p class="meta">{r.data.category} | Updated {r.data.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
           </article>
         ))}
       </div>
@@ -43,8 +43,8 @@ const crumbs = [{ name: 'Research', href: '/research/' }];
         {categories.map((c) => <li><span>{c}</span>{count(c) > 0 ? <span class="tag">{count(c)} published</span> : <span class="tag tag--neutral">In production</span>}</li>)}
       </ul>
       <div class="grid grid-3 mt-3">
-        <a class="card" href="/research/market-data/"><h3>TBM Market Data</h3><p>Our own anonymised benchmark programme — methodology, sample and confidence published.</p></a>
-        <a class="card" href="/research/dashboards/"><h3>Market dashboards</h3><p>Charts of India’s digital market with source, year, geography and method on every chart.</p></a>
+        <a class="card" href="/research/market-data/"><h3>TBM Market Data</h3><p>Our own anonymised benchmark programme: methodology, sample and confidence published.</p></a>
+        <a class="card" href="/research/dashboards/"><h3>Market dashboards</h3><p>Charts of India's digital market with source, year, geography and method on every chart.</p></a>
         <a class="card" href="/statistics/"><h3>Statistics database</h3><p>Every number with its source, year, geography and context.</p></a>
       </div>
     </div>

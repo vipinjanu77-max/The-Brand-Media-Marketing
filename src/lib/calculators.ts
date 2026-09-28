@@ -1,7 +1,7 @@
 /**
  * Pure calculation functions behind TBM's interactive tools.
  * Kept framework-free so they run in the browser and are unit-tested in /tests.
- * All outputs are estimates from user-supplied assumptions — never guarantees.
+ * All outputs are estimates from user-supplied assumptions, never guarantees.
  */
 
 const safeDiv = (a: number, b: number): number | null => (b > 0 && Number.isFinite(a) ? a / b : null);
@@ -155,7 +155,7 @@ export function mediaPlan(budget: number, channels: ChannelPlan[], leadToCustome
 }
 
 /* ------------------------------------------------------------------------
-   Cost calculator — TBM planning heuristic.
+   Cost calculator: TBM planning heuristic.
    These are transparent planning assumptions, NOT market averages. They are
    shown to the user on the page and should be reviewed by TBM strategists.
    ------------------------------------------------------------------------ */
@@ -204,7 +204,7 @@ export function costEstimate(input: {
 
 /** Format rupees in Indian digit grouping, compacting lakhs/crores for readability. */
 export function inr(n: number | null | undefined, compact = true): string {
-  if (n === null || n === undefined || !Number.isFinite(n)) return '—';
+  if (n === null || n === undefined || !Number.isFinite(n)) return '-';
   const abs = Math.abs(n);
   if (compact && abs >= 1e7) return `₹${(n / 1e7).toFixed(2).replace(/\.?0+$/, '')} Cr`;
   if (compact && abs >= 1e5) return `₹${(n / 1e5).toFixed(2).replace(/\.?0+$/, '')} L`;
@@ -212,6 +212,6 @@ export function inr(n: number | null | undefined, compact = true): string {
 }
 
 export function num(n: number | null | undefined, digits = 0): string {
-  if (n === null || n === undefined || !Number.isFinite(n)) return '—';
+  if (n === null || n === undefined || !Number.isFinite(n)) return '-';
   return n.toLocaleString('en-IN', { maximumFractionDigits: digits, minimumFractionDigits: 0 });
 }

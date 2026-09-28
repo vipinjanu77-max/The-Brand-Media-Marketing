@@ -2,62 +2,76 @@ title: Landing Pages & CRO
 navLabel: Landing Pages
 group: web
 order: 41
-summary: Campaign landing pages and conversion rate optimisation that turn paid traffic into qualified leads and sales.
-definition: >-
-  A landing page is a page designed for one action — booking, enquiring, buying — usually matched to a
-  specific campaign. Conversion rate optimisation (CRO) is the structured process of improving the share of
-  visitors who take that action.
+summary: Campaign landing pages and conversion rate optimisation that turn paid traffic into qualified leads and
+  sales.
+definition: A landing page is a page designed for one action (booking, enquiring, buying) usually matched to a specific
+  campaign. Conversion rate optimisation (CRO) is the structured process of improving the share of visitors who
+  take that action.
 whoNeedsIt:
-  - Advertisers sending paid traffic to generic pages
-  - Businesses with healthy traffic but weak conversion rates
-  - Teams launching campaigns faster than developers can build pages
-whyItMatters: >-
-  Improving conversion rate lowers the cost of every lead and sale across every channel sending traffic to
-  that page. It is often the cheapest growth available.
+- Advertisers sending paid traffic to generic pages
+- Businesses with healthy traffic but weak conversion rates
+- Teams launching campaigns faster than developers can build pages
+whyItMatters: Improving conversion rate lowers the cost of every lead and sale across every channel sending traffic
+  to that page. It is often the cheapest growth available.
 whatWeDo:
-  - title: Message match
-    body: Page copy that continues the promise made in the ad or search.
-  - title: Qualification by design
-    body: Forms and flows that filter low-intent leads without losing good ones.
-  - title: Speed
-    body: Lightweight pages that load quickly on mobile networks.
-  - title: Testing
-    body: A/B tests with sample-size discipline and documented learnings.
+- title: Message match
+  body: Page copy that continues the promise made in the ad or search.
+- title: Qualification by design
+  body: Forms and flows that filter low-intent leads without losing good ones.
+- title: Speed
+  body: Lightweight pages that load quickly on mobile networks.
+- title: Testing
+  body: A/B tests with sample-size discipline and documented learnings.
 process:
-  - step: Research
-    detail: Analytics, heatmaps, recordings and customer objections.
-  - step: Hypothesise
-    detail: Prioritised test ideas.
-  - step: Build and test
-    detail: Variants and experiments.
-  - step: Learn
-    detail: Results documented and rolled out.
+- step: Research
+  detail: Analytics, heatmaps, recordings and customer objections.
+- step: Hypothesise
+  detail: Prioritised test ideas.
+- step: Build and test
+  detail: Variants and experiments.
+- step: Learn
+  detail: Results documented and rolled out.
 deliverables:
-  - Landing page design and build
-  - Tracking and form integrations
-  - CRO test roadmap
-  - Experiment reports
+- Landing page design and build
+- Tracking and form integrations
+- CRO test roadmap
+- Experiment reports
 kpis:
-  - name: Landing page conversion rate
-    why: Primary outcome.
-  - name: Qualified conversion rate
-    why: Conversions that sales accepts.
-  - name: Page speed
-    why: Slow pages lose mobile visitors.
+- name: Landing page conversion rate
+  why: Primary outcome.
+- name: Qualified conversion rate
+  why: Conversions that sales accepts.
+- name: Page speed
+  why: Slow pages lose mobile visitors.
 timeline:
-  - period: Weeks 1–2
-    detail: First pages live.
-  - period: Ongoing
-    detail: Monthly test cycles.
+- period: Weeks 1-2
+  detail: First pages live.
+- period: Ongoing
+  detail: Monthly test cycles.
 mistakes:
-  - Calling a test after a few days
-  - Too many choices on one page
-  - Forms that ask for everything
+- Calling a test after a few days
+- Too many choices on one page
+- Forms that ask for everything
 faqs:
-  - q: How long should an A/B test run?
-    a: Until it reaches the sample size needed to detect the effect you care about, and across at least one full business cycle — usually weeks, not days.
-services: [website-development, performance-marketing, google-ads, meta-ads, analytics]
-industries: [real-estate, education, healthcare, saas]
-tools: [cpl-calculator, marketing-roi-calculator]
-glossary: [cro, ab-testing, conversion-rate]
+- q: How long should an A/B test run?
+  a: Until it reaches the sample size needed to detect the effect you care about, and across at least one full business
+    cycle, usually weeks, not days.
+services:
+- website-development
+- performance-marketing
+- google-ads
+- meta-ads
+- analytics
+industries:
+- real-estate
+- education
+- healthcare
+- saas
+tools:
+- cpl-calculator
+- marketing-roi-calculator
+glossary:
+- cro
+- ab-testing
+- conversion-rate
 updated: 2026-09-25

@@ -7,7 +7,7 @@ import CTABand from '../../components/ui/CTABand.astro';
 const entries = (await getCollection('blog', (e) => e.data.pillar && !e.data.draft)).sort((a, b) => +b.data.updated - +a.data.updated);
 const crumbs = [{ name: 'Guides', href: '/guides/' }];
 ---
-<Base title="Digital Marketing Guides" description="Authoritative pillar guides on digital marketing, costs in India and choosing an agency — the foundations of TBM's knowledge platform." crumbs={crumbs} pageType="CollectionPage">
+<Base title="Digital Marketing Guides" description="Authoritative pillar guides on digital marketing, costs in India and choosing an agency, the foundations of TBM's knowledge platform." crumbs={crumbs} pageType="CollectionPage">
   <PageHero crumbs={crumbs} art={{ seed: 'guides', motif: 'book', variant: 'royal' }} eyebrow="Pillar guides" title="The foundations, explained properly." lede="Long-form guides that anchor our topical clusters. Each connects to services, tools, research and glossary terms so you can go as deep as you need." />
   <section class="section"><div class="container"><ArticleIndex entries={entries} /></div></section>
   <CTABand stage="mofu" />

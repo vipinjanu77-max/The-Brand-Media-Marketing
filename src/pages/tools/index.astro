@@ -13,7 +13,7 @@ const crumbs = [{ name: 'Tools', href: '/tools/' }];
     {tools.map((t) => (
       <article class="card">
         <div class="card-media"><Artwork seed={t.slug} motif={toolMotif[t.slug]} variant="light" /></div>
-        <p class="q">“{t.question}”</p>
+        <p class="q">"{t.question}"</p>
         <h2 class="h"><a class="card-link" href={`/tools/${t.slug}/`}>{t.title}</a></h2>
         <p>{t.description}</p>
       </article>

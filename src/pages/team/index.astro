@@ -8,17 +8,17 @@ import { preview } from '../../lib/site';
 const team = (await getCollection('team', (t) => preview || !t.data.placeholder)).sort((a, b) => a.data.order - b.data.order);
 const crumbs = [{ name: 'Team', href: '/team/' }];
 ---
-<Base title="Team" description="The people at The Brand Media Marketing — roles, expertise, experience and the work they write about." crumbs={crumbs} pageType="CollectionPage">
+<Base title="Team" description="The people at The Brand Media Marketing: roles, expertise, experience and the work they write about." crumbs={crumbs} pageType="CollectionPage">
   <PageHero crumbs={crumbs} art={{ seed: 'team', motif: 'network', variant: 'deep' }} eyebrow="Team" title="Named people. Real expertise." lede="You should know who works on your account. Every author and reviewer on this site has a profile here." />
   <section class="section"><div class="container grid grid-3">
     {team.map((m) => (
       <article class="card person">
         {m.data.photo ? <img src={m.data.photo} alt={m.data.photoAlt ?? m.data.name} width="400" height="400" loading="lazy" decoding="async" /> : <div class="ph" aria-hidden="true">{m.data.type === 'organization' ? 'TBM' : '?'}</div>}
-        {m.data.placeholder ? <Placeholder label="TEAM MEMBER — ADMIN TO ADD photo, name, role, expertise, experience, LinkedIn" /> : (
+        {m.data.placeholder ? <Placeholder label="TEAM MEMBER: ADMIN TO ADD photo, name, role, expertise, experience, LinkedIn" /> : (
           <>
             <h2 class="h"><a class="card-link" href={`/team/${m.id}/`}>{m.data.name}</a></h2>
             <p class="role">{m.data.role}</p>
-            {m.data.expertise.length > 0 && <p class="meta">{m.data.expertise.join(' · ')}</p>}
+            {m.data.expertise.length > 0 && <p class="meta">{m.data.expertise.join(' | ')}</p>}
           </>
         )}
       </article>

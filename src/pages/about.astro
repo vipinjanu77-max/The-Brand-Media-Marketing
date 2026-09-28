@@ -18,14 +18,14 @@ const beliefs = [
 ];
 ---
 <Base title="About TBM" description="Why The Brand Media Marketing exists, how we work, what we believe, and how we measure success." crumbs={crumbs} pageType="AboutPage">
-  <PageHero crumbs={crumbs} art={{ seed: 'about', motif: 'compass', variant: 'deep' }} eyebrow="About TBM" title="We exist because too much marketing can’t explain what it returned." lede={site.description} />
+  <PageHero crumbs={crumbs} art={{ seed: 'about', motif: 'compass', variant: 'deep' }} eyebrow="About TBM" title="We exist because too much marketing can't explain what it returned." lede={site.description} />
   <section class="section">
     <div class="container split">
       <SectionHead eyebrow="Why TBM exists" title="Growth deserves an operating system." />
       <div class="prose">
         <p>Most businesses buy marketing in pieces: an SEO retainer here, an ads agency there, a freelancer for social, a developer for the website. Each piece reports its own numbers. Nobody owns the result.</p>
-        <p>The Brand Media Marketing was built to do the opposite — to connect <strong>strategy, acquisition, conversion and measurement</strong> into one system with one owner, and to judge it by the outcomes a business actually cares about: customers, revenue, CAC and payback.</p>
-        <p>We also believe an agency should be able to teach the market it serves. That is why this website includes a research hub, a statistics database with sources, and free calculators — the same thinking we bring to client work.</p>
+        <p>The Brand Media Marketing was built to do the opposite: to connect <strong>strategy, acquisition, conversion and measurement</strong> into one system with one owner, and to judge it by the outcomes a business actually cares about: customers, revenue, CAC and payback.</p>
+        <p>We also believe an agency should be able to teach the market it serves. That is why this website includes a research hub, a statistics database with sources, and free calculators, the same thinking we bring to client work.</p>
       </div>
     </div>
   </section>
@@ -39,7 +39,7 @@ const beliefs = [
     <div class="container split">
       <SectionHead eyebrow="How we measure success" title="By your numbers, not ours." />
       <ul class="check-list">
-        <li>Customers, revenue and pipeline attributed to marketing — reconciled with your CRM</li>
+        <li>Customers, revenue and pipeline attributed to marketing, reconciled with your CRM</li>
         <li>Customer acquisition cost and payback against agreed targets</li>
         <li>Cost per qualified lead, not just cost per lead</li>
         <li>Conversion rate at each stage of the funnel</li>
@@ -51,8 +51,8 @@ const beliefs = [
     <div class="container grid grid-2">
       <div>
         <h2 class="h">Founder & team</h2>
-        {has(site.founder) ? <p>Founded by {site.founder}{has(site.foundingYear) ? ` in ${site.foundingYear}` : ''}.</p> : <Placeholder label="FOUNDER STORY, EXPERIENCE AND FOUNDING YEAR — ADMIN TO ADD (verifiable facts only)" fallback="Every account has named owners you can meet before you sign." />}
-        <p class="mt-1"><a href="/team/">Meet the team →</a></p>
+        {has(site.founder) ? <p>Founded by {site.founder}{has(site.foundingYear) ? ` in ${site.foundingYear}` : ''}.</p> : <Placeholder label="FOUNDER STORY, EXPERIENCE AND FOUNDING YEAR: ADMIN TO ADD (verifiable facts only)" fallback="Every account has named owners you can meet before you sign." />}
+        <p class="mt-1"><a href="/team/">Meet the team</a></p>
       </div>
       <div>
         <h2 class="h">Capabilities</h2>
@@ -60,13 +60,13 @@ const beliefs = [
       </div>
       <div>
         <h2 class="h">Locations & markets served</h2>
-        {has(site.address.city) ? <p>{site.address.city}{has(site.address.region) ? `, ${site.address.region}` : ''}</p> : <Placeholder label="OFFICE LOCATION(S) — ADMIN TO ADD (real offices only)" fallback="We work with businesses across India." />}
+        {has(site.address.city) ? <p>{site.address.city}{has(site.address.region) ? `, ${site.address.region}` : ''}</p> : <Placeholder label="OFFICE LOCATION(S): ADMIN TO ADD (real offices only)" fallback="We work with businesses across India." />}
         <p class="mt-1">Markets: {markets.map((m, i) => <>{i > 0 && ', '}<a href={`/markets/${m.id}/`}>{m.data.name}</a></>)}</p>
       </div>
       {preview && (
         <div>
           <h2 class="h">Experience, certifications & partnerships</h2>
-          <Placeholder label="VERIFIED CREDENTIALS — ADMIN TO ADD (only with evidence; none are claimed here)" />
+          <Placeholder label="VERIFIED CREDENTIALS: ADMIN TO ADD (only with evidence; none are claimed here)" />
         </div>
       )}
     </div>

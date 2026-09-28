@@ -1,7 +1,7 @@
 {
   "name": "The Brand Media Marketing",
   "shortName": "TBM",
-  "legalName": "[LEGAL ENTITY NAME — ADMIN TO ADD]",
+  "legalName": "[LEGAL ENTITY NAME: ADMIN TO ADD]",
   "tagline": "We don't just run campaigns. We build growth systems.",
   "positioning": "Strategy. Acquisition. Conversion. Growth.",
   "description": "The Brand Media Marketing (TBM) is a growth and digital marketing agency that combines strategy, performance marketing, SEO, AEO, creative, technology and analytics to help businesses acquire customers, improve conversion and build sustainable growth.",
@@ -36,7 +36,7 @@
   },
   "exitIntent": {
     "enabled": true,
-    "headline": "Before you leave — get the Agency Evaluation Checklist",
+    "headline": "Before you leave: get the Agency Evaluation Checklist",
     "body": "A practical 14-point checklist for comparing marketing agencies on evidence, not promises.",
     "resourceSlug": "agency-evaluation-checklist"
   },

@@ -23,9 +23,9 @@ const pct = (a: number) => `${Math.round(a * 100)}%`;
   </form>
   <section class="results" aria-live="polite">
     <h2>Recommended monthly investment</h2>
-    <p class="out-value big" data-out="total">—</p>
+    <p class="out-value big" data-out="total">-</p>
     <div class="split-bars" data-out="bars" data-html></div>
-    <p class="disclaimer">This is a <strong>TBM planning heuristic, not market data</strong>. It starts from a share of revenue by growth ambition ({Object.entries(costAssumptions.ambition).map(([k, [a, b]]) => `${k} ${pct(a)}–${pct(b)}`).join(', ')}), adjusts for competition and geography, then splits by how paid-media-heavy your channel mix is. Real budgets should be built from your unit economics — try the ROI calculator. Estimates, not guarantees.</p>
+    <p class="disclaimer">This is a <strong>TBM planning heuristic, not market data</strong>. It starts from a share of revenue by growth ambition ({Object.entries(costAssumptions.ambition).map(([k, [a, b]]) => `${k} ${pct(a)}-${pct(b)}`).join(', ')}), adjusts for competition and geography, then splits by how paid-media-heavy your channel mix is. Real budgets should be built from your unit economics: try the ROI calculator. Estimates, not guarantees.</p>
     <a class="btn btn--light" href="/contact/?intent=proposal" data-track="cta_click" data-cta="cost_calc_proposal">Request a scoped proposal</a>
   </section>
 </div>
@@ -37,8 +37,8 @@ const pct = (a: number) => `${Math.round(a * 100)}%`;
     bindCalc(root, 'cost', (i) => {
       const channels = Array.isArray(i.channels) ? i.channels : [];
       const e = costEstimate({ monthlyRevenue: i.monthlyRevenue as number, ambition: i.ambition as string, competition: i.competition as string, geography: i.geography as string, channels });
-      const bars = e.parts.map((p) => `<div class="sb"><div class="sb-top"><span>${labels[p.key]}</span><span>${inr(p.low)} – ${inr(p.high)}</span></div><div class="sb-track"><span style="width:${Math.round(p.share * 100)}%"></span></div></div>`).join('');
-      return { total: `${inr(e.totalLow)} – ${inr(e.totalHigh)}`, bars };
+      const bars = e.parts.map((p) => `<div class="sb"><div class="sb-top"><span>${labels[p.key]}</span><span>${inr(p.low)} to ${inr(p.high)}</span></div><div class="sb-track"><span style="width:${Math.round(p.share * 100)}%"></span></div></div>`).join('');
+      return { total: `${inr(e.totalLow)} to ${inr(e.totalHigh)}`, bars };
     }),
   );
 </script>

@@ -15,11 +15,11 @@ import NumField from './NumField.astro';
   <section class="results" aria-live="polite">
     <h2>Your cost per lead</h2>
     <div class="out-grid">
-      <div class="out"><span class="out-label">CPL</span><span class="out-value" data-out="cpl">—</span></div>
-      <div class="out"><span class="out-label">Cost per qualified lead</span><span class="out-value" data-out="cpql">—</span></div>
-      <div class="out"><span class="out-label">Customers</span><span class="out-value" data-out="cust">—</span></div>
-      <div class="out"><span class="out-label">Cost per customer</span><span class="out-value" data-out="cpc">—</span></div>
-      <div class="out out--wide"><span class="out-label">Break-even CPL (max you can pay)</span><span class="out-value" data-out="max">—</span></div>
+      <div class="out"><span class="out-label">CPL</span><span class="out-value" data-out="cpl">-</span></div>
+      <div class="out"><span class="out-label">Cost per qualified lead</span><span class="out-value" data-out="cpql">-</span></div>
+      <div class="out"><span class="out-label">Customers</span><span class="out-value" data-out="cust">-</span></div>
+      <div class="out"><span class="out-label">Cost per customer</span><span class="out-value" data-out="cpc">-</span></div>
+      <div class="out out--wide"><span class="out-label">Break-even CPL (max you can pay)</span><span class="out-value" data-out="max">-</span></div>
     </div>
     <p class="verdict" data-out="verdict"></p>
     <p class="disclaimer">Estimates, not guarantees. Break-even CPL covers first-sale gross profit only; it excludes sales team and overhead costs.</p>
@@ -34,7 +34,7 @@ import NumField from './NumField.astro';
       const ok = r.cpl !== null && r.cpl < r.maxBreakEvenCpl;
       return {
         cpl: inr(r.cpl), cpql: inr(r.costPerQualifiedLead), cust: num(r.customers, 1), cpc: inr(r.costPerCustomer), max: inr(r.maxBreakEvenCpl),
-        verdict: r.cpl === null ? '' : ok ? `Your CPL is ${num((r.cpl / r.maxBreakEvenCpl) * 100)}% of break-even — leads are paying for themselves on first sale.` : 'Your CPL is above break-even. Improve qualification, close rate or deal value — or lower CPL — before scaling.',
+        verdict: r.cpl === null ? '' : ok ? `Your CPL is ${num((r.cpl / r.maxBreakEvenCpl) * 100)}% of break-even: leads are paying for themselves on first sale.` : 'Your CPL is above break-even. Improve qualification, close rate or deal value (or lower CPL) before scaling.',
       };
     }),
   );

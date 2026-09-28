@@ -1,4 +1,4 @@
-# Decap CMS configuration — every content collection is editable without code.
+# Decap CMS configuration: every content collection is editable without code.
 # Role-based access: repository permissions (GitHub) control who can log in; editorial_workflow
 # requires changes to be reviewed and merged before they go live.
 # Authentication: GitHub backend needs an OAuth provider (e.g. Decap/Netlify OAuth or a self-hosted
@@ -34,7 +34,7 @@ collections:
     - label: Positioning
       name: positioning
       widget: string
-    - label: Description (entity description — keep consistent everywhere)
+    - label: 'Description (entity description: keep consistent everywhere)'
       name: description
       widget: text
     - label: Founding year
@@ -115,7 +115,7 @@ collections:
         name: googleBusinessProfile
         widget: string
         required: false
-    - label: Analytics (public IDs only — never secrets)
+    - label: Analytics (public IDs only, never secrets)
       name: analytics
       widget: object
       fields:
@@ -266,8 +266,7 @@ collections:
   - label: Common mistakes
     name: mistakes
     widget: list
-  - &id001
-    label: FAQs
+  - label: FAQs
     name: faqs
     widget: list
     required: false
@@ -278,8 +277,7 @@ collections:
     - label: Answer
       name: a
       widget: text
-  - &id002
-    label: Related services
+  - label: Related services
     name: services
     widget: relation
     collection: services
@@ -290,8 +288,7 @@ collections:
     - '{{title}}'
     multiple: true
     required: false
-  - &id003
-    label: Related industries
+  - label: Related industries
     name: industries
     widget: relation
     collection: industries
@@ -302,13 +299,11 @@ collections:
     - '{{title}}'
     multiple: true
     required: false
-  - &id004
-    label: Related tools (slugs)
+  - label: Related tools (slugs)
     name: tools
     widget: list
     required: false
-  - &id005
-    label: Related glossary terms
+  - label: Related glossary terms
     name: glossary
     widget: relation
     collection: glossary
@@ -319,8 +314,7 @@ collections:
     - '{{term}}'
     multiple: true
     required: false
-  - &id006
-    label: Related articles
+  - label: Related articles
     name: articles
     widget: relation
     collection: blog
@@ -331,8 +325,7 @@ collections:
     - '{{title}}'
     multiple: true
     required: false
-  - &id007
-    label: Related research
+  - label: Related research
     name: research
     widget: relation
     collection: research
@@ -343,8 +336,7 @@ collections:
     - '{{title}}'
     multiple: true
     required: false
-  - &id008
-    label: Related comparisons
+  - label: Related comparisons
     name: compare
     widget: relation
     collection: compare
@@ -355,15 +347,13 @@ collections:
     - '{{title}}'
     multiple: true
     required: false
-  - &id009
-    label: Last updated
+  - label: Last updated
     name: updated
     widget: datetime
     format: YYYY-MM-DD
     date_format: YYYY-MM-DD
     time_format: false
-  - &id010
-    label: SEO overrides (optional — suggestions are generated automatically)
+  - label: 'SEO overrides (optional: suggestions are generated automatically)'
     name: seo
     widget: object
     collapsed: true
@@ -468,26 +458,138 @@ collections:
     - label: Body
       name: body
       widget: text
-  - *id001
+  - label: FAQs
+    name: faqs
+    widget: list
+    required: false
+    fields:
+    - label: Question
+      name: q
+      widget: string
+    - label: Answer
+      name: a
+      widget: text
   - label: Statistic tags
     name: statTags
     widget: list
     required: false
-  - *id002
-  - *id003
-  - *id004
-  - *id005
-  - *id006
-  - *id007
-  - *id008
-  - *id009
-  - *id010
+  - label: Related services
+    name: services
+    widget: relation
+    collection: services
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related industries
+    name: industries
+    widget: relation
+    collection: industries
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related tools (slugs)
+    name: tools
+    widget: list
+    required: false
+  - label: Related glossary terms
+    name: glossary
+    widget: relation
+    collection: glossary
+    search_fields:
+    - term
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{term}}'
+    multiple: true
+    required: false
+  - label: Related articles
+    name: articles
+    widget: relation
+    collection: blog
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related research
+    name: research
+    widget: relation
+    collection: research
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related comparisons
+    name: compare
+    widget: relation
+    collection: compare
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Last updated
+    name: updated
+    widget: datetime
+    format: YYYY-MM-DD
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: 'SEO overrides (optional: suggestions are generated automatically)'
+    name: seo
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+      required: false
+    - label: Meta description
+      name: description
+      widget: text
+      required: false
+    - label: OG title
+      name: ogTitle
+      widget: string
+      required: false
+    - label: OG description
+      name: ogDescription
+      widget: text
+      required: false
+    - label: Social image
+      name: ogImage
+      widget: image
+      required: false
+    - label: Canonical URL
+      name: canonical
+      widget: string
+      required: false
+    - label: No-index
+      name: noindex
+      widget: boolean
+      default: false
+      required: false
 - name: caseStudies
   label: Case studies
   folder: src/content/case-studies
   create: true
   slug: '{{slug}}'
-  summary: '{{title}} — verified: {{verified}}'
+  summary: '{{title}}: verified: {{verified}}'
   fields:
   - label: Title
     name: title
@@ -536,8 +638,8 @@ collections:
     widget: select
     options:
     - < ₹1L/mo
-    - ₹1–5L/mo
-    - ₹5–20L/mo
+    - ₹1-5L/mo
+    - ₹5-20L/mo
     - ₹20L+/mo
     - Undisclosed
   - label: Timeline
@@ -616,7 +718,41 @@ collections:
   - label: Strategy, execution & campaign structure
     name: body
     widget: markdown
-  - *id010
+  - label: 'SEO overrides (optional: suggestions are generated automatically)'
+    name: seo
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+      required: false
+    - label: Meta description
+      name: description
+      widget: text
+      required: false
+    - label: OG title
+      name: ogTitle
+      widget: string
+      required: false
+    - label: OG description
+      name: ogDescription
+      widget: text
+      required: false
+    - label: Social image
+      name: ogImage
+      widget: image
+      required: false
+    - label: Canonical URL
+      name: canonical
+      widget: string
+      required: false
+    - label: No-index
+      name: noindex
+      widget: boolean
+      default: false
+      required: false
 - name: research
   label: Research
   folder: src/content/research
@@ -723,7 +859,17 @@ collections:
     name: statTags
     widget: list
     required: false
-  - *id001
+  - label: FAQs
+    name: faqs
+    widget: list
+    required: false
+    fields:
+    - label: Question
+      name: q
+      widget: string
+    - label: Answer
+      name: a
+      widget: text
   - label: Author (team slug)
     name: author
     widget: string
@@ -741,17 +887,114 @@ collections:
     name: draft
     widget: boolean
     default: false
-  - *id002
-  - *id003
-  - *id004
-  - *id005
-  - *id006
-  - *id007
-  - *id008
-  - label: Body (analysis — label TBM interpretation clearly)
+  - label: Related services
+    name: services
+    widget: relation
+    collection: services
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related industries
+    name: industries
+    widget: relation
+    collection: industries
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related tools (slugs)
+    name: tools
+    widget: list
+    required: false
+  - label: Related glossary terms
+    name: glossary
+    widget: relation
+    collection: glossary
+    search_fields:
+    - term
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{term}}'
+    multiple: true
+    required: false
+  - label: Related articles
+    name: articles
+    widget: relation
+    collection: blog
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related research
+    name: research
+    widget: relation
+    collection: research
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related comparisons
+    name: compare
+    widget: relation
+    collection: compare
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: 'Body (analysis: label TBM interpretation clearly)'
     name: body
     widget: markdown
-  - *id010
+  - label: 'SEO overrides (optional: suggestions are generated automatically)'
+    name: seo
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+      required: false
+    - label: Meta description
+      name: description
+      widget: text
+      required: false
+    - label: OG title
+      name: ogTitle
+      widget: string
+      required: false
+    - label: OG description
+      name: ogDescription
+      widget: text
+      required: false
+    - label: Social image
+      name: ogImage
+      widget: image
+      required: false
+    - label: Canonical URL
+      name: canonical
+      widget: string
+      required: false
+    - label: No-index
+      name: noindex
+      widget: boolean
+      default: false
+      required: false
 - name: statistics
   label: Statistics database
   files:
@@ -762,7 +1005,7 @@ collections:
     - label: Statistics
       name: statistics
       widget: list
-      summary: '{{fields.value}} {{fields.unit}} — {{fields.statement}}'
+      summary: '{{fields.value}} {{fields.unit}} {{fields.statement}}'
       fields:
       - label: ID (unique slug)
         name: id
@@ -850,7 +1093,7 @@ collections:
   - label: Description
     name: description
     widget: text
-  - label: Direct answer (AEO — 40–60 words)
+  - label: 'Direct answer (AEO: 40-60 words)'
     name: directAnswer
     widget: text
   - label: Author (team slug)
@@ -890,7 +1133,7 @@ collections:
     - commercial
     - transactional
     - navigational
-  - label: Originality — what does this add that the top 10 results don't?
+  - label: 'Originality: what does this add that the top 10 results don''t?'
     name: originality
     widget: text
   - label: Featured image
@@ -918,7 +1161,17 @@ collections:
     - label: URL
       name: url
       widget: string
-  - *id001
+  - label: FAQs
+    name: faqs
+    widget: list
+    required: false
+    fields:
+    - label: Question
+      name: q
+      widget: string
+    - label: Answer
+      name: a
+      widget: text
   - label: Published
     name: published
     widget: datetime
@@ -929,17 +1182,114 @@ collections:
     name: draft
     widget: boolean
     default: true
-  - *id002
-  - *id003
-  - *id004
-  - *id005
-  - *id006
-  - *id007
-  - *id008
+  - label: Related services
+    name: services
+    widget: relation
+    collection: services
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related industries
+    name: industries
+    widget: relation
+    collection: industries
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related tools (slugs)
+    name: tools
+    widget: list
+    required: false
+  - label: Related glossary terms
+    name: glossary
+    widget: relation
+    collection: glossary
+    search_fields:
+    - term
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{term}}'
+    multiple: true
+    required: false
+  - label: Related articles
+    name: articles
+    widget: relation
+    collection: blog
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related research
+    name: research
+    widget: relation
+    collection: research
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related comparisons
+    name: compare
+    widget: relation
+    collection: compare
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
   - label: Body
     name: body
     widget: markdown
-  - *id010
+  - label: 'SEO overrides (optional: suggestions are generated automatically)'
+    name: seo
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+      required: false
+    - label: Meta description
+      name: description
+      widget: text
+      required: false
+    - label: OG title
+      name: ogTitle
+      widget: string
+      required: false
+    - label: OG description
+      name: ogDescription
+      widget: text
+      required: false
+    - label: Social image
+      name: ogImage
+      widget: image
+      required: false
+    - label: Canonical URL
+      name: canonical
+      widget: string
+      required: false
+    - label: No-index
+      name: noindex
+      widget: boolean
+      default: false
+      required: false
 - name: glossary
   label: Glossary
   folder: src/content/glossary
@@ -969,13 +1319,76 @@ collections:
     name: example
     widget: text
     required: false
-  - *id002
-  - *id003
-  - *id004
-  - *id005
-  - *id006
-  - *id007
-  - *id008
+  - label: Related services
+    name: services
+    widget: relation
+    collection: services
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related industries
+    name: industries
+    widget: relation
+    collection: industries
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related tools (slugs)
+    name: tools
+    widget: list
+    required: false
+  - label: Related glossary terms
+    name: glossary
+    widget: relation
+    collection: glossary
+    search_fields:
+    - term
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{term}}'
+    multiple: true
+    required: false
+  - label: Related articles
+    name: articles
+    widget: relation
+    collection: blog
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related research
+    name: research
+    widget: relation
+    collection: research
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related comparisons
+    name: compare
+    widget: relation
+    collection: compare
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
   - label: Related terms
     name: related
     widget: relation
@@ -987,8 +1400,47 @@ collections:
     - '{{term}}'
     multiple: true
     required: false
-  - *id009
-  - *id010
+  - label: Last updated
+    name: updated
+    widget: datetime
+    format: YYYY-MM-DD
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: 'SEO overrides (optional: suggestions are generated automatically)'
+    name: seo
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+      required: false
+    - label: Meta description
+      name: description
+      widget: text
+      required: false
+    - label: OG title
+      name: ogTitle
+      widget: string
+      required: false
+    - label: OG description
+      name: ogDescription
+      widget: text
+      required: false
+    - label: Social image
+      name: ogImage
+      widget: image
+      required: false
+    - label: Canonical URL
+      name: canonical
+      widget: string
+      required: false
+    - label: No-index
+      name: noindex
+      widget: boolean
+      default: false
+      required: false
 - name: compare
   label: Comparisons
   folder: src/content/compare
@@ -1031,16 +1483,128 @@ collections:
   - label: Using both together
     name: together
     widget: text
-  - *id001
-  - *id002
-  - *id003
-  - *id004
-  - *id005
-  - *id006
-  - *id007
-  - *id008
-  - *id009
-  - *id010
+  - label: FAQs
+    name: faqs
+    widget: list
+    required: false
+    fields:
+    - label: Question
+      name: q
+      widget: string
+    - label: Answer
+      name: a
+      widget: text
+  - label: Related services
+    name: services
+    widget: relation
+    collection: services
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related industries
+    name: industries
+    widget: relation
+    collection: industries
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related tools (slugs)
+    name: tools
+    widget: list
+    required: false
+  - label: Related glossary terms
+    name: glossary
+    widget: relation
+    collection: glossary
+    search_fields:
+    - term
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{term}}'
+    multiple: true
+    required: false
+  - label: Related articles
+    name: articles
+    widget: relation
+    collection: blog
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related research
+    name: research
+    widget: relation
+    collection: research
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Related comparisons
+    name: compare
+    widget: relation
+    collection: compare
+    search_fields:
+    - title
+    value_field: '{{slug}}'
+    display_fields:
+    - '{{title}}'
+    multiple: true
+    required: false
+  - label: Last updated
+    name: updated
+    widget: datetime
+    format: YYYY-MM-DD
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: 'SEO overrides (optional: suggestions are generated automatically)'
+    name: seo
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+      required: false
+    - label: Meta description
+      name: description
+      widget: text
+      required: false
+    - label: OG title
+      name: ogTitle
+      widget: string
+      required: false
+    - label: OG description
+      name: ogDescription
+      widget: text
+      required: false
+    - label: Social image
+      name: ogImage
+      widget: image
+      required: false
+    - label: Canonical URL
+      name: canonical
+      widget: string
+      required: false
+    - label: No-index
+      name: noindex
+      widget: boolean
+      default: false
+      required: false
 - name: team
   label: Team & authors
   folder: src/content/team
@@ -1096,7 +1660,41 @@ collections:
     name: projects
     widget: list
     required: false
-  - *id010
+  - label: 'SEO overrides (optional: suggestions are generated automatically)'
+    name: seo
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+      required: false
+    - label: Meta description
+      name: description
+      widget: text
+      required: false
+    - label: OG title
+      name: ogTitle
+      widget: string
+      required: false
+    - label: OG description
+      name: ogDescription
+      widget: text
+      required: false
+    - label: Social image
+      name: ogImage
+      widget: image
+      required: false
+    - label: Canonical URL
+      name: canonical
+      widget: string
+      required: false
+    - label: No-index
+      name: noindex
+      widget: boolean
+      default: false
+      required: false
 - name: testimonials
   label: Testimonials
   folder: src/content/testimonials
@@ -1354,7 +1952,41 @@ collections:
     name: office
     widget: string
     required: false
-  - *id010
+  - label: 'SEO overrides (optional: suggestions are generated automatically)'
+    name: seo
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+    - label: Title
+      name: title
+      widget: string
+      required: false
+    - label: Meta description
+      name: description
+      widget: text
+      required: false
+    - label: OG title
+      name: ogTitle
+      widget: string
+      required: false
+    - label: OG description
+      name: ogDescription
+      widget: text
+      required: false
+    - label: Social image
+      name: ogImage
+      widget: image
+      required: false
+    - label: Canonical URL
+      name: canonical
+      widget: string
+      required: false
+    - label: No-index
+      name: noindex
+      widget: boolean
+      default: false
+      required: false
 - name: legal
   label: Legal pages
   folder: src/content/legal

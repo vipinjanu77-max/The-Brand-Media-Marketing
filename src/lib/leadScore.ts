@@ -7,9 +7,9 @@
 export const REVENUE_BANDS = [
   { value: 'pre-revenue', label: 'Pre-revenue', points: 2 },
   { value: 'lt-10l', label: 'Under ₹10 lakh / month', points: 6 },
-  { value: '10l-50l', label: '₹10–50 lakh / month', points: 12 },
-  { value: '50l-2cr', label: '₹50 lakh – ₹2 crore / month', points: 18 },
-  { value: '2cr-10cr', label: '₹2–10 crore / month', points: 22 },
+  { value: '10l-50l', label: '₹10-50 lakh / month', points: 12 },
+  { value: '50l-2cr', label: '₹50 lakh to ₹2 crore / month', points: 18 },
+  { value: '2cr-10cr', label: '₹2-10 crore / month', points: 22 },
   { value: 'gt-10cr', label: 'Over ₹10 crore / month', points: 25 },
   { value: 'undisclosed', label: 'Prefer not to say', points: 8 },
 ] as const;
@@ -17,8 +17,8 @@ export const REVENUE_BANDS = [
 export const SPEND_BANDS = [
   { value: 'none', label: 'Not spending yet', points: 2 },
   { value: 'lt-1l', label: 'Under ₹1 lakh / month', points: 6 },
-  { value: '1l-5l', label: '₹1–5 lakh / month', points: 13 },
-  { value: '5l-20l', label: '₹5–20 lakh / month', points: 19 },
+  { value: '1l-5l', label: '₹1-5 lakh / month', points: 13 },
+  { value: '5l-20l', label: '₹5-20 lakh / month', points: 19 },
   { value: 'gt-20l', label: 'Over ₹20 lakh / month', points: 25 },
   { value: 'undisclosed', label: 'Prefer not to say', points: 7 },
 ] as const;

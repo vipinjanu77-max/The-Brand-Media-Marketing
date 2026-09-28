@@ -5,7 +5,7 @@ import Placeholder from '../components/ui/Placeholder.astro';
 import { site, has } from '../lib/site';
 const crumbs = [{ name: 'Careers', href: '/careers/' }];
 ---
-<Base title="Careers" description="Careers at The Brand Media Marketing — for marketers who can explain their numbers." crumbs={crumbs}>
+<Base title="Careers" description="Careers at The Brand Media Marketing, for marketers who can explain their numbers." crumbs={crumbs}>
   <PageHero crumbs={crumbs} art={{ seed: 'careers', motif: 'share', variant: 'light' }} eyebrow="Careers" title="For marketers who can explain their numbers." lede="We look for people who are curious about businesses, rigorous with data and clear in how they communicate." />
   <section class="section">
     <div class="container--narrow stack" style="--stack:2rem">
@@ -14,8 +14,8 @@ const crumbs = [{ name: 'Careers', href: '/careers/' }];
         <div class="card"><h2 class="h">What we value</h2><p>Evidence over opinion, clarity over jargon, and teaching as a way of learning.</p></div>
       </div>
       <h2 class="h2">Open roles</h2>
-      <Placeholder label="OPEN ROLES — ADMIN TO ADD (title, location, type, description, how to apply)" fallback="There are no open roles listed right now." />
-      <p>Not seeing a fit? {has(site.email) ? <>Email <a href={`mailto:${site.email}`}>{site.email}</a> with your CV and a piece of work you are proud of.</> : <Placeholder inline label="CAREERS EMAIL — ADMIN TO ADD"><>Introduce yourself through our <a href="/contact/">contact page</a>.</></Placeholder>}</p>
+      <Placeholder label="OPEN ROLES: ADMIN TO ADD (title, location, type, description, how to apply)" fallback="There are no open roles listed right now." />
+      <p>Not seeing a fit? {has(site.email) ? <>Email <a href={`mailto:${site.email}`}>{site.email}</a> with your CV and a piece of work you are proud of.</> : <Placeholder inline label="CAREERS EMAIL: ADMIN TO ADD"><>Introduce yourself through our <a href="/contact/">contact page</a>.</></Placeholder>}</p>
     </div>
   </section>
 </Base>

@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/ui/PageHero.astro';
 import CTABand from '../../components/ui/CTABand.astro';
-// Only published country pages exist — we never create thin pages for markets we don't serve.
+// Only published country pages exist: we never create thin pages for markets we don't serve.
 export async function getStaticPaths() {
   return (await getCollection('locations', (l) => l.data.published && l.data.kind === 'country')).map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
@@ -17,8 +17,8 @@ const crumbs = [{ name: 'Markets', href: '/about/' }, { name: d.name, href: `/ma
   <PageHero crumbs={crumbs} eyebrow="Market" title={`Digital marketing in ${d.name}`} lede={d.summary} />
   <section class="section"><div class="container--narrow stack" style="--stack:2rem">
     {d.marketContext.length > 0 && <div><h2 class="h">Market context</h2><ul class="check-list mt-1">{d.marketContext.map((m) => <li>{m}</li>)}</ul><p class="small muted mt-1">Sources and definitions: <a href="/research/digital-marketing-statistics-india/">statistics database</a>.</p></div>}
-    <div><h2 class="h">Industries we focus on</h2><p>{industries.map((i, k) => <>{k > 0 && ' · '}<a href={`/industries/${i.id}/`}>{i.data.title}</a></>)}</p></div>
-    <div><h2 class="h">Services</h2><p>{services.map((s, k) => <>{k > 0 && ' · '}<a href={`/services/${s.id}/`}>{s.data.navLabel}</a></>)}</p></div>
+    <div><h2 class="h">Industries we focus on</h2><p>{industries.map((i, k) => <>{k > 0 && ' | '}<a href={`/industries/${i.id}/`}>{i.data.title}</a></>)}</p></div>
+    <div><h2 class="h">Services</h2><p>{services.map((s, k) => <>{k > 0 && ' | '}<a href={`/services/${s.id}/`}>{s.data.navLabel}</a></>)}</p></div>
   </div></section>
   <CTABand stage="high-intent" />
 </Base>

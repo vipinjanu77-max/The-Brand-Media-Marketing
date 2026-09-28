@@ -18,7 +18,7 @@ export const GET: APIRoute = async () => {
     ...glossary.map((e) => ({ t: e.data.term, u: `/glossary/${e.id}/`, d: e.data.definition, k: 'Glossary', x: e.data.abbreviation ?? '' })),
     ...compare.map((e) => ({ t: e.data.title, u: `/compare/${e.id}/`, d: e.data.directAnswer, k: 'Comparison', x: '' })),
     ...tools.map((t) => ({ t: t.title, u: `/tools/${t.slug}/`, d: t.description, k: 'Tool', x: t.question })),
-    ...stats.map((s) => ({ t: `${s.data.value}${s.data.unit ? ' ' + s.data.unit : ''} — ${s.data.statement}`, u: `/statistics/#stat-${s.id}`, d: `${s.data.source}, ${s.data.referencePeriod}`, k: 'Statistic', x: s.data.geography })),
+    ...stats.map((s) => ({ t: `${s.data.value}${s.data.unit ? ' ' + s.data.unit : ''}: ${s.data.statement}`, u: `/statistics/#stat-${s.id}`, d: `${s.data.source}, ${s.data.referencePeriod}`, k: 'Statistic', x: s.data.geography })),
     ...resources.map((r) => ({ t: r.data.title, u: `/resources/${r.id}/`, d: r.data.description, k: 'Resource', x: r.data.format })),
     { t: 'Pricing & rate card', u: '/pricing/', d: 'Transparent rate card and pricing philosophy.', k: 'Page', x: 'cost price fees' },
     { t: 'Process & onboarding', u: '/process/', d: 'What happens after you hire TBM.', k: 'Page', x: 'onboarding' },

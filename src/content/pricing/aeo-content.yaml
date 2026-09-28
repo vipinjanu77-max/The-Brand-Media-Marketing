@@ -13,18 +13,18 @@ tiers:
   - Entity consistency audit
   - Schema implementation
   - Priority-question content map
-  excludes: &id001 []
+  excludes: []
 - name: Content programme
   priceFrom: 40000
   priceTo: 120000
   unit: per month
   bestFor: Ongoing authority building
   includes:
-  - 4–8 researched articles or guides
+  - 4-8 researched articles or guides
   - Expert interviews
   - Editing and fact-checking
   - Distribution plan
-  excludes: *id001
+  excludes: []
 - name: Research report
   priceFrom: 150000
   priceTo: 400000
@@ -34,7 +34,7 @@ tiers:
   - Survey or dataset design
   - Analysis and charts
   - Published methodology
-  excludes: *id001
+  excludes: []
 notes:
 - Indicative starting prices in INR, excluding GST. Final pricing depends on scope, market, competition, complexity
   and required resources.

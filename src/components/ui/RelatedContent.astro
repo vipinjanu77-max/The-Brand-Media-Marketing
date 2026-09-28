@@ -19,7 +19,7 @@ const shown = order.filter((t) => !exclude.includes(t) && (groups[t]?.length ?? 
             <p class="rel-h">{typeLabels[t]}</p>
             <ul role="list">
               {groups[t]!.map((n) => (
-                <li><a href={n.href}><span>{n.title}</span><small>{n.summary.length > 110 ? `${n.summary.slice(0, 107)}…` : n.summary}</small></a></li>
+                <li><a href={n.href}><span>{n.title}</span><small>{n.summary.length > 110 ? `${n.summary.slice(0, 107)}...` : n.summary}</small></a></li>
               ))}
             </ul>
           </div>

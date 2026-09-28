@@ -1,46 +1,51 @@
 title: Manufacturing Marketing
 order: 12
-summary: Export and domestic B2B enquiry generation for manufacturers — technical content, search and distributor enablement.
-overview: >-
-  Manufacturers sell to engineers, procurement teams and distributors, often internationally. Buyers need
+summary: 'Export and domestic B2B enquiry generation for manufacturers: technical content, search and distributor
+  enablement.'
+overview: Manufacturers sell to engineers, procurement teams and distributors, often internationally. Buyers need
   specifications, certifications, capacity and reliability evidence before they contact a supplier.
 journey:
-  - stage: Requirement
-    detail: Specification or sourcing need.
-  - stage: Supplier search
-    detail: Search, B2B marketplaces, trade directories.
-  - stage: RFQ
-    detail: Enquiry and quote.
-  - stage: Qualification
-    detail: Samples, audits, trials.
+- stage: Requirement
+  detail: Specification or sourcing need.
+- stage: Supplier search
+  detail: Search, B2B marketplaces, trade directories.
+- stage: RFQ
+  detail: Enquiry and quote.
+- stage: Qualification
+  detail: Samples, audits, trials.
 funnel:
-  - stage: RFQs
-    metric: Cost per RFQ
-  - stage: Qualified RFQs
-    metric: Qualification rate
-  - stage: Orders
-    metric: Win rate
+- stage: RFQs
+  metric: Cost per RFQ
+- stage: Qualified RFQs
+  metric: Qualification rate
+- stage: Orders
+  metric: Win rate
 challenges:
-  - Weak websites with little technical content
-  - Marketplace dependence
-  - International SEO complexity
+- Weak websites with little technical content
+- Marketplace dependence
+- International SEO complexity
 channels:
-  - channel: SEO
-    role: Product and application searches, including international.
-  - channel: Google Ads
-    role: High-intent product searches in target countries.
-  - channel: LinkedIn
-    role: Procurement and engineering audiences.
+- channel: SEO
+  role: Product and application searches, including international.
+- channel: Google Ads
+  role: High-intent product searches in target countries.
+- channel: LinkedIn
+  role: Procurement and engineering audiences.
 kpis:
-  - Qualified RFQs
-  - Cost per qualified RFQ
-  - Win rate
+- Qualified RFQs
+- Cost per qualified RFQ
+- Win rate
 strategy:
-  - title: Technical content
-    body: Specification pages, application guides and certifications.
+- title: Technical content
+  body: Specification pages, application guides and certifications.
 faqs:
-  - q: Can SEO work for export markets?
-    a: Yes, with market-specific keyword research, content and technical setup such as hreflang where needed.
-services: [seo, google-ads, linkedin-ads, website-development]
-glossary: [seo]
+- q: Can SEO work for export markets?
+  a: Yes, with market-specific keyword research, content and technical setup such as hreflang where needed.
+services:
+- seo
+- google-ads
+- linkedin-ads
+- website-development
+glossary:
+- seo
 updated: 2026-09-25

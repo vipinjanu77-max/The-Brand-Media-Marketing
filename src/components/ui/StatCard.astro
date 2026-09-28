@@ -1,5 +1,5 @@
 ---
-/** Number → Source → Year → Geography → Context. Every statistic on the site renders through this. */
+/** Number, source, year, geography and context. Every statistic on the site renders through this. */
 import VerificationBadge from './VerificationBadge.astro';
 import KindBadge from './KindBadge.astro';
 import type { CollectionEntry } from 'astro:content';
@@ -11,7 +11,7 @@ const s = stat.data;
   <p class="value num">{s.value}{s.unit && <span class="unit"> {s.unit}</span>}</p>
   <p class="statement">{s.statement}</p>
   <dl class="meta">
-    <div><dt>Source</dt><dd><a href={s.sourceUrl} rel="noopener" target="_blank">{s.source}</a> — {s.publication}</dd></div>
+    <div><dt>Source</dt><dd><a href={s.sourceUrl} rel="noopener" target="_blank">{s.source}</a> {s.publication}</dd></div>
     <div><dt>Period</dt><dd>{s.referencePeriod}</dd></div>
     <div><dt>Geography</dt><dd>{s.geography}</dd></div>
     {!compact && s.sampleSize && <div><dt>Sample</dt><dd>{s.sampleSize}</dd></div>}

@@ -4,7 +4,7 @@ definition: Customer lifetime value (LTV) is the total gross profit a customer i
   relationship with your business.
 explanation: Use gross profit, not revenue, and be conservative with lifetime assumptions. LTV:CAC and payback period
   show whether acquisition is sustainable.
-formula: LTV = Average monthly gross profit per customer × Average lifetime (months)
+formula: LTV = Average monthly gross profit per customer x Average lifetime (months)
 services:
 - crm-automation
 - analytics

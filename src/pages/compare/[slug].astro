@@ -18,7 +18,7 @@ const crumbs = [{ name: 'Comparisons', href: '/compare/' }, { name: d.title, hre
   <PageHero crumbs={crumbs} art={{ seed: entry.id, motif: 'compass', variant: 'royal' }} eyebrow="Comparison" title={d.title} />
   <section class="section">
     <div class="container--narrow stack" style="--stack:3rem">
-      <div><h2 class="q">{d.a} or {d.b} — which is better?</h2><DirectAnswer>{d.directAnswer}</DirectAnswer></div>
+      <div><h2 class="q">{d.a} or {d.b}, which is better?</h2><DirectAnswer>{d.directAnswer}</DirectAnswer></div>
       <div>
         <h2 class="q">Side-by-side</h2>
         <div class="table-wrap"><table class="data-table">
@@ -27,8 +27,8 @@ const crumbs = [{ name: 'Comparisons', href: '/compare/' }, { name: d.title, hre
         </table></div>
       </div>
       <div class="grid grid-2">
-        <div class="card"><h3>Choose {d.a} when…</h3><ul class="check-list">{d.chooseA.map((x) => <li>{x}</li>)}</ul></div>
-        <div class="card"><h3>Choose {d.b} when…</h3><ul class="check-list">{d.chooseB.map((x) => <li>{x}</li>)}</ul></div>
+        <div class="card"><h3>Choose {d.a} when...</h3><ul class="check-list">{d.chooseA.map((x) => <li>{x}</li>)}</ul></div>
+        <div class="card"><h3>Choose {d.b} when...</h3><ul class="check-list">{d.chooseB.map((x) => <li>{x}</li>)}</ul></div>
       </div>
       <div><h2 class="q">Using both together</h2><p class="lede">{d.together}</p></div>
       <p class="small muted">Neutral comparison maintained by TBM. Last updated {d.updated.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}.</p>

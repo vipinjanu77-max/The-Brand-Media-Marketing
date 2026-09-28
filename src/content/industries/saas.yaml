@@ -1,57 +1,67 @@
 title: SaaS Marketing
 order: 5
 featured: false
-summary: Trial, demo and pipeline growth for SaaS companies — with CAC payback and activation built into the plan.
-overview: >-
-  SaaS growth depends on acquiring the right accounts efficiently and turning sign-ups into activated,
-  retained customers. Marketing must work with product and sales on activation and payback, not just top-of-funnel volume.
+summary: Trial, demo and pipeline growth for SaaS companies, with CAC payback and activation built into the plan.
+overview: SaaS growth depends on acquiring the right accounts efficiently and turning sign-ups into activated, retained
+  customers. Marketing must work with product and sales on activation and payback, not just top-of-funnel volume.
 journey:
-  - stage: Problem-aware
-    detail: Searches for how to solve a workflow problem.
-  - stage: Solution research
-    detail: Category comparisons, reviews, AI assistants.
-  - stage: Trial or demo
-    detail: Hands-on evaluation.
-  - stage: Activation
-    detail: First value moment.
-  - stage: Paid and expansion
-    detail: Conversion, retention and upsell.
+- stage: Problem-aware
+  detail: Searches for how to solve a workflow problem.
+- stage: Solution research
+  detail: Category comparisons, reviews, AI assistants.
+- stage: Trial or demo
+  detail: Hands-on evaluation.
+- stage: Activation
+  detail: First value moment.
+- stage: Paid and expansion
+  detail: Conversion, retention and upsell.
 funnel:
-  - stage: Visitors
-    metric: Traffic by intent
-  - stage: Sign-ups / demo requests
-    metric: Cost per sign-up
-  - stage: Activated accounts
-    metric: Activation rate
-  - stage: Paid customers
-    metric: CAC, payback months
+- stage: Visitors
+  metric: Traffic by intent
+- stage: Sign-ups / demo requests
+  metric: Cost per sign-up
+- stage: Activated accounts
+  metric: Activation rate
+- stage: Paid customers
+  metric: CAC, payback months
 challenges:
-  - Sign-ups that never activate
-  - High CPCs on category keywords
-  - Competitors dominating comparison searches
+- Sign-ups that never activate
+- High CPCs on category keywords
+- Competitors dominating comparison searches
 channels:
-  - channel: Search and SEO
-    role: Problem, solution and comparison intent.
-  - channel: LinkedIn
-    role: Role-based targeting for B2B SaaS.
-  - channel: Content and AEO
-    role: Visibility in research and AI answers.
-  - channel: Lifecycle email
-    role: Activation and conversion.
+- channel: Search and SEO
+  role: Problem, solution and comparison intent.
+- channel: LinkedIn
+  role: Role-based targeting for B2B SaaS.
+- channel: Content and AEO
+  role: Visibility in research and AI answers.
+- channel: Lifecycle email
+  role: Activation and conversion.
 kpis:
-  - CAC payback period
-  - Trial-to-paid rate
-  - LTV:CAC
-  - Pipeline from marketing
+- CAC payback period
+- Trial-to-paid rate
+- LTV:CAC
+- Pipeline from marketing
 strategy:
-  - title: Optimise for activated accounts
-    body: Send activation or qualified-demo events back to ad platforms.
-  - title: Own comparison intent
-    body: Honest comparison and alternative pages.
+- title: Optimise for activated accounts
+  body: Send activation or qualified-demo events back to ad platforms.
+- title: Own comparison intent
+  body: Honest comparison and alternative pages.
 faqs:
-  - q: What is a good CAC payback for SaaS?
-    a: It depends on your funding, margins and retention. Our CAC calculator shows payback from your own numbers.
-services: [google-ads, linkedin-ads, seo, aeo, content-marketing, crm-automation]
-tools: [cac-calculator]
-glossary: [cac, ltv, mql, sql]
+- q: What is a good CAC payback for SaaS?
+  a: It depends on your funding, margins and retention. Our CAC calculator shows payback from your own numbers.
+services:
+- google-ads
+- linkedin-ads
+- seo
+- aeo
+- content-marketing
+- crm-automation
+tools:
+- cac-calculator
+glossary:
+- cac
+- ltv
+- mql
+- sql
 updated: 2026-09-25

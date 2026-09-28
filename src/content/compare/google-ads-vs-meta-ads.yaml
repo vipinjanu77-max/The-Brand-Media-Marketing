@@ -16,8 +16,8 @@ rows:
   a: High-intent services, local needs, B2B searches, product searches
   b: D2C, launches, visual products, lead generation at volume
 - criterion: Creative dependence
-  a: Moderate — copy and landing page matter most
-  b: High — creative is effectively the targeting
+  a: 'Moderate: copy and landing page matter most'
+  b: 'High: creative is effectively the targeting'
 - criterion: Lead quality tendency
   a: Often higher intent
   b: Can be lower without qualification steps

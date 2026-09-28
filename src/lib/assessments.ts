@@ -4,32 +4,32 @@ export interface Section { name: string; questions: Q[] }
 
 export const agencyCriteria: Section[] = [
   { name: 'Evidence', questions: [
-    { q: 'Relevant experience — they have worked with businesses like yours (industry or funnel).', fix: 'Ask which comparable businesses they have served and what was different about them.' },
-    { q: 'Case studies — documented with baseline, method and outcome.', fix: 'Ask them to walk you through one case study end to end.' },
-    { q: 'Actual results — numbers you could verify (anonymised platform/CRM evidence).', fix: 'Request anonymised evidence; treat unverifiable screenshots with caution.' },
-    { q: 'References — current clients you can call.', fix: 'Ask for two current client references and call them.' },
+    { q: 'Relevant experience: they have worked with businesses like yours (industry or funnel).', fix: 'Ask which comparable businesses they have served and what was different about them.' },
+    { q: 'Case studies, documented with baseline, method and outcome.', fix: 'Ask them to walk you through one case study end to end.' },
+    { q: 'Actual results: numbers you could verify (anonymised platform/CRM evidence).', fix: 'Request anonymised evidence; treat unverifiable screenshots with caution.' },
+    { q: 'References: current clients you can call.', fix: 'Ask for two current client references and call them.' },
   ] },
   { name: 'People & strategy', questions: [
-    { q: 'Team — you know who will work on your account day to day.', fix: 'Ask for named people, their experience and time allocation.' },
-    { q: 'Strategy — targets start from your margins, close rates and payback.', fix: 'Ask how they would set your CPL/CAC target from your numbers.' },
-    { q: 'Industry expertise — they understand your sales cycle and regulations.', fix: 'Ask what rules and platform policies affect marketing in your sector.' },
+    { q: 'Team: you know who will work on your account day to day.', fix: 'Ask for named people, their experience and time allocation.' },
+    { q: 'Strategy: targets start from your margins, close rates and payback.', fix: 'Ask how they would set your CPL/CAC target from your numbers.' },
+    { q: 'Industry expertise: they understand your sales cycle and regulations.', fix: 'Ask what rules and platform policies affect marketing in your sector.' },
   ] },
   { name: 'Measurement', questions: [
-    { q: 'Reporting — reports show leads, qualified leads, CAC and revenue, not only clicks.', fix: 'Ask for a sample report.' },
-    { q: 'Tracking — they verify conversion tracking before scaling spend.', fix: 'Ask how they QA tracking against CRM records.' },
+    { q: 'Reporting: reports show leads, qualified leads, CAC and revenue, not only clicks.', fix: 'Ask for a sample report.' },
+    { q: 'Tracking: they verify conversion tracking before scaling spend.', fix: 'Ask how they QA tracking against CRM records.' },
   ] },
   { name: 'Commercials & governance', questions: [
-    { q: 'Account ownership — ad accounts, analytics and data are in your name.', fix: 'Insist that accounts are owned by your business.' },
-    { q: 'Pricing — fee, media, production and tools are separated.', fix: 'Ask for a line-item breakdown of what is included and excluded.' },
-    { q: 'Contract — fair notice period, clear exit and handover terms.', fix: 'Ask what happens to your assets and access if you part ways.' },
-    { q: 'Communication — agreed cadence, attendees and escalation path.', fix: 'Agree the meeting and reporting rhythm in writing.' },
-    { q: 'Data security — access controls and a data handling policy.', fix: 'Ask how they store credentials and protect your data.' },
+    { q: 'Account ownership: ad accounts, analytics and data are in your name.', fix: 'Insist that accounts are owned by your business.' },
+    { q: 'Pricing: fee, media, production and tools are separated.', fix: 'Ask for a line-item breakdown of what is included and excluded.' },
+    { q: 'Contract: fair notice period, clear exit and handover terms.', fix: 'Ask what happens to your assets and access if you part ways.' },
+    { q: 'Communication, agreed cadence, attendees and escalation path.', fix: 'Agree the meeting and reporting rhythm in writing.' },
+    { q: 'Data security: access controls and a data handling policy.', fix: 'Ask how they store credentials and protect your data.' },
   ] },
 ];
 
 export const marketingAudit: Section[] = [
   { name: 'Strategy', questions: [
-    { q: 'We know our gross margin, average order/deal value and lead-to-customer rate.', fix: 'Document unit economics — every target depends on them.' },
+    { q: 'We know our gross margin, average order/deal value and lead-to-customer rate.', fix: 'Document unit economics, every target depends on them.' },
     { q: 'We have a written target CPL/CAC that we can afford.', fix: 'Calculate break-even CPL and CAC with the ROI calculator.' },
     { q: 'Our positioning explains clearly why customers should choose us.', fix: 'Run customer interviews and sharpen positioning before scaling ads.' },
   ] },
@@ -57,7 +57,7 @@ export const marketingAudit: Section[] = [
 export const seoHealth: Section[] = [
   { name: 'Technical', questions: [
     { q: 'Site uses HTTPS everywhere, with no mixed content.', fix: 'Force HTTPS and fix mixed-content resources.' },
-    { q: 'Important pages are indexed (Search Console → Pages).', fix: 'Fix noindex, canonical and crawl issues on key pages.' },
+    { q: 'Important pages are indexed (Search Console, Pages report).', fix: 'Fix noindex, canonical and crawl issues on key pages.' },
     { q: 'An XML sitemap is submitted and robots.txt blocks nothing important.', fix: 'Submit a clean sitemap; review robots.txt.' },
     { q: 'Core Web Vitals pass on mobile.', fix: 'Optimise images, scripts and layout shifts.' },
     { q: 'No broken internal links or redirect chains.', fix: 'Crawl the site and fix 4xx and chained redirects.' },
@@ -79,7 +79,7 @@ export const seoHealth: Section[] = [
     { q: 'Google Business Profile is complete and gets fresh reviews.', fix: 'Complete the profile and set up a compliant review request process.' },
   ] },
   { name: 'AI search readiness', questions: [
-    { q: 'Key pages open with a direct answer to the main question.', fix: 'Add a 40–60 word direct answer at the top of key sections.' },
+    { q: 'Key pages open with a direct answer to the main question.', fix: 'Add a 40-60 word direct answer at the top of key sections.' },
     { q: 'Organization, Article, FAQ and Breadcrumb schema are implemented where eligible.', fix: 'Implement valid structured data that matches visible content.' },
     { q: 'Statistics cite sources with dates.', fix: 'Add source, year and link to every statistic.' },
   ] },

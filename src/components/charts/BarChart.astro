@@ -60,7 +60,7 @@ const hasForecast = data.some((d) => d.forecast);
   </svg>
   <div class="chart-meta">
     <div class="tags"><KindBadge kind={kind} />{hasForecast && <span class="tag tag--warn">Hatched = forecast</span>}</div>
-    <p><strong>Source:</strong> {sourceUrl ? <a href={sourceUrl} rel="noopener" target="_blank">{source}</a> : source} · <strong>Year:</strong> {year} · <strong>Geography:</strong> {geography}</p>
+    <p><strong>Source:</strong> {sourceUrl ? <a href={sourceUrl} rel="noopener" target="_blank">{source}</a> : source} | <strong>Year:</strong> {year} | <strong>Geography:</strong> {geography}</p>
     <p><strong>Method:</strong> {methodology}</p>
   </div>
   <details class="table-view">

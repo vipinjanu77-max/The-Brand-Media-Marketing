@@ -7,7 +7,7 @@ const items = await getCollection('compare');
 const crumbs = [{ name: 'Comparisons', href: '/compare/' }];
 ---
 <Base title="Marketing Comparisons" description="Neutral, factual comparisons: Google Ads vs Meta Ads, SEO vs PPC, SEO vs AEO, agency vs freelancer, in-house vs agency, organic vs paid and more." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} art={{ seed: 'compare', motif: 'compass', variant: 'royal' }} eyebrow="Comparison hub" title="Side-by-side, without the sales pitch." lede="Objective comparisons for the decisions buyers make most often. Most of the time the honest answer is “both, for different jobs” — we explain which job each does." />
+  <PageHero crumbs={crumbs} art={{ seed: 'compare', motif: 'compass', variant: 'royal' }} eyebrow="Comparison hub" title="Side-by-side, without the sales pitch." lede="Objective comparisons for the decisions buyers make most often. Most of the time the honest answer is 'both, for different jobs': we explain which job each does." />
   <section class="section"><div class="container grid grid-3">
     {items.map((c) => <article class="card"><h2 class="h"><a class="card-link" href={`/compare/${c.id}/`}>{c.data.title}</a></h2><p>{c.data.directAnswer.split('. ')[0]}.</p></article>)}
   </div></section>

@@ -3,7 +3,7 @@ import { auditHref, site, has } from '../../lib/site';
 const wa = has(site.whatsapp) ? `https://wa.me/${site.whatsapp.replace(/\D/g, '')}` : null;
 ---
 <div class="mobile-cta hide-desktop" data-mobile-cta>
-  <a href={auditHref} class="btn" data-track="cta_click" data-cta="growth_audit_sticky_mobile">Get Growth Audit <span class="arrow" aria-hidden="true">→</span></a>
+  <a href={auditHref} class="btn" data-track="cta_click" data-cta="growth_audit_sticky_mobile">Get Growth Audit <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   {wa && <a href={wa} class="btn btn--ghost wa" aria-label="Chat on WhatsApp" data-track="cta_click" data-cta="whatsapp_sticky_mobile">WhatsApp</a>}
 </div>
 <style>
