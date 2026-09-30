@@ -56,7 +56,7 @@ const why = [
         <h1>We Don't Just Run Campaigns.<br /><span>We Build Growth Systems.</span></h1>
         <p class="lede">TBM combines strategy, performance marketing, SEO, creative, technology and analytics to help businesses acquire customers, improve conversion and build sustainable growth.</p>
         <div class="btn-row">
-          <a href={auditHref} class="btn" data-track="cta_click" data-cta="hero_growth_audit">Get Your Free Growth Audit <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href={auditHref} class="btn" data-track="cta_click" data-cta="hero_growth_audit">Get Your Free Growth Audit</a>
           <a href="/case-studies/" class="btn btn--ghost" data-track="cta_click" data-cta="hero_explore_work">Explore Our Work</a>
         </div>
         <p class="hero-note small muted">No lock-in pitch. A clear view of where your growth is leaking, and what to fix first.</p>
@@ -97,7 +97,7 @@ const why = [
     <div class="container">
       <SectionHead eyebrow="Our Growth System" title="Seven stages. One accountable system." lede="Every engagement runs through the same operating model, so you always know what we are doing, why, and how it will be measured." />
       <GrowthSystem />
-      <p class="mt-2"><a href="/process/" class="text-link">See how onboarding works week by week <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+      <p class="mt-2"><a href="/process/" class="text-link">See how onboarding works week by week</a></p>
     </div>
   </section>
 
@@ -183,7 +183,7 @@ const why = [
           <ul class="list-links" role="list">
             {research.slice(0, 4).map((r) => <li><a href={`/research/${r.id}/`}><strong>{r.data.title}</strong><span>{r.data.label} | Updated {r.data.updated.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</span></a></li>)}
           </ul>
-          <a class="text-link mt-1" href="/research/">Explore Marketing Intelligence <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="text-link mt-1" href="/research/">Explore Marketing Intelligence</a>
         </div>
         <div class="card card--navy">
           <span class="eyebrow">Original research</span>
@@ -228,7 +228,7 @@ const why = [
       <ol class="timeline" role="list">
         {onboarding.map((o) => <li class="reveal"><span class="when">{o.when}</span><strong>{o.what}</strong><p>{o.detail}</p></li>)}
       </ol>
-      <p class="mt-2"><a href="/process/" class="text-link">Full onboarding detail <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+      <p class="mt-2"><a href="/process/" class="text-link">Full onboarding detail</a></p>
     </div>
   </section>
 
@@ -244,7 +244,7 @@ const why = [
           </article>
         ))}
       </div>
-      <p class="mt-2"><a href="/team/" class="text-link">Meet the team <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+      <p class="mt-2"><a href="/team/" class="text-link">Meet the team</a></p>
     </div>
   </section>
   )}
@@ -339,7 +339,6 @@ const why = [
   .chain { list-style: none; padding: 0; margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; counter-reset: c; }
   .chain li { counter-increment: c; display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-radius: 999px; background: rgb(255 255 255 / 0.08); font-weight: 600; }
   .chain li::before { content: counter(c); font-size: 0.75rem; color: #9fb8ff; }
-  .chain li:not(:last-child)::after { content: ' to '; margin-left: 0.5rem; color: #6f95f5; }
 
   .svc-groups { display: grid; gap: 2rem 3rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); }
   .svc-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--royal-600); margin-bottom: 0.5rem; }

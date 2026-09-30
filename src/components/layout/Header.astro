@@ -45,14 +45,14 @@ const isActive = (href: string) => path.startsWith(href) && href !== '/';
                     <span class="eyebrow">{item.feature.eyebrow}</span>
                     <strong>{item.feature.title}</strong>
                     <span>{item.feature.body}</span>
-                    <span class="text-link">{item.feature.cta} <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="text-link">{item.feature.cta}</span>
                   </a>
                 ) : (
                   <a class="mega-feature" href={item.href}>
                     <span class="eyebrow">Overview</span>
                     <strong>All {item.label.toLowerCase()}</strong>
                     <span>Browse everything in {item.label}.</span>
-                    <span class="text-link">Explore <svg class="arrow" width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="text-link">Explore</span>
                   </a>
                 )}
               </div>

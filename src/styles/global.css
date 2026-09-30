@@ -128,7 +128,6 @@ table { border-collapse: collapse; width: 100%; }
   font-size: 0.78rem; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--royal-600);
 }
-.eyebrow::before { content: ''; width: 18px; height: 2px; background: currentColor; }
 .section--navy .eyebrow, .card--navy .eyebrow { color: #8fb0ff; }
 .section-head { max-width: 780px; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
 .section-head > * + * { margin-top: 1rem; }
@@ -149,8 +148,6 @@ table { border-collapse: collapse; width: 100%; }
 }
 .btn:hover { --bg: var(--royal-700); --bd: var(--royal-700); color: var(--fg); }
 .btn:active { transform: translateY(1px); }
-.btn .arrow { transition: transform 0.2s var(--ease); }
-.btn:hover .arrow { transform: translateX(3px); }
 .btn--ghost { --bg: transparent; --fg: var(--navy-900); --bd: var(--line-2); }
 .btn--ghost:hover { --bg: var(--paper-2); --bd: var(--navy-900); --fg: var(--navy-900); }
 .btn--light { --bg: #fff; --fg: var(--navy-900); --bd: #fff; }
