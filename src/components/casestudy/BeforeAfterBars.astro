@@ -1,0 +1,57 @@
+---
+/**
+ * Case study: paired horizontal bars, one row per metric.
+ * Each row is scaled to its own larger value, so metrics with different units sit together.
+ * `before` and `after` are plain numbers for scaling; `beforeLabel`/`afterLabel` are what is shown.
+ */
+interface Row { label: string; before: number; after: number; beforeLabel: string; afterLabel: string; change: string; lowerIsBetter?: boolean }
+interface Props { rows: Row[]; title?: string; caption?: string }
+const { rows, title, caption } = Astro.props;
+---
+<figure class="bab">
+  {title && <figcaption class="bab-title">{title}</figcaption>}
+  <div class="bab-legend" aria-hidden="true"><span><i class="sw sw-b"></i>Before TBM</span><span><i class="sw sw-a"></i>After TBM (months 4 to 6)</span></div>
+  <ul class="bab-rows" role="list">
+    {rows.map((r, i) => {
+      const max = Math.max(r.before, r.after) || 1;
+      const good = r.lowerIsBetter ? r.after <= r.before : r.after >= r.before;
+      return (
+        <li class="bab-row" style={`--i:${i}`}>
+          <div class="bab-head">
+            <span class="bab-label">{r.label}</span>
+            <span class:list={['bab-chg', { 'bab-chg--good': good }]}>{r.change}</span>
+          </div>
+          <div class="bab-track" aria-label={`${r.label}: before ${r.beforeLabel}, after ${r.afterLabel}, change ${r.change}`} role="img">
+            <span class="bar bar-b" style={`width:${(r.before / max) * 100}%`}><em>{r.beforeLabel}</em></span>
+            <span class="bar bar-a" style={`width:${(r.after / max) * 100}%`}><em>{r.afterLabel}</em></span>
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+  {caption && <p class="bab-cap">{caption}</p>}
+</figure>
+<style>
+  .bab { display: grid; gap: 1rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow-sm); }
+  .bab-title { font-weight: 700; color: var(--navy-900); font-size: var(--step-1); }
+  .bab-legend { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.82rem; color: var(--ink-3); }
+  .bab-legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .sw { width: 14px; height: 10px; border-radius: 3px; display: inline-block; }
+  .sw-b { background: #cfd5e2; }
+  .sw-a { background: linear-gradient(90deg, var(--royal-600), #5c86f2); }
+  .bab-rows { list-style: none; padding: 0; display: grid; gap: 1.1rem; }
+  .bab-head { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; margin-bottom: 0.4rem; }
+  .bab-label { font-weight: 620; color: var(--navy-900); font-size: 0.95rem; }
+  .bab-chg { font-size: 0.8rem; font-weight: 700; color: var(--ink-2); background: var(--paper-2); padding: 0.1rem 0.55rem; border-radius: 99px; white-space: nowrap; }
+  .bab-chg--good { color: var(--good); background: #e8f6ee; }
+  .bab-track { display: grid; gap: 5px; }
+  .bar { position: relative; display: flex; align-items: center; min-width: 4.5rem; height: 24px; border-radius: 6px; }
+  .bar em { font-style: normal; font-size: 0.78rem; font-weight: 650; padding-left: 0.6rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .bar-b { background: #e6e9f0; color: var(--ink-2); }
+  .bar-a { background: linear-gradient(90deg, var(--royal-600), #5c86f2); color: #fff; }
+  .bab-cap { font-size: 0.82rem; color: var(--ink-3); }
+  @media (prefers-reduced-motion: no-preference) {
+    .bar-a { animation: bgrow 0.9s var(--ease) both; animation-delay: calc(var(--i) * 0.07s); transform-origin: left; }
+    @keyframes bgrow { from { transform: scaleX(0.15); opacity: 0.3; } }
+  }
+</style>

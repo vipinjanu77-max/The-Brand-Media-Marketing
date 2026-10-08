@@ -1,0 +1,57 @@
+---
+/**
+ * Case study: headline KPI band. Navy band with large before/after tiles,
+ * a change pill and a mini bar showing "after" against "before".
+ * `ratio` is after / before (e.g. 1.86). For metrics where lower is better, pass `lowerIsBetter`.
+ */
+import Icon from '../infographics/Icon.astro';
+interface Kpi { label: string; before: string; after: string; change: string; ratio: number; icon: string; lowerIsBetter?: boolean }
+interface Props { items: Kpi[]; note?: string }
+const { items, note } = Astro.props;
+---
+<section class="kpi-band" aria-label="Headline results">
+  <div class="container">
+    <ul class="kpi-grid" role="list">
+      {items.map((k, i) => {
+        const before = k.lowerIsBetter ? 100 : Math.min(100, 100 / Math.max(k.ratio, 1));
+        const after = k.lowerIsBetter ? Math.max(8, 100 * k.ratio) : 100;
+        return (
+          <li class="kpi" style={`--i:${i}`}>
+            <div class="kpi-top">
+              <span class="kpi-ico"><Icon name={k.icon} size={22} /></span>
+              <span class="kpi-change">{k.change}</span>
+            </div>
+            <p class="kpi-after num">{k.after}</p>
+            <p class="kpi-label">{k.label}</p>
+            <div class="kpi-bars" aria-hidden="true">
+              <span class="kb kb-before" style={`width:${before}%`}></span>
+              <span class="kb kb-after" style={`width:${after}%`}></span>
+            </div>
+            <p class="kpi-before">Before: <span class="num">{k.before}</span></p>
+          </li>
+        );
+      })}
+    </ul>
+    {note && <p class="kpi-note">{note}</p>}
+  </div>
+</section>
+<style>
+  .kpi-band { background: radial-gradient(120% 140% at 85% -20%, #1f4fd8 0%, var(--navy-900) 55%, var(--navy-950) 100%); padding-block: clamp(2.25rem, 4vw, 3.5rem); color: #d7def0; }
+  .kpi-grid { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+  .kpi { display: flex; flex-direction: column; gap: 0.45rem; padding: 1.35rem 1.35rem 1.2rem; border-radius: var(--radius); background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.12); backdrop-filter: blur(6px); }
+  .kpi-top { display: flex; justify-content: space-between; align-items: center; }
+  .kpi-ico { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: rgb(143 176 255 / 0.15); color: #a9c1ff; }
+  .kpi-change { font-size: 0.8rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgb(27 175 122 / 0.18); color: #7fe0b8; border: 1px solid rgb(127 224 184 / 0.3); }
+  .kpi-after { font-family: var(--font-serif); font-size: clamp(2rem, 1.6rem + 1.6vw, 2.9rem); line-height: 1.05; color: #fff; margin-top: 0.35rem; }
+  .kpi-label { font-size: 0.9rem; font-weight: 600; color: #c4cde6; }
+  .kpi-bars { display: grid; gap: 4px; margin-top: 0.35rem; }
+  .kb { display: block; height: 6px; border-radius: 99px; }
+  .kb-before { background: rgb(255 255 255 / 0.22); }
+  .kb-after { background: linear-gradient(90deg, #6f95f5, #9fe6c8); }
+  .kpi-before { font-size: 0.8rem; color: #8e9bbd; }
+  .kpi-note { margin-top: 1rem; font-size: 0.8rem; color: #8e9bbd; }
+  @media (prefers-reduced-motion: no-preference) {
+    .kb-after { animation: kgrow 0.9s var(--ease) both; animation-delay: calc(var(--i) * 0.12s + 0.2s); transform-origin: left; }
+    @keyframes kgrow { from { transform: scaleX(0); } }
+  }
+</style>

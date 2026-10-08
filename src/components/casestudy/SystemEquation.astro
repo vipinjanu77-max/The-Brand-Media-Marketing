@@ -1,0 +1,29 @@
+---
+/** Case study: "A + B + C ... = outcome" as connected blocks; the emphasised block is highlighted. */
+interface Block { name: string; role: string; emphasis?: boolean }
+interface Props { blocks: Block[]; result?: string }
+const { blocks, result } = Astro.props;
+---
+<div class="se" role="list" aria-label={`${blocks.map((b) => b.name).join(' plus ')}${result ? ` equals ${result}` : ''}`}>
+  {blocks.map((b, i) => (
+    <>
+      {i > 0 && <span class="se-op" aria-hidden="true">+</span>}
+      <div role="listitem" class:list={['se-block', { 'se-block--em': b.emphasis }]}>
+        <strong>{b.name}</strong>
+        <span>{b.role}</span>
+      </div>
+    </>
+  ))}
+  {result && <><span class="se-op" aria-hidden="true">=</span><div role="listitem" class="se-block se-block--result"><strong>{result}</strong></div></>}
+</div>
+<style>
+  .se { display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 0.6rem; }
+  .se-block { flex: 1 1 128px; max-width: 170px; display: flex; flex-direction: column; gap: 0.3rem; justify-content: center; text-align: center; padding: 1rem 0.8rem; border-radius: var(--radius); background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.14); }
+  .se-block strong { color: #fff; font-size: 0.95rem; }
+  .se-block span { font-size: 0.78rem; color: #a9b6d6; line-height: 1.35; }
+  .se-block--em { background: linear-gradient(135deg, #0f7b4a, #1baf7a); border-color: transparent; box-shadow: 0 16px 36px -16px rgb(27 175 122 / 0.7); }
+  .se-block--em span { color: #dff7ec; }
+  .se-block--result { background: #fff; border-color: #fff; max-width: 220px; }
+  .se-block--result strong { color: var(--navy-900); font-family: var(--font-serif); font-size: 1.15rem; }
+  .se-op { align-self: center; font-size: 1.4rem; font-weight: 300; color: #6f84b8; }
+</style>
