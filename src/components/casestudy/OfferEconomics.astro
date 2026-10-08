@@ -1,0 +1,64 @@
+---
+/**
+ * Case study: contribution per order, offer vs offer.
+ * Each bar is the price the customer pays, split into cost (grey) and contribution (coloured).
+ * `tone`: 'base' (reference), 'bad' (margin-destroying), 'good' (recommended).
+ */
+interface Offer { label: string; pays: number; cost: number; tone: 'base' | 'bad' | 'good' }
+interface Props { offers: Offer[]; currency?: string; callout?: string; note?: string }
+const { offers, currency = '₹', callout, note } = Astro.props;
+const max = Math.max(...offers.map((o) => o.pays)) || 1;
+const fmt = (v: number) => `${currency}${v.toLocaleString('en-IN')}`;
+---
+<figure class="oe">
+  <div class="oe-legend" aria-hidden="true">
+    <span><i class="sw sw-cost"></i>Food and packaging cost</span>
+    <span><i class="sw sw-contrib"></i>Contribution kept per order</span>
+  </div>
+  <ul class="oe-rows" role="list">
+    {offers.map((o, i) => {
+      const contrib = o.pays - o.cost;
+      return (
+        <li class:list={['oe-row', `oe-row--${o.tone}`]} style={`--i:${i}`}>
+          <div class="oe-head">
+            <span class="oe-label">{o.label}</span>
+            <span class="oe-pays">Customer pays <strong class="num">{fmt(o.pays)}</strong></span>
+          </div>
+          <div class="oe-track" style={`width:${(o.pays / max) * 100}%`} role="img" aria-label={`${o.label}: customer pays ${fmt(o.pays)}, cost ${fmt(o.cost)}, contribution ${fmt(contrib)}`}>
+            <span class="seg seg-cost" style={`flex:${o.cost}`}><em>{fmt(o.cost)}</em></span>
+            <span class="seg seg-contrib" style={`flex:${Math.max(contrib, 0)}`}><em>{fmt(contrib)}</em></span>
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+  {callout && <p class="oe-callout">{callout}</p>}
+  {note && <p class="oe-note">{note}</p>}
+</figure>
+<style>
+  .oe { display: grid; gap: 1.1rem; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
+  .oe-legend { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.82rem; color: var(--ink-3); }
+  .oe-legend span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .sw { width: 14px; height: 10px; border-radius: 3px; display: inline-block; }
+  .sw-cost { background: #d6dbe5; }
+  .sw-contrib { background: var(--royal-600); }
+  .oe-rows { list-style: none; padding: 0; display: grid; gap: 1.2rem; }
+  .oe-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.25rem 1rem; margin-bottom: 0.45rem; }
+  .oe-label { font-weight: 650; color: var(--navy-900); }
+  .oe-pays { font-size: 0.85rem; color: var(--ink-3); }
+  .oe-pays strong { color: var(--navy-900); }
+  .oe-track { display: flex; min-width: 9rem; height: 40px; border-radius: 8px; overflow: hidden; }
+  .seg { display: flex; align-items: center; justify-content: center; min-width: 3.4rem; }
+  .seg em { font-style: normal; font-size: 0.82rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .seg-cost { background: #e3e7ef; color: var(--ink-2); }
+  .seg-contrib { background: var(--royal-600); color: #fff; }
+  .oe-row--bad .seg-contrib { background: var(--series-2); }
+  .oe-row--good .seg-contrib { background: linear-gradient(90deg, #0f7b4a, var(--series-3)); }
+  .oe-row--good .oe-label::after { content: 'Recommended'; margin-left: 0.6rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--good); background: #e8f6ee; border: 1px solid #bfe5cf; padding: 0.1rem 0.45rem; border-radius: 99px; vertical-align: 2px; }
+  .oe-callout { padding: 0.9rem 1.1rem; border-radius: var(--radius-sm); background: var(--royal-50); border: 1px solid var(--royal-100); color: var(--navy-900); font-weight: 600; }
+  .oe-note { font-size: 0.8rem; color: var(--ink-3); }
+  @media (prefers-reduced-motion: no-preference) {
+    .oe-track { animation: oegrow 0.9s var(--ease) both; animation-delay: calc(var(--i) * 0.12s); transform-origin: left; }
+    @keyframes oegrow { from { transform: scaleX(0.2); opacity: 0.2; } }
+  }
+</style>

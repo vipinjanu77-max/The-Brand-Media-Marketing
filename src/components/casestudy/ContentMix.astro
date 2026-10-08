@@ -1,0 +1,39 @@
+---
+/**
+ * Case study: content system. Categories grouped by the job they do in the funnel
+ * (e.g. discovery, trust, conversion), shown as three coloured lanes.
+ */
+interface Item { name: string; role: string }
+interface Lane { name: string; purpose: string; items: Item[] }
+interface Props { lanes: Lane[] }
+const { lanes } = Astro.props;
+const tones = ['discover', 'trust', 'convert'];
+---
+<div class="cm">
+  {lanes.map((l, i) => (
+    <section class:list={['cm-lane', `cm-lane--${tones[i % tones.length]}`]} aria-label={l.name}>
+      <header class="cm-head">
+        <span class="cm-step">{String(i + 1).padStart(2, '0')}</span>
+        <div><h3>{l.name}</h3><p>{l.purpose}</p></div>
+      </header>
+      <ul role="list">
+        {l.items.map((it) => <li><strong>{it.name}</strong><span>{it.role}</span></li>)}
+      </ul>
+    </section>
+  ))}
+</div>
+<style>
+  .cm { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+  .cm-lane { --c: var(--royal-600); --bg: var(--royal-50); display: flex; flex-direction: column; gap: 1rem; padding: 1.35rem; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .cm-lane::before { content: ''; position: absolute; inset: 0 0 auto; height: 4px; background: var(--c); }
+  .cm-lane--trust { --c: #7a5af0; --bg: #f1edfe; }
+  .cm-lane--convert { --c: var(--good); --bg: #e8f6ee; }
+  .cm-head { display: flex; gap: 0.85rem; align-items: flex-start; }
+  .cm-step { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: var(--bg); color: var(--c); font-weight: 800; font-size: 0.9rem; }
+  .cm-head h3 { font-size: 1.1rem; font-family: var(--font-sans); color: var(--navy-900); }
+  .cm-head p { font-size: 0.85rem; color: var(--ink-3); }
+  .cm ul { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .cm li { display: grid; gap: 0.1rem; padding: 0.7rem 0.85rem; border-radius: var(--radius-sm); background: var(--bg); }
+  .cm li strong { font-size: 0.9rem; color: var(--navy-900); }
+  .cm li span { font-size: 0.82rem; color: var(--ink-2); line-height: 1.45; }
+</style>

@@ -1,6 +1,6 @@
 # JBD case study: publishing brief
 
-Companion to `src/content/case-studies/jbd-jhunjhunu-cafe.md`.
+Companion to `src/content/case-studies/jbd-jhunjhunu-cafe.mdx`.
 Status: **ILLUSTRATIVE DRAFT. Do not publish until every row in section 5 is verified.**
 
 ---

@@ -1,0 +1,36 @@
+---
+/** Case study: simple ranked horizontal bars (e.g. Reel views), largest first, top item highlighted. */
+interface Item { label: string; value: number; display: string; note?: string }
+interface Props { items: Item[]; title?: string; caption?: string }
+const { items, title, caption } = Astro.props;
+const max = Math.max(...items.map((i) => i.value)) || 1;
+---
+<figure class="rb">
+  {title && <figcaption class="rb-title">{title}</figcaption>}
+  <ul class="rb-list" role="list">
+    {items.map((it, i) => (
+      <li class:list={['rb-row', { 'rb-row--top': i === 0 }]} style={`--i:${i}`}>
+        <div class="rb-head"><span>{it.label}</span><strong class="num">{it.display}</strong></div>
+        <div class="rb-track" aria-hidden="true"><span style={`width:${Math.max(4, (it.value / max) * 100)}%`}></span></div>
+        {it.note && <p class="rb-note">{it.note}</p>}
+      </li>
+    ))}
+  </ul>
+  {caption && <p class="rb-cap">{caption}</p>}
+</figure>
+<style>
+  .rb { display: grid; gap: 1rem; padding: clamp(1.25rem, 3vw, 1.75rem); border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+  .rb-title { font-weight: 700; color: var(--navy-900); }
+  .rb-list { list-style: none; padding: 0; display: grid; gap: 0.9rem; }
+  .rb-head { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.9rem; color: var(--ink-2); margin-bottom: 0.3rem; }
+  .rb-head strong { color: var(--navy-900); }
+  .rb-track { height: 12px; border-radius: 99px; background: var(--paper-2); overflow: hidden; }
+  .rb-track span { display: block; height: 100%; border-radius: 99px; background: #9fb8f3; }
+  .rb-row--top .rb-track span { background: linear-gradient(90deg, var(--royal-600), #8e5cf0); }
+  .rb-note { font-size: 0.78rem; color: var(--ink-3); margin-top: 0.25rem; }
+  .rb-cap { font-size: 0.8rem; color: var(--ink-3); }
+  @media (prefers-reduced-motion: no-preference) {
+    .rb-track span { animation: rbg 0.9s var(--ease) both; animation-delay: calc(var(--i) * 0.08s); transform-origin: left; }
+    @keyframes rbg { from { transform: scaleX(0); } }
+  }
+</style>

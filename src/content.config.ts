@@ -253,6 +253,10 @@ const caseStudies = defineCollection({
     author: z.string(),
     date: z.coerce.date(),
     draft: z.boolean().default(true),
+    /** 'story' renders the MDX body as full-width designed sections (infographics); 'standard' is the plain template. */
+    layout: z.enum(['standard', 'story']).default('standard'),
+    /** Optional cover motif for the story hero artwork (see src/lib/motifs.ts), e.g. 'cup'. */
+    heroMotif: z.string().optional(),
     seo,
   }),
 });

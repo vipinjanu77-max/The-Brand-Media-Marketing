@@ -1,0 +1,37 @@
+---
+/** Case study: execution phases as a horizontal step timeline (stacks vertically on mobile). */
+interface Phase { when: string; title: string; items: string[] }
+interface Props { phases: Phase[] }
+const { phases } = Astro.props;
+---
+<ol class="pt" role="list" style={`--n:${phases.length}`}>
+  {phases.map((p, i) => (
+    <li class="pt-step" style={`--i:${i}`}>
+      <div class="pt-marker" aria-hidden="true"><span>{i + 1}</span></div>
+      <p class="pt-when">{p.when}</p>
+      <h3 class="pt-title">{p.title}</h3>
+      <ul role="list">{p.items.map((it) => <li>{it}</li>)}</ul>
+    </li>
+  ))}
+</ol>
+<style>
+  .pt { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); position: relative; }
+  .pt::before { content: ''; position: absolute; top: 22px; left: 22px; right: 22px; height: 2px; background: linear-gradient(90deg, var(--royal-600), #8fb0ff, var(--good)); }
+  .pt-step { position: relative; display: flex; flex-direction: column; gap: 0.45rem; }
+  .pt-marker { position: relative; z-index: 1; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #fff; border: 2px solid var(--royal-600); box-shadow: 0 0 0 6px var(--paper-2); }
+  .pt-marker span { font-weight: 800; color: var(--royal-600); }
+  .pt-step:last-child .pt-marker { background: var(--royal-600); }
+  .pt-step:last-child .pt-marker span { color: #fff; }
+  .pt-when { margin-top: 0.6rem; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--royal-600); }
+  .pt-title { font-size: 1.1rem; font-family: var(--font-sans); color: var(--navy-900); }
+  .pt-step ul { list-style: none; padding: 0; display: grid; gap: 0.35rem; }
+  .pt-step li { position: relative; padding-left: 1rem; font-size: 0.86rem; color: var(--ink-2); line-height: 1.45; }
+  .pt-step li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--royal-500); }
+  @media (max-width: 820px) {
+    .pt { grid-template-columns: 1fr; gap: 1.5rem; }
+    .pt::before { top: 22px; bottom: 22px; left: 22px; right: auto; width: 2px; height: auto; background: linear-gradient(var(--royal-600), var(--good)); }
+    .pt-step { padding-left: 64px; }
+    .pt-marker { position: absolute; left: 0; top: 0; }
+    .pt-when { margin-top: 0.7rem; }
+  }
+</style>
