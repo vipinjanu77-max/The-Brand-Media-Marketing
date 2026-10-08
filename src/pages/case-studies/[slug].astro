@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props as { entry: CollectionEntry<'caseStudies'> };
 const d = entry.data;
 const isDraftPreview = !(d.verified && d.clientApprovalOnFile && !d.draft);
-const isStory = d.layout === 'story';
+const isStory = d.template === 'story';
 const { Content } = await render(entry);
 const crumbs = [{ name: 'Case studies', href: '/case-studies/' }, { name: d.clientNamePublic ? d.client : d.industry, href: `/case-studies/${entry.id}/` }];
 // Show service names instead of slugs, linked to their pages.
