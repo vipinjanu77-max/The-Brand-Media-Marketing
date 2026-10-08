@@ -4,7 +4,9 @@ import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/ui/PageHero.astro';
 import CTABand from '../../components/ui/CTABand.astro';
 import Placeholder from '../../components/ui/Placeholder.astro';
-const cases = (await getCollection('caseStudies', (c) => c.data.verified && c.data.clientApprovalOnFile && !c.data.draft)).sort((a, b) => +b.data.date - +a.data.date);
+const isPublished = (c: { data: { verified: boolean; clientApprovalOnFile: boolean; draft: boolean } }) => c.data.verified && c.data.clientApprovalOnFile && !c.data.draft;
+// In `npm run dev` only, drafts are listed too (tagged) so they can be reviewed locally. Production lists published entries only.
+const cases = (await getCollection('caseStudies', (c) => isPublished(c) || (import.meta.env.DEV && c.id !== 'example-template'))).sort((a, b) => +b.data.date - +a.data.date);
 const industries = [...new Set(cases.map((c) => c.data.industry))];
 const crumbs = [{ name: 'Case studies', href: '/case-studies/' }];
 const fields = ['Client', 'Industry', 'Location', 'Business challenge', 'Starting point', 'Objective', 'Strategy', 'Execution', 'Campaign structure', 'Budget range', 'Timeline', 'Before', 'After', 'Results', 'Business impact', 'Learnings', 'Client testimonial', 'Visual evidence'];
@@ -22,7 +24,7 @@ const fields = ['Client', 'Industry', 'Location', 'Business challenge', 'Startin
           <div class="grid grid-3 mt-2">
             {cases.map((c) => (
               <article class="card" data-industry={c.data.industry}>
-                <div class="tags"><span class="tag">{c.data.industry}</span><span class="tag tag--neutral">{c.data.location}</span></div>
+                <div class="tags">{!isPublished(c) && <span class="tag" style="background:#fff6e5;color:#6d4b00">Draft (local only)</span>}<span class="tag">{c.data.industry}</span><span class="tag tag--neutral">{c.data.location}</span></div>
                 <h2 class="h"><a class="card-link" href={`/case-studies/${c.id}/`}>{c.data.title}</a></h2>
                 <p>{c.data.challenge}</p>
                 {c.data.metrics[0] && <p class="meta"><strong>{c.data.metrics[0].label}:</strong> {c.data.metrics[0].before} to {c.data.metrics[0].after}</p>}
