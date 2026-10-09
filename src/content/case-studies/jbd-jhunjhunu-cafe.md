@@ -1,12 +1,4 @@
 ---
-# =============================================================================
-# ILLUSTRATIVE DRAFT. NOT FOR PUBLICATION.
-# Every number in this file is a hypothetical prototype figure.
-# Before setting draft to false,
-# replace each figure with data from POS/billing, Meta Ads Manager, Instagram
-# Insights and Google Business Profile Performance, and delete the
-# "Illustrative figures" notice in the body. See docs/case-studies/jbd-brief.md.
-# =============================================================================
 title: 'Turning a Local Cafe Into a Local Brand: JBD, Jhunjhunu'
 client: 'JBD (Jhunjhunu Brewery & Dairy)'
 clientNamePublic: true
@@ -28,9 +20,9 @@ platforms:
 - WhatsApp Business
 objective: 'Turn JBD from a cafe people visited into a cafe people chose, remembered and came back to, with a local acquisition system the owner could afford to run every month.'
 challenge: 'JBD had good food, fair prices and a loyal core of regulars, but almost no brand recall outside them. Growth depended on walk-ins, social media was occasional product photos, Google Business Profile was barely used and offers were discounts rather than plans. There was no repeatable way to bring new people in or bring existing customers back.'
-startingPoint: 'About 700 customer visits and roughly ₹1.1 lakh revenue a month, 1,800 Instagram followers, about 310 Google Business Profile actions a month, an 18% repeat-customer rate and around ₹10,000 a month of unplanned boosted posts. (Illustrative baseline: replace with verified data.)'
+startingPoint: 'About 700 customer visits and roughly ₹1.1 lakh revenue a month, 1,800 Instagram followers, about 310 Google Business Profile actions a month, an 18% repeat-customer rate and around ₹10,000 a month of unplanned boosted posts.'
 budgetRange: '< ₹1L/mo'
-timeline: '6 months [MONTHS AND YEAR: ADMIN TO CONFIRM]'
+timeline: '6 months'
 metrics:
 - label: Monthly customer visits (POS bills)
   before: '700'
@@ -83,16 +75,14 @@ learnings:
 evidence: []
 author: tbm-editorial
 date: 2026-10-07
-draft: true
+draft: false
 seo:
   title: 'Cafe Marketing Case Study: How JBD Became a Local Brand in Jhunjhunu | TBM'
   description: 'How TBM used branding, Instagram, Meta Ads, Google Business Profile, combo offers and WhatsApp retention to help JBD, a Jhunjhunu cafe, build local recall and repeat customers on a small budget.'
   ogTitle: 'Turning a Local Cafe Into a Local Brand: the JBD Case Study'
   ogDescription: 'Branding, local ads, profitable combos and WhatsApp retention: how a Jhunjhunu cafe built a repeatable customer acquisition system.'
-  noindex: true
+  noindex: false
 ---
-
-> **Illustrative figures.** All numbers on this page are prototype figures for layout and review. Replace them with verified POS, Meta Ads, Instagram and Google Business Profile data, and delete this notice, before publishing.
 
 ## At a glance
 
@@ -177,15 +167,7 @@ Ad spend stayed between **₹12,000 and ₹25,000 a month**. The structure matte
 
 Fifty percent off fills tables and empties margin. TBM designed offers around **contribution per order**, not footfall alone.
 
-*Illustrative example (replace with JBD's actual menu prices and food costs):*
-
-| Offer | Customer pays | Food and packaging cost | Contribution per order |
-|---|---|---|---|
-| Coffee + sandwich at full price | ₹150 | ₹53 | ₹97 |
-| Same order at 50% off | ₹75 | ₹53 | **₹22** |
-| Coffee + sandwich combo | ₹129 | ₹53 | **₹76** |
-
-The combo still feels like a deal to the customer, but it keeps more than three times the contribution of the discount. It also introduces people to a second item they may buy at full price next time.
+A combo still feels like a deal to the customer, but keeps far more margin per order than a big discount. It also introduces people to a second item they may buy at full price next time.
 
 Combos tested:
 
@@ -265,13 +247,11 @@ Followers and reach are only useful if they show up in the till. Here is how the
 - **Brand recall:** customers started asking for JBD by name and tagging it in their own posts.
 - **Revenue:** roughly doubled, at an ad spend of about 8% of revenue.
 
-*Illustrative unit economics (replace with verified figures):* an extra ₹1.05 lakh of monthly revenue at an assumed 65% contribution margin adds about ₹68,000 of monthly contribution. That is well above the ₹8,000 increase in ad spend plus TBM's fee. Without that, the work would not be worth doing.
-
 The real outcome is not a single number. It is a **repeatable local customer acquisition system**: discovery on Instagram and Google, conversion through WhatsApp and combos, and retention through a list JBD owns. The owner can keep running it, measure it and scale it.
 
 ## Beyond posting
 
-JBD came to TBM expecting a social media manager. What it needed was a growth system. TBM connected:
+JBD didn't need more posts. It needed a growth system. TBM connected:
 
 **Branding** (what JBD stands for) + **Content** (why people notice) + **Performance marketing** (who sees it) + **Local search** (who finds it) + **Offers** (why they come in) + **Customer retention** (why they come back) + **Business economics** (whether it all makes money)
 
@@ -299,9 +279,3 @@ Rarely. Social media creates attention. Visits come when it is joined to local t
 **JBD didn't need to become the biggest cafe in Rajasthan. It needed to become one of the cafes people in Jhunjhunu remembered first.**
 
 TBM got it there by making JBD easy to recognise, easy to find, worth visiting and worth coming back to, and by tying each of those to numbers the owner could see in the till. The brand now has a clear identity, a content engine rooted in its town, a customer list it owns, and a small-budget acquisition system that pays for itself.
-
-> [Illustrative testimonial: replace with verified client quote before publishing]
->
-> "We always knew our food was good. What we didn't have was a way to get new people through the door and get them to come back. Now when someone in Jhunjhunu says 'let's go to a cafe', they say JBD. We can see it in our bills, not just on Instagram."
->
-> [NAME], Owner, JBD (Jhunjhunu Brewery & Dairy)

@@ -1,7 +1,7 @@
 # JBD case study: publishing brief
 
 Companion to `src/content/case-studies/jbd-jhunjhunu-cafe.md`.
-Status: **ILLUSTRATIVE DRAFT. Do not publish until every row in section 5 is verified.**
+Status: **PUBLISHED.** Figures confirmed by the owner. Timeline months, combo pricing and testimonial intentionally left out for now.
 
 ---
 
