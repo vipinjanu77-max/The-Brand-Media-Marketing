@@ -1,10 +1,10 @@
-name: '[FOUNDER NAME: ADMIN TO ADD]'
+name: Vipin Choudhary
 role: Founder
-placeholder: true
+placeholder: false
 order: 1
-bio: '[FOUNDER BIO: ADMIN TO ADD. Include verifiable experience, markets served and areas of expertise. Do not include
-  credentials that cannot be verified.]'
+photo: /images/team/vipin-choudhary.jpg
+photoAlt: Vipin Choudhary, founder of The Brand Media Marketing
+bio: Vipin Choudhary is the founder of The Brand Media Marketing (TBM).
 expertise: []
-experience: '[YEARS AND AREAS OF EXPERIENCE: ADMIN TO ADD]'
 seo:
-  noindex: true
+  noindex: false

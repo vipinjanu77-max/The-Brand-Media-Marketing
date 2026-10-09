@@ -6,10 +6,10 @@
   "positioning": "Strategy. Acquisition. Conversion. Growth.",
   "description": "The Brand Media Marketing (TBM) is a growth and digital marketing agency that combines strategy, performance marketing, SEO, AEO, creative, technology and analytics to help businesses acquire customers, improve conversion and build sustainable growth.",
   "foundingYear": "",
-  "founder": "",
+  "founder": "Vipin Choudhary",
   "email": "",
-  "phone": "",
-  "whatsapp": "",
+  "phone": "+91 82098 85581",
+  "whatsapp": "+91 82098 85581",
   "address": {
     "street": "",
     "city": "",
@@ -17,7 +17,9 @@
     "postalCode": "",
     "country": "IN"
   },
-  "areaServed": ["India"],
+  "areaServed": [
+    "India"
+  ],
   "bookingUrl": "",
   "social": {
     "linkedin": "",
