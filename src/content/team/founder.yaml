@@ -4,7 +4,17 @@ placeholder: false
 order: 1
 photo: /images/team/vipin-choudhary.jpg
 photoAlt: Vipin Choudhary, founder of The Brand Media Marketing
-bio: Vipin Choudhary is the founder of The Brand Media Marketing (TBM).
-expertise: []
+bio: >-
+  Vipin Choudhary is a digital marketing professional and entrepreneur. As the founder of
+  The Brand Media Marketing (TBM), he brings together performance marketing, SEO, creative
+  strategy and brand building to help businesses turn their marketing efforts into measurable
+  results. His philosophy is simple: marketing should do more than create visibility. It should
+  generate opportunities, build trust and drive business growth. Through TBM, he is building a
+  growth-focused marketing partner for ambitious brands across India and beyond.
+expertise:
+  - Performance marketing
+  - SEO
+  - Creative strategy
+  - Brand building
 seo:
   noindex: false
