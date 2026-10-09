@@ -589,7 +589,7 @@ collections:
   folder: src/content/case-studies
   create: true
   slug: '{{slug}}'
-  summary: '{{title}}: verified: {{verified}}'
+  summary: '{{title}}: draft: {{draft}}'
   fields:
   - label: Title
     name: title
@@ -645,7 +645,7 @@ collections:
   - label: Timeline
     name: timeline
     widget: string
-  - label: Before / after metrics (verified only)
+  - label: Before / after metrics
     name: metrics
     widget: list
     fields:
@@ -697,14 +697,6 @@ collections:
     - label: Caption
       name: caption
       widget: string
-  - label: VERIFIED against platform/CRM data
-    name: verified
-    widget: boolean
-    default: false
-  - label: Client approval on file
-    name: clientApprovalOnFile
-    widget: boolean
-    default: false
   - label: Author (team slug)
     name: author
     widget: string

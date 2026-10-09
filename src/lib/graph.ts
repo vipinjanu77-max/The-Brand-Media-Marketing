@@ -59,7 +59,7 @@ export function loadGraph(): Promise<GraphNode[]> {
       getCollection('research', (e) => !e.data.draft),
       getCollection('glossary'),
       getCollection('compare'),
-      getCollection('caseStudies', (e) => e.data.verified && !e.data.draft),
+      getCollection('caseStudies', (e) => !e.data.draft),
     ]);
     const nodes: GraphNode[] = [
       ...services.map((e) => ({ type: 'service' as const, slug: e.id, title: e.data.title, href: hrefFor('service', e.id), summary: e.data.summary, out: outFrom(e.data) })),

@@ -18,7 +18,7 @@ const { entry } = Astro.props as { entry: CollectionEntry<'services'> };
 const s = entry.data;
 const origin = (Astro.site?.origin ?? Astro.url.origin);
 const url = new URL(Astro.url.pathname, origin).href;
-const cases = await getCollection('caseStudies', (c) => c.data.verified && !c.data.draft && c.data.services.includes(entry.id));
+const cases = await getCollection('caseStudies', (c) => !c.data.draft && c.data.services.includes(entry.id));
 const pricing = (await getCollection('pricing')).find((p) => p.data.service === entry.id);
 const crumbs = [{ name: 'Services', href: '/services/' }, { name: s.navLabel, href: `/services/${entry.id}/` }];
 const toc = [

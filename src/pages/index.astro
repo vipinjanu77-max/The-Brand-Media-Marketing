@@ -20,7 +20,7 @@ import { articleHref } from '../lib/graph';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const industries = (await getCollection('industries')).sort((a, b) => a.data.order - b.data.order);
-const cases = (await getCollection('caseStudies', (e) => e.data.verified && !e.data.draft)).slice(0, 3);
+const cases = (await getCollection('caseStudies', (e) => !e.data.draft)).slice(0, 3);
 const testimonials = await getCollection('testimonials', (e) => e.data.verified && e.data.consentOnFile);
 const team = (await getCollection('team', (e) => e.data.type === 'person' && (preview || !e.data.placeholder))).sort((a, b) => a.data.order - b.data.order);
 const research = (await getCollection('research', (e) => !e.data.draft)).sort((a, b) => +b.data.updated - +a.data.updated);
@@ -156,7 +156,7 @@ const why = [
         </div>
       ) : (
         <div class="empty">
-          <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED: admin to publish verified case studies in the CMS" />
+          <Placeholder label="NO CASE STUDIES PUBLISHED: add one in the CMS and turn off Draft" />
           <div class="empty-body">
             <p>Our case studies go live as clients approve publication. Each one will show the starting point, strategy, campaign structure, budget range, timeline, before-and-after metrics and what we learned.</p>
             <div class="btn-row">

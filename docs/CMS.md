@@ -14,7 +14,7 @@ TBM uses **Decap CMS** at `/admin/`. Content is stored as YAML/Markdown in the r
 |---|---|
 | Site settings | Contact details, booking URL, social profiles (keep entity info identical everywhere), analytics IDs, exit-intent offer, verified client logos |
 | Services / Industries | All sections of each page, FAQs, cross-links |
-| Case studies | Tick **verified** and **client approval on file** only when numbers are confirmed against platform/CRM data and the client approved in writing |
+| Case studies | Turn off **Draft** to publish |
 | Research | Choose the correct label. Put TBM interpretation under a clearly labelled "TBM analysis" heading |
 | Statistics database | One list. Every entry needs source, URL, period, geography, type. Switch verification to `editor-verified` after checking the primary source |
 | Blog & guides | Fill *direct answer* (AEO), *search intent*, *originality*, author and reviewer. Keep `draft` on until reviewed |
@@ -32,6 +32,6 @@ Every page gets automatic title/description/OG suggestions. Use the optional **S
 ## Adding a case study
 
 1. Case studies → New. Fill every field; attach screenshots with alt text and captions.
-2. Leave `draft` on and `verified` off until data is checked.
-3. Reviewer confirms numbers, ticks `verified` and `client approval on file`, turns off `draft`, publishes.
+2. Leave `draft` on while you work on it.
+3. Turn off `draft` and publish.
 4. The case study appears on `/case-studies/`, the Results Library, related service and industry pages, and in the internal linking engine automatically.

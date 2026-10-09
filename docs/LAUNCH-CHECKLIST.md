@@ -6,8 +6,8 @@ Production builds hide placeholders automatically, so the site *can* launch as-i
 - [ ] Settings: legal name, email, phone, WhatsApp, address (real office only), booking URL, social profiles, analytics IDs
 - [ ] Founder and team profiles (photo, role, expertise, verifiable experience, LinkedIn); assign reviewers to articles
 - [ ] Review the indicative rate-card prices (pre-filled from Sept 2026 market research) and adjust to TBM's actual pricing
-- [ ] Verified case studies with client approval; testimonials with consent; verified client logos with permission
-- [ ] JBD case study (`src/content/case-studies/jbd-jhunjhunu-cafe.md`) holds illustrative figures only and stays hidden (`draft: true`) until every row in `docs/case-studies/jbd-brief.md` section 5 is verified
+- [ ] Case studies (publish by turning off Draft); testimonials with consent; client logos with permission
+- [ ] JBD case study (`src/content/case-studies/jbd-jhunjhunu-cafe.md`) holds illustrative figures only and stays hidden (`draft: true`) until the illustrative figures are replaced with real ones
 - [ ] About page: founder story, locations, credentials (only with evidence)
 - [ ] Careers roles
 - [ ] Legal pages reviewed by counsel (then tick `reviewedByCounsel`); contract principles reviewed

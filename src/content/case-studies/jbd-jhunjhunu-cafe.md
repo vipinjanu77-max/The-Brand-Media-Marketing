@@ -2,7 +2,7 @@
 # =============================================================================
 # ILLUSTRATIVE DRAFT. NOT FOR PUBLICATION.
 # Every number in this file is a hypothetical prototype figure.
-# Before setting verified/clientApprovalOnFile to true and draft to false,
+# Before setting draft to false,
 # replace each figure with data from POS/billing, Meta Ads Manager, Instagram
 # Insights and Google Business Profile Performance, and delete the
 # "Illustrative figures" notice in the body. See docs/case-studies/jbd-brief.md.
@@ -81,8 +81,6 @@ learnings:
 - 'WhatsApp turned one-off visitors into a list the cafe owns, which is what made repeat campaigns possible.'
 - 'Marketing was not the only driver. Seasonality, festivals and menu changes also moved the numbers, so we read results as a range, not a single cause.'
 evidence: []
-verified: false
-clientApprovalOnFile: false
 author: tbm-editorial
 date: 2026-10-07
 draft: true

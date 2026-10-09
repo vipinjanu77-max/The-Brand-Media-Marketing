@@ -6,7 +6,7 @@
  * internal-linking engine in src/lib/graph.ts can build the knowledge graph.
  *
  * Credibility rules are enforced in the schema where possible:
- *  - case studies and testimonials only render when `verified: true`
+ *  - case studies render when `draft: false`; testimonials only when `verified: true`
  *  - statistics require a source, source URL, year and geography
  *  - research must declare a label that distinguishes TBM data from third-party data
  */
@@ -247,11 +247,9 @@ const caseStudies = defineCollection({
     learnings: z.array(z.string()).default([]),
     testimonial: z.object({ quote: z.string(), person: z.string(), role: z.string() }).optional(),
     evidence: z.array(z.object({ image: z.string(), alt: z.string(), caption: z.string() })).default([]),
-    /** Must be true (confirmed against platform/CRM data and client approval on file) before this renders. */
-    verified: z.boolean().default(false),
-    clientApprovalOnFile: z.boolean().default(false),
     author: z.string(),
     date: z.coerce.date(),
+    /** Turn off to publish. */
     draft: z.boolean().default(true),
     seo,
   }),

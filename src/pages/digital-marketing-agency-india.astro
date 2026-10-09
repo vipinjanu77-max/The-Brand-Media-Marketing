@@ -14,7 +14,7 @@ import { auditHref, bookingHref } from '../lib/site';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const industries = (await getCollection('industries')).filter((i) => i.data.featured);
 const stats = (await getCollection('statistics')).filter((s) => ['india-digital-adspend-2025', 'india-internet-users-2025', 'india-search-share-of-digital-2025'].includes(s.id));
-const cases = await getCollection('caseStudies', (c) => c.data.verified && c.data.clientApprovalOnFile && !c.data.draft && c.data.country === 'India');
+const cases = await getCollection('caseStudies', (c) => !c.data.draft && c.data.country === 'India');
 const origin = Astro.site?.origin ?? Astro.url.origin;
 const faqs = [
   { q: 'What does a digital marketing agency in India do?', a: 'It plans and runs the online activities that help a business win customers (strategy, Google and Meta advertising, SEO, social media, content, creative, websites, analytics and automation) adapted to Indian buyer behaviour such as mobile-first browsing, regional languages and WhatsApp-led conversations.' },

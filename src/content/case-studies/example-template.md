@@ -2,8 +2,8 @@
 # -----------------------------------------------------------------------------
 # CASE STUDY TEMPLATE: NOT PUBLISHED.
 # This entry exists only to show editors the required structure.
-# It will never render publicly while `verified: false` or `draft: true`.
-# Replace every bracketed field with real, verified data and client approval.
+# It will never render publicly while `draft: true`.
+# Replace every bracketed field with real client data.
 # -----------------------------------------------------------------------------
 title: '[VERIFIED CASE STUDY TITLE: e.g. How a Jaipur developer reduced cost per site visit]'
 client: '[CLIENT NAME: ADMIN TO ADD]'
@@ -31,8 +31,6 @@ businessImpact: '[BUSINESS IMPACT: ADMIN TO ADD]'
 learnings:
 - '[LEARNING: ADMIN TO ADD]'
 evidence: []
-verified: false
-clientApprovalOnFile: false
 author: tbm-editorial
 date: 2026-09-25
 draft: true

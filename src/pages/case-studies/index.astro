@@ -4,15 +4,15 @@ import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/ui/PageHero.astro';
 import CTABand from '../../components/ui/CTABand.astro';
 import Placeholder from '../../components/ui/Placeholder.astro';
-const isPublished = (c: { data: { verified: boolean; clientApprovalOnFile: boolean; draft: boolean } }) => c.data.verified && c.data.clientApprovalOnFile && !c.data.draft;
+import { isPublishedCaseStudy as isPublished } from '../../lib/caseStudies';
 // In `npm run dev` only, drafts are listed too (tagged) so they can be reviewed locally. Production lists published entries only.
 const cases = (await getCollection('caseStudies', (c) => isPublished(c) || (import.meta.env.DEV && c.id !== 'example-template'))).sort((a, b) => +b.data.date - +a.data.date);
 const industries = [...new Set(cases.map((c) => c.data.industry))];
 const crumbs = [{ name: 'Case studies', href: '/case-studies/' }];
 const fields = ['Client', 'Industry', 'Location', 'Business challenge', 'Starting point', 'Objective', 'Strategy', 'Execution', 'Campaign structure', 'Budget range', 'Timeline', 'Before', 'After', 'Results', 'Business impact', 'Learnings', 'Client testimonial', 'Visual evidence'];
 ---
-<Base title="Case Studies" description="Verified TBM case studies: challenge, strategy, execution, budget range, timeline and before-and-after results, published only with client approval." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} art={{ seed: 'case-studies', motif: 'frame', variant: 'deep' }} eyebrow="Work" title="Case studies with the working shown." lede="Every case study states the starting point, the strategy, the campaign structure, budget range, timeline and verified before-and-after numbers, or it isn't published." />
+<Base title="Case Studies" description="TBM case studies: challenge, strategy, execution, budget range, timeline and before-and-after results." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} art={{ seed: 'case-studies', motif: 'frame', variant: 'deep' }} eyebrow="Work" title="Case studies with the working shown." lede="Every case study states the starting point, the strategy, the campaign structure, budget range, timeline and before-and-after numbers." />
   <section class="section">
     <div class="container">
       {cases.length > 0 ? (
@@ -34,10 +34,10 @@ const fields = ['Client', 'Industry', 'Location', 'Business challenge', 'Startin
         </>
       ) : (
         <div class="empty">
-          <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED: publish case studies in the CMS (Case Studies collection) with verified: true and client approval on file" />
+          <Placeholder label="NO CASE STUDIES PUBLISHED: add one in the CMS (Case Studies collection) and turn off Draft" />
           <h2 class="h">What every TBM case study will include</h2>
           <ul class="tags" role="list">{fields.map((f) => <li class="tag tag--neutral">{f}</li>)}</ul>
-          <p class="muted">We don't publish fabricated or unverifiable results. While case studies are being approved by clients, you can see <a href="/reporting-demo/">how we report</a> and <a href="/process/">how we work</a>, or ask for anonymised examples during a <a href="/contact/?intent=strategy-call">strategy call</a>.</p>
+          <p class="muted">While case studies are being added, you can see <a href="/reporting-demo/">how we report</a> and <a href="/process/">how we work</a>, or ask for anonymised examples during a <a href="/contact/?intent=strategy-call">strategy call</a>.</p>
         </div>
       )}
     </div>

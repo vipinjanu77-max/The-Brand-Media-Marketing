@@ -118,6 +118,6 @@ Each image becomes an `evidence` entry: `{ image, alt, caption }`. Get written p
 | Photos | Usage permission, customer consent for identifiable people | ☐ |
 | Client approval | Signed approval of the final page | ☐ |
 
-Once every row is ticked: replace the figures, delete the "Illustrative figures" notice and testimonial label, set `verified: true`, `clientApprovalOnFile: true`, `draft: false`, `seo.noindex: false`, and move the testimonial into frontmatter (`testimonial: { quote, person, role }`).
+Once every row is ticked: replace the figures, delete the "Illustrative figures" notice and testimonial label, set `draft: false`, `seo.noindex: false`, and move the testimonial into frontmatter (`testimonial: { quote, person, role }`).
 
 **Disclosure:** if TBM's founder has an ownership or family interest in JBD, say so on the page (e.g. "JBD is a founder-affiliated business"). A related-party case study presented as an arm's-length client damages trust if it is discovered later.

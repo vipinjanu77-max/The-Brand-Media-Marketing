@@ -66,7 +66,7 @@ Legacy aliases are 301-redirected in `astro.config.mjs`.
 
 ## Content rules enforced in code
 
-- **Case studies** render only when `verified: true`, `clientApprovalOnFile: true` and `draft: false`. The Results Library is generated from those metrics only.
+- **Case studies** render when `draft: false`. The Results Library is generated from published case studies.
 - **Testimonials** render only when `verified` and `consentOnFile` are true.
 - **Statistics** require source, URL, year, reference period and geography; each shows a *fact / third-party estimate / forecast* badge and a *pending / editor-verified* badge.
 - **Research** must be labelled `Industry Research`, `TBM Analysis` or `TBM Original Dataset`. Charts carry source, year, geography, method and forecast hatching.

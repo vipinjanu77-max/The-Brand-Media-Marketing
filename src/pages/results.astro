@@ -4,7 +4,7 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/ui/PageHero.astro';
 import CTABand from '../components/ui/CTABand.astro';
 import Placeholder from '../components/ui/Placeholder.astro';
-const cases = await getCollection('caseStudies', (c) => c.data.verified && c.data.clientApprovalOnFile && !c.data.draft);
+const cases = await getCollection('caseStudies', (c) => !c.data.draft);
 const rows = cases.flatMap((c) => c.data.metrics.map((m) => ({ c, m })));
 const uniq = (a: string[]) => [...new Set(a)].sort();
 const facets: Record<string, string[]> = {
@@ -19,8 +19,8 @@ const facets: Record<string, string[]> = {
 const presets = ['Real Estate + Meta Ads + Lead Generation', 'India + Google Ads + B2B', 'D2C + Meta + ROAS'];
 const crumbs = [{ name: 'Results library', href: '/results/' }];
 ---
-<Base title="Results Library, Verified Marketing Results" description="Search verified TBM campaign results by industry, service, platform, objective, country, budget range and timeline. Verified metrics only." crumbs={crumbs} pageType="CollectionPage">
-  <PageHero crumbs={crumbs} art={{ seed: 'results', motif: 'chart', variant: 'royal' }} eyebrow="Results library" title="Search verified results." lede="Filter by industry, service, platform, objective, country, budget range and timeline, for example 'Real Estate + Meta Ads + Lead Generation'. Only verified metrics appear here." />
+<Base title="Results Library: Marketing Results" description="Search TBM campaign results by industry, service, platform, objective, country, budget range and timeline." crumbs={crumbs} pageType="CollectionPage">
+  <PageHero crumbs={crumbs} art={{ seed: 'results', motif: 'chart', variant: 'royal' }} eyebrow="Results library" title="Search our results." lede="Filter by industry, service, platform, objective, country, budget range and timeline, for example 'Real Estate + Meta Ads + Lead Generation'." />
   <section class="section" data-hide-sticky>
     <div class="container">
       <form class="rl-filters" data-rl onsubmit="return false" aria-label="Filter results">
@@ -44,8 +44,8 @@ const crumbs = [{ name: 'Results library', href: '/results/' }];
         </table></div>
       ) : (
         <div class="mt-2 stack">
-          <Placeholder label="VERIFIED CASE STUDY DATA REQUIRED: the results library populates automatically from verified, client-approved case studies" />
-          <p class="muted">Verified results are added here as clients approve publication, every metric checked against platform or CRM data. Until then, ask for anonymised examples on a <a href="/contact/?intent=strategy-call">strategy call</a>.</p>
+          <Placeholder label="NO CASE STUDIES PUBLISHED: the results library populates automatically from published case studies" />
+          <p class="muted">Results are added here as case studies are published. Until then, ask for anonymised examples on a <a href="/contact/?intent=strategy-call">strategy call</a>.</p>
         </div>
       )}
     </div>

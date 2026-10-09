@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props as { entry: CollectionEntry<'industries'> };
 const d = entry.data;
 const name = d.title.replace(/ (Marketing|Brand Marketing|Marketing & Lead Generation)$/, '');
-const cases = await getCollection('caseStudies', (c) => c.data.verified && !c.data.draft && slugify(c.data.industry) === entry.id);
+const cases = await getCollection('caseStudies', (c) => !c.data.draft && slugify(c.data.industry) === entry.id);
 const stats = (await getCollection('statistics')).filter((s) => s.data.tags.some((t) => d.statTags.includes(t))).slice(0, 3);
 const crumbs = [{ name: 'Industries', href: '/industries/' }, { name, href: `/industries/${entry.id}/` }];
 const toc = [['overview', 'Overview'], ['journey', 'Customer journey'], ['funnel', 'Typical funnel'], ['challenges', 'Challenges'], ['channels', 'Recommended channels'], ['kpis', 'KPIs & benchmarks'], ['strategy', 'TBM strategy'], ['stats', 'Industry statistics'], ['proof', 'Case studies']];
