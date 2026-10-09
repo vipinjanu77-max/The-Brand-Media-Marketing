@@ -4,7 +4,7 @@ A production-ready, SEO/AEO-first website for TBM built with **Astro 7** (static
 
 > **Credibility rule:** nothing on this site invents clients, logos, testimonials, awards, certifications, results or statistics.
 >
-> **Preview vs production:** in `npm run dev` (or with `PUBLIC_SHOW_PLACEHOLDERS=true`) missing information shows as yellow `[ADMIN …]` placeholders. Production builds hide them and render honest public fallbacks (e.g. "Published case studies appear here as clients approve them"), so the site can launch before every item is filled. Run a preview build + `npm run audit:content` to count what remains.
+> **Preview vs production:** with `PUBLIC_SHOW_PLACEHOLDERS=true` (e.g. `PUBLIC_SHOW_PLACEHOLDERS=true npm run dev`) missing information shows as yellow `[ADMIN …]` placeholders. Production builds hide them and render honest public fallbacks (e.g. "Published case studies appear here as clients approve them"), so the site can launch before every item is filled. Run a preview build + `npm run audit:content` to count what remains.
 
 ## Quick start
 

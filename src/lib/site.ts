@@ -20,6 +20,6 @@ export const sameAs = (): string[] => Object.values(site.social).filter(has);
 /**
  * Preview mode shows yellow [ADMIN ...] placeholders so editors can see what is missing.
  * Production builds (default) hide them and render honest public fallbacks instead.
- * Enable with PUBLIC_SHOW_PLACEHOLDERS=true (e.g. on a staging deploy); always on in `npm run dev`.
+ * Enable with PUBLIC_SHOW_PLACEHOLDERS=true (in dev or on a staging deploy). Hidden by default everywhere.
  */
-export const preview: boolean = import.meta.env.DEV || import.meta.env.PUBLIC_SHOW_PLACEHOLDERS === 'true';
+export const preview: boolean = import.meta.env.PUBLIC_SHOW_PLACEHOLDERS === 'true';
