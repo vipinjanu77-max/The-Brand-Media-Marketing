@@ -1,7 +1,7 @@
 ---
 /**
  * Funnel-aware CTA. Stage decides the primary action so pages never default to a bare "Contact us".
- *  tofu: Read research | mofu: Get marketing audit | bofu: Book strategy call
+ *  tofu: Read research | mofu: Get marketing audit | bofu: Request a call back
  *  commercial: Request proposal | high-intent: Talk to a growth strategist
  */
 import { auditHref, bookingHref, proposalHref } from '../../lib/site';
@@ -10,11 +10,11 @@ interface Props { stage?: Stage; title?: string; body?: string }
 const { stage = 'mofu', title, body } = Astro.props;
 const presets: Record<Stage, { title: string; body: string; primary: [string, string]; secondary: [string, string] }> = {
   tofu: { title: 'Go deeper with evidence, not opinions.', body: 'Our research hub collects sourced, dated marketing data and TBM analysis: built to help you make better decisions.', primary: ['Read the research', '/research/'], secondary: ['Get a marketing audit', auditHref] },
-  mofu: { title: 'Want to know where your marketing is leaking value?', body: 'A TBM Growth Audit reviews your funnel, tracking, channels and conversion path, and shows you where the biggest opportunities may be.', primary: ['Get Growth Audit', auditHref], secondary: ['Book strategy call', bookingHref()] },
-  bofu: { title: 'Talk it through with a strategist.', body: 'A 30-minute strategy call to understand your business, your numbers and whether TBM is the right fit. No pitch deck.', primary: ['Book strategy call', bookingHref()], secondary: ['Get Growth Audit', auditHref] },
+  mofu: { title: 'Want to know where your marketing is leaking value?', body: 'A TBM Growth Audit reviews your funnel, tracking, channels and conversion path, and shows you where the biggest opportunities may be.', primary: ['Get Growth Audit', auditHref], secondary: ['Request a call back', bookingHref()] },
+  bofu: { title: 'Talk it through with a strategist.', body: 'Share a few details and a strategist will call you back to understand your business, your numbers and whether TBM is the right fit. No pitch deck.', primary: ['Request a call back', bookingHref()], secondary: ['Get Growth Audit', auditHref] },
   commercial: { title: 'Ready for a scoped proposal?', body: 'Tell us your objectives and constraints. We will come back with a scope, timeline and transparent pricing split into fee, media, creative and technology.', primary: ['Request proposal', proposalHref], secondary: ['See pricing', '/pricing/'] },
   'high-intent': { title: 'Talk to a growth strategist.', body: 'Share where your business is today. We will help you understand what to fix first and what it may take.', primary: ['Talk to a growth strategist', bookingHref()], secondary: ['Request proposal', proposalHref] },
-  final: { title: "Let's turn marketing into measurable growth.", body: "Tell us where your business is today. We'll help you understand where the biggest growth opportunities may be.", primary: ['Get Growth Audit', auditHref], secondary: ['Book Strategy Call', bookingHref()] },
+  final: { title: "Let's turn marketing into measurable growth.", body: "Tell us where your business is today. We'll help you understand where the biggest growth opportunities may be.", primary: ['Get Growth Audit', auditHref], secondary: ['Request a Call Back', bookingHref()] },
 };
 const p = presets[stage];
 ---

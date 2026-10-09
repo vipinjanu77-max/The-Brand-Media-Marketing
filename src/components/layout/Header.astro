@@ -65,7 +65,7 @@ const isActive = (href: string) => path.startsWith(href) && href !== '/';
       <a href="/search/" class="icon-btn" aria-label="Search the site">
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2" /><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
       </a>
-      <a href={bookingHref()} class="btn btn--ghost btn--sm hide-mobile" data-track="cta_click" data-cta="book_strategy_call_header">Book Strategy Call</a>
+      <a href={bookingHref()} class="btn btn--ghost btn--sm hide-mobile" data-track="cta_click" data-cta="request_callback_header">Request a Call Back</a>
       <a href={auditHref} class="btn btn--sm" data-track="cta_click" data-cta="growth_audit_header">Get Growth Audit</a>
       <button class="icon-btn burger hide-desktop" aria-expanded="false" aria-controls="mobile-nav" data-burger>
         <span class="sr-only">Menu</span>
@@ -90,7 +90,7 @@ const isActive = (href: string) => path.startsWith(href) && href !== '/';
       ))}
       <div class="btn-row mobile-ctas">
         <a href={auditHref} class="btn">Get Growth Audit</a>
-        <a href={bookingHref()} class="btn btn--ghost">Book Strategy Call</a>
+        <a href={bookingHref()} class="btn btn--ghost">Request a Call Back</a>
       </div>
     </nav>
   </div>

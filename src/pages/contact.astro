@@ -3,14 +3,14 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/ui/PageHero.astro';
 import { GOALS, REVENUE_BANDS, SPEND_BANDS, GEOGRAPHIES } from '../lib/leadScore';
-import { site, has, bookingHref } from '../lib/site';
+import { site, has } from '../lib/site';
 import Placeholder from '../components/ui/Placeholder.astro';
 const industries = (await getCollection('industries')).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const crumbs = [{ name: 'Contact', href: '/contact/' }];
 const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 const steps = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', 'Contact', 'Challenge'];
 ---
-<Base title="Get Your Growth Audit" description="Tell us where your business is today. In eight short steps, we'll prepare a growth assessment and book a strategy call with the right TBM strategist." crumbs={crumbs}>
+<Base title="Get Your Growth Audit" description="Tell us where your business is today. In eight short steps, we'll prepare a growth assessment and a TBM strategist will call you back." crumbs={crumbs}>
   <PageHero crumbs={crumbs} eyebrow="Growth Audit" title="Tell us where your business is today." lede="Eight short steps, about two minutes. We use your answers to prepare a growth assessment and match you with the right strategist, not to spam you." />
   <section class="section">
     <div class="container contact-grid">
@@ -87,7 +87,7 @@ const steps = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', '
         <div class="preparing" data-preparing hidden role="status">
           <span class="spinner" aria-hidden="true"></span>
           <p class="q">Your Growth Assessment is being prepared...</p>
-          <p class="muted">Taking you to book your consultation.</p>
+          <p class="muted">Just a moment.</p>
         </div>
       </form>
 
@@ -99,7 +99,7 @@ const steps = ['Goal', 'Industry', 'Revenue', 'Spend', 'Geography', 'Website', '
           <li><strong>Strategy call</strong><p class="muted">30 minutes on where the biggest opportunities may be, and whether TBM is the right fit.</p></li>
         </ol>
         <div class="notice mt-2"><div><strong>Prefer to talk directly?</strong>
-          {has(site.email) ? <> Email <a href={`mailto:${site.email}`}>{site.email}</a>.</> : <> <Placeholder inline label="CONTACT EMAIL: ADMIN TO ADD"><a href={bookingHref()}>Book a call directly</a>.</Placeholder></>}
+          {has(site.email) ? <> Email <a href={`mailto:${site.email}`}>{site.email}</a>.</> : <> <Placeholder inline label="CONTACT EMAIL: ADMIN TO ADD">Use the form and we will call you back.</Placeholder></>}
           {has(site.phone) && <> Call <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>.</>}
         </div></div>
         <p class="small muted mt-1">We never share your details. Marketing projections are estimates, not guarantees.</p>
