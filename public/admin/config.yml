@@ -8,6 +8,7 @@ backend:
   repo: vipinjanu77-max/the-brand-media-marketing
   branch: main
 publish_mode: editorial_workflow
+logo_url: /images/tbm-mark-192.png
 site_url: https://www.thebrandmediamarketing.com
 media_folder: public/images/uploads
 public_folder: /images/uploads

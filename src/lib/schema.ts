@@ -22,7 +22,7 @@ export function organization(origin: string) {
     alternateName: site.shortName,
     legalName: has(site.legalName) ? site.legalName : undefined,
     url: `${origin}/`,
-    logo: `${origin}/images/tbm-logo.svg`,
+    logo: `${origin}/images/tbm-logo.png`,
     description: site.description,
     slogan: site.tagline,
     foundingDate: has(site.foundingYear) ? site.foundingYear : undefined,
